@@ -1,0 +1,569 @@
+[
+ {
+  "id": "diff-01",
+  "topic": "diff",
+  "paper": 1,
+  "difficulty": 1,
+  "skills": [
+   "differentiation",
+   "fractional powers",
+   "negative powers"
+  ],
+  "stem": "Find the gradient of the curve $y = 4\\sqrt{x} - \\dfrac{8}{x}$ at the point where $x = 4$.",
+  "figure": null,
+  "options": [
+   "$\\frac{1}{2}$",
+   "$1$",
+   "$\\frac{3}{2}$",
+   "$2$",
+   "$\\frac{5}{2}$"
+  ],
+  "answer": 2,
+  "solution": "Write in index form: $y = 4x^{1/2} - 8x^{-1}$.\n\n$$\\frac{dy}{dx} = 2x^{-1/2} + 8x^{-2} = \\frac{2}{\\sqrt{x}} + \\frac{8}{x^2}.$$\n\nAt $x = 4$: $\\frac{2}{2} + \\frac{8}{16} = 1 + \\frac12 = \\frac32$.",
+  "insight": "Rewrite roots and reciprocals as powers of $x$ before differentiating; watch the sign when differentiating a negative power.",
+  "distractors": {
+   "0": "Differentiating $-8x^{-1}$ as $-8x^{-2}$ (losing the sign flip from the negative power) gives $1 - \\frac12$.",
+   "1": "Only the first term was differentiated correctly and the second was dropped."
+  },
+  "time": 60
+ },
+ {
+  "id": "diff-02",
+  "topic": "diff",
+  "paper": 1,
+  "difficulty": 1,
+  "skills": [
+   "stationary points",
+   "cubics"
+  ],
+  "stem": "The curve $y = x^3 - 6x^2 + 9x + 1$ has two stationary points.\n\nWhat is the $y$-coordinate of the local minimum?",
+  "figure": null,
+  "options": [
+   "$-15$",
+   "$0$",
+   "$1$",
+   "$3$",
+   "$5$"
+  ],
+  "answer": 2,
+  "solution": "$\\frac{dy}{dx} = 3x^2 - 12x + 9 = 3(x-1)(x-3)$, so stationary points at $x=1$ and $x=3$.\n\nA positive cubic goes up, down, up, so the left stationary point is the maximum and the right one is the minimum.\n\nAt $x = 3$: $y = 27 - 54 + 27 + 1 = 1$.",
+  "insight": "For a cubic with positive $x^3$ coefficient the larger stationary $x$ is always the local minimum; no second derivative needed.",
+  "distractors": {
+   "4": "$5$ is the $y$-value at $x=1$, the local maximum.",
+   "3": "$3$ is the $x$-coordinate of the minimum, not its $y$-coordinate.",
+   "0": "Solving $3x^2-12x+9=0$ with a sign slip gives $x=-1$, where $y=-15$."
+  },
+  "time": 75
+ },
+ {
+  "id": "diff-03",
+  "topic": "diff",
+  "paper": 1,
+  "difficulty": 2,
+  "skills": [
+   "tangents",
+   "normals",
+   "area"
+  ],
+  "stem": "The tangent and the normal to the curve $y = x^3$ at the point $P(1, 1)$ meet the $x$-axis at $A$ and $B$ respectively.\n\nWhat is the area of triangle $PAB$?",
+  "figure": null,
+  "options": [
+   "$\\frac{1}{3}$",
+   "$\\frac{4}{3}$",
+   "$\\frac{5}{3}$",
+   "$2$",
+   "$\\frac{10}{3}$"
+  ],
+  "answer": 2,
+  "solution": "Gradient at $P$ is $3x^2 = 3$.\n\n* Tangent: $y - 1 = 3(x-1)$; at $y=0$, $x = \\frac23$. So $A = (\\frac23, 0)$.\n* Normal: gradient $-\\frac13$, $y - 1 = -\\frac13(x-1)$; at $y=0$, $x = 4$. So $B = (4, 0)$.\n\nBase $AB = 4 - \\frac23 = \\frac{10}{3}$, height $=1$ (the $y$-coordinate of $P$).\n\nArea $= \\frac12 \\cdot \\frac{10}{3} \\cdot 1 = \\frac53$.\n\nShortcut: from a point at height $h$, a line of gradient $m$ hits the $x$-axis a horizontal distance $h/|m|$ away, so $AB = \\frac13 + 3$.",
+  "insight": "With the base on the $x$-axis, the height of the triangle is just the $y$-coordinate of $P$; each intercept is a horizontal distance $h/|m|$ from $P$.",
+  "distractors": {
+   "4": "Forgetting the $\\frac12$ in the area of a triangle.",
+   "1": "Taking the normal gradient as $+\\frac13$ puts $B$ at $(-2,0)$, giving base $\\frac83$.",
+   "0": "Using $-3$ as the normal gradient (negating instead of taking the negative reciprocal)."
+  },
+  "time": 120
+ },
+ {
+  "id": "diff-04",
+  "topic": "diff",
+  "paper": 1,
+  "difficulty": 2,
+  "skills": [
+   "increasing and decreasing",
+   "fractional powers"
+  ],
+  "stem": "For $x > 0$, let $f(x) = x^{3/2} - 3x$.\n\nFor which values of $x$ is $f$ decreasing?",
+  "figure": null,
+  "options": [
+   "$0 < x < 2$",
+   "$0 < x < 4$",
+   "$0 < x < 9$",
+   "$x > 2$",
+   "$x > 4$"
+  ],
+  "answer": 1,
+  "solution": "$f'(x) = \\frac32 x^{1/2} - 3$.\n\n$f'(x) < 0 \\iff \\sqrt{x} < 2 \\iff 0 < x < 4$.",
+  "insight": "Decreasing means $f'(x) < 0$; with a $\\sqrt{x}$ term, square at the end, not at the start.",
+  "distractors": {
+   "0": "Stopping at $\\sqrt{x} < 2$ and reading it as $x < 2$.",
+   "4": "This is where $f$ is increasing ($f' > 0$).",
+   "2": "Differentiating $x^{3/2}$ as $x^{1/2}$ (dropping the $\\frac32$) gives $\\sqrt x < 3$."
+  },
+  "time": 90
+ },
+ {
+  "id": "diff-05",
+  "topic": "diff",
+  "paper": 2,
+  "difficulty": 3,
+  "skills": [
+   "stationary points",
+   "second derivative",
+   "points of inflection"
+  ],
+  "stem": "Let $f(x) = x^4 - 4x^3$.\n\nWhich of the following statements is/are true?\n\nI. $f'(0) = 0$ and $f''(0) = 0$.\n\nII. $f$ has a local maximum at $x = 0$.\n\nIII. $f(x) \\ge -27$ for all real $x$.",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 5,
+  "solution": "$f'(x) = 4x^3 - 12x^2 = 4x^2(x-3)$ and $f''(x) = 12x^2 - 24x$.\n\n**I** True: $f'(0) = 0$, $f''(0) = 0$.\n\n**II** False: $f''(0)=0$ tells us nothing, so look at the sign of $f'$. Since $4x^2 \\ge 0$, the sign of $f'$ is the sign of $x - 3$: negative on both sides of $0$. So $x=0$ is a stationary point of inflection, not a maximum.\n\n**III** True: $f' < 0$ for $x<3$ (except at $0$) and $f'>0$ for $x>3$, so the global minimum is $f(3) = 81 - 108 = -27$.",
+  "insight": "When $f''=0$ at a stationary point, decide its nature from the sign of $f'$ either side; a squared factor in $f'$ means no sign change.",
+  "distractors": {
+   "7": "Assuming that every stationary point is a maximum or minimum, so reading $x=0$ as a maximum.",
+   "1": "Missing that the only turning point is the minimum at $x=3$, so $-27$ is the global minimum value."
+  },
+  "time": 150
+ },
+ {
+  "id": "diff-06",
+  "topic": "diff",
+  "paper": 1,
+  "difficulty": 4,
+  "skills": [
+   "stationary points",
+   "discriminant",
+   "parameters"
+  ],
+  "stem": "What is the complete set of values of $k$ for which the curve\n$$y = x^3 + kx^2 + 3x + 1$$\nhas **no** local maximum and **no** local minimum?",
+  "figure": null,
+  "options": [
+   "$k < -3$ or $k > 3$",
+   "$k \\le -3$ or $k \\ge 3$",
+   "$-\\sqrt{3} < k < \\sqrt{3}$",
+   "$-3 < k < 3$",
+   "$-3 \\le k \\le 3$",
+   "$-9 \\le k \\le 9$"
+  ],
+  "answer": 4,
+  "solution": "$\\frac{dy}{dx} = 3x^2 + 2kx + 3$, with discriminant $4k^2 - 36$.\n\n* If $4k^2 - 36 > 0$ there are two roots, $y'$ changes sign at each: one max and one min.\n* If $4k^2 - 36 < 0$ there are no stationary points at all.\n* If $4k^2 - 36 = 0$ ($k = \\pm 3$), $y' = 3(x \\pm 1)^2 \\ge 0$ never changes sign: a stationary point of inflection, which is neither a maximum nor a minimum.\n\nSo the answer is $k^2 \\le 9$, i.e. $-3 \\le k \\le 3$.",
+  "insight": "A repeated root of $f'$ gives a stationary point that is not a turning point, so \"no max or min\" includes the discriminant-zero case.",
+  "distractors": {
+   "3": "Solving \"no stationary points\" instead of \"no max or min\" and so excluding $k=\\pm3$.",
+   "0": "This is the condition for having a maximum and a minimum.",
+   "5": "Not taking the square root at the end: reading $k^2 \\le 9$ as $-9 \\le k \\le 9$."
+  },
+  "time": 180
+ },
+ {
+  "id": "diff-07",
+  "topic": "diff",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "optimisation"
+  ],
+  "stem": "A rectangle has two vertices on the $x$-axis and the other two on the curve $y = 12 - x^2$, above the $x$-axis. The rectangle is symmetric about the $y$-axis.\n\nWhat is the largest possible area of the rectangle?",
+  "figure": null,
+  "options": [
+   "$16$",
+   "$24$",
+   "$32$",
+   "$36$",
+   "$48$"
+  ],
+  "answer": 2,
+  "solution": "Let the upper vertices be $(\\pm a, 12 - a^2)$ with $0 < a < \\sqrt{12}$. Then\n$$A = 2a(12 - a^2) = 24a - 2a^3.$$\n$A'(a) = 24 - 6a^2 = 0 \\Rightarrow a = 2$, and $A'' = -12a < 0$, so this is a maximum.\n\n$A = 4 \\times 8 = 32$.",
+  "insight": "Put one free parameter on the curve, write the quantity in terms of it, and differentiate.",
+  "distractors": {
+   "0": "Using width $a$ instead of $2a$ (only half the rectangle).",
+   "4": "Taking the height as $12$ instead of $12 - a^2$ once $a=2$ was found."
+  },
+  "time": 150
+ },
+ {
+  "id": "diff-08",
+  "topic": "diff",
+  "paper": 1,
+  "difficulty": 4,
+  "skills": [
+   "tangents",
+   "tangent from external point"
+  ],
+  "stem": "Two tangents to the curve $y = x^2$ pass through the point $P(1, -3)$. They touch the curve at $A$ and $B$.\n\nWhat is the area of triangle $PAB$?",
+  "figure": null,
+  "options": [
+   "$8$",
+   "$12$",
+   "$16$",
+   "$24$",
+   "$32$"
+  ],
+  "answer": 2,
+  "solution": "The tangent at $(t, t^2)$ is $y = 2tx - t^2$. It passes through $(1,-3)$ when\n$$-3 = 2t - t^2 \\iff t^2 - 2t - 3 = 0 \\iff t = 3 \\text{ or } t = -1.$$\nSo $A = (3, 9)$ and $B = (-1, 1)$.\n\nArea by the shoelace formula with vectors $\\vec{PA} = (2, 12)$, $\\vec{PB} = (-2, 4)$:\n$$\\tfrac12 |2\\cdot 4 - 12\\cdot(-2)| = \\tfrac12 \\cdot 32 = 16.$$",
+  "insight": "For a tangent from an external point, write the tangent at a general point $t$ and force it through the given point: this gives an equation in $t$.",
+  "distractors": {
+   "4": "Forgetting the $\\frac12$ in the shoelace/determinant formula.",
+   "0": "Sign slip in the determinant: computing $2\\cdot4 - 12\\cdot2 = -16$ instead of $2\\cdot4 - 12\\cdot(-2) = 32$, then halving."
+  },
+  "time": 210
+ },
+ {
+  "id": "diff-09",
+  "topic": "diff",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "reasoning about derivatives",
+   "graph of f'"
+  ],
+  "stem": "The graph shows $y = f'(x)$, the **derivative** of a function $f$. It crosses the $x$-axis at $x=-1$ and touches it at $x=2$.\n\nWhich of the following statements is/are true?\n\nI. $f$ has a local minimum at $x = -1$.\n\nII. $f$ has a local maximum at $x = 2$.\n\nIII. $f(0) > f(2)$.",
+  "figure": {
+   "plot": {
+    "x": [
+     -2,
+     4
+    ],
+    "y": [
+     -6,
+     8
+    ],
+    "curves": [
+     {
+      "fn": "(x+1)*(x-2)^2"
+     }
+    ],
+    "points": [
+     [
+      -1,
+      0
+     ],
+     [
+      2,
+      0
+     ]
+    ],
+    "labels": [
+     {
+      "at": [
+       -1,
+       0
+      ],
+      "text": "-1"
+     },
+     {
+      "at": [
+       2,
+       0
+      ],
+      "text": "2"
+     },
+     {
+      "at": [
+       3.1,
+       6.5
+      ],
+      "text": "y = f'(x)"
+     }
+    ],
+    "ticks": false
+   }
+  },
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 1,
+  "solution": "Read signs from the graph of $f'$, not its shape.\n\n* $f' < 0$ for $x < -1$ and $f' > 0$ for $x > -1$ (apart from $f'(2) = 0$).\n\n**I** True: $f'$ changes from negative to positive at $x=-1$.\n\n**II** False: $f'$ is positive on both sides of $x = 2$, so it is a stationary point of inflection.\n\n**III** False: $f' \\ge 0$ on $[0, 2]$, so $f$ is increasing there and $f(0) < f(2)$.",
+  "insight": "On a graph of $f'$, the stationary points of $f$ are the $x$-intercepts and their nature comes from whether the graph crosses or touches the axis.",
+  "distractors": {
+   "4": "Treating the touching point of $f'$ like a turning point of $f$; the graph of $f'$ has a minimum there, but $f$ does not.",
+   "5": "Reading the graph as if it were $y=f(x)$: the curve is falling just after $x=0$, but that means $f'$ is decreasing, not $f$."
+  },
+  "time": 150
+ },
+ {
+  "id": "diff-10",
+  "topic": "diff",
+  "paper": 1,
+  "difficulty": 2,
+  "skills": [
+   "normals",
+   "intersections"
+  ],
+  "stem": "The normal to the curve $y = x^2 - 4x$ at the point $(1, -3)$ meets the curve again at $Q$.\n\nWhat is the $x$-coordinate of $Q$?",
+  "figure": null,
+  "options": [
+   "$2$",
+   "$\\frac{5}{2}$",
+   "$3$",
+   "$\\frac{7}{2}$",
+   "$5$"
+  ],
+  "answer": 3,
+  "solution": "$y' = 2x - 4 = -2$ at $x = 1$, so the normal has gradient $\\frac12$: $y = \\frac12 x - \\frac72$.\n\nIntersect: $x^2 - 4x = \\frac12 x - \\frac72 \\iff 2x^2 - 9x + 7 = 0 \\iff (x-1)(2x-7) = 0$.\n\nWe already know $x = 1$ is a root, so $Q$ has $x = \\frac72$ (product of roots is $\\frac72$, a quick check).",
+  "insight": "When intersecting a line with a curve through a known point, that point is a root you can factor out immediately.",
+  "distractors": {
+   "4": "Using the gradient $2$ (reciprocal without the sign change) gives $x^2 - 6x + 5 = 0$.",
+   "1": "Using $-\\frac12$ (sign error) gives $2x^2 - 7x + 5 = 0$."
+  },
+  "time": 120
+ },
+ {
+  "id": "diff-11",
+  "topic": "diff",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "stationary points",
+   "number of roots",
+   "parameters"
+  ],
+  "stem": "What is the complete set of values of $k$ for which the equation\n$$x^3 - 3x + k = 0$$\nhas three distinct real solutions?",
+  "figure": null,
+  "options": [
+   "$-1 < k < 1$",
+   "$-2 < k < 2$",
+   "$-2 \\le k \\le 2$",
+   "$0 < k < 2$",
+   "$k < -2$ or $k > 2$",
+   "$k > -2$"
+  ],
+  "answer": 1,
+  "solution": "Let $g(x) = x^3 - 3x$; we need the horizontal line $y = -k$ to cross $y = g(x)$ three times.\n\n$g'(x) = 3x^2 - 3 = 0$ at $x = \\pm 1$: local maximum $g(-1) = 2$, local minimum $g(1) = -2$.\n\nThree crossings exactly when $-2 < -k < 2$, i.e. $-2 < k < 2$. At $k = \\pm 2$ the line is tangent and there are only two distinct solutions.",
+  "insight": "A cubic has three real roots exactly when its two stationary values have opposite signs.",
+  "distractors": {
+   "2": "Including the tangent cases $k = \\pm2$, where a repeated root means only two distinct solutions.",
+   "0": "Using the $x$-coordinates of the stationary points instead of the stationary values."
+  },
+  "time": 150
+ },
+ {
+  "id": "diff-12",
+  "topic": "diff",
+  "paper": 2,
+  "difficulty": 3,
+  "skills": [
+   "stationary points",
+   "second derivative",
+   "logic"
+  ],
+  "stem": "Let $f$ be a polynomial and let $a$ be a real number.\n\nWhich of the following statements is/are true?\n\nI. If $f'(a) = 0$, then $f$ has a local maximum or a local minimum at $x = a$.\n\nII. If $f$ has a local minimum at $x = a$, then $f'(a) = 0$.\n\nIII. If $f'(a) = 0$ and $f''(a) > 0$, then $f$ has a local minimum at $x = a$.",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 6,
+  "solution": "**I** False: $f(x) = x^3$, $a = 0$ has $f'(0)=0$ but $f$ is increasing through $0$.\n\n**II** True: a polynomial is differentiable everywhere, and at an interior local minimum the gradient must be $0$ (if $f'(a) \\neq 0$, $f$ would be strictly smaller on one side).\n\n**III** True: this is the second-derivative test. $f''(a) > 0$ means $f'$ is increasing through $a$, so $f'$ goes from negative to positive.",
+  "insight": "$f'(a)=0$ is necessary for a turning point of a differentiable function, but not sufficient.",
+  "distractors": {
+   "7": "Believing the converse of II: stationary points need not be turning points ($x^3$ at $0$).",
+   "2": "Doubting the second-derivative test; it is fully reliable when $f''(a) \\neq 0$."
+  },
+  "time": 150
+ },
+ {
+  "id": "diff-13",
+  "topic": "diff",
+  "paper": 2,
+  "difficulty": 4,
+  "skills": [
+   "necessary and sufficient",
+   "stationary points",
+   "discriminant"
+  ],
+  "stem": "Let $f(x) = x^3 + px^2 + qx$, where $p$ and $q$ are real constants.\n\nWhich one of the following is a **sufficient but not necessary** condition for the curve $y = f(x)$ to have two distinct stationary points?",
+  "figure": null,
+  "options": [
+   "$p^2 > 3q$",
+   "$p^2 > q$",
+   "$q < 0$",
+   "$q > 0$",
+   "$p > 0$",
+   "$p^2 < 3q$"
+  ],
+  "answer": 2,
+  "solution": "$f'(x) = 3x^2 + 2px + q$ has two distinct roots iff $4p^2 - 12q > 0$, i.e. $p^2 > 3q$. So A is necessary **and** sufficient.\n\n* C: if $q < 0$ then $3q < 0 \\le p^2$, so sufficient. Not necessary: $p = 3, q = 1$ works.\n* B: $p^2 > q$ is implied by $p^2 > 3q$ (necessary) but $p = 1, q = \\frac12$ satisfies it and fails. Necessary, not sufficient.\n* D: $p=0, q=1$ fails, so not sufficient. E: $p = 1, q = 1$ fails. F: this gives no stationary points.",
+  "insight": "A sufficient-not-necessary condition is a strictly smaller set sitting inside the exact condition.",
+  "distractors": {
+   "0": "This is the exact condition, so it is both necessary and sufficient.",
+   "1": "This is a larger set containing the exact condition: necessary, not sufficient."
+  },
+  "time": 200
+ },
+ {
+  "id": "diff-14",
+  "topic": "diff",
+  "paper": 1,
+  "difficulty": 5,
+  "skills": [
+   "tangent from external point",
+   "cubics",
+   "number of roots"
+  ],
+  "stem": "What is the complete set of values of $a$ for which exactly **three** distinct tangents to the curve $y = x^3 - x$ pass through the point $(a, 0)$?",
+  "figure": null,
+  "options": [
+   "$a \\ne 0$",
+   "$0 < |a| < 1$",
+   "$|a| > \\frac{1}{\\sqrt{3}}$",
+   "$a > 1$",
+   "$|a| \\ge 1$",
+   "$|a| > 1$"
+  ],
+  "answer": 5,
+  "solution": "The tangent at $x = t$ is $y = (3t^2 - 1)(x - t) + t^3 - t$. Through $(a, 0)$:\n$$0 = (3t^2-1)(a-t) + t^3 - t \\iff 2t^3 - 3at^2 + a = 0.$$\nDifferent $t$ give different tangent lines, so we need $h(t) = 2t^3 - 3at^2 + a$ to have three distinct real roots.\n\n$h'(t) = 6t(t - a)$, stationary values $h(0) = a$ and $h(a) = a - a^3$.\n\nThree roots iff these have opposite signs: $a(a - a^3) = a^2(1 - a^2) < 0 \\iff |a| > 1$.\n\n(At $|a| = 1$ there is a repeated root, giving only two tangents; for $|a|<1$ only one.)",
+  "insight": "Counting tangents from a point reduces to counting real roots of a cubic in the contact parameter $t$, which is decided by its stationary values.",
+  "distractors": {
+   "4": "Including $|a| = 1$, where the cubic in $t$ has a double root: only two distinct tangents.",
+   "3": "Forgetting the symmetric case $a < -1$ (the curve is odd, so the answer must be symmetric)."
+  },
+  "time": 270
+ },
+ {
+  "id": "diff-15",
+  "topic": "diff",
+  "paper": 2,
+  "difficulty": 5,
+  "skills": [
+   "cubics",
+   "symmetry",
+   "second derivative"
+  ],
+  "stem": "The cubic $f(x) = x^3 + bx^2 + cx + d$ has two distinct stationary points, at $x = \\alpha$ and $x = \\beta$. Let $m = \\frac{\\alpha + \\beta}{2}$.\n\nWhich of the following **must** be true?\n\nI. $f''(m) = 0$.\n\nII. $f(\\alpha) + f(\\beta) = 2f(m)$.\n\nIII. $f(\\alpha)$ and $f(\\beta)$ have opposite signs.",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 4,
+  "solution": "$f'(x) = 3x^2 + 2bx + c$, so $\\alpha + \\beta = -\\frac{2b}{3}$ and $m = -\\frac b3$.\n\n**I** True: $f''(x) = 6x + 2b = 0$ at $x = -\\frac b3 = m$.\n\n**II** True: every cubic has half-turn symmetry about its point of inflection. With $x = m + u$, $f(m+u) - f(m) = u^3 + pu$ for some $p$ (no $u^2$ term since $f''(m)=0$), which is odd in $u$. As $\\alpha = m - s$, $\\beta = m + s$, the two deviations cancel.\n\n**III** False: $f(x) = x^3 - 3x + 5$ has $f(-1) = 7$ and $f(1) = 3$, both positive.",
+  "insight": "A cubic is rotationally symmetric about its inflection point, which lies exactly midway between its turning points.",
+  "distractors": {
+   "7": "III describes the three-real-roots case only; shifting the cubic up or down changes the signs of the stationary values.",
+   "1": "Missing the half-turn symmetry that makes II hold."
+  },
+  "time": 270
+ },
+ {
+  "id": "diff-16",
+  "topic": "diff",
+  "paper": 1,
+  "difficulty": 2,
+  "skills": [
+   "differentiation",
+   "fractional powers"
+  ],
+  "stem": "Given $y = \\dfrac{x^2 + 4}{\\sqrt{x}}$, find the value of $\\dfrac{dy}{dx}$ when $x = 4$.",
+  "figure": null,
+  "options": [
+   "$2$",
+   "$\\frac{11}{4}$",
+   "$3$",
+   "$\\frac{13}{4}$",
+   "$32$"
+  ],
+  "answer": 1,
+  "solution": "Split the fraction: $y = x^{3/2} + 4x^{-1/2}$.\n\n$$\\frac{dy}{dx} = \\tfrac32 x^{1/2} - 2x^{-3/2}.$$\n\nAt $x = 4$: $\\frac32 \\cdot 2 - \\frac{2}{8} = 3 - \\frac14 = \\frac{11}{4}$.",
+  "insight": "Divide each term by the power of $x$ first; never differentiate numerator and denominator separately.",
+  "distractors": {
+   "4": "Differentiating top and bottom separately: $\\frac{2x}{\\frac12 x^{-1/2}} = 4x^{3/2} = 32$.",
+   "3": "Sign slip: differentiating $4x^{-1/2}$ as $+2x^{-3/2}$.",
+   "2": "Dropping the second term entirely."
+  },
+  "time": 90
+ },
+ {
+  "id": "diff-17",
+  "topic": "diff",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "optimisation",
+   "endpoints",
+   "stationary points"
+  ],
+  "stem": "What is the greatest value of $f(x) = x^3 - 6x^2 + 9x$ for $0 \\le x \\le 5$?",
+  "figure": null,
+  "options": [
+   "$0$",
+   "$4$",
+   "$9$",
+   "$20$",
+   "$45$"
+  ],
+  "answer": 3,
+  "solution": "$f'(x) = 3(x-1)(x-3)$: local maximum $f(1) = 4$, local minimum $f(3) = 0$.\n\nBut the greatest value on a closed interval can occur at an endpoint: $f(0) = 0$, $f(5) = 125 - 150 + 45 = 20$.\n\nGreatest value $= 20$.",
+  "insight": "On a closed interval, compare the stationary values with the endpoint values; a local maximum need not be the greatest value.",
+  "distractors": {
+   "1": "Stopping at the local maximum and ignoring the endpoint $x=5$.",
+   "4": "Evaluating only the $9x$ term at $x=5$ (arithmetic slip in $f(5)$)."
+  },
+  "time": 120
+ },
+ {
+  "id": "diff-18",
+  "topic": "diff",
+  "paper": 1,
+  "difficulty": 4,
+  "skills": [
+   "stationary points",
+   "number of roots",
+   "quartics"
+  ],
+  "stem": "Let $f(x) = 3x^4 - 8x^3 - 6x^2 + 24x$.\n\nFor how many **integer** values of $c$ does the equation $f(x) = c$ have exactly four distinct real solutions?",
+  "figure": null,
+  "options": [
+   "$2$",
+   "$3$",
+   "$4$",
+   "$5$",
+   "$6$"
+  ],
+  "answer": 2,
+  "solution": "$f'(x) = 12x^3 - 24x^2 - 12x + 24 = 12(x-2)(x-1)(x+1)$.\n\nStationary values: $f(-1) = -19$ (min), $f(1) = 13$ (max), $f(2) = 8$ (min).\n\nSketch: the quartic comes down to $-19$, up to $13$, down to $8$, then up again. A horizontal line $y = c$ meets it four times exactly when it lies above **both** minima and below the maximum: $8 < c < 13$.\n\nIntegers $9, 10, 11, 12$: four values.",
+  "insight": "Counting solutions of $f(x)=c$ means sliding a horizontal line across a sketch whose shape is fixed by the stationary values.",
+  "distractors": {
+   "4": "Including $c = 8$ and $c = 13$, where the line is tangent and there are only three distinct solutions.",
+   "3": "Including only one endpoint."
+  },
+  "time": 210
+ }
+]

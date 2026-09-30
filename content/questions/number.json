@@ -1,0 +1,508 @@
+[
+ {
+  "id": "number-01",
+  "topic": "number",
+  "paper": 1,
+  "difficulty": 1,
+  "skills": [
+   "percentage change",
+   "multipliers"
+  ],
+  "stem": "The price of a bike is increased by $25\\%$. The new price is then decreased by $20\\%$. What is the overall percentage change from the original price?",
+  "figure": null,
+  "options": [
+   "a decrease of $5\\%$",
+   "a decrease of $4\\%$",
+   "no change",
+   "an increase of $4\\%$",
+   "an increase of $5\\%$"
+  ],
+  "answer": 2,
+  "solution": "Use multipliers: a $25\\%$ increase is $\\times 1.25=\\times\\frac54$ and a $20\\%$ decrease is $\\times 0.8=\\times\\frac45$.\n\n$$\\tfrac54\\times\\tfrac45=1,$$\n\nso the final price equals the original price: **no change**.",
+  "insight": "Successive percentage changes combine by multiplying their multipliers, never by adding the percentages.",
+  "distractors": {
+   "4": "Adding the percentages: $+25\\%-20\\%=+5\\%$.",
+   "1": "Using the familiar '$+20\\%$ then $-20\\%$' result ($1.2\\times0.8=0.96$) instead of the actual multipliers $1.25$ and $0.8$."
+  },
+  "time": 60
+ },
+ {
+  "id": "number-02",
+  "topic": "number",
+  "paper": 1,
+  "difficulty": 1,
+  "skills": [
+   "last digits",
+   "cycles of powers"
+  ],
+  "stem": "What is the last digit of $7^{2026}$?",
+  "figure": null,
+  "options": [
+   "$1$",
+   "$3$",
+   "$7$",
+   "$9$"
+  ],
+  "answer": 3,
+  "solution": "The last digits of $7^1,7^2,7^3,7^4,\\dots$ are $7,9,3,1,7,9,3,1,\\dots$, repeating with period $4$ (because $7^4$ ends in $1$).\n\n$2026=4\\times506+2$, so $7^{2026}$ has the same last digit as $7^2$, namely **9**.",
+  "insight": "Last digits of powers cycle, so reduce the exponent modulo the cycle length.",
+  "distractors": {
+   "0": "Treating $2026$ as a multiple of $4$ (it is $2024$ that is), which would give last digit $1$.",
+   "2": "Assuming a power of $7$ always ends in $7$, without looking at the cycle."
+  },
+  "time": 60
+ },
+ {
+  "id": "number-03",
+  "topic": "number",
+  "paper": 1,
+  "difficulty": 2,
+  "skills": [
+   "mean",
+   "totals"
+  ],
+  "stem": "The mean of ten numbers is $12$. One number is removed, and the mean of the remaining nine numbers is $11$. What number was removed?",
+  "figure": null,
+  "options": [
+   "$1$",
+   "$11$",
+   "$12$",
+   "$13$",
+   "$21$"
+  ],
+  "answer": 4,
+  "solution": "Work with totals, not means.\n\n* Original total: $10\\times12=120$.\n* New total: $9\\times11=99$.\n\nThe removed number is $120-99=\\mathbf{21}$.",
+  "insight": "Convert every mean to a total; changes in totals are easy to track.",
+  "distractors": {
+   "0": "Subtracting the means ($12-11=1$) instead of the totals.",
+   "2": "Assuming the removed number must be the old mean, $12$ (removing the mean would leave the mean unchanged, not reduce it)."
+  },
+  "time": 75
+ },
+ {
+  "id": "number-04",
+  "topic": "number",
+  "paper": 1,
+  "difficulty": 2,
+  "skills": [
+   "reverse percentage"
+  ],
+  "stem": "In a sale, all prices are reduced by $15\\%$. A coat costs £68 in the sale. What was its price before the sale?",
+  "figure": null,
+  "options": [
+   "£57.80",
+   "£78.20",
+   "£80",
+   "£85"
+  ],
+  "answer": 2,
+  "solution": "The sale price is $85\\%$ of the original price $P$:\n\n$$0.85P=68\\quad\\Rightarrow\\quad P=\\frac{68}{0.85}=\\frac{6800}{85}=80.$$\n\nThe original price was **£80**. (Check: $15\\%$ of $80$ is $12$, and $80-12=68$.)",
+  "insight": "For a reverse percentage, divide by the multiplier rather than adding the percentage back on.",
+  "distractors": {
+   "1": "Adding $15\\%$ of the sale price: $68\\times1.15=78.20$. The $15\\%$ was of the original price, not of £68.",
+   "0": "Reducing the sale price by a further $15\\%$: $68\\times0.85=57.80$."
+  },
+  "time": 75
+ },
+ {
+  "id": "number-05",
+  "topic": "number",
+  "paper": 2,
+  "difficulty": 2,
+  "skills": [
+   "primes",
+   "counterexample"
+  ],
+  "stem": "Consider the statement:\n\n> For every positive integer $n$, the number $n^2+n+41$ is prime.\n\nWhich one of the following values of $n$ gives a counterexample to this statement?",
+  "figure": null,
+  "options": [
+   "$n=1$",
+   "$n=10$",
+   "$n=20$",
+   "$n=30$",
+   "$n=40$"
+  ],
+  "answer": 4,
+  "solution": "Look for a value of $n$ that makes every term share a factor. With $n=40$:\n\n$$40^2+40+41=40\\cdot40+40+41=40\\cdot41+41=41\\cdot41=41^2,$$\n\nwhich is not prime. So $n=40$ is a counterexample.\n\nThe other values give $43,\\ 151,\\ 461,\\ 971$, all of which are prime, so none of them is a counterexample. You do not need to check them: exactly one option is correct, and $n=40$ is certainly composite.",
+  "insight": "To break a claim about $f(n)$ being prime, choose $n$ so that the expression visibly factorises.",
+  "distractors": {
+   "3": "Guessing that the largest-looking value other than $40$ must be composite; $971$ is in fact prime.",
+   "1": "Assuming $151$ has a small factor without checking; it is prime."
+  },
+  "time": 90
+ },
+ {
+  "id": "number-06",
+  "topic": "number",
+  "paper": 2,
+  "difficulty": 2,
+  "skills": [
+   "mean",
+   "median",
+   "range",
+   "must be true"
+  ],
+  "stem": "A list of at least two real numbers has mean $\\mu$. A new number $x$, with $x>\\mu$, is added to the list.\n\nWhich of the following **must** be true for the new list?\n\nI. The mean is greater than $\\mu$.\n\nII. The median is greater than the median of the original list.\n\nIII. The range is greater than the range of the original list.",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 1,
+  "solution": "**I is true.** If the list has $n$ numbers with total $n\\mu$, the new mean is\n$$\\frac{n\\mu+x}{n+1}>\\frac{n\\mu+\\mu}{n+1}=\\mu.$$\n\n**II is false.** Take $1,5,5,5$ (mean $4$, median $5$) and add $x=6$: the new list $1,5,5,5,6$ still has median $5$.\n\n**III is false.** Take $1,2,9$ (mean $4$, range $8$) and add $x=5$: the range is still $8$, because $x$ lies between the smallest and largest values.\n\nSo the answer is **I only**.",
+  "insight": "For 'must be true' statements, prove the ones that feel solid and hunt for small counterexamples to the rest.",
+  "distractors": {
+   "7": "Assuming that adding a 'large' value pushes every statistic up; the median and range depend only on where $x$ sits relative to the existing values.",
+   "4": "Believing the median must increase; it can stay the same when there are repeated middle values (it can even decrease if $x$ is above the mean but below the median)."
+  },
+  "time": 120
+ },
+ {
+  "id": "number-07",
+  "topic": "number",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "HCF",
+   "LCM",
+   "prime factorisation"
+  ],
+  "stem": "Two positive integers have highest common factor $6$ and lowest common multiple $360$. How many unordered pairs of such integers are there?",
+  "figure": null,
+  "options": [
+   "$3$",
+   "$4$",
+   "$6$",
+   "$8$",
+   "$12$"
+  ],
+  "answer": 1,
+  "solution": "Write the numbers as $6p$ and $6q$ with $p,q$ coprime. Then the LCM is $6pq$, so $pq=60=2^2\\cdot3\\cdot5$.\n\nBecause $p$ and $q$ are coprime, each prime power $4,\\ 3,\\ 5$ must go entirely into $p$ or entirely into $q$. That gives $2^3=8$ ordered pairs, i.e. **4** unordered pairs:\n\n$$(6,360),\\quad(24,90),\\quad(18,120),\\quad(30,72).$$",
+  "insight": "Divide out the HCF; what remains must be a coprime split of LCM/HCF, decided prime power by prime power.",
+  "distractors": {
+   "2": "Counting all factor pairs of $60$ (there are $6$) without requiring $p,q$ coprime; e.g. $p=2,q=30$ gives $12$ and $180$, whose HCF is $12$.",
+   "3": "Counting ordered pairs instead of unordered pairs."
+  },
+  "time": 150
+ },
+ {
+  "id": "number-08",
+  "topic": "number",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "divisors",
+   "prime factorisation"
+  ],
+  "stem": "How many positive divisors of $720$ are multiples of $6$?",
+  "figure": null,
+  "options": [
+   "$8$",
+   "$12$",
+   "$16$",
+   "$20$",
+   "$24$",
+   "$30$"
+  ],
+  "answer": 2,
+  "solution": "A multiple of $6$ dividing $720$ has the form $6k$ where $k$ divides $720/6=120$.\n\n$120=2^3\\cdot3\\cdot5$ has $(3+1)(1+1)(1+1)=\\mathbf{16}$ divisors.\n\n*Alternative:* $720=2^4\\cdot3^2\\cdot5$. A divisor $2^a3^b5^c$ is a multiple of $6$ when $a\\ge1$ and $b\\ge1$: $4\\times2\\times2=16$ choices.",
+  "insight": "Divisors of $N$ that are multiples of $d$ correspond exactly to divisors of $N/d$.",
+  "distractors": {
+   "5": "Counting all $5\\times3\\times2=30$ divisors of $720$.",
+   "4": "Only requiring the divisor to be even ($a\\ge1$): $4\\times3\\times2=24$."
+  },
+  "time": 150
+ },
+ {
+  "id": "number-09",
+  "topic": "number",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "integer solutions",
+   "factorising"
+  ],
+  "stem": "How many ordered pairs of positive integers $(x,y)$ satisfy $\\dfrac1x+\\dfrac1y=\\dfrac16$?",
+  "figure": null,
+  "options": [
+   "$4$",
+   "$5$",
+   "$8$",
+   "$9$",
+   "$10$",
+   "$18$"
+  ],
+  "answer": 3,
+  "solution": "Multiply by $6xy$: $6y+6x=xy$, so $xy-6x-6y=0$, and adding $36$ to both sides,\n\n$$(x-6)(y-6)=36.$$\n\nSince $\\frac1x<\\frac16$, we need $x>6$, and likewise $y>6$, so $x-6$ and $y-6$ are positive. Each positive divisor $d$ of $36$ gives one solution $x=6+d$, $y=6+\\frac{36}{d}$.\n\n$36=2^2\\cdot3^2$ has $3\\times3=\\mathbf{9}$ divisors, so there are $9$ ordered pairs.",
+  "insight": "Rearrange to $(x-a)(y-b)=c$ ('Simon's favourite factoring trick') and count divisors.",
+  "distractors": {
+   "1": "Counting unordered pairs: $(7,42),(8,24),(9,18),(10,15),(12,12)$.",
+   "5": "Also counting negative factor pairs of $36$; these give $x\\le 6$ or $y\\le6$ (e.g. $x-6=-6$ gives $x=0$), which are not positive solutions."
+  },
+  "time": 150
+ },
+ {
+  "id": "number-10",
+  "topic": "number",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "counting",
+   "inclusion-exclusion"
+  ],
+  "stem": "How many integers from $1$ to $1000$ inclusive are divisible by $3$ or by $5$, but **not** by $15$?",
+  "figure": null,
+  "options": [
+   "$335$",
+   "$401$",
+   "$467$",
+   "$533$"
+  ],
+  "answer": 1,
+  "solution": "Multiples of $3$: $\\lfloor1000/3\\rfloor=333$. Multiples of $5$: $200$. Multiples of $15$: $66$.\n\nDivisible by $3$ or $5$: $333+200-66=467$ (inclusion–exclusion).\n\nThose divisible by $15$ are among these $467$, so remove them: $467-66=\\mathbf{401}$.\n\n*Alternative:* 'exactly one of $3$, $5$' is $(333-66)+(200-66)=267+134=401$.",
+  "insight": "Draw the two-set Venn diagram: 'or but not both' is the union minus the intersection.",
+  "distractors": {
+   "2": "Stopping at the size of the union and forgetting to remove the multiples of $15$.",
+   "0": "Subtracting the $66$ multiples of $15$ twice more after inclusion–exclusion, instead of once."
+  },
+  "time": 150
+ },
+ {
+  "id": "number-11",
+  "topic": "number",
+  "paper": 2,
+  "difficulty": 3,
+  "skills": [
+   "divisibility",
+   "consecutive integers",
+   "must be true"
+  ],
+  "stem": "Let $n$ be any positive integer. Which of the following statements **must** be true?\n\nI. $n^2-n$ is even.\n\nII. $n^3-n$ is divisible by $6$.\n\nIII. $n^4-n^2$ is divisible by $24$.",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 4,
+  "solution": "Factorise each expression into consecutive integers.\n\n**I:** $n^2-n=(n-1)n$, a product of two consecutive integers, one of which is even. True.\n\n**II:** $n^3-n=(n-1)n(n+1)$, three consecutive integers: one is a multiple of $3$ and at least one is even. True.\n\n**III:** $n^4-n^2=n^2(n-1)(n+1)$. Try $n=2$: $16-4=12$, which is not divisible by $24$. False. (It is always divisible by $12$, which is why it looks plausible.)\n\nSo the answer is **I and II only**.",
+  "insight": "Factorise into consecutive integers to prove divisibility, and test small values to disprove it.",
+  "distractors": {
+   "7": "Extrapolating the pattern from I and II without testing III; $n=2$ gives $12$.",
+   "6": "Doubting I because $n^2-n$ looks like it could be odd, without factorising it as $(n-1)n$."
+  },
+  "time": 150
+ },
+ {
+  "id": "number-12",
+  "topic": "number",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "mean",
+   "median",
+   "optimisation"
+  ],
+  "stem": "Five different positive integers have mean $10$ and median $8$. What is the largest possible value of the largest of the five integers?",
+  "figure": null,
+  "options": [
+   "$26$",
+   "$29$",
+   "$30$",
+   "$31$",
+   "$32$"
+  ],
+  "answer": 2,
+  "solution": "The total is $5\\times10=50$. Write the integers as $a<b<8<d<e$.\n\nTo make $e$ as large as possible, make the others as small as possible: $a=1$, $b=2$, $d=9$. Then\n\n$$e=50-1-2-8-9=\\mathbf{30}.$$\n\nThese are distinct, the median is $8$ and the mean is $10$, so $30$ is attained.",
+  "insight": "To maximise one value under a fixed total, minimise all the others subject to the constraints.",
+  "distractors": {
+   "3": "Taking $d=8$, forgetting that the integers are all different, so $d\\ge9$.",
+   "4": "Ignoring distinctness altogether: $1+1+8+8+e=50$ gives $32$."
+  },
+  "time": 150
+ },
+ {
+  "id": "number-13",
+  "topic": "number",
+  "paper": 1,
+  "difficulty": 4,
+  "skills": [
+   "last digits",
+   "cycles of powers"
+  ],
+  "stem": "What is the last digit of $1^1+2^2+3^3+\\cdots+10^{10}$?",
+  "figure": null,
+  "options": [
+   "$1$",
+   "$3$",
+   "$5$",
+   "$7$",
+   "$9$"
+  ],
+  "answer": 3,
+  "solution": "Only last digits matter. Use the cycles of last digits of powers:\n\n| $k$ | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |\n|---|---|---|---|---|---|---|---|---|---|---|\n| last digit of $k^k$ | 1 | 4 | 7 | 6 | 5 | 6 | 3 | 6 | 9 | 0 |\n\nFor example $3^3=27$; $7$ has cycle $7,9,3,1$ and $7\\equiv3\\pmod4$, giving $3$; $8$ has cycle $8,4,2,6$ and $8\\equiv0\\pmod4$, giving $6$; $9^{\\text{odd}}$ ends in $9$.\n\nSum of last digits: $1+4+7+6+5+6+3+6+9+0=47$, so the last digit is **7**.",
+  "insight": "Work modulo $10$ throughout, using the period-4 cycles of last digits.",
+  "distractors": {
+   "0": "Taking $7^7$ to end in $7$ (as if the cycle had period $1$): the total becomes $51$.",
+   "4": "Taking $8^8$ to end in $8$ instead of $6$: the total becomes $49$."
+  },
+  "time": 210
+ },
+ {
+  "id": "number-14",
+  "topic": "number",
+  "paper": 1,
+  "difficulty": 4,
+  "skills": [
+   "integer solutions",
+   "difference of squares",
+   "parity"
+  ],
+  "stem": "How many pairs of integers $(x,y)$ satisfy $x^2-y^2=60$?",
+  "figure": null,
+  "options": [
+   "$2$",
+   "$4$",
+   "$6$",
+   "$8$",
+   "$12$",
+   "$16$"
+  ],
+  "answer": 3,
+  "solution": "Factorise: $(x-y)(x+y)=60$.\n\nThe two factors have the same parity (their sum is $2x$), and their product is even, so both are even. Write $x-y=2a$, $x+y=2b$; then $ab=15$.\n\nThe integer factor pairs $(a,b)$ of $15$ are $(1,15),(3,5),(5,3),(15,1)$ and their negatives: $8$ ordered pairs. Each gives exactly one solution $x=a+b$, $y=b-a$:\n\n$$(16,14),\\ (8,2),\\ (8,-2),\\ (16,-14)$$\n\nand their negatives. So there are **8** pairs.",
+  "insight": "For $x^2-y^2=N$, factorise and use parity: the two factors must be both odd or both even.",
+  "distractors": {
+   "0": "Only counting positive solutions, $(16,14)$ and $(8,2)$.",
+   "4": "Using every ordered factor pair of $60$ ($12$ of them) without checking that $x$ and $y$ come out as integers; e.g. $1\\times60$ gives $x=30.5$."
+  },
+  "time": 210
+ },
+ {
+  "id": "number-15",
+  "topic": "number",
+  "paper": 1,
+  "difficulty": 4,
+  "skills": [
+   "comparing sizes",
+   "indices"
+  ],
+  "stem": "Which of the following correctly orders the numbers $2^{1/2}$, $3^{1/3}$, $5^{1/5}$ and $6^{1/6}$?",
+  "figure": null,
+  "options": [
+   "$2^{1/2}<3^{1/3}<5^{1/5}<6^{1/6}$",
+   "$6^{1/6}<5^{1/5}<3^{1/3}<2^{1/2}$",
+   "$5^{1/5}<6^{1/6}<2^{1/2}<3^{1/3}$",
+   "$6^{1/6}<5^{1/5}<2^{1/2}<3^{1/3}$",
+   "$6^{1/6}<2^{1/2}<5^{1/5}<3^{1/3}$",
+   "$2^{1/2}<6^{1/6}<5^{1/5}<3^{1/3}$"
+  ],
+  "answer": 3,
+  "solution": "Compare in pairs by raising both sides to a power that clears the fractional indices (all numbers are positive, so this preserves order).\n\n* $2^{1/2}$ vs $3^{1/3}$: sixth powers are $8$ and $9$, so $2^{1/2}<3^{1/3}$.\n* $5^{1/5}$ vs $2^{1/2}$: tenth powers are $25$ and $32$, so $5^{1/5}<2^{1/2}$.\n* $6^{1/6}$ vs $5^{1/5}$: thirtieth powers are $6^5=7776$ and $5^6=15625$, so $6^{1/6}<5^{1/5}$.\n\nHence $6^{1/6}<5^{1/5}<2^{1/2}<3^{1/3}$.",
+  "insight": "To compare $a^{1/m}$ and $b^{1/n}$, raise both to the power $mn$ and compare integers.",
+  "distractors": {
+   "0": "Assuming a larger base gives a larger number, ignoring that the root also gets stronger.",
+   "1": "Assuming a stronger root always wins, so the list is decreasing; but $2^{1/2}<3^{1/3}$ since $8<9$."
+  },
+  "time": 210
+ },
+ {
+  "id": "number-16",
+  "topic": "number",
+  "paper": 2,
+  "difficulty": 4,
+  "skills": [
+   "divisibility",
+   "sufficient conditions",
+   "prime factorisation"
+  ],
+  "stem": "Let $n$ be an integer. Which of the following conditions is/are **sufficient** for $n$ to be divisible by $12$?\n\nI. $n^2$ is divisible by $24$.\n\nII. $n$ is divisible by $2$ and by $6$.\n\nIII. $n^3$ is divisible by $18$.",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 1,
+  "solution": "Think in terms of prime powers: $12=2^2\\cdot3$. Exponents of primes in $n^k$ are multiples of $k$.\n\n**I:** $2^3\\mid n^2$. The power of $2$ in $n^2$ is even, so it is at least $4$, hence $2^2\\mid n$. Also $3\\mid n^2$ forces $3\\mid n$. So $12\\mid n$: **sufficient**.\n\n**II:** $n=6$ is divisible by $2$ and $6$ but not by $12$: not sufficient. (Being divisible by $2$ and $6$ only means divisible by $\\operatorname{lcm}(2,6)=6$.)\n\n**III:** $2\\mid n^3$ gives only $2\\mid n$, and $3^2\\mid n^3$ gives only $3\\mid n$. Indeed $n=6$: $6^3=216=12\\times18$. Not sufficient.\n\nSo the answer is **I only**.",
+  "insight": "Divisibility by several numbers means divisibility by their LCM, and $p^a\\mid n^k$ gives $p^{\\lceil a/k\\rceil}\\mid n$.",
+  "distractors": {
+   "4": "Multiplying instead of taking the LCM: '$2$ and $6$ gives $12$'.",
+   "5": "Reading $18\\mid n^3$ as giving $2^2\\cdot3$ in $n$; a single factor of $2$ in $n^3$ needs only one $2$ in $n$."
+  },
+  "time": 210
+ },
+ {
+  "id": "number-17",
+  "topic": "number",
+  "paper": 1,
+  "difficulty": 5,
+  "skills": [
+   "factorials",
+   "trailing zeros",
+   "counting"
+  ],
+  "stem": "For how many integers $k$ with $1\\le k\\le30$ is there **no** positive integer $n$ such that $n!$ ends in exactly $k$ zeros?",
+  "figure": null,
+  "options": [
+   "$1$",
+   "$4$",
+   "$5$",
+   "$6$",
+   "$7$"
+  ],
+  "answer": 3,
+  "solution": "The number of trailing zeros of $n!$ is\n$$Z(n)=\\left\\lfloor\\tfrac n5\\right\\rfloor+\\left\\lfloor\\tfrac n{25}\\right\\rfloor+\\left\\lfloor\\tfrac n{125}\\right\\rfloor+\\cdots$$\nIt only changes when $n$ passes a multiple of $5$, going up by $1$ for each factor of $5$ in that multiple.\n\n* At multiples of $5$ that are not multiples of $25$, $Z$ goes up by $1$: no gap.\n* At $n=25,50,75,100$, $Z$ jumps by $2$, skipping one value each time: $Z(24)=4, Z(25)=6$ skips $5$; similarly $11$, $17$, $23$ are skipped.\n* At $n=125=5^3$, $Z$ jumps by $3$: $Z(124)=28$, $Z(125)=31$, skipping $29$ and $30$.\n\nThe missing values up to $30$ are $5,11,17,23,29,30$: **6** of them.",
+  "insight": "Trailing zeros of $n!$ count factors of $5$, so values are skipped exactly when $n$ hits a high power of $5$.",
+  "distractors": {
+   "2": "Noticing one skipped value at each multiple of $25$ but not that $125$ contributes three factors of $5$ and skips two values.",
+   "1": "Only counting the jumps at $25,50,75,100$ and not checking what happens near $k=30$."
+  },
+  "time": 270
+ },
+ {
+  "id": "number-18",
+  "topic": "number",
+  "paper": 1,
+  "difficulty": 5,
+  "skills": [
+   "remainders",
+   "cycles",
+   "repunits"
+  ],
+  "stem": "The number $N$ consists of $2026$ digits, all equal to $1$: $N=111\\ldots1$. What is the remainder when $N$ is divided by $7$?",
+  "figure": null,
+  "options": [
+   "$0$",
+   "$1$",
+   "$2$",
+   "$3$",
+   "$4$",
+   "$5$",
+   "$6$"
+  ],
+  "answer": 5,
+  "solution": "Since $10^6\\equiv1\\pmod7$ (powers of $10$ modulo $7$ cycle $3,2,6,4,5,1$), the six-digit number $111111=\\frac{10^6-1}{9}$ is divisible by $7$ (indeed $111111=7\\times15873$).\n\nSplit $N$ as its first four digits followed by $2022$ ones:\n$$N=1111\\times10^{2022}+\\underbrace{11\\ldots1}_{2022}.$$\n\n$2022=6\\times337$, so the second part is $337$ blocks of $111111$ and is divisible by $7$. Also $10^{2022}=(10^6)^{337}\\equiv1\\pmod 7$.\n\nHence $N\\equiv1111\\pmod7$, and $1111=7\\times158+5$, so the remainder is **5**.",
+  "insight": "Find the period of $10$ modulo the divisor, chop the number into full periods and deal with the leftover block.",
+  "distractors": {
+   "4": "Reducing $2026\\equiv4\\pmod6$ and giving that $4$ as the remainder, instead of the remainder of the four-digit number $1111$.",
+   "0": "Knowing $111111$ is a multiple of $7$ and assuming every repunit is."
+  },
+  "time": 270
+ }
+]

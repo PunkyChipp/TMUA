@@ -1,0 +1,506 @@
+[
+ {
+  "id": "integ-01",
+  "topic": "integ",
+  "paper": 1,
+  "difficulty": 1,
+  "skills": [
+   "definite integrals",
+   "fractional powers"
+  ],
+  "stem": "Evaluate $$\\int_1^4 \\left(3\\sqrt{x} - 2\\right)\\,dx.$$",
+  "figure": null,
+  "options": [
+   "$6$",
+   "$8$",
+   "$10$",
+   "$12$",
+   "$14$"
+  ],
+  "answer": 1,
+  "solution": "$\\int 3x^{1/2}\\,dx = 3 \\cdot \\frac{x^{3/2}}{3/2} = 2x^{3/2}$, so\n$$\\Big[2x^{3/2} - 2x\\Big]_1^4 = (16 - 8) - (2 - 2) = 8.$$",
+  "insight": "Raise the power by one and divide by the new power: $x^{1/2} \\to \\frac23 x^{3/2}$.",
+  "distractors": {
+   "4": "Forgetting to integrate the constant $-2$ (it contributes $-2 \\times 3 = -6$).",
+   "0": "Evaluating the $-2x$ term only at the upper limit, giving $14 - 8$."
+  },
+  "time": 60
+ },
+ {
+  "id": "integ-02",
+  "topic": "integ",
+  "paper": 1,
+  "difficulty": 1,
+  "skills": [
+   "indefinite integrals",
+   "negative powers"
+  ],
+  "stem": "Find $$\\int \\frac{x^2 - 4}{x^2}\\,dx.$$",
+  "figure": null,
+  "options": [
+   "$x - \\dfrac{4}{x} + c$",
+   "$x + \\dfrac{4}{x} + c$",
+   "$x + \\dfrac{8}{x^3} + c$",
+   "$\\dfrac{x^3 - 12x}{x^3} + c$",
+   "$x - 4\\ln x + c$"
+  ],
+  "answer": 1,
+  "solution": "Split first: $\\frac{x^2 - 4}{x^2} = 1 - 4x^{-2}$.\n\n$$\\int (1 - 4x^{-2})\\,dx = x - 4\\cdot\\frac{x^{-1}}{-1} + c = x + \\frac4x + c.$$\n\nCheck by differentiating: $\\frac{d}{dx}\\left(x + 4x^{-1}\\right) = 1 - 4x^{-2}$.",
+  "insight": "Divide through to get a sum of powers of $x$ before integrating, and check by differentiating.",
+  "distractors": {
+   "0": "Sign error: dividing by the new power $-1$ flips the sign.",
+   "3": "Integrating numerator and denominator separately, which is never valid.",
+   "2": "Differentiating $-4x^{-2}$ instead of integrating it."
+  },
+  "time": 75
+ },
+ {
+  "id": "integ-03",
+  "topic": "integ",
+  "paper": 1,
+  "difficulty": 2,
+  "skills": [
+   "area between curves"
+  ],
+  "stem": "Find the area of the finite region enclosed by the curve $y = x^2 - 2x$ and the line $y = x$.",
+  "figure": null,
+  "options": [
+   "$\\frac{3}{2}$",
+   "$3$",
+   "$\\frac{9}{2}$",
+   "$\\frac{27}{2}$",
+   "$18$"
+  ],
+  "answer": 2,
+  "solution": "Intersections: $x^2 - 2x = x \\iff x(x - 3) = 0$, so $x = 0, 3$. On $(0, 3)$ the line is above the curve.\n\n$$\\int_0^3 \\big(x - (x^2 - 2x)\\big)\\,dx = \\int_0^3 (3x - x^2)\\,dx = \\frac{27}{2} - 9 = \\frac92.$$\n\nShortcut: the area between a parabola $y = x^2+\\dots$ and a line meeting it at $x=p, q$ is $\\frac{|q-p|^3}{6} = \\frac{27}{6}$.",
+  "insight": "Area between curves is $\\int(\\text{top} - \\text{bottom})$; for a parabola with leading coefficient 1 and a chord it is $\\frac{(q-p)^3}{6}$.",
+  "distractors": {
+   "3": "Integrating only $3x$ and forgetting to subtract $\\int x^2$.",
+   "4": "Integrating $3x - x^2$ as $3x^2 - \\frac{x^3}{3}$ (not halving the $x^2$ term)."
+  },
+  "time": 120
+ },
+ {
+  "id": "integ-04",
+  "topic": "integ",
+  "paper": 1,
+  "difficulty": 2,
+  "skills": [
+   "signed area",
+   "area under curve"
+  ],
+  "stem": "Find the total area between the curve $y = x^2 - 4x + 3$, the $x$-axis and the lines $x = 0$ and $x = 3$.",
+  "figure": null,
+  "options": [
+   "$0$",
+   "$\\frac{4}{3}$",
+   "$2$",
+   "$\\frac{8}{3}$",
+   "$4$"
+  ],
+  "answer": 3,
+  "solution": "$y = (x-1)(x-3)$ is positive on $(0,1)$ and negative on $(1,3)$, so split at $x=1$.\n\nWith $F(x) = \\frac{x^3}{3} - 2x^2 + 3x$: $F(0) = 0$, $F(1) = \\frac43$, $F(3) = 0$.\n\n* $\\int_0^1 y\\,dx = \\frac43$.\n* $\\int_1^3 y\\,dx = 0 - \\frac43 = -\\frac43$, contributing area $\\frac43$.\n\nTotal area $= \\frac83$.",
+  "insight": "An integral measures signed area; whenever the curve crosses the axis inside the interval, split there and add the absolute values.",
+  "distractors": {
+   "0": "This is $\\int_0^3 y\\,dx$: the positive and negative parts cancel exactly.",
+   "1": "Only counting one of the two regions."
+  },
+  "time": 120
+ },
+ {
+  "id": "integ-05",
+  "topic": "integ",
+  "paper": 1,
+  "difficulty": 2,
+  "skills": [
+   "definite integrals",
+   "unknown limits"
+  ],
+  "stem": "Given that $k > 1$ and $$\\int_1^k (2x + 3)\\,dx = 14,$$ find $k$.",
+  "figure": null,
+  "options": [
+   "$-6$",
+   "$2$",
+   "$3$",
+   "$4$",
+   "$6$"
+  ],
+  "answer": 2,
+  "solution": "$\\Big[x^2 + 3x\\Big]_1^k = k^2 + 3k - 4 = 14$, so $k^2 + 3k - 18 = 0$, i.e. $(k + 6)(k - 3) = 0$.\n\nSince $k > 1$, $k = 3$.\n\nCheck: the integral is the area of a trapezium with parallel sides $5$ and $9$ and width $2$: $\\frac{5+9}{2}\\times 2 = 14$.",
+  "insight": "An unknown limit turns a definite integral into an equation; reject roots that violate the given condition.",
+  "distractors": {
+   "0": "The other root of the quadratic, which fails $k > 1$.",
+   "4": "Factorising $k^2 + 3k - 18$ as $(k-6)(k+3)$ (sign slip)."
+  },
+  "time": 90
+ },
+ {
+  "id": "integ-06",
+  "topic": "integ",
+  "paper": 1,
+  "difficulty": 2,
+  "skills": [
+   "odd and even functions",
+   "definite integrals"
+  ],
+  "stem": "Evaluate $$\\int_{-2}^{2} \\left(x^5 - 3x^2 + 4x\\right)dx.$$",
+  "figure": null,
+  "options": [
+   "$-48$",
+   "$-16$",
+   "$-8$",
+   "$0$",
+   "$16$"
+  ],
+  "answer": 1,
+  "solution": "$x^5$ and $4x$ are odd, so their integrals over $[-2, 2]$ are $0$.\n\n$-3x^2$ is even: $\\int_{-2}^2 -3x^2\\,dx = 2\\int_0^2 -3x^2\\,dx = 2 \\times (-8) = -16$.",
+  "insight": "Over a symmetric interval, odd terms integrate to zero and even terms double their integral over $[0, a]$.",
+  "distractors": {
+   "2": "Computing only $\\int_0^2 -3x^2\\,dx$ and forgetting to double.",
+   "0": "Forgetting to divide by the new power: $-3x^2 \\to -3x^3$, giving $2 \\times (-24)$.",
+   "3": "Treating the whole integrand as odd."
+  },
+  "time": 75
+ },
+ {
+  "id": "integ-07",
+  "topic": "integ",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "transformations",
+   "definite integrals"
+  ],
+  "stem": "Given that $$\\int_0^3 f(x)\\,dx = 5,$$ find $$\\int_1^4 \\big(2f(x - 1) + 3\\big)\\,dx.$$",
+  "figure": null,
+  "options": [
+   "$10$",
+   "$13$",
+   "$16$",
+   "$19$",
+   "$22$"
+  ],
+  "answer": 3,
+  "solution": "$y = f(x-1)$ is $y = f(x)$ shifted right by $1$, so $\\int_1^4 f(x-1)\\,dx = \\int_0^3 f(x)\\,dx = 5$ (substitute $u = x - 1$).\n\nStretching vertically by $2$ doubles the area: $10$.\n\n$\\int_1^4 3\\,dx = 3 \\times 3 = 9$.\n\nTotal $= 10 + 9 = 19$.",
+  "insight": "Translate, stretch and add constants to the area picture: a horizontal shift moves the limits, a vertical stretch scales the integral, and $+c$ adds $c \\times$ width.",
+  "distractors": {
+   "1": "Adding $3$ instead of $3 \\times$ (width of interval).",
+   "4": "Integrating the constant as $3 \\times 4$ (using the upper limit, not the width)."
+  },
+  "time": 150
+ },
+ {
+  "id": "integ-08",
+  "topic": "integ",
+  "paper": 2,
+  "difficulty": 3,
+  "skills": [
+   "odd functions",
+   "integral and area"
+  ],
+  "stem": "The function $f$ satisfies $f(-x) = -f(x)$ for all real $x$, and $$\\int_0^2 f(x)\\,dx = 3.$$\n\nWhich of the following **must** be true?\n\nI. $\\displaystyle\\int_{-2}^{2} f(x)\\,dx = 0$\n\nII. $\\displaystyle\\int_{-2}^{0} f(x)\\,dx = -3$\n\nIII. $\\displaystyle\\int_{-2}^{2} |f(x)|\\,dx = 6$",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 4,
+  "solution": "The graph of an odd function has half-turn symmetry about the origin, so the signed area on $[-2,0]$ is minus that on $[0,2]$.\n\n**II** True: $\\int_{-2}^0 f = -3$. **I** True: $-3 + 3 = 0$.\n\n**III** Not necessarily: $\\int_0^2 |f| \\ge 3$, with equality only if $f \\ge 0$ on $[0,2]$. Counterexample: $f(x) = x^3 - \\frac12 x$ is odd with $\\int_0^2 f = 4 - 1 = 3$, but $f < 0$ for $0 < x < \\frac{1}{\\sqrt2}$, so $\\int_{-2}^2 |f| > 6$.",
+  "insight": "Integrals give signed areas; knowing $\\int f$ tells you nothing exact about $\\int |f|$ unless you know the sign of $f$.",
+  "distractors": {
+   "7": "Assuming $f \\ge 0$ on $[0,2]$ so that integral equals area.",
+   "1": "Thinking the area on $[-2,0]$ is $+3$ because area is positive; the integral there is $-3$."
+  },
+  "time": 150
+ },
+ {
+  "id": "integ-09",
+  "topic": "integ",
+  "paper": 2,
+  "difficulty": 4,
+  "skills": [
+   "trapezium rule",
+   "concavity"
+  ],
+  "stem": "The trapezium rule with 4 strips of equal width is used to estimate $\\int_0^2 g(x)\\,dx$.\n\nFor which of the following functions is the estimate an **overestimate**?\n\nI. $g(x) = x^2$\n\nII. $g(x) = \\sqrt{x}$\n\nIII. $g(x) = x^3 - 3x^2$",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 1,
+  "solution": "The chords of a convex (\"U-shaped\", $g'' > 0$) curve lie above it, giving an overestimate; for concave curves, an underestimate.\n\n**I** $g'' = 2 > 0$: overestimate. True.\n\n**II** $\\sqrt{x}$ is concave: underestimate. False.\n\n**III** $g'' = 6x - 6$ changes sign at $x=1$, so no general rule applies. The cubic has half-turn symmetry about its inflection point $(1, -2)$, and the strips are placed symmetrically about $x=1$, so the errors on $[0,1]$ and $[1,2]$ cancel exactly. Indeed the rule gives $\\frac12\\cdot\\frac12\\big(0 + 2(-\\frac58 - 2 - \\frac{27}{8}) - 4\\big) = -4$, which equals the exact value $4 - 8 = -4$. Not an overestimate. False.",
+  "insight": "Trapezium rule over/underestimates according to whether the curve is convex or concave; if concavity changes, the errors can cancel.",
+  "distractors": {
+   "5": "Seeing $x^3$ and assuming it is convex on $[0,2]$; the $-3x^2$ term makes it concave on $[0,1]$.",
+   "4": "Getting the rule backwards for $\\sqrt x$: a concave curve lies above its chords, so the estimate is too small."
+  },
+  "time": 210
+ },
+ {
+  "id": "integ-10",
+  "topic": "integ",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "area between curves",
+   "signed area",
+   "odd functions"
+  ],
+  "stem": "Find the total area of the regions enclosed between the curve $y = x^3$ and the line $y = 4x$.",
+  "figure": null,
+  "options": [
+   "$0$",
+   "$2$",
+   "$4$",
+   "$8$",
+   "$16$"
+  ],
+  "answer": 3,
+  "solution": "$x^3 = 4x \\iff x(x^2 - 4) = 0$, so they meet at $x = -2, 0, 2$: two regions.\n\nOn $(0, 2)$ the line is above: $\\int_0^2 (4x - x^3)\\,dx = 8 - 4 = 4$.\n\nBy the half-turn symmetry (both are odd functions) the region on $(-2, 0)$ also has area $4$.\n\nTotal $= 8$.",
+  "insight": "Where two curves cross more than twice, the top and bottom swap; exploit symmetry rather than integrating across the crossing.",
+  "distractors": {
+   "0": "Computing $\\int_{-2}^2 (4x - x^3)\\,dx$ in one go; the two regions cancel.",
+   "2": "Finding only one of the two regions."
+  },
+  "time": 150
+ },
+ {
+  "id": "integ-11",
+  "topic": "integ",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "unknown limits",
+   "negative powers",
+   "area"
+  ],
+  "stem": "The region bounded by the curve $y = \\dfrac{1}{x^2}$, the $x$-axis and the lines $x = 1$ and $x = k$ has area $\\frac34$, where $k > 0$.\n\nWhat are the possible values of $k$?",
+  "figure": null,
+  "options": [
+   "$4$ only",
+   "$\\frac{4}{7}$ only",
+   "$\\frac{1}{4}$ and $4$",
+   "$\\frac{4}{7}$ and $4$",
+   "$\\frac{4}{3}$ and $4$"
+  ],
+  "answer": 3,
+  "solution": "$\\int x^{-2}\\,dx = -\\frac1x$.\n\n* If $k > 1$: $\\int_1^k x^{-2}\\,dx = 1 - \\frac1k = \\frac34 \\Rightarrow k = 4$.\n* If $0 < k < 1$: the region runs from $k$ to $1$: $\\int_k^1 x^{-2}\\,dx = \\frac1k - 1 = \\frac34 \\Rightarrow k = \\frac47$.\n\nBoth are valid.",
+  "insight": "\"The region between $x=1$ and $x=k$\" does not say which is larger; always consider the limit on either side.",
+  "distractors": {
+   "0": "Assuming $k > 1$ without checking the case $k < 1$.",
+   "2": "Assuming the other value is $\\frac14$ by symmetry; the curve is not symmetric under $x \\to \\frac1x$."
+  },
+  "time": 150
+ },
+ {
+  "id": "integ-12",
+  "topic": "integ",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "area between curves",
+   "parameters"
+  ],
+  "stem": "The finite region enclosed by the curve $y = x^2$ and the line $y = kx$, where $k > 0$, has area $36$.\n\nFind $k$.",
+  "figure": null,
+  "options": [
+   "$3$",
+   "$\\sqrt[3]{36}$",
+   "$\\sqrt[3]{72}$",
+   "$\\sqrt[3]{108}$",
+   "$6$"
+  ],
+  "answer": 4,
+  "solution": "They meet at $x = 0$ and $x = k$, with the line above the curve between them.\n$$\\int_0^k (kx - x^2)\\,dx = \\frac{k^3}{2} - \\frac{k^3}{3} = \\frac{k^3}{6}.$$\n$\\frac{k^3}{6} = 36 \\Rightarrow k^3 = 216 \\Rightarrow k = 6$.",
+  "insight": "Parabola-and-chord areas are $\\frac{(\\text{difference of roots})^3}{6}$ times the leading coefficient; worth knowing for speed.",
+  "distractors": {
+   "2": "Using only the area under the line, $\\frac{k^3}{2} = 36$.",
+   "3": "Using only the area under the curve, $\\frac{k^3}{3} = 36$."
+  },
+  "time": 120
+ },
+ {
+  "id": "integ-13",
+  "topic": "integ",
+  "paper": 2,
+  "difficulty": 3,
+  "skills": [
+   "integral and area",
+   "logic",
+   "continuity"
+  ],
+  "stem": "Let $f$ be a continuous function on the interval $[0, 4]$.\n\nWhich of the following statements is/are true?\n\nI. If $\\displaystyle\\int_0^4 f(x)\\,dx = 0$, then $f(x) = 0$ for some $x$ in $[0, 4]$.\n\nII. If $\\displaystyle\\int_0^4 f(x)\\,dx \\ge 0$, then $f(x) \\ge 0$ for all $x$ in $[0, 4]$.\n\nIII. If $\\displaystyle\\int_0^4 f(x)\\,dx > 0$, then $f(x) > 0$ for some $x$ in $[0, 4]$.",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 5,
+  "solution": "**I** True: if $f$ were never $0$, being continuous it would be always positive or always negative, and then the integral would be non-zero.\n\n**II** False: $f(x) = x - 1$ has $\\int_0^4 f = 8 - 4 = 4 \\ge 0$ but $f(0) = -1$.\n\n**III** True: this is the contrapositive of \"if $f(x) \\le 0$ for all $x$ then $\\int_0^4 f \\le 0$\", which is clear since the curve then lies on or below the axis.",
+  "insight": "An integral is a signed total, so it constrains $f$ only in 'at least somewhere' ways, never 'everywhere' ways.",
+  "distractors": {
+   "7": "Confusing II with its converse: $f \\ge 0$ everywhere implies $\\int f \\ge 0$, not the other way round.",
+   "3": "Doubting I; continuity is exactly what forces a sign change to pass through $0$."
+  },
+  "time": 150
+ },
+ {
+  "id": "integ-14",
+  "topic": "integ",
+  "paper": 1,
+  "difficulty": 4,
+  "skills": [
+   "symmetry",
+   "definite integrals"
+  ],
+  "stem": "A function $f$ satisfies $f(4 - x) = f(x)$ for all $x$. Also $$\\int_0^4 f(x)\\,dx = 10 \\quad\\text{and}\\quad \\int_0^1 f(x)\\,dx = 2.$$\n\nFind $\\displaystyle\\int_1^2 f(x)\\,dx$.",
+  "figure": null,
+  "options": [
+   "$1$",
+   "$2$",
+   "$3$",
+   "$5$",
+   "$8$"
+  ],
+  "answer": 2,
+  "solution": "$f(4 - x) = f(x)$ means the graph is symmetric in the line $x = 2$, so $\\int_0^2 f = \\int_2^4 f = \\frac{10}{2} = 5$.\n\nThen $\\int_1^2 f = \\int_0^2 f - \\int_0^1 f = 5 - 2 = 3$.",
+  "insight": "Translate a functional equation into a geometric symmetry of the graph, then split the area accordingly.",
+  "distractors": {
+   "4": "Computing $10 - 2$ without using the symmetry (that is $\\int_1^4 f$).",
+   "3": "Stopping at $\\int_0^2 f = 5$."
+  },
+  "time": 180
+ },
+ {
+  "id": "integ-15",
+  "topic": "integ",
+  "paper": 1,
+  "difficulty": 4,
+  "skills": [
+   "odd and even functions",
+   "definite integrals"
+  ],
+  "stem": "The function $f$ is even and the function $g$ is odd. Given that $$\\int_0^2 f(x)\\,dx = 4 \\quad\\text{and}\\quad \\int_0^2 g(x)\\,dx = 3,$$ find $$\\int_{-2}^{2} \\big(f(x) + g(x) + f(x)g(x) + 1\\big)\\,dx.$$",
+  "figure": null,
+  "options": [
+   "$4$",
+   "$8$",
+   "$12$",
+   "$14$",
+   "$18$"
+  ],
+  "answer": 2,
+  "solution": "* $f$ even: $\\int_{-2}^2 f = 2 \\times 4 = 8$.\n* $g$ odd: $\\int_{-2}^2 g = 0$.\n* $fg$ is odd, since $f(-x)g(-x) = f(x)\\cdot(-g(x))$: integral $0$.\n* $\\int_{-2}^2 1\\,dx = 4$.\n\nTotal $= 8 + 0 + 0 + 4 = 12$.",
+  "insight": "even $\\times$ odd is odd, so its integral over a symmetric interval vanishes even though you cannot compute it directly.",
+  "distractors": {
+   "4": "Treating $g$ as if it were even ($+6$), getting $18$.",
+   "1": "Forgetting the constant term $+1$, which contributes the width of the interval, $4$."
+  },
+  "time": 180
+ },
+ {
+  "id": "integ-16",
+  "topic": "integ",
+  "paper": 2,
+  "difficulty": 4,
+  "skills": [
+   "integral as a function",
+   "signed area",
+   "stationary points"
+  ],
+  "stem": "For $a > 0$, let $$F(a) = \\int_0^a (x^2 - 4x + 3)\\,dx.$$\n\nWhich of the following statements is/are true?\n\nI. $F(a) \\ge 0$ for all $a > 0$.\n\nII. $F$ has a local maximum at $a = 1$.\n\nIII. The area of the region between the curve $y = x^2 - 4x + 3$, the $x$-axis and the lines $x=0$ and $x=3$ is $F(3)$.",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 4,
+  "solution": "$F(a) = \\frac{a^3}{3} - 2a^2 + 3a = \\frac{a(a-3)^2}{3}$.\n\n**I** True: $a > 0$ and $(a-3)^2 \\ge 0$.\n\n**II** True: $F'(a) = a^2 - 4a + 3 = (a-1)(a-3)$ changes from positive to negative at $a = 1$.\n\n**III** False: $F(3) = 0$, but the curve is below the axis on $(1, 3)$, so the area is $\\frac43 + \\frac43 = \\frac83$, not $0$.",
+  "insight": "The derivative of $\\int_0^a f(x)\\,dx$ with respect to $a$ is $f(a)$, so $F$ turns exactly where the curve crosses the axis.",
+  "distractors": {
+   "7": "Equating the integral with the area even though the curve dips below the axis.",
+   "0": "Thinking $F$ must go negative once the curve goes below the axis; it decreases, but only back down to $0$."
+  },
+  "time": 210
+ },
+ {
+  "id": "integ-17",
+  "topic": "integ",
+  "paper": 1,
+  "difficulty": 5,
+  "skills": [
+   "area between curves",
+   "parameters"
+  ],
+  "stem": "The line $y = kx$, where $0 < k < 2$, divides the region bounded by the curve $y = 2x - x^2$ and the $x$-axis into two parts of equal area.\n\nFind $k$.",
+  "figure": null,
+  "options": [
+   "$2 - \\sqrt[3]{4}$",
+   "$2 - \\sqrt{2}$",
+   "$\\frac{2}{3}$",
+   "$2 - \\sqrt[3]{2}$",
+   "$1$"
+  ],
+  "answer": 0,
+  "solution": "Whole region: $\\int_0^2 (2x - x^2)\\,dx = 4 - \\frac83 = \\frac43$.\n\nThe line meets the curve at $x = 0$ and $x = 2 - k$. The part above the line has area\n$$\\int_0^{2-k} \\big((2-k)x - x^2\\big)\\,dx = \\frac{(2-k)^3}{6}.$$\nSet this equal to $\\frac23$: $(2-k)^3 = 4$, so $k = 2 - \\sqrt[3]{4}$.",
+  "insight": "Subtracting a line from a parabola leaves another parabola, so the parabola-and-chord formula $\\frac{(\\text{width})^3}{6}$ does the work.",
+  "distractors": {
+   "3": "Setting the upper piece equal to $\\frac13$ instead of half of $\\frac43$.",
+   "4": "Guessing that the line through the vertex $(1,1)$ halves the area; it does not."
+  },
+  "time": 270
+ },
+ {
+  "id": "integ-18",
+  "topic": "integ",
+  "paper": 1,
+  "difficulty": 5,
+  "skills": [
+   "functional equations",
+   "transformations",
+   "definite integrals"
+  ],
+  "stem": "A function $f$ satisfies $f(x + 1) = f(x) + 2x$ for all real $x$, and $$\\int_0^1 f(x)\\,dx = 2.$$\n\nFind $\\displaystyle\\int_0^3 f(x)\\,dx$.",
+  "figure": null,
+  "options": [
+   "$9$",
+   "$11$",
+   "$12$",
+   "$15$",
+   "$17$"
+  ],
+  "answer": 1,
+  "solution": "Shift each unit interval back to $[0, 1]$ with $x = u + 1$:\n$$\\int_1^2 f(x)\\,dx = \\int_0^1 f(u + 1)\\,du = \\int_0^1 \\big(f(u) + 2u\\big)\\,du = 2 + 1 = 3.$$\nSimilarly\n$$\\int_2^3 f(x)\\,dx = \\int_1^2 f(u + 1)\\,du = \\int_1^2 \\big(f(u) + 2u\\big)\\,du = 3 + 3 = 6.$$\nTotal: $2 + 3 + 6 = 11$.\n\nCheck with an example: $f(x) = x^2 - x + \\frac{13}{6}$ satisfies both conditions and $\\int_0^3 f = 11$.",
+  "insight": "A horizontal shift of the graph moves the interval of integration, so a functional equation relating $f(x+1)$ to $f(x)$ relates neighbouring areas.",
+  "distractors": {
+   "4": "Writing $f(x) = f(x-1) + 2x$ instead of $f(x-1) + 2(x-1)$, giving $2 + 5 + 10$.",
+   "0": "Adding $1$ to the area each step ($2 + 3 + 4$), forgetting that $\\int 2u$ changes with the interval."
+  },
+  "time": 270
+ }
+]

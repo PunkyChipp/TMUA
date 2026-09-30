@@ -1,0 +1,707 @@
+[
+ {
+  "id": "logic-01",
+  "topic": "logic",
+  "paper": 2,
+  "difficulty": 1,
+  "skills": [
+   "contrapositive",
+   "converse",
+   "inverse"
+  ],
+  "stem": "Which of the following is the **contrapositive** of the statement\n\n> If it is raining, then the ground is wet.",
+  "figure": null,
+  "options": [
+   "If the ground is wet, then it is raining.",
+   "If it is not raining, then the ground is not wet.",
+   "If the ground is not wet, then it is not raining.",
+   "It is raining and the ground is not wet.",
+   "If it is not raining, then the ground is wet."
+  ],
+  "answer": 2,
+  "solution": "The contrapositive of \"if $P$ then $Q$\" is \"if not $Q$ then not $P$\": swap the two parts **and** negate both.\n\nHere $P$ = \"it is raining\", $Q$ = \"the ground is wet\", so the contrapositive is \"If the ground is not wet, then it is not raining\" (C).\n\nThe contrapositive is logically equivalent to the original; the converse (A) and inverse (B) are not.",
+  "insight": "Contrapositive = swap and negate; it is the only rearrangement equivalent to the original.",
+  "distractors": {
+   "0": "This is the converse (swap only). A wet ground could have been caused by a sprinkler.",
+   "1": "This is the inverse (negate only), which is equivalent to the converse, not the original.",
+   "3": "This is the negation of the statement: the situation that would make it false."
+  },
+  "time": 60
+ },
+ {
+  "id": "logic-02",
+  "topic": "logic",
+  "paper": 2,
+  "difficulty": 1,
+  "skills": [
+   "negation",
+   "quantifiers"
+  ],
+  "stem": "A box contains at least one card. Which of the following is the **negation** of the statement\n\n> All the cards in the box are red.",
+  "figure": null,
+  "options": [
+   "No card in the box is red.",
+   "All the cards in the box are not red.",
+   "At least one card in the box is red.",
+   "At least one card in the box is not red.",
+   "Exactly one card in the box is not red."
+  ],
+  "answer": 3,
+  "solution": "The negation must be true in exactly the situations where the original is false.\n\n\"All the cards are red\" is false as soon as **one** card fails to be red. So the negation is \"At least one card in the box is not red\" (D).\n\nIn symbols: $\\neg(\\forall c,\\ R(c)) \\equiv \\exists c,\\ \\neg R(c)$.",
+  "insight": "Negating \"all\" gives \"at least one is not\"; the quantifier flips and the property is negated.",
+  "distractors": {
+   "0": "\"None are red\" is the opposite extreme, not the negation: a box with one red and one blue card makes both the original and A false.",
+   "1": "This means the same as A (every card is non-red), so it has the same flaw.",
+   "4": "Too specific: if two cards are not red the original is still false, but E is false too."
+  },
+  "time": 60
+ },
+ {
+  "id": "logic-03",
+  "topic": "logic",
+  "paper": 2,
+  "difficulty": 2,
+  "skills": [
+   "necessary",
+   "sufficient",
+   "inequalities"
+  ],
+  "stem": "For a real number $x$, which of the following correctly describes the condition $x^2 > 4$?",
+  "figure": null,
+  "options": [
+   "It is necessary but not sufficient for $x > 2$.",
+   "It is sufficient but not necessary for $x > 2$.",
+   "It is necessary and sufficient for $x > 2$.",
+   "It is neither necessary nor sufficient for $x > 2$."
+  ],
+  "answer": 0,
+  "solution": "\"$A$ is necessary for $B$\" means $B \\Rightarrow A$; \"$A$ is sufficient for $B$\" means $A \\Rightarrow B$.\n\n* If $x > 2$ then $x^2 > 4$. So $x > 2 \\Rightarrow x^2 > 4$: the condition $x^2>4$ is **necessary** for $x>2$.\n* $x = -3$ has $x^2 = 9 > 4$ but $x \\not> 2$. So $x^2 > 4$ is **not sufficient**.\n\nAnswer A.",
+  "insight": "Write both implications out and test each with a quick counterexample; the necessary condition is the one implied.",
+  "distractors": {
+   "1": "The classic swap: $x>2$ is sufficient for $x^2>4$, which is the same as saying $x^2>4$ is necessary for $x>2$.",
+   "2": "Forgets negative values: $x=-3$ satisfies $x^2>4$ without $x>2$."
+  },
+  "time": 90
+ },
+ {
+  "id": "logic-04",
+  "topic": "logic",
+  "paper": 2,
+  "difficulty": 2,
+  "skills": [
+   "only if",
+   "implication"
+  ],
+  "stem": "Which of the following is logically equivalent to the statement \"$P$ only if $Q$\"?",
+  "figure": null,
+  "options": [
+   "If $Q$ then $P$.",
+   "If $P$ then $Q$.",
+   "If not $P$ then not $Q$.",
+   "$P$ and $Q$ are both true.",
+   "If $P$ is false then $Q$ is true."
+  ],
+  "answer": 1,
+  "solution": "\"$P$ only if $Q$\" says $P$ cannot happen without $Q$: whenever $P$ is true, $Q$ is true. That is exactly $P \\Rightarrow Q$ (B).\n\nCheck with the truth table: \"$P$ only if $Q$\" fails only when $P$ is true and $Q$ is false, which is the single false row of $P \\Rightarrow Q$.",
+  "insight": "\"$P$ only if $Q$\" is $P \\Rightarrow Q$ — the \"only if\" points forwards to the necessary condition.",
+  "distractors": {
+   "0": "\"If $Q$ then $P$\" is \"$P$ if $Q$\", the converse; \"if\" and \"only if\" point in opposite directions.",
+   "2": "This is the inverse, equivalent to the converse $Q \\Rightarrow P$, not to $P \\Rightarrow Q$."
+  },
+  "time": 60
+ },
+ {
+  "id": "logic-05",
+  "topic": "logic",
+  "paper": 2,
+  "difficulty": 2,
+  "skills": [
+   "counterexample",
+   "implication",
+   "divisibility"
+  ],
+  "stem": "Consider the claim:\n\n> For every positive integer $n$, if $n^2 + 1$ is divisible by $5$, then the last digit of $n$ is $2$ or $3$.\n\nWhich of the following is a counterexample to the claim?",
+  "figure": null,
+  "options": [
+   "$n = 3$",
+   "$n = 5$",
+   "$n = 7$",
+   "$n = 12$",
+   "$n = 13$",
+   "There is no counterexample."
+  ],
+  "answer": 2,
+  "solution": "A counterexample to \"if $P$ then $Q$\" must make $P$ **true** and $Q$ **false**.\n\n* $n=3$: $10$ is divisible by $5$ but the last digit is $3$, so $Q$ holds. Not a counterexample.\n* $n=5$: $26$ is not divisible by $5$, so $P$ fails. Not a counterexample.\n* $n=7$: $50$ is divisible by $5$ and the last digit is $7$. $P$ true, $Q$ false: **counterexample**.\n* $n=12$: $145$ is divisible by $5$, last digit $2$. $Q$ holds.\n* $n=13$: $170$ is divisible by $5$, last digit $3$. $Q$ holds.\n\n(In fact $5 \\mid n^2+1$ exactly when $n$ ends in $2, 3, 7$ or $8$.)",
+  "insight": "A counterexample to an implication satisfies the hypothesis and fails the conclusion — check both.",
+  "distractors": {
+   "1": "$n=5$ fails the conclusion but also fails the hypothesis, so the implication is (vacuously) true for it.",
+   "5": "Only numbers ending in 2 or 3 were tried; $n=7$ was missed."
+  },
+  "time": 90
+ },
+ {
+  "id": "logic-06",
+  "topic": "logic",
+  "paper": 2,
+  "difficulty": 2,
+  "skills": [
+   "truth tables",
+   "implication"
+  ],
+  "stem": "The statements $P$, $Q$ and $R$ can each be true or false, giving $8$ combinations.\n\nFor how many of these $8$ combinations is the statement\n\n$$(P \\Rightarrow Q) \\Rightarrow R$$\n\nfalse?",
+  "figure": null,
+  "options": [
+   "$1$",
+   "$2$",
+   "$3$",
+   "$4$",
+   "$5$"
+  ],
+  "answer": 2,
+  "solution": "An implication $X \\Rightarrow R$ is false only when $X$ is true and $R$ is false.\n\nSo we need $R$ false and $P \\Rightarrow Q$ true. $P \\Rightarrow Q$ is true in $3$ of the $4$ combinations of $(P, Q)$ (all except $P$ true, $Q$ false). With $R$ fixed as false that gives $3$ combinations.",
+  "insight": "Count the false rows of an implication directly: antecedent true, consequent false.",
+  "distractors": {
+   "0": "$1$ is the count for $P \\Rightarrow (Q \\Rightarrow R)$ — implication is not associative.",
+   "4": "$5$ is the number of combinations that make the statement true."
+  },
+  "time": 90
+ },
+ {
+  "id": "logic-07",
+  "topic": "logic",
+  "paper": 2,
+  "difficulty": 2,
+  "skills": [
+   "converse",
+   "inverse",
+   "contrapositive",
+   "divisibility"
+  ],
+  "stem": "Let $n$ be an integer. Consider the (true) statement\n\n> If $n$ is divisible by $6$, then $n$ is divisible by $3$.\n\nWhich of the following statements are true for all integers $n$?\n\nI. If $n$ is divisible by $3$, then $n$ is divisible by $6$.\n\nII. If $n$ is not divisible by $6$, then $n$ is not divisible by $3$.\n\nIII. If $n$ is not divisible by $3$, then $n$ is not divisible by $6$.",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 3,
+  "solution": "I is the converse: $n=3$ is divisible by $3$ but not by $6$. **False.**\n\nII is the inverse (equivalent to the converse): $n=3$ again — not divisible by $6$ but divisible by $3$. **False.**\n\nIII is the contrapositive, which is equivalent to the true original statement. **True.**\n\nAnswer: III only.",
+  "insight": "Only the contrapositive inherits the truth of the original; the converse and inverse stand or fall together.",
+  "distractors": {
+   "5": "Treats the converse as automatically true; a single $n=3$ kills it.",
+   "6": "Confuses which of the inverse and contrapositive is the equivalent one. The inverse and converse always have the same truth value."
+  },
+  "time": 90
+ },
+ {
+  "id": "logic-08",
+  "topic": "logic",
+  "paper": 2,
+  "difficulty": 3,
+  "skills": [
+   "unless",
+   "contrapositive",
+   "equivalence"
+  ],
+  "stem": "Using the usual logical meaning of \"unless\" (\"$A$ unless $B$\" means \"if not $B$, then $A$\"), which of the following is logically equivalent to\n\n> The machine will overheat unless the fan is working.",
+  "figure": null,
+  "options": [
+   "If the fan is working, the machine will not overheat.",
+   "If the fan is not working, the machine will not overheat.",
+   "If the machine does not overheat, the fan is working.",
+   "The machine will overheat only if the fan is not working.",
+   "The fan is working and the machine will not overheat."
+  ],
+  "answer": 2,
+  "solution": "Let $O$ = \"the machine overheats\", $F$ = \"the fan is working\". The statement is $\\neg F \\Rightarrow O$.\n\nIts contrapositive is $\\neg O \\Rightarrow F$: \"If the machine does not overheat, the fan is working\" (C).\n\nEquivalently, both say \"$O$ or $F$\" — at least one of them happens.\n\nA is $F \\Rightarrow \\neg O$: the original says nothing about what happens when the fan works (the machine might overheat for another reason). D is $O \\Rightarrow \\neg F$, the same as A.",
+  "insight": "\"$A$ unless $B$\" is \"not $B \\Rightarrow A$\", which is the same as \"$A$ or $B$\".",
+  "distractors": {
+   "0": "Reads \"unless\" as a two-way promise. The statement only covers what happens when the fan is not working.",
+   "3": "This is $O \\Rightarrow \\neg F$, equivalent to A; it is not implied by the original.",
+   "1": "Contradicts the statement: with the fan not working the machine *will* overheat."
+  },
+  "time": 120
+ },
+ {
+  "id": "logic-09",
+  "topic": "logic",
+  "paper": 2,
+  "difficulty": 3,
+  "skills": [
+   "nested quantifiers",
+   "order of quantifiers"
+  ],
+  "stem": "Which of the following statements are true?\n\nI. For every real number $x$ there exists a real number $y$ such that $y > x^2$.\n\nII. There exists a real number $y$ such that for every real number $x$, $y > x^2$.\n\nIII. There exists a real number $x$ such that for every real number $y$, $y^2 \\ge x$.",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 5,
+  "solution": "**I** — given $x$, choose $y = x^2 + 1$. **True.** Here $y$ may depend on $x$.\n\n**II** — now one $y$ must beat $x^2$ for *every* $x$. But for any $y$, taking $x = |y| + 1$ gives $x^2 > |y| \\ge y$. **False.**\n\n**III** — choose $x = 0$ (or any negative number): $y^2 \\ge 0$ for all real $y$. **True.**\n\nAnswer: I and III only.",
+  "insight": "\"$\\forall x\\,\\exists y$\" lets $y$ depend on $x$; \"$\\exists y\\,\\forall x$\" demands one $y$ that works for all $x$.",
+  "distractors": {
+   "4": "Treats II as the same as I — swapping the order of the quantifiers changes the meaning.",
+   "1": "Misses the easy witness $x=0$ in III: you only need one $x$ that works."
+  },
+  "time": 150
+ },
+ {
+  "id": "logic-10",
+  "topic": "logic",
+  "paper": 2,
+  "difficulty": 3,
+  "skills": [
+   "everyday language",
+   "must be true",
+   "contrapositive"
+  ],
+  "stem": "In a certain class, the following statement is true:\n\n> Every student who passed the exam attended every lecture.\n\nWhich of the following **must** also be true?",
+  "figure": null,
+  "options": [
+   "Every student who attended every lecture passed the exam.",
+   "Every student who missed at least one lecture did not pass the exam.",
+   "Every student who did not pass the exam missed at least one lecture.",
+   "Every student attended at least one lecture.",
+   "At least one student passed the exam."
+  ],
+  "answer": 1,
+  "solution": "The statement is: passed $\\Rightarrow$ attended every lecture.\n\nIts contrapositive is: did not attend every lecture $\\Rightarrow$ did not pass. \"Did not attend every lecture\" means \"missed at least one lecture\", so B must be true.\n\n* A is the converse; C is the inverse. Neither follows.\n* D fails if a student who did not pass attended nothing.\n* E fails if nobody passed — then the statement is vacuously true.",
+  "insight": "Rewrite as \"if … then …\" and take the contrapositive; the negation of \"every lecture\" is \"at least one lecture missed\".",
+  "distractors": {
+   "0": "The converse: a student could attend everything and still fail.",
+   "2": "The inverse: a student could attend every lecture and still fail.",
+   "4": "A universal statement is vacuously true if nobody passed, so it cannot guarantee that anyone did."
+  },
+  "time": 120
+ },
+ {
+  "id": "logic-11",
+  "topic": "logic",
+  "paper": 2,
+  "difficulty": 3,
+  "skills": [
+   "negation",
+   "at most",
+   "at least"
+  ],
+  "stem": "$a$, $b$ and $c$ are real numbers. Which of the following is the negation of the statement\n\n> At most one of $a$, $b$, $c$ is positive.",
+  "figure": null,
+  "options": [
+   "None of $a$, $b$, $c$ is positive.",
+   "At least one of $a$, $b$, $c$ is positive.",
+   "Exactly two of $a$, $b$, $c$ are positive.",
+   "At least two of $a$, $b$, $c$ are positive.",
+   "At least two of $a$, $b$, $c$ are not positive.",
+   "All of $a$, $b$, $c$ are positive."
+  ],
+  "answer": 3,
+  "solution": "\"At most one positive\" means the number of positive values is $0$ or $1$. Its negation says the number is **not** $0$ or $1$, i.e. it is $2$ or $3$: \"at least two of $a, b, c$ are positive\" (D).\n\nIn general, \"at most $k$\" negates to \"at least $k+1$\".",
+  "insight": "Turn \"at most/at least\" into a set of possible counts, then take the complementary set.",
+  "distractors": {
+   "2": "Forgets the case where all three are positive, which also makes the original false.",
+   "4": "Negates the wrong thing: \"at least two not positive\" means at most one positive — that is the original statement."
+  },
+  "time": 90
+ },
+ {
+  "id": "logic-12",
+  "topic": "logic",
+  "paper": 2,
+  "difficulty": 3,
+  "skills": [
+   "necessary",
+   "sufficient",
+   "divisibility"
+  ],
+  "stem": "$n$ is a positive integer. Which of the following conditions are **necessary and sufficient** for $n$ to be divisible by $12$?\n\nI. $n$ is divisible by $3$ and $n$ is divisible by $4$.\n\nII. $n$ is divisible by $2$ and $n$ is divisible by $6$.\n\nIII. $n^2$ is divisible by $48$.",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 5,
+  "solution": "**I** — $3$ and $4$ are coprime, so $3 \\mid n$ and $4 \\mid n$ together are equivalent to $12 \\mid n$. **Yes.**\n\n**II** — $2 \\mid n$ and $6 \\mid n$ is just $6 \\mid n$ (as $\\operatorname{lcm}(2,6)=6$). $n=6$ satisfies it but $12 \\nmid 6$. Necessary but **not sufficient**.\n\n**III** — $48 = 16 \\times 3$. $16 \\mid n^2$ forces $4 \\mid n$ (if $n$ had at most one factor $2$, $n^2$ would have at most two), and $3 \\mid n^2$ forces $3 \\mid n$ ($3$ is prime). So $48 \\mid n^2 \\Rightarrow 12 \\mid n$. Conversely $12 \\mid n \\Rightarrow 144 \\mid n^2 \\Rightarrow 48 \\mid n^2$. **Yes.**\n\nAnswer: I and III only.",
+  "insight": "Combining divisibility conditions gives the lcm, not the product; and for squares, count prime factors.",
+  "distractors": {
+   "7": "II looks like it combines to $12$, but $\\operatorname{lcm}(2,6)=6$, so $n=6$ is a counterexample.",
+   "1": "III looks too weak, but $16 \\mid n^2$ already forces $4 \\mid n$."
+  },
+  "time": 150
+ },
+ {
+  "id": "logic-13",
+  "topic": "logic",
+  "paper": 2,
+  "difficulty": 3,
+  "skills": [
+   "necessary",
+   "sufficient",
+   "discriminant"
+  ],
+  "stem": "$b$ and $c$ are real numbers. Which of the following correctly describes the condition $c < 0$ in relation to the statement \"the equation $x^2 + bx + c = 0$ has two distinct real roots\"?",
+  "figure": null,
+  "options": [
+   "It is necessary but not sufficient.",
+   "It is sufficient but not necessary.",
+   "It is necessary and sufficient.",
+   "It is neither necessary nor sufficient."
+  ],
+  "answer": 1,
+  "solution": "Two distinct real roots $\\iff b^2 - 4c > 0$.\n\n* **Sufficient:** if $c < 0$ then $b^2 - 4c \\ge -4c > 0$. (Or: the parabola is negative at $x=0$, so it must cross the axis twice.)\n* **Not necessary:** $b = 3$, $c = 1$ gives $9 - 4 = 5 > 0$, two distinct roots with $c > 0$.\n\nAnswer B.",
+  "insight": "A sign condition at a single point (here $f(0)<0$) can guarantee roots without being required for them.",
+  "distractors": {
+   "0": "Swaps the roles: roots do not require $c<0$ (e.g. $x^2+3x+1$).",
+   "2": "Overlooks positive $c$ with large $|b|$."
+  },
+  "time": 120
+ },
+ {
+  "id": "logic-14",
+  "topic": "logic",
+  "paper": 2,
+  "difficulty": 3,
+  "skills": [
+   "if",
+   "only if",
+   "if and only if"
+  ],
+  "stem": "$x$ is a real number. Which of the following statements are true?\n\nI. $x^2 = 4$ if $x = -2$.\n\nII. $x^2 = 4$ only if $x = -2$.\n\nIII. $x^3 = -8$ if and only if $x = -2$.",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 5,
+  "solution": "**I** says $x = -2 \\Rightarrow x^2 = 4$. **True.**\n\n**II** says $x^2 = 4 \\Rightarrow x = -2$. But $x = 2$ gives $x^2 = 4$. **False.**\n\n**III**: $x = -2 \\Rightarrow x^3 = -8$, and $x^3 = -8 \\Rightarrow x = -2$ because $x \\mapsto x^3$ is one-to-one on the reals. **True.**\n\nAnswer: I and III only.",
+  "insight": "\"$A$ if $B$\" is $B \\Rightarrow A$; \"$A$ only if $B$\" is $A \\Rightarrow B$.",
+  "distractors": {
+   "4": "Reads \"only if\" backwards, as $x=-2 \\Rightarrow x^2=4$.",
+   "3": "Reads \"if\" backwards in I, turning it into the false $x^2=4 \\Rightarrow x=-2$."
+  },
+  "time": 120
+ },
+ {
+  "id": "logic-15",
+  "topic": "logic",
+  "paper": 2,
+  "difficulty": 3,
+  "skills": [
+   "chains of implication",
+   "must be true"
+  ],
+  "stem": "$A$, $B$ and $C$ are statements. It is known that both of the following are true:\n\n* If $A$ then $B$.\n* If $B$ then not $C$.\n\nWhich of the following must be true?\n\nI. If $A$ then not $C$.\n\nII. If $C$ then not $A$.\n\nIII. If not $A$ then $C$.",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 4,
+  "solution": "Chain the implications: $A \\Rightarrow B \\Rightarrow \\neg C$, so $A \\Rightarrow \\neg C$. **I must be true.**\n\nII is the contrapositive of I ($C \\Rightarrow \\neg A$). **Must be true.**\n\nIII: take $A$, $B$, $C$ all false. Both given statements hold (their hypotheses are false), but III has a true hypothesis ($\\neg A$) and false conclusion ($C$). **Need not be true.**\n\nAnswer: I and II only.",
+  "insight": "Chain implications, then remember each conclusion comes with its contrapositive for free.",
+  "distractors": {
+   "1": "Misses that II is just the contrapositive of I.",
+   "7": "III is the inverse of I; knowing $A$ is false tells you nothing about $C$."
+  },
+  "time": 120
+ },
+ {
+  "id": "logic-16",
+  "topic": "logic",
+  "paper": 2,
+  "difficulty": 4,
+  "skills": [
+   "equivalence",
+   "truth tables"
+  ],
+  "stem": "$P$, $Q$ and $R$ are statements. Which of the following are logically equivalent to\n\n> If $P$ and $Q$, then $R$.\n\nI. If $P$, then (if $Q$ then $R$).\n\nII. (If $P$ then $R$) or (if $Q$ then $R$).\n\nIII. (If $P$ then $R$) and (if $Q$ then $R$).",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 4,
+  "solution": "Use $X \\Rightarrow Y \\equiv \\neg X \\lor Y$.\n\nOriginal: $\\neg(P \\land Q) \\lor R \\equiv \\neg P \\lor \\neg Q \\lor R$.\n\n* **I:** $\\neg P \\lor (\\neg Q \\lor R)$ — identical. **Equivalent.**\n* **II:** $(\\neg P \\lor R) \\lor (\\neg Q \\lor R) \\equiv \\neg P \\lor \\neg Q \\lor R$. **Equivalent.**\n* **III:** $(\\neg P \\lor R) \\land (\\neg Q \\lor R) \\equiv (\\neg P \\land \\neg Q) \\lor R$, which is $(P \\lor Q) \\Rightarrow R$. Take $P$ true, $Q$ false, $R$ false: the original is true but III is false. **Not equivalent.**\n\nAnswer: I and II only.",
+  "insight": "Convert every implication to \"not … or …\" and compare the resulting OR/AND forms.",
+  "distractors": {
+   "5": "Intuition says III (\"both lead to $R$\") is a safer restatement, but it demands $R$ whenever just one of $P, Q$ holds.",
+   "1": "II looks too weak because of the \"or\", but an OR of implications is still a single OR of literals."
+  },
+  "time": 150
+ },
+ {
+  "id": "logic-17",
+  "topic": "logic",
+  "paper": 2,
+  "difficulty": 4,
+  "skills": [
+   "everyday language",
+   "quantifiers",
+   "must be true"
+  ],
+  "stem": "The following two statements about the members of a club are both true:\n\n* No left-handed member plays the violin.\n* Some members who play the violin also sing.\n\nWhich of the following must be true?\n\nI. Some members who sing are not left-handed.\n\nII. No left-handed member sings.\n\nIII. Some members who sing play the violin.",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 5,
+  "solution": "From the second statement there is a member $m$ who plays the violin and sings.\n\n* By the first statement $m$ is not left-handed, and $m$ sings. So **I must be true.**\n* **III** is the second statement read the other way round (\"some $V$ are $S$\" $\\equiv$ \"some $S$ are $V$\"). **Must be true.**\n* **II**: a left-handed member who sings but does not play the violin is consistent with both statements. **Need not be true.**\n\nAnswer: I and III only.",
+  "insight": "Name a witness for each \"some\" statement and see what the \"no/every\" statements force about it.",
+  "distractors": {
+   "4": "II over-generalises: the first statement only restricts left-handed *violinists*.",
+   "1": "Misses that \"some violinists sing\" and \"some singers play the violin\" say exactly the same thing."
+  },
+  "time": 150
+ },
+ {
+  "id": "logic-18",
+  "topic": "logic",
+  "paper": 2,
+  "difficulty": 4,
+  "skills": [
+   "negation",
+   "nested quantifiers"
+  ],
+  "stem": "Which of the following is the negation of the statement\n\n> For every positive integer $n$, there is a prime $p$ with $n < p < 2n$.",
+  "figure": null,
+  "options": [
+   "There is a positive integer $n$ such that every prime $p$ satisfies $p \\le n$ or $p \\ge 2n$.",
+   "There is a positive integer $n$ such that every prime $p$ satisfies $p \\le n$ and $p \\ge 2n$.",
+   "For every positive integer $n$, there is a prime $p$ with $p \\le n$ or $p \\ge 2n$.",
+   "For every positive integer $n$, every prime $p$ satisfies $p \\le n$ or $p \\ge 2n$.",
+   "There is a positive integer $n$ and a prime $p$ with $p \\le n$ or $p \\ge 2n$."
+  ],
+  "answer": 0,
+  "solution": "Negate step by step, flipping each quantifier and negating the inner condition:\n\n$$\\neg\\big(\\forall n\\ \\exists p:\\ n<p<2n\\big) \\equiv \\exists n\\ \\forall p:\\ \\neg(n<p<2n).$$\n\nNow $n < p < 2n$ means \"$p > n$ **and** $p < 2n$\", whose negation is \"$p \\le n$ **or** $p \\ge 2n$\" (De Morgan).\n\nSo: there is an $n$ such that every prime $p$ satisfies $p \\le n$ or $p \\ge 2n$ — option A.\n\n(The original statement is in fact true — it is Bertrand's postulate — but the question is only about its logical form.)",
+  "insight": "Flip every quantifier left to right, then negate the inner condition with De Morgan's laws.",
+  "distractors": {
+   "1": "Negates the double inequality to \"and\" instead of \"or\"; $p\\le n$ and $p \\ge 2n$ can never both hold.",
+   "2": "Negates only the inner condition and leaves the quantifiers unchanged.",
+   "3": "Flips only the inner $\\exists$ to $\\forall$ but keeps \"for every $n$\"; this is far stronger than the negation."
+  },
+  "time": 150
+ },
+ {
+  "id": "logic-19",
+  "topic": "logic",
+  "paper": 2,
+  "difficulty": 4,
+  "skills": [
+   "necessary",
+   "sufficient",
+   "increasing functions"
+  ],
+  "stem": "Let $f(x) = x^3 + ax$, where $a$ is a real constant.\n\nWhich of the following conditions is **necessary but not sufficient** for $f$ to be strictly increasing on the whole real line?",
+  "figure": null,
+  "options": [
+   "$a \\ge -1$",
+   "$a \\le 0$",
+   "$a = 0$",
+   "$a \\ge 0$",
+   "$a > 0$",
+   "$a > 1$"
+  ],
+  "answer": 0,
+  "solution": "First find exactly when $f$ is strictly increasing. $f'(x) = 3x^2 + a$.\n\n* If $a \\ge 0$: $f'(x) \\ge 0$ with equality at most at $x = 0$, so $f$ is strictly increasing (for $a=0$, $f=x^3$).\n* If $a < 0$: $f'(0) = a < 0$, so $f$ decreases near $0$.\n\nSo $f$ is strictly increasing $\\iff a \\ge 0$.\n\nA necessary-but-not-sufficient condition must be **implied by** $a \\ge 0$ but strictly weaker. $a \\ge -1$ is implied by $a \\ge 0$, and $a = -\\tfrac12$ satisfies it without $f$ increasing. Answer A.\n\n$a = 0$, $a>0$ and $a>1$ are sufficient but not necessary; $a \\ge 0$ is necessary and sufficient; $a \\le 0$ is neither.",
+  "insight": "Find the exact condition first; necessary conditions are the weaker sets that contain it, sufficient ones are the smaller sets inside it.",
+  "distractors": {
+   "3": "$a \\ge 0$ is exactly the condition, so it is also sufficient.",
+   "4": "Forgetting that $x^3$ is strictly increasing leads to $a>0$; either way, it is sufficient rather than necessary.",
+   "2": "$a=0$ works, but it is a sufficient condition (a subset), not a necessary one."
+  },
+  "time": 150
+ },
+ {
+  "id": "logic-20",
+  "topic": "logic",
+  "paper": 2,
+  "difficulty": 4,
+  "skills": [
+   "quantifiers",
+   "implication",
+   "inequalities"
+  ],
+  "stem": "$a$ is a real constant. What is the complete set of values of $a$ for which the following statement is true?\n\n> For every real number $x$, if $x > a$ then $x^2 > 4$.",
+  "figure": null,
+  "options": [
+   "$a \\ge -2$",
+   "$|a| \\ge 2$",
+   "$a > 2$",
+   "$a \\ge 2$",
+   "$a \\ge 4$"
+  ],
+  "answer": 3,
+  "solution": "The statement says the interval $(a, \\infty)$ lies inside $\\{x : x^2 > 4\\} = (-\\infty, -2) \\cup (2, \\infty)$.\n\nAn unbounded interval $(a, \\infty)$ can only fit inside $(2, \\infty)$, which needs $a \\ge 2$. At $a = 2$ it works exactly: $x > 2 \\Rightarrow x^2 > 4$.\n\nIf $a < 2$ there is a counterexample: pick $x$ strictly between $\\max(a, -2)$ and $2$. Then $x > a$ but $-2 < x < 2$, so $x^2 < 4$.\n\nAnswer: $a \\ge 2$.",
+  "insight": "\"For all $x$, $x \\in A \\Rightarrow x \\in B$\" means $A \\subseteq B$ — think in sets and check the endpoint.",
+  "distractors": {
+   "2": "Excludes the endpoint: at $a=2$ the hypothesis is $x>2$, which does give $x^2>4$.",
+   "1": "Values $a \\le -2$ fail: with $a=-3$, $x=0$ satisfies $x>a$ but not $x^2>4$.",
+   "4": "$a \\ge 4$ makes the statement true, but it is not the complete set."
+  },
+  "time": 150
+ },
+ {
+  "id": "logic-21",
+  "topic": "logic",
+  "paper": 2,
+  "difficulty": 4,
+  "skills": [
+   "unless",
+   "nested implication",
+   "consistency"
+  ],
+  "stem": "A teacher says:\n\n> If you do not do the homework, then you will not pass unless you revise.\n\nAssuming the teacher's statement is true, which of the following students are **possible**?\n\nI. A student who did the homework, did not revise, and passed.\n\nII. A student who did not do the homework, did not revise, and passed.\n\nIII. A student who did not do the homework, did not revise, and did not pass.",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 5,
+  "solution": "Let $H$ = did the homework, $R$ = revised, $P$ = passed. \"You will not pass unless you revise\" means \"if you do not revise, you will not pass\": $\\neg R \\Rightarrow \\neg P$. The whole statement is\n\n$$\\neg H \\Rightarrow (\\neg R \\Rightarrow \\neg P).$$\n\nIt is false only when $\\neg H$, $\\neg R$ and $P$ all hold.\n\n* **I**: did the homework, so the statement makes no claim. **Possible.**\n* **II**: exactly the one forbidden case. **Impossible.**\n* **III**: not passing is what the statement predicts. **Possible.**\n\nAnswer: I and III only.",
+  "insight": "A nested conditional $X \\Rightarrow (Y \\Rightarrow Z)$ is broken only by $X$ true, $Y$ true, $Z$ false.",
+  "distractors": {
+   "3": "Assumes that skipping revision always means failing, even for students who did the homework.",
+   "7": "Misses that II is exactly the case the teacher rules out."
+  },
+  "time": 150
+ },
+ {
+  "id": "logic-22",
+  "topic": "logic",
+  "paper": 2,
+  "difficulty": 5,
+  "skills": [
+   "nested quantifiers",
+   "witnesses",
+   "integers"
+  ],
+  "stem": "Which of the following statements are true?\n\nI. For every integer $a$ there is an integer $b$ such that $a^2 + b^2$ is a perfect square.\n\nII. For every integer $a$ there is a **non-zero** integer $b$ such that $a^2 + b^2$ is a perfect square.\n\nIII. For every integer $a$ there is an integer $b$ such that, for every integer $c$, $(c - a)(c - b) \\ge 0$.",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 5,
+  "solution": "**I** — take $b = 0$: $a^2 + 0^2 = a^2$ is a perfect square. **True.**\n\n**II** — try $a = 1$. We would need $1 + b^2 = k^2$, i.e. $(k - b)(k + b) = 1$ with $k \\ge 0$. Then $k - b = k + b = \\pm 1$, forcing $b = 0$. So no non-zero $b$ works for $a=1$. **False.**\n\n**III** — take $b = a$: $(c - a)^2 \\ge 0$ for every $c$. **True.**\n\nAnswer: I and III only.",
+  "insight": "When a statement says \"there exists\", try the laziest witness first ($0$, $1$, or the same variable again).",
+  "distractors": {
+   "7": "II feels true because of Pythagorean triples, but $a=1$ (and $a=2$) have none.",
+   "1": "Misses the witness $b=a$ in III, which makes the product a square."
+  },
+  "time": 180
+ },
+ {
+  "id": "logic-23",
+  "topic": "logic",
+  "paper": 2,
+  "difficulty": 5,
+  "skills": [
+   "negation",
+   "nested quantifiers",
+   "sequences"
+  ],
+  "stem": "A sequence $a_1, a_2, a_3, \\dots$ of real numbers has **property $T$** if:\n\n> for every $\\varepsilon > 0$ there exists a positive integer $N$ such that $|a_n| < \\varepsilon$ for all $n > N$.\n\nWhich of the following is equivalent to \"the sequence does **not** have property $T$\"?",
+  "figure": null,
+  "options": [
+   "There exists $\\varepsilon > 0$ such that, for every positive integer $N$, $|a_n| \\ge \\varepsilon$ for all $n > N$.",
+   "There exist $\\varepsilon > 0$ and a positive integer $N$ such that $|a_n| \\ge \\varepsilon$ for all $n > N$.",
+   "There exists $\\varepsilon > 0$ such that, for every positive integer $N$, $|a_n| \\ge \\varepsilon$ for some $n > N$.",
+   "There exists a positive integer $N$ such that, for every $\\varepsilon > 0$, $|a_n| \\ge \\varepsilon$ for some $n > N$.",
+   "For every $\\varepsilon > 0$ and every positive integer $N$, $|a_n| \\ge \\varepsilon$ for some $n > N$.",
+   "For every $\\varepsilon > 0$ there exists a positive integer $N$ such that $|a_n| \\ge \\varepsilon$ for all $n > N$."
+  ],
+  "answer": 2,
+  "solution": "Property $T$ has the shape $\\forall \\varepsilon\\ \\exists N\\ \\forall n > N:\\ |a_n| < \\varepsilon$.\n\nNegate by flipping each quantifier in order and negating the inner condition:\n\n$$\\exists \\varepsilon\\ \\forall N\\ \\exists n > N:\\ |a_n| \\ge \\varepsilon.$$\n\nThat is option C.\n\nTest the others on $a_n = 1, 0, 1, 0, \\dots$ (odd terms $1$, even terms $0$), which clearly does not have property $T$: A and B are false for it (every tail contains zeros), so they are too strong. For $a_n = 1$ for all $n$ (also not $T$): D, E and F are false (take $\\varepsilon = 2$).",
+  "insight": "Negating a chain of quantifiers flips each one in turn — the order stays the same.",
+  "distractors": {
+   "0": "Flips the first two quantifiers but forgets to flip the \"for all $n$\"; this says every tail is entirely large.",
+   "1": "Forgets to flip both $\\exists N$ and $\\forall n$.",
+   "4": "Keeps \"for every $\\varepsilon$\" — this says the sequence is unbounded in every tail, much stronger than not tending to $0$."
+  },
+  "time": 180
+ },
+ {
+  "id": "logic-24",
+  "topic": "logic",
+  "paper": 2,
+  "difficulty": 5,
+  "skills": [
+   "self-reference",
+   "case analysis",
+   "consistency"
+  ],
+  "stem": "Four statements are written on a card:\n\n1. Exactly one of these four statements is false.\n2. Statement 1 is false or statement 4 is false (or both).\n3. At most two of these four statements are true.\n4. Statement 3 is false.\n\nEach statement is either true or false. Which statements are true?",
+  "figure": null,
+  "options": [
+   "None of them",
+   "3 only",
+   "1 and 4 only",
+   "2 and 3 only",
+   "1, 2 and 4 only",
+   "No assignment of true/false is consistent"
+  ],
+  "answer": 3,
+  "solution": "Statements 3 and 4 have opposite truth values (4 says 3 is false). Split into two cases.\n\n**Case 3 true, 4 false.** Then 2 is true (because 4 is false). If 1 were true, exactly one statement would be false, so 1, 2, 3 true, making three true and contradicting 3. So 1 is false. Check: true statements are 2 and 3 — exactly two, so 3 holds; two are false, so 1 is indeed false; 2 is true; 4 is false. **Consistent.**\n\n**Case 3 false, 4 true.** Then at least three statements are true, so 1 and 2 are both true. But 2 says 1 or 4 is false — contradiction. **Impossible.**\n\nSo statements 2 and 3 only.",
+  "insight": "Pair up statements that directly contradict each other and split into cases; check the final assignment against every statement.",
+  "distractors": {
+   "4": "Makes 1 and 4 true without re-checking statement 2, which then refuses to be true.",
+   "2": "Takes only the case 4 true and stops before checking statements 1 and 2.",
+   "5": "One case does survive a careful check; do not give up after the first contradiction."
+  },
+  "time": 180
+ }
+]

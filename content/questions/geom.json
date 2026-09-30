@@ -1,0 +1,509 @@
+[
+ {
+  "id": "geom-01",
+  "topic": "geom",
+  "paper": 1,
+  "difficulty": 1,
+  "skills": [
+   "polygon angles",
+   "exterior angles"
+  ],
+  "stem": "Which one of the following could **not** be the size of each interior angle of a regular polygon?",
+  "figure": null,
+  "options": [
+   "$150^\\circ$",
+   "$155^\\circ$",
+   "$156^\\circ$",
+   "$160^\\circ$",
+   "$162^\\circ$",
+   "$165^\\circ$"
+  ],
+  "answer": 1,
+  "solution": "Work with exterior angles, which sum to $360^\\circ$: each exterior angle is $180^\\circ$ minus the interior angle, and for a regular $n$-gon it equals $\\frac{360^\\circ}{n}$, so it must divide $360$.\n\nThe exterior angles are $30, 25, 24, 20, 18, 15$. All divide $360$ (giving $n=12,15,18,20,24$) except $25$, since $360/25=14.4$.\n\nSo $155^\\circ$ is impossible.",
+  "insight": "For regular polygons, think exterior angle $=360^\\circ/n$.",
+  "distractors": {
+   "2": "$156^\\circ$ looks awkward, but its exterior angle $24^\\circ$ gives $n=15$.",
+   "5": "$165^\\circ$ gives exterior angle $15^\\circ$ and $n=24$, which is allowed."
+  },
+  "time": 60
+ },
+ {
+  "id": "geom-02",
+  "topic": "geom",
+  "paper": 1,
+  "difficulty": 1,
+  "skills": [
+   "similar solids",
+   "scale factors"
+  ],
+  "stem": "Two cylinders are mathematically similar. Their total surface areas are in the ratio $4:9$. The volume of the smaller cylinder is $16\\text{ cm}^3$. What is the volume of the larger cylinder, in cm$^3$?",
+  "figure": null,
+  "options": [
+   "$24$",
+   "$36$",
+   "$54$",
+   "$81$",
+   "$108$"
+  ],
+  "answer": 2,
+  "solution": "Area scale factor $\\frac94$ means length scale factor $\\frac32$, so volume scale factor $\\left(\\frac32\\right)^3=\\frac{27}{8}$.\n\nVolume $=16\\cdot\\frac{27}{8}=54$.",
+  "insight": "Go back to the length scale factor first, then cube it.",
+  "distractors": {
+   "1": "Using the area scale factor $\\frac94$ for volume.",
+   "0": "Using the length scale factor $\\frac32$ for volume.",
+   "3": "Squaring the area scale factor: $16\\cdot\\frac{81}{16}$."
+  },
+  "time": 60
+ },
+ {
+  "id": "geom-03",
+  "topic": "geom",
+  "paper": 1,
+  "difficulty": 2,
+  "skills": [
+   "Pythagoras in 3D"
+  ],
+  "stem": "A cube has edges of length $2$. $V$ is one vertex of the cube, and $M$ is the centre of a face of the cube that does **not** contain $V$. What is the length $VM$?",
+  "figure": null,
+  "options": [
+   "$\\sqrt5$",
+   "$\\sqrt6$",
+   "$2\\sqrt2$",
+   "$3$",
+   "$2\\sqrt3$"
+  ],
+  "answer": 1,
+  "solution": "Put $V$ at the origin with the cube occupying $0\\le x,y,z\\le2$. A face not containing $V$ is, say, $z=2$, with centre $M=(1,1,2)$.\n\n$VM=\\sqrt{1^2+1^2+2^2}=\\sqrt6$. By symmetry the other two faces not containing $V$ give the same answer.",
+  "insight": "Coordinates turn 3D Pythagoras into $\\sqrt{\\Delta x^2+\\Delta y^2+\\Delta z^2}$.",
+  "distractors": {
+   "4": "That is the space diagonal, to the opposite vertex rather than a face centre.",
+   "0": "That is the distance to the midpoint of an edge not through $V$, such as $(2,1,0)$."
+  },
+  "time": 75
+ },
+ {
+  "id": "geom-04",
+  "topic": "geom",
+  "paper": 1,
+  "difficulty": 2,
+  "skills": [
+   "circle theorems",
+   "isosceles triangles"
+  ],
+  "stem": "Points $A$, $B$ and $C$ lie on a circle with centre $O$, and $C$ is on the major arc $AB$. Angle $OAB=25^\\circ$. What is the size of angle $ACB$?",
+  "figure": null,
+  "options": [
+   "$25^\\circ$",
+   "$50^\\circ$",
+   "$65^\\circ$",
+   "$115^\\circ$",
+   "$130^\\circ$"
+  ],
+  "answer": 2,
+  "solution": "$OA=OB$ (radii), so triangle $OAB$ is isosceles and angle $OBA=25^\\circ$. Hence angle $AOB=180^\\circ-50^\\circ=130^\\circ$.\n\nThe angle at the centre is twice the angle at the circumference (with $C$ on the major arc), so angle $ACB=65^\\circ$.",
+  "insight": "Radii make isosceles triangles; then use angle at centre $=2\\times$ angle at circumference.",
+  "distractors": {
+   "4": "Giving the angle at the centre and forgetting to halve it.",
+   "3": "That is the angle subtended at a point on the **minor** arc ($180^\\circ-65^\\circ$)."
+  },
+  "time": 75
+ },
+ {
+  "id": "geom-05",
+  "topic": "geom",
+  "paper": 1,
+  "difficulty": 2,
+  "skills": [
+   "volume of cone",
+   "volume of sphere"
+  ],
+  "stem": "A solid cone has base radius $3$ cm and slant height $5$ cm. It is melted down and recast, with no loss of material, into a single solid sphere. What is the radius of the sphere, in cm?",
+  "figure": null,
+  "options": [
+   "$\\sqrt[3]{3}$",
+   "$\\sqrt[3]{9}$",
+   "$\\sqrt[3]{\\frac{45}{4}}$",
+   "$\\sqrt[3]{12}$",
+   "$3$"
+  ],
+  "answer": 1,
+  "solution": "The perpendicular height is $\\sqrt{5^2-3^2}=4$, so the cone's volume is $\\frac13\\pi\\cdot3^2\\cdot4=12\\pi$.\n\nThen $\\frac43\\pi r^3=12\\pi$ gives $r^3=9$, so $r=\\sqrt[3]{9}$.",
+  "insight": "Recasting preserves volume; watch for slant height versus perpendicular height.",
+  "distractors": {
+   "2": "Using the slant height $5$ as the height: volume $15\\pi$, so $r^3=\\frac{45}{4}$.",
+   "4": "Forgetting the $\\frac13$ in the cone volume: $36\\pi=\\frac43\\pi r^3$ gives $r=3$.",
+   "3": "Forgetting the $\\frac43$ in the sphere volume: $\\pi r^3=12\\pi$."
+  },
+  "time": 90
+ },
+ {
+  "id": "geom-06",
+  "topic": "geom",
+  "paper": 2,
+  "difficulty": 2,
+  "skills": [
+   "similarity",
+   "must be true"
+  ],
+  "stem": "Which of the following statements are true?\n\nI. Any two equilateral triangles are similar.\n\nII. Any two rhombuses are similar.\n\nIII. Any two isosceles right-angled triangles are similar.",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 5,
+  "solution": "Two polygons are similar when corresponding angles are equal **and** corresponding sides are in a fixed ratio.\n\n* **I.** All angles are $60^\\circ$ and all sides are equal, so one is a scaled copy of the other. True.\n* **II.** A square and a rhombus with angles $60^\\circ$ and $120^\\circ$ are both rhombuses but have different angles. False.\n* **III.** The angles are always $45^\\circ,45^\\circ,90^\\circ$, and for triangles equal angles are enough. True.",
+  "insight": "For triangles, equal angles are enough for similarity; for other polygons you also need the side ratios to match, and vice versa.",
+  "distractors": {
+   "7": "Equal side ratios (all sides equal) are not enough for a quadrilateral: the angles can change.",
+   "1": "Rejecting III by confusing *similar* with *congruent*."
+  },
+  "time": 90
+ },
+ {
+  "id": "geom-07",
+  "topic": "geom",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "area ratio",
+   "triangles"
+  ],
+  "stem": "In triangle $ABC$, the point $D$ lies on $AB$ with $AD:DB=2:1$, and the point $E$ lies on $AC$ with $AE:EC=1:3$. What fraction of the area of triangle $ABC$ is the area of the quadrilateral $DBCE$?",
+  "figure": null,
+  "options": [
+   "$\\frac23$",
+   "$\\frac34$",
+   "$\\frac79$",
+   "$\\frac56$",
+   "$\\frac{11}{12}$"
+  ],
+  "answer": 3,
+  "solution": "Triangles $ADE$ and $ABC$ share angle $A$, so, using area $=\\frac12\\,pq\\sin A$,\n$$\\frac{[ADE]}{[ABC]}=\\frac{AD}{AB}\\cdot\\frac{AE}{AC}=\\frac23\\cdot\\frac14=\\frac16.$$\nSo $[DBCE]=1-\\frac16=\\frac56$ of the triangle.",
+  "insight": "Triangles sharing an angle have areas in the ratio of the products of the sides enclosing it.",
+  "distractors": {
+   "2": "Reading $AE:EC=1:3$ as $AE=\\frac13AC$, giving $[ADE]=\\frac29$.",
+   "4": "Using $AD=\\frac13AB$ (swapping the ratio), giving $[ADE]=\\frac1{12}$."
+  },
+  "time": 120
+ },
+ {
+  "id": "geom-08",
+  "topic": "geom",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "tangents",
+   "circle theorems",
+   "similar triangles"
+  ],
+  "stem": "A circle has centre $O$ and radius $5$. A point $P$ is such that $OP=13$. The two tangents from $P$ touch the circle at $A$ and $B$. What is the length of the chord $AB$?",
+  "figure": null,
+  "options": [
+   "$\\frac{60}{13}$",
+   "$\\frac{120}{13}$",
+   "$10$",
+   "$12$",
+   "$24$"
+  ],
+  "answer": 1,
+  "solution": "The radius meets the tangent at right angles, so triangle $OAP$ has a right angle at $A$ with $OA=5$, $OP=13$, $PA=12$.\n\nBy symmetry $AB\\perp OP$; let $AB$ meet $OP$ at $N$. Then $AN$ is the height of the right-angled triangle $OAP$ onto its hypotenuse:\n$$AN=\\frac{OA\\cdot PA}{OP}=\\frac{5\\cdot12}{13}=\\frac{60}{13}.$$\nSo $AB=2AN=\\frac{120}{13}$.",
+  "insight": "Compute the area of a right-angled triangle two ways to get the height onto its hypotenuse.",
+  "distractors": {
+   "0": "Finding $AN$ and forgetting to double it.",
+   "2": "Assuming $AB$ is a diameter."
+  },
+  "time": 120
+ },
+ {
+  "id": "geom-09",
+  "topic": "geom",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "similar solids",
+   "volume scale factor"
+  ],
+  "stem": "A hollow cone of height $12$ cm is held with its axis vertical and its vertex pointing downwards. Water is poured in until its depth is $6$ cm. The **volume** of water is then doubled. What is the new depth of the water, in cm?",
+  "figure": null,
+  "options": [
+   "$6\\sqrt[3]{2}$",
+   "$6\\sqrt2$",
+   "$9$",
+   "$6\\sqrt[3]{4}$",
+   "$12$"
+  ],
+  "answer": 0,
+  "solution": "The water always forms a cone similar to the container, so its volume is proportional to the cube of its depth.\n\nDoubling the volume multiplies the depth by $\\sqrt[3]{2}$: new depth $=6\\sqrt[3]{2}$ cm (about $7.6$ cm, sensibly below $12$).",
+  "insight": "Similar shapes: volume $\\propto$ length$^3$, so scale lengths by the cube root of the volume factor.",
+  "distractors": {
+   "4": "Assuming depth is proportional to volume.",
+   "1": "Using the area scale factor (square root) instead of the cube root."
+  },
+  "time": 90
+ },
+ {
+  "id": "geom-10",
+  "topic": "geom",
+  "paper": 2,
+  "difficulty": 3,
+  "skills": [
+   "polygon angles",
+   "possibility"
+  ],
+  "stem": "Which of the following could exist?\n\nI. A regular polygon with each interior angle equal to $165^\\circ$.\n\nII. A regular polygon with each interior angle equal to $145^\\circ$.\n\nIII. A convex heptagon (seven sides) in which six of the interior angles are each $130^\\circ$.",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 5,
+  "solution": "* **I.** Exterior angle $15^\\circ$, and $360/15=24$: a regular 24-gon. Exists.\n* **II.** Exterior angle $35^\\circ$, and $360/35$ is not an integer. Cannot exist.\n* **III.** The angle sum of a heptagon is $(7-2)\\cdot180^\\circ=900^\\circ$. Six angles give $780^\\circ$, leaving $120^\\circ$, which is less than $180^\\circ$, so the heptagon can be convex. For example, exterior angles $50^\\circ$ (six times) and $60^\\circ$ sum to $360^\\circ$, and a polygon can be built with those turning angles by choosing suitable side lengths. Exists.",
+  "insight": "Interior angle sum $(n-2)180^\\circ$ and exterior angle sum $360^\\circ$ decide almost every polygon question.",
+  "distractors": {
+   "1": "Rejecting III: the remaining angle is $900^\\circ-780^\\circ=120^\\circ$, which is less than $180^\\circ$, so a convex heptagon is possible.",
+   "7": "Assuming $145^\\circ$ works because it lies between known values; $360/35$ is not whole."
+  },
+  "time": 120
+ },
+ {
+  "id": "geom-11",
+  "topic": "geom",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "Pythagoras in 3D",
+   "volume of pyramid"
+  ],
+  "stem": "A pyramid has a square base of side $6$, and each of its four sloping edges also has length $6$. What is the volume of the pyramid?",
+  "figure": null,
+  "options": [
+   "$18\\sqrt2$",
+   "$36$",
+   "$36\\sqrt2$",
+   "$36\\sqrt3$",
+   "$108\\sqrt2$"
+  ],
+  "answer": 2,
+  "solution": "The apex is directly above the centre of the base. The distance from the centre to a base vertex is half the diagonal, $3\\sqrt2$.\n\nHeight: $h=\\sqrt{6^2-(3\\sqrt2)^2}=\\sqrt{36-18}=3\\sqrt2$.\n\nVolume $=\\frac13\\cdot36\\cdot3\\sqrt2=36\\sqrt2$.",
+  "insight": "For a right pyramid, the height, half the diagonal of the base and the sloping edge form a right-angled triangle.",
+  "distractors": {
+   "3": "Using the slant height of a triangular face, $3\\sqrt3$, as the perpendicular height.",
+   "4": "Forgetting the $\\frac13$ in the pyramid volume."
+  },
+  "time": 120
+ },
+ {
+  "id": "geom-12",
+  "topic": "geom",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "composite areas",
+   "circle segments"
+  ],
+  "stem": "A square has side length $2$. On each side, a semicircle is drawn **inside** the square with that side as its diameter, as shown. The four semicircles overlap to form four 'petals' (the regions lying inside two of the semicircles). What is the total area of the four petals?",
+  "figure": {
+   "svg": "<svg viewBox=\"0 0 100 100\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"><rect x=\"10\" y=\"10\" width=\"80\" height=\"80\"/><path d=\"M10 90 A40 40 0 0 1 90 90\"/><path d=\"M90 10 A40 40 0 0 1 10 10\"/><path d=\"M10 10 A40 40 0 0 1 10 90\"/><path d=\"M90 90 A40 40 0 0 1 90 10\"/></svg>"
+  },
+  "options": [
+   "$4-\\pi$",
+   "$\\pi-2$",
+   "$2\\pi-4$",
+   "$\\pi$",
+   "$2\\pi-2$"
+  ],
+  "answer": 2,
+  "solution": "**Fastest:** the four semicircles have total area $4\\cdot\\frac{\\pi}{2}=2\\pi$. They cover the whole square, with each petal counted twice. So $2\\pi=4+(\\text{petal area})$, giving petal area $2\\pi-4$.\n\n**Alternatively:** each petal is two segments of a quarter-circle of radius $1$, each of area $\\frac{\\pi}{4}-\\frac12$. Eight segments give $2\\pi-4$.",
+  "insight": "Inclusion–exclusion: total of the pieces minus the region covered equals the overlap.",
+  "distractors": {
+   "1": "Counting only one segment per petal (four segments instead of eight).",
+   "0": "Subtracting the wrong way round in the inclusion–exclusion step: (square) $-$ (half the semicircle total) $=4-\\pi$."
+  },
+  "time": 150
+ },
+ {
+  "id": "geom-13",
+  "topic": "geom",
+  "paper": 1,
+  "difficulty": 4,
+  "skills": [
+   "Pythagoras in 3D",
+   "volume of pyramid",
+   "tetrahedron"
+  ],
+  "stem": "A regular tetrahedron has all six edges of length $2$. What is its volume?",
+  "figure": null,
+  "options": [
+   "$\\frac{\\sqrt2}{3}$",
+   "$\\frac{2\\sqrt2}{3}$",
+   "$1$",
+   "$\\frac{4\\sqrt2}{3}$",
+   "$2\\sqrt2$"
+  ],
+  "answer": 1,
+  "solution": "Base: an equilateral triangle of side $2$, area $\\frac{\\sqrt3}{4}\\cdot4=\\sqrt3$.\n\nThe apex lies above the centroid of the base, which is $\\frac23$ of the way along a median of length $\\sqrt3$, i.e. at distance $\\frac{2}{\\sqrt3}$ from each base vertex.\n\nHeight: $h=\\sqrt{4-\\frac43}=\\sqrt{\\frac83}=\\frac{2\\sqrt2}{\\sqrt3}$.\n\nVolume $=\\frac13\\cdot\\sqrt3\\cdot\\frac{2\\sqrt2}{\\sqrt3}=\\frac{2\\sqrt2}{3}$.\n\n*Alternative:* a regular tetrahedron of edge $2$ fits in a cube of edge $\\sqrt2$ (using four alternate vertices); cutting off four corner pyramids, each $\\frac16$ of the cube, leaves $\\frac13\\cdot(\\sqrt2)^3=\\frac{2\\sqrt2}{3}$.",
+  "insight": "The apex of a regular pyramid is above the centroid of the base, which sits two-thirds of the way along each median.",
+  "distractors": {
+   "2": "Taking the height to be $\\sqrt3$ (the height of a face) instead of the perpendicular height.",
+   "4": "Forgetting the $\\frac13$ in the pyramid volume."
+  },
+  "time": 180
+ },
+ {
+  "id": "geom-14",
+  "topic": "geom",
+  "paper": 1,
+  "difficulty": 4,
+  "skills": [
+   "incircle",
+   "circumcircle",
+   "right-angled triangles"
+  ],
+  "stem": "A right-angled triangle has shorter sides $6$ and $8$. What is the distance between the centre of its inscribed circle and the centre of its circumscribed circle?",
+  "figure": null,
+  "options": [
+   "$1$",
+   "$2$",
+   "$\\sqrt5$",
+   "$3$",
+   "$\\sqrt{13}$",
+   "$5$"
+  ],
+  "answer": 2,
+  "solution": "Put the right angle at the origin with vertices $(0,0)$, $(6,0)$, $(0,8)$; the hypotenuse is $10$.\n\n* **Circumcentre:** the angle in a semicircle is a right angle, so the hypotenuse is a diameter and the centre is its midpoint $(3,4)$.\n* **Incentre:** for a right-angled triangle the inradius is $r=\\frac{a+b-c}{2}=\\frac{6+8-10}{2}=2$ (equal tangent lengths from each vertex), and the centre is $(2,2)$.\n\nDistance $=\\sqrt{1^2+2^2}=\\sqrt5$.",
+  "insight": "Right angle: the circumcentre is the midpoint of the hypotenuse and $r=\\frac{a+b-c}{2}$.",
+  "distractors": {
+   "3": "Taking the difference of the radii, $5-2$, as if the centres and a point of contact were collinear.",
+   "4": "Using $r=1$ (for example from $\\frac{a+b-c}{4}$), which puts the incentre at $(1,1)$ and gives $\\sqrt{2^2+3^2}$."
+  },
+  "time": 180
+ },
+ {
+  "id": "geom-15",
+  "topic": "geom",
+  "paper": 1,
+  "difficulty": 4,
+  "skills": [
+   "similar triangles",
+   "area ratio"
+  ],
+  "stem": "In triangle $ABC$, points $D$ on $AB$ and $E$ on $AC$ are such that $DE$ is parallel to $BC$ and the line $DE$ divides the triangle into two regions of equal area. What is the ratio $\\dfrac{AD}{DB}$?",
+  "figure": null,
+  "options": [
+   "$\\sqrt2-1$",
+   "$1$",
+   "$\\sqrt2$",
+   "$2$",
+   "$\\sqrt2+1$",
+   "$3$"
+  ],
+  "answer": 4,
+  "solution": "Triangle $ADE$ is similar to triangle $ABC$ with half its area, so $\\frac{AD}{AB}=\\frac{1}{\\sqrt2}$.\n\nThen $\\frac{AD}{DB}=\\frac{AD}{AB-AD}=\\frac{1}{\\sqrt2-1}=\\sqrt2+1$.",
+  "insight": "Area ratio $k$ between similar figures means length ratio $\\sqrt k$ — then convert part:whole to part:part.",
+  "distractors": {
+   "1": "Halving lengths instead of areas (putting $D$ at the midpoint, which gives area ratio $1:3$).",
+   "2": "That is $\\frac{AB}{AD}$, the part-to-whole ratio inverted, not $\\frac{AD}{DB}$.",
+   "0": "That is $\\frac{DB}{AD}$, the ratio the wrong way round."
+  },
+  "time": 150
+ },
+ {
+  "id": "geom-16",
+  "topic": "geom",
+  "paper": 2,
+  "difficulty": 4,
+  "skills": [
+   "cyclic quadrilaterals",
+   "counterexamples"
+  ],
+  "stem": "A quadrilateral $Q$ has all four vertices on a circle. Which of the following **must** be true?\n\nI. The opposite angles of $Q$ add up to $180^\\circ$.\n\nII. If $Q$ is a rhombus, then $Q$ is a square.\n\nIII. If $Q$ is a kite (two pairs of equal adjacent sides), then $Q$ is a square.",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 4,
+  "solution": "* **I.** This is the cyclic quadrilateral theorem. True.\n* **II.** A rhombus has equal opposite angles; with I they are each $90^\\circ$, so it is a square. True.\n* **III.** False. On a circle with diameter $AC$, take $B$ on one semicircle and $D$ its mirror image in $AC$. Then $AB=AD$ and $CB=CD$, so $ABCD$ is a kite, and it is cyclic. Its angles at $B$ and $D$ are right angles (angle in a semicircle), but unless $B$ is the midpoint of the arc, $AB\\ne CB$ and it is not a square.",
+  "insight": "To show a 'must' statement fails, build one explicit counterexample; to confirm one, chain known theorems.",
+  "distractors": {
+   "7": "Arguing that the kite, like the rhombus, has equal opposite angles — but only one pair of opposite angles is equal in a kite.",
+   "1": "Doubting II: the equal opposite angles of a rhombus, together with I, force right angles."
+  },
+  "time": 150
+ },
+ {
+  "id": "geom-17",
+  "topic": "geom",
+  "paper": 1,
+  "difficulty": 5,
+  "skills": [
+   "3D cross-sections",
+   "Pythagoras in 3D",
+   "regular hexagon"
+  ],
+  "stem": "A cube has edges of length $2$. A plane passes through the centre of the cube and is perpendicular to one of the cube's space diagonals. What is the area of the cross-section of the cube cut by this plane?",
+  "figure": null,
+  "options": [
+   "$2\\sqrt3$",
+   "$2\\sqrt6$",
+   "$3\\sqrt3$",
+   "$4\\sqrt2$",
+   "$6$"
+  ],
+  "answer": 2,
+  "solution": "Use coordinates $0\\le x,y,z\\le2$ with the diagonal from $(0,0,0)$ to $(2,2,2)$. The plane is $x+y+z=3$.\n\nIt meets the edges at points whose coordinates are $0,1,2$ in some order, such as $(2,1,0)$ and $(1,2,0)$: these are the midpoints of six edges, forming a regular hexagon (by symmetry about the diagonal).\n\nAdjacent vertices, e.g. $(2,1,0)$ and $(2,0,1)$, are $\\sqrt2$ apart. A regular hexagon of side $\\sqrt2$ has area $6\\cdot\\frac{\\sqrt3}{4}\\cdot2=3\\sqrt3$.",
+  "insight": "Symmetry identifies the cross-section; coordinates then give the side length.",
+  "distractors": {
+   "0": "That is the equilateral triangle through three vertices (such as $x+y+z=2$), not the central section.",
+   "4": "Splitting the hexagon into six triangles of area $\\frac12\\cdot\\sqrt2\\cdot\\sqrt2$ — forgetting the $\\sin60^\\circ$."
+  },
+  "time": 210
+ },
+ {
+  "id": "geom-18",
+  "topic": "geom",
+  "paper": 1,
+  "difficulty": 5,
+  "skills": [
+   "inscribed sphere",
+   "similar solids",
+   "cross-sections"
+  ],
+  "stem": "A solid cone has base radius $3$ and height $4$. A sphere is placed inside the cone so that it touches the base and the curved surface. A second, smaller sphere is placed above the first so that it touches the first sphere and the curved surface of the cone. What is the radius of the second sphere?",
+  "figure": null,
+  "options": [
+   "$\\frac14$",
+   "$\\frac38$",
+   "$\\frac12$",
+   "$\\frac34$",
+   "$\\frac{15}{16}$"
+  ],
+  "answer": 1,
+  "solution": "Take the vertical cross-section through the axis: an isosceles triangle with base $6$, height $4$ and sloping sides $5$.\n\n**First sphere:** it appears as the incircle, with radius $r=\\frac{\\text{area}}{\\text{semi-perimeter}}=\\frac{12}{8}=\\frac32$. Its top point is at height $3$.\n\n**Second sphere:** the horizontal tangent plane at height $3$ cuts off a small cone above it, with height $4-3=1$, similar to the whole cone with scale factor $\\frac14$. The second sphere is the inscribed sphere of this small cone, so its radius is $\\frac14\\cdot\\frac32=\\frac38$.",
+  "insight": "An inscribed circle has radius area/semi-perimeter, and a tangent plane creates a similar smaller copy of the whole configuration.",
+  "distractors": {
+   "4": "Measuring the small cone from the centre of the first sphere (height $2.5$, scale $\\frac58$).",
+   "3": "Using the scale factor $\\frac12$ (thinking the small cone has height $2$)."
+  },
+  "time": 225
+ }
+]
