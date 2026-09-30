@@ -9,6 +9,7 @@ import { randomSeed } from '../lib/rng.js';
 import { esc, LETTERS, fmtClock, fmtSecs, uid, dateKey, pct, $ } from '../lib/util.js';
 import { ICON } from './icons.js';
 import { md, mdi, diffDots, topicChip, figureHTML, optionsHTML, solutionHTML, toast } from './common.js';
+import { tutorHTML, hint as tutorHint, explain as tutorExplain, stop as tutorStop, keyOf } from './tutor.js';
 
 export const REASONS = [
   ['concept', 'Didn\'t know the method'],
@@ -75,7 +76,7 @@ function recordAttempt(q, r, mode) {
   update(s => {
     s.attempts.push({
       qid: q.id, topic: q.topic, d: q.difficulty, ok: r.ok, ms: Math.round(r.ms), at: Date.now(), mode,
-      choice: r.choice, guess: r.guess || undefined, target: Math.round(targetMs(q) / 1000), sid: cur.id,
+      choice: r.choice, guess: r.guess || undefined, hint: r.hint || undefined, target: Math.round(targetMs(q) / 1000), sid: cur.id,
     });
     srsRecord(srsKey(q), q.topic, r.ok);
   });
@@ -120,12 +121,14 @@ function qTop(q, k) {
   return `<div class="qhead">
     <div class="qmeta"><span class="qnum">Q${k + 1}<span class="muted"> / ${cur.qs.length}</span></span>${topicChip(q.topic)}${diffDots(q.difficulty)}
       ${q._review ? '<span class="chip tone-warn">Review</span>' : ''}${q.paper === 2 && TOPIC[q.topic].paper === 1 ? '<span class="chip">Paper 2 style</span>' : ''}</div>
-    ${cur.test ? '' : `<span class="clock" id="q-clock" data-target="${targetMs(q)}"></span>`}
+    ${cur.test ? '' : `<span class="clock" id="q-clock" data-target="${targetMs(q)}" aria-label="Time on this question">${ringSVG(0)}<span>0:00</span></span>`}
   </div>`;
 }
 
 function renderPractice() {
   const q = cur.qs[cur.i], r = cur.resp[cur.i];
+  const fresh = cur.fresh === cur.i;
+  cur.fresh = null;
   const flagged = !!S().flags[q.id];
   let fb = '';
   if (r.checked) {
@@ -138,11 +141,12 @@ function renderPractice() {
       </div>
       ${!r.ok ? `<div class="stack" style="gap:8px"><span class="eyebrow">Why did you miss it?</span><div class="reasons">${REASONS.map(([k, l]) => `<button class="chip" data-act="reason" data-r="${k}" aria-pressed="${r.reason === k}">${l}</button>`).join('')}</div></div>` : ''}
       ${solutionHTML(q, r.choice)}
+      ${tutorHTML(q, r)}
     </div>`;
   }
   return `<div class="col">
     ${header()}
-    <article class="sheet qsheet" aria-live="polite">
+    <article class="sheet qsheet${fresh ? ' fresh' : ''}" aria-live="polite">
       ${qTop(q, cur.i)}
       <div class="stem">${md(q.stem)}</div>
       ${figureHTML(q.figure)}
@@ -151,7 +155,7 @@ function renderPractice() {
         <div class="left">
           ${r.checked ? `<button class="btn sm ghost" data-act="flag" aria-pressed="${flagged}">${ICON.bookmark}${flagged ? 'Saved' : 'Save'}</button>
             <button class="btn sm ghost" data-act="report">Report a problem</button>`
-            : `<label class="toggle"><input type="checkbox" id="guess-toggle" data-act="guess" ${r.guess ? 'checked' : ''}> I'm guessing</label>`}
+            : `<label class="toggle"><input type="checkbox" id="guess-toggle" data-act="guess" ${r.guess ? 'checked' : ''}> I'm guessing</label>${tutorHTML(q, r, { before: true })}`}
         </div>
         <div class="right">
           ${r.checked
@@ -161,7 +165,7 @@ function renderPractice() {
                <button class="btn primary" data-act="check" ${r.choice == null ? 'disabled' : ''}>Check <kbd>Enter</kbd></button>`}
         </div>
       </div>
-      ${r.checked ? fb : ''}
+      ${r.checked ? fb : tutorHTML(q, r, { before: 'bubble' })}
     </article>
     <div class="keys"><span><kbd>A</kbd>–<kbd>H</kbd> choose</span><span><kbd>Shift</kbd>+letter or right-click to cross out</span><span><kbd>G</kbd> guess</span><span><kbd>Enter</kbd> check / next</span></div>
   </div>`;
@@ -173,7 +177,10 @@ function paceLine() {
   const shouldBe = Math.min(n, Math.floor(elapsed() / perQ) + 1);
   const answered = cur.resp.filter(r => r.choice != null).length;
   const diff = answered - (shouldBe - 1);
-  return `<span class="pace" id="pace">Pace: at this time you'd ideally be on <b>Q${shouldBe}</b>. You've answered <b>${answered}</b>${diff >= 1 ? ' – on track' : diff < -1 ? ' – speed up, guess and flag' : ''}.</span>`;
+  const frac = Math.min(1, elapsed() / (perQ * n));
+  return `<div class="stack" id="pace" style="gap:6px;min-width:min(100%,320px)">
+    <div class="pacebar" aria-hidden="true"><i style="width:${(100 * answered) / n}%"></i><b style="left:calc(${(frac * 100).toFixed(2)}% - 1px)"></b></div>
+    <span class="pace">Ideal pace: <b>Q${shouldBe}</b> now · answered <b>${answered}</b>${diff >= 1 ? ' · on track' : diff < -1 ? ' · speed up: guess and flag' : ''}</span></div>`;
 }
 
 function renderTest() {
@@ -236,6 +243,7 @@ function renderResults() {
         <div class="verdict ${r.ok ? 'ok' : 'no'}"><span class="big">${r.ok ? 'Correct' : r.choice == null ? 'Blank' : 'Wrong'}</span><span class="muted">${fmtSecs(r.ms)} spent</span></div>
         ${!r.ok ? `<div class="reasons">${REASONS.map(([k, l]) => `<button class="chip" data-act="rv-reason" data-k="${rv}" data-r="${k}" aria-pressed="${r.reason === k}">${l}</button>`).join('')}</div>` : ''}
         ${solutionHTML(q, r.choice)}
+        ${tutorHTML(q, r)}
       </div>
     </article>`;
   }
@@ -320,10 +328,11 @@ function similar() {
 function go(k) {
   if (k < 0 || k >= cur.qs.length) return;
   stampTime();
+  const dir = k > cur.i ? 'next' : 'prev';
   cur.i = k;
   cur.view = null;
   persistActive();
-  hooks.render(true);
+  hooks.render(true, dir);
 }
 
 function choose(i) {
@@ -351,6 +360,7 @@ function check(reveal = false) {
   if (reveal) r.choice = null;
   r.checked = true;
   r.ok = r.choice === q.answer;
+  cur.fresh = cur.i;
   recordAttempt(q, r, cur.kind);
   if (reveal) setReason(cur.i, 'concept');
   hooks.render();
@@ -390,6 +400,12 @@ export function sessionAction(act, el, ev) {
     case 'rv': cur.view = `rv:${el.dataset.k}`; hooks.render(true); return true;
     case 'rv-close': cur.view = null; hooks.render(); return true;
     case 'rv-reason': setReason(+el.dataset.k, el.dataset.r); hooks.render(); return true;
+    case 'tutor-hint': {
+      const t = tutorTarget(); if (!t) return false;
+      t.r.hint = true; tutorHint(t.q, t.r); return true;
+    }
+    case 'tutor-explain': { const t = tutorTarget(); if (!t) return false; tutorExplain(t.q, t.r, el.dataset.mode); return true; }
+    case 'tutor-stop': { const t = tutorTarget(); if (!t) return false; tutorStop(keyOf(t.q)); return true; }
     case 'sess-quit': {
       if (cur.finished || cur.test) { if (!cur.finished) { stampTime(); persistActive(); } cur = null; hooks.done(null); return true; }
       const any = cur.resp.some(r => r.checked);
@@ -445,10 +461,27 @@ export function startTicker() {
       const r = cur.resp[cur.i];
       const ms = r.checked ? r.ms : r.ms + (Date.now() - cur.qStart);
       const tgt = +qc.dataset.target;
-      qc.innerHTML = `${ICON.clock}<span>${fmtClock(ms)}</span><span class="muted small">/ ${fmtClock(tgt)}</span>`;
+      qc.innerHTML = `${ringSVG(ms / tgt)}<span>${fmtClock(ms)}</span><span class="muted small">/ ${fmtClock(tgt)}</span>`;
       qc.classList.toggle('over', ms > tgt);
     }
     const p = $('#pace');
     if (p && cur.test) p.outerHTML = paceLine();
   }, 500);
+}
+
+// Countdown ring for the per-question target time.
+function ringSVG(frac) {
+  const c = 2 * Math.PI * 8;
+  const f = Math.max(0, Math.min(1, frac));
+  return `<svg class="qring" viewBox="0 0 22 22" aria-hidden="true"><circle class="bg" cx="11" cy="11" r="8"/><circle class="fg" cx="11" cy="11" r="8" stroke-dasharray="${c.toFixed(2)}" stroke-dashoffset="${(c * (1 - f)).toFixed(2)}"/></svg>`;
+}
+
+// The question the tutor should talk about right now (practice question or a reviewed result).
+export function tutorTarget() {
+  if (!cur) return null;
+  if (cur.finished) {
+    const rv = cur.view && cur.view.startsWith('rv:') ? +cur.view.slice(3) : null;
+    return rv == null ? null : { q: cur.qs[rv], r: cur.resp[rv] };
+  }
+  return { q: cur.qs[cur.i], r: cur.resp[cur.i] };
 }

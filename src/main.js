@@ -7,11 +7,15 @@ import { TOPIC, EXAM } from './data/topics.js';
 import { $, esc, dateKey, daysBetween, uid } from './lib/util.js';
 import { ICON } from './ui/icons.js';
 import { toast, initTips } from './ui/common.js';
+import { initCaps, getCaps, onCaps } from './lib/caps.js';
+import { initSync, syncStatus, onSyncStatus } from './lib/sync.js';
+import { openPalette, paletteOpen, setPaletteRunner } from './ui/palette.js';
+import { setTutorRender, ask as tutorAsk, explain as tutorExplain, stop as tutorStop, keyOf, runCoach, stopCoach } from './ui/tutor.js';
 import { todayView } from './ui/today.js';
-import { practiceView, learnView, noteView, reviewView, questionView, progressView, papersView, settingsView, onboardingView } from './ui/pages.js';
+import { practiceView, learnView, noteView, reviewView, questionView, progressView, papersView, settingsView, onboardingView, coachSummary } from './ui/pages.js';
 import {
   startSession, renderSession, sessionAction, sessionKey, sessionContext, startTicker,
-  setSessionHooks, activeSession, resumeActive, discardActive,
+  setSessionHooks, activeSession, resumeActive, discardActive, tutorTarget,
 } from './ui/session.js';
 
 const ui = {
@@ -55,17 +59,28 @@ function shell(content) {
   const link = ([r, label, icon], cls = '') => `<a href="#${r}" data-act="go" data-to="${r}" ${navRoute === r ? 'aria-current="page"' : ''} class="${cls}">${icon}<span>${label}</span>${r === 'review' && due ? `<span class="badge">${due}</span>` : ''}</a>`;
   return `
     <nav class="rail" aria-label="Main">
-      <a class="brand" href="#today" data-act="go" data-to="today"><span class="brand-mark">TMUA Fortnight</span></a>
+      <a class="brand" href="#today" data-act="go" data-to="today">${GLYPH}<span class="brand-mark">TMUA Fortnight</span></a>
+      <button class="cmd-hint" data-act="palette"><span>Jump to…</span><kbd>${IS_MAC ? '⌘' : 'Ctrl'} K</kbd></button>
       <div class="nav">${NAV.map(n => link(n)).join('')}</div>
       <div class="rail-foot">
+        ${syncHTML()}
         <span class="rail-count num">${Math.max(0, left)}</span>
         <span class="small muted">day${left === 1 ? '' : 's'} to ${new Date(st.settings.examDate).toLocaleDateString('en-GB', { day: 'numeric', month: 'short' })} · ${EXAM.questions} Qs in ${EXAM.minutes} min per paper</span>
       </div>
     </nav>
-    <header class="topbar"><a class="brand" href="#today" data-act="go" data-to="today"><span class="brand-mark">TMUA Fortnight</span><span class="brand-sub">${Math.max(0, left)}d</span></a>
-      <div class="row" style="gap:14px"><a href="#papers" data-act="go" data-to="papers" aria-label="Past papers">${ICON.papers}</a><a href="#settings" data-act="go" data-to="settings" aria-label="Settings">${ICON.settings}</a></div></header>
+    <header class="topbar"><a class="brand" href="#today" data-act="go" data-to="today">${GLYPH}<span class="brand-mark">TMUA Fortnight</span><span class="brand-sub">${Math.max(0, left)}d</span></a>
+      <div class="row" style="gap:10px"><button data-act="palette" aria-label="Search and jump">${SEARCH}</button><a href="#papers" data-act="go" data-to="papers" aria-label="Past papers">${ICON.papers}</a><a href="#settings" data-act="go" data-to="settings" aria-label="Settings">${ICON.settings}</a></div></header>
     <main class="main" id="main">${content}</main>
     <nav class="tabbar" aria-label="Main">${NAV.slice(0, 5).map(n => link(n)).join('')}</nav>`;
+}
+
+const IS_MAC = typeof navigator !== 'undefined' && /Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent);
+const GLYPH = '<svg class="brand-glyph" viewBox="0 0 26 26" aria-hidden="true"><rect x="1.5" y="6" width="23" height="14" rx="7" fill="none" stroke="currentColor" stroke-width="1.6"/><rect x="4.5" y="9" width="17" height="8" rx="4" fill="var(--accent)"/></svg>';
+const SEARCH = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/></svg>';
+function syncHTML() {
+  const s = syncStatus();
+  const label = { local: 'Saved on this device', syncing: 'Syncing…', synced: 'Synced to your account', offline: 'Offline: will sync later' }[s];
+  return `<span class="sync ${s}" id="sync-status"><i></i>${label}</span>`;
 }
 
 function view() {
@@ -86,16 +101,53 @@ function view() {
   }
 }
 
-let lastRoute = null;
-function render(scrollTop = false) {
+let lastKey = null;
+const reduced = () => window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+
+function viewKey() {
+  const sess = activeSession();
+  return ui.route === 'session' && sess ? `session:${sess.id}:${sess.i}:${sess.finished ? 'done' : ''}:${sess.view || ''}` : `${ui.route}:${ui.param}`;
+}
+
+function paint(scrollTop) {
   const app = $('#app');
   const y = window.scrollY;
+  const key = viewKey();
+  const isNew = key !== lastKey;
+  app.toggleAttribute('data-enter', isNew);
+  const sess = activeSession();
+  document.documentElement.toggleAttribute('data-focus', ui.route === 'session' && !!sess && sess.test && !sess.finished);
   app.innerHTML = S().settings.onboarded ? shell(view()) : `<main class="main solo">${view()}</main>`;
-  if (scrollTop || lastRoute !== ui.route + ui.param) window.scrollTo(0, 0);
+  if (scrollTop || isNew) window.scrollTo(0, 0);
   else window.scrollTo(0, y);
-  lastRoute = ui.route + ui.param;
-  if (ui.route === 'q' || (ui.route === 'session' && activeSession()?.view?.startsWith('rv:'))) {
-    const rv = $('#rv'); if (rv && scrollTop) rv.scrollIntoView({ block: 'start' });
+  lastKey = key;
+  if (ui.route === 'session' && sess?.view?.startsWith('rv:') && scrollTop) $('#rv')?.scrollIntoView({ block: 'start' });
+  if (isNew && !reduced()) countUp();
+}
+
+// vt: 'route' crossfades the page; 'next'/'prev' slide the question sheet.
+function render(scrollTop = false, vt = null) {
+  if (vt && document.startViewTransition && !reduced() && !paletteOpen()) {
+    document.documentElement.dataset.vt = vt;
+    const t = document.startViewTransition(() => paint(scrollTop));
+    t.finished.finally(() => { delete document.documentElement.dataset.vt; });
+  } else paint(scrollTop);
+}
+
+// Animate headline numbers from zero on a fresh view.
+function countUp() {
+  for (const el of document.querySelectorAll('[data-count]')) {
+    const end = parseFloat(el.dataset.count);
+    const node = el.firstChild;
+    if (!node || node.nodeType !== 3 || !Number.isFinite(end)) continue;
+    const dp = (el.dataset.count.split('.')[1] || '').length;
+    const t0 = performance.now();
+    const step = t => {
+      const k = Math.min(1, (t - t0) / 700);
+      node.nodeValue = (end * (1 - Math.pow(1 - k, 3))).toFixed(dp);
+      if (k < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
   }
 }
 
@@ -104,7 +156,7 @@ function go(route, param = null) {
   ui.exportText = ''; ui.importing = false; ui.confirmReset = false;
   const token = route === 'note' ? `learn.${param}` : route === 'q' || route === 'session' ? '' : route;
   try { if (token && location.hash !== `#${token}`) history.replaceState(null, '', `#${token}`); } catch (e) { /* sandboxed */ }
-  render(true);
+  render(true, 'route');
 }
 
 function markTask(id) {
@@ -202,7 +254,7 @@ const actions = {
   },
   'pp-del': el => {
     const id = el.dataset.id;
-    update(s => { s.papers = s.papers.filter(p => p.id !== id); s.attempts = s.attempts.filter(a => a.pid !== id); });
+    update(s => { s.papers = s.papers.filter(p => p.id !== id); s.attempts = s.attempts.filter(a => a.pid !== id); s.tomb.papers = [...(s.tomb.papers || []), id]; });
     render();
   },
   export: () => {
@@ -213,18 +265,26 @@ const actions = {
     const box = $('#export-box'); if (box) box.select();
   },
   'show-import': () => { ui.importing = true; render(); },
-  import: () => {
-    const raw = $('#import-box').value.trim();
-    try {
-      const obj = JSON.parse(raw);
-      if (!obj || !Array.isArray(obj.attempts)) throw new Error('shape');
-      replaceState(obj); ui.importing = false; applyTheme(); toast('Progress restored.'); render(true);
-    } catch (e) { toast('That backup code is not valid. Copy the whole code and try again.'); }
-  },
+  import: () => restoreFrom($('#import-box').value.trim()),
   unreport: el => { update(s => { delete s.reported[el.dataset.id]; }); render(); },
   'reset-ask': () => { ui.confirmReset = true; render(); },
   'reset-cancel': () => { ui.confirmReset = false; render(); },
   reset: () => { resetState(); ui.confirmReset = false; applyTheme(); ui.route = 'today'; render(true); },
+  palette: () => openPalette(),
+  'tutor-explain': el => { const t = qViewTarget(); if (t) tutorExplain(t.q, t.r, el.dataset.mode); },
+  'tutor-stop': () => { const t = qViewTarget(); if (t) tutorStop(keyOf(t.q)); },
+  coach: () => runCoach(coachSummary(model())),
+  'coach-stop': () => stopCoach(),
+  'download-backup': async () => {
+    const dl = getCaps().downloads;
+    if (!dl) return;
+    try {
+      await dl.save({ filename: `tmua-backup-${dateKey()}.json`, data: exportState() });
+      toast('Backup saved.');
+    } catch (e) {
+      if (e?.code !== 'declined') toast('The backup could not be saved here. Use "Copy backup code" instead.');
+    }
+  },
   'onb-date': el => { ui.onbDate = el.dataset.d; render(); },
   'onb-go': () => {
     update(s => { s.settings.examDate = ui.onbDate || s.settings.examDate; s.settings.onboarded = true; });
@@ -233,6 +293,24 @@ const actions = {
   },
   'onb-skip': () => { update(s => { s.settings.examDate = ui.onbDate || s.settings.examDate; s.settings.onboarded = true; }); go('today'); },
 };
+
+// Tutor target on the error-log question page (sessions resolve their own).
+function qViewTarget() {
+  if (ui.route !== 'q') return null;
+  const q = getQuestion(ui.param);
+  if (!q) return null;
+  const hist = S().attempts.filter(a => a.qid === q.id);
+  const last = hist[hist.length - 1];
+  return { q, r: { choice: last?.choice ?? null, checked: true } };
+}
+
+function restoreFrom(raw) {
+  try {
+    const obj = JSON.parse(raw);
+    if (!obj || !Array.isArray(obj.attempts)) throw new Error('shape');
+    replaceState(obj); ui.importing = false; applyTheme(); toast('Progress restored.'); render(true);
+  } catch (e) { toast('That backup is not valid. Use the whole backup code or file.'); }
+}
 
 function syncPaperFields() {
   const d = ui.paperDraft;
@@ -245,14 +323,21 @@ function onClick(e) {
   if (!el || el.tagName === 'SELECT' || (el.tagName === 'INPUT' && el.type !== 'checkbox')) return;
   const act = el.dataset.act;
   if (el.tagName === 'A') e.preventDefault();
-  if (el.tagName === 'INPUT') { if (!sessionAction(act, el, e)) return; return; }
-  if (sessionAction(act, el, e)) return;
+  const inSession = ui.route === 'session';
+  if (el.tagName === 'INPUT') { if (inSession) sessionAction(act, el, e); return; }
+  if (inSession && sessionAction(act, el, e)) return;
   const fn = actions[act];
   if (fn) { e.preventDefault(); fn(el, e); }
 }
 
 function onChange(e) {
   const el = e.target;
+  if (el.id === 'import-file' && el.files?.[0]) {
+    const fr = new FileReader();
+    fr.onload = () => restoreFrom(String(fr.result || ''));
+    fr.readAsText(el.files[0]);
+    return;
+  }
   if (el.id === 'set-date' && el.value) { update(s => { s.settings.examDate = el.value; }); toast('Test date updated. Your plan has been rebuilt.'); render(); }
   else if (el.id === 'set-theme') { update(s => { s.settings.theme = el.value; }); applyTheme(); }
   else if (el.id === 'onb-other' && el.value) { ui.onbDate = el.value; render(); }
@@ -262,7 +347,15 @@ function onChange(e) {
 }
 
 function onSubmit(e) {
-  if (e.target.id === 'paper-form') { e.preventDefault(); syncPaperFields(); savePaper(); }
+  if (e.target.id === 'paper-form') { e.preventDefault(); syncPaperFields(); savePaper(); return; }
+  if (e.target.matches?.('.tutor-ask')) {
+    e.preventDefault();
+    const input = e.target.querySelector('input');
+    const text = input.value.trim();
+    if (!text) return;
+    const t = ui.route === 'session' ? tutorTarget() : qViewTarget();
+    if (t) tutorAsk(t.q, t.r, text);
+  }
 }
 
 function onContext(e) {
@@ -273,11 +366,15 @@ function onContext(e) {
 }
 
 function onKey(e) {
+  const typing = /^(INPUT|TEXTAREA|SELECT)$/.test(e.target?.tagName || '') && e.target.type !== 'checkbox';
+  if ((e.key === 'k' || e.key === 'K') && (e.metaKey || e.ctrlKey)) { e.preventDefault(); openPalette(); return; }
+  if (e.key === '/' && !typing && !paletteOpen()) { e.preventDefault(); openPalette(); return; }
+  if (paletteOpen()) return;
   if (ui.route === 'session' && sessionKey(e)) e.preventDefault();
 }
 
 setSessionHooks({
-  render: (top = false) => render(top),
+  render: (top = false, vt = null) => render(top, vt),
   done: sess => {
     if (!sess) { go('today'); return; }
     ui.route = 'session';
@@ -301,10 +398,32 @@ function boot() {
     else if (t && t !== ui.route && actions.go) { if (['today', 'practice', 'learn', 'review', 'progress', 'papers', 'settings'].includes(t)) go(t); }
   });
   window.matchMedia?.('(prefers-color-scheme: dark)').addEventListener?.('change', () => render());
-  subscribe(() => {});
+  subscribe((st, origin) => { if (origin === 'remote') render(); });
   initTips();
   startTicker();
+  setTutorRender(() => render());
+  setPaletteRunner(act => {
+    if (act.go) go(act.go);
+    else if (act.note) go('note', act.note);
+    else if (act.start) start(act.start, { topic: act.topic, paper: act.paper });
+    else if (act.theme) { update(s => { s.settings.theme = act.theme; }); applyTheme(); render(); }
+  });
+  // Pointer-tracked glow on action cards.
+  document.addEventListener('pointermove', e => {
+    const card = e.target.closest?.('.qa');
+    if (!card) return;
+    const r = card.getBoundingClientRect();
+    card.style.setProperty('--mx', `${e.clientX - r.left}px`);
+    card.style.setProperty('--my', `${e.clientY - r.top}px`);
+  }, { passive: true });
+  onSyncStatus(() => { const el = $('#sync-status'); if (el) el.outerHTML = syncHTML(); });
   render(true);
+  // Light up viewer capabilities (sync, tutor, downloads) once the host answers.
+  initCaps().then(() => {
+    render();
+    onCaps(() => render());
+    initSync().then(ok => { if (ok) render(); });
+  });
 }
 
 boot();

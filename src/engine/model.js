@@ -9,6 +9,7 @@ export function outcome(a) {
   if (!a.ok) return 0;
   let y = 1;
   if (a.guess) y = 0.55;
+  if (a.hint) y = Math.min(y, 0.6);
   const target = a.target || DEFAULT_TIME[a.d] || 200;
   if (a.ms && a.ms > target * 1000 * 1.7) y = Math.min(y, 0.75);
   return y;

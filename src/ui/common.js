@@ -41,7 +41,7 @@ export function optionsHTML(q, st = {}) {
       else if (st.sel === i) cls.push('wrong');
     }
     if (st.struck?.has(i) && !st.reveal) cls.push('struck');
-    return `<button class="${cls.join(' ')}" data-act="choose" data-i="${i}" role="radio" aria-checked="${st.sel === i}" ${st.reveal ? 'disabled' : ''}>
+    return `<button class="${cls.join(' ')}" style="--i:${i}" data-act="choose" data-i="${i}" role="radio" aria-checked="${st.sel === i}" ${st.reveal ? 'disabled' : ''}>
       <span class="lozenge">${LETTERS[i]}</span><span class="otext">${optionBody(o)}</span></button>`;
   }).join('')}</div>`;
 }
