@@ -1,0 +1,513 @@
+[
+ {
+  "id": "seq-01",
+  "topic": "seq",
+  "paper": 1,
+  "difficulty": 1,
+  "skills": [
+   "arithmetic sequence",
+   "arithmetic series"
+  ],
+  "stem": "The 3rd term of an arithmetic sequence is $11$ and the 8th term is $31$. What is the sum of the first $10$ terms?",
+  "figure": null,
+  "options": [
+   "$190$",
+   "$210$",
+   "$230$",
+   "$290$",
+   "$420$"
+  ],
+  "answer": 1,
+  "solution": "Five steps of the common difference take $11$ to $31$, so $5d = 20$ and $d = 4$. Then $a = 11 - 2d = 3$.\n\n$$S_{10} = \\frac{10}{2}\\big(2a + 9d\\big) = 5(6 + 36) = 210.$$\n\nAlternatively, $u_{10} = 3 + 9\\cdot 4 = 39$ and $S_{10} = \\tfrac{10}{2}(3 + 39) = 210$.",
+  "insight": "Get $a$ and $d$ from the gap between two known terms, then use $S_n = \\tfrac n2(\\text{first} + \\text{last})$.",
+  "distractors": {
+   "2": "Uses $u_{11} = 43$ as the last term: $5(3+43) = 230$ (an off-by-one on the last term).",
+   "3": "Treats $11$ (the 3rd term) as the first term: $5(22 + 36) = 290$.",
+   "4": "Forgets to halve in $\\tfrac n2(\\ldots)$."
+  },
+  "time": 90
+ },
+ {
+  "id": "seq-02",
+  "topic": "seq",
+  "paper": 1,
+  "difficulty": 1,
+  "skills": [
+   "geometric series",
+   "sum to infinity"
+  ],
+  "stem": "Find the sum to infinity of the geometric series $$12 - 6 + 3 - \\tfrac32 + \\cdots$$",
+  "figure": null,
+  "options": [
+   "$4$",
+   "$8$",
+   "$12$",
+   "$16$",
+   "$24$"
+  ],
+  "answer": 1,
+  "solution": "The common ratio is $r = \\dfrac{-6}{12} = -\\dfrac12$, and $|r| < 1$ so the series converges.\n\n$$S_\\infty = \\frac{a}{1-r} = \\frac{12}{1 + \\frac12} = \\frac{12}{3/2} = 8.$$\n\nSanity check: the partial sums $12, 6, 9, 7.5, \\ldots$ oscillate around $8$.",
+  "insight": "With a negative ratio, $1 - r$ is bigger than $1$, so the sum to infinity is less than the first term.",
+  "distractors": {
+   "4": "Uses $r = +\\tfrac12$, ignoring the alternating signs: $12/\\tfrac12 = 24$.",
+   "0": "Inverts the ratio to $r = -2$ and blindly applies $a/(1-r) = 12/3$ (that series does not even converge)."
+  },
+  "time": 60
+ },
+ {
+  "id": "seq-03",
+  "topic": "seq",
+  "paper": 1,
+  "difficulty": 2,
+  "skills": [
+   "sigma notation",
+   "arithmetic series"
+  ],
+  "stem": "Evaluate $$\\sum_{r=1}^{20} (3r - 2).$$",
+  "figure": null,
+  "options": [
+   "$570$",
+   "$588$",
+   "$590$",
+   "$628$",
+   "$630$"
+  ],
+  "answer": 2,
+  "solution": "Split the sum:\n$$\\sum_{r=1}^{20}(3r-2) = 3\\sum_{r=1}^{20} r - \\sum_{r=1}^{20} 2 = 3\\cdot\\frac{20\\cdot 21}{2} - 2\\cdot 20 = 630 - 40 = 590.$$\n\nAlternatively it is an arithmetic series with first term $1$, last term $58$ and $20$ terms: $\\tfrac{20}{2}(1 + 58) = 590$.",
+  "insight": "A constant inside a sigma is added once per term, so $\\sum_{r=1}^{n} c = nc$, not $c$.",
+  "distractors": {
+   "3": "Subtracts the $2$ only once instead of $20$ times: $630 - 2$.",
+   "1": "Counts $21$ terms (as if $r$ started at $0$): $630 - 42$.",
+   "4": "Forgets the $-2$ altogether."
+  },
+  "time": 75
+ },
+ {
+  "id": "seq-04",
+  "topic": "seq",
+  "paper": 1,
+  "difficulty": 2,
+  "skills": [
+   "binomial expansion",
+   "coefficients"
+  ],
+  "stem": "What is the coefficient of $x^3$ in the expansion of $(2 - x)^7$?",
+  "figure": null,
+  "options": [
+   "$-560$",
+   "$-280$",
+   "$-35$",
+   "$280$",
+   "$560$"
+  ],
+  "answer": 0,
+  "solution": "The general term is $\\binom{7}{r} 2^{7-r}(-x)^r$. For $x^3$ take $r = 3$:\n$$\\binom73\\cdot 2^4 \\cdot (-1)^3 = 35 \\cdot 16 \\cdot (-1) = -560.$$",
+  "insight": "The power on the constant is $n - r$, not $r$, and the sign comes from $(-1)^r$.",
+  "distractors": {
+   "1": "Uses $2^3$ instead of $2^4$ (puts the power $r$ on the $2$ as well).",
+   "4": "Drops the sign from $(-x)^3$."
+  },
+  "time": 75
+ },
+ {
+  "id": "seq-05",
+  "topic": "seq",
+  "paper": 1,
+  "difficulty": 2,
+  "skills": [
+   "binomial expansion",
+   "constant term"
+  ],
+  "stem": "What is the term independent of $x$ in the expansion of $$\\left(x^2 - \\frac{2}{x}\\right)^6 ?$$",
+  "figure": null,
+  "options": [
+   "$-240$",
+   "$-160$",
+   "$15$",
+   "$60$",
+   "$240$"
+  ],
+  "answer": 4,
+  "solution": "The general term is $\\binom6r (x^2)^{6-r}\\left(-\\dfrac2x\\right)^r = \\binom6r(-2)^r x^{12 - 3r}$.\n\nThe power of $x$ is zero when $r = 4$, giving\n$$\\binom64(-2)^4 = 15 \\cdot 16 = 240.$$",
+  "insight": "Write the general term as a single power of $x$ and set the exponent to zero.",
+  "distractors": {
+   "1": "Uses $r = 3$ (setting $6 - r = r$ as if both brackets had power 1): that is the $x^3$ term.",
+   "3": "Uses $2^2$ in place of $(-2)^4$.",
+   "0": "Gets the sign of $(-2)^4$ wrong."
+  },
+  "time": 90
+ },
+ {
+  "id": "seq-06",
+  "topic": "seq",
+  "paper": 2,
+  "difficulty": 2,
+  "skills": [
+   "arithmetic sequence",
+   "must be true"
+  ],
+  "stem": "An arithmetic sequence $u_1, u_2, u_3, \\ldots$ has $u_5 = 7$. Let $S_n$ be the sum of its first $n$ terms.\n\nWhich of the following **must** be true?\n\nI. $u_1 + u_9 = 14$\n\nII. $S_9 = 63$\n\nIII. $u_3\\, u_7 \\le 49$",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 7,
+  "solution": "Write every term relative to the middle one: $u_{5+k} = 7 + kd$.\n\n* I: $u_1 + u_9 = (7 - 4d) + (7 + 4d) = 14$. True.\n* II: the nine terms $u_1,\\ldots,u_9$ pair off symmetrically about $u_5$, so $S_9 = 9u_5 = 63$. True.\n* III: $u_3u_7 = (7 - 2d)(7 + 2d) = 49 - 4d^2 \\le 49$. True.\n\nAll three hold whatever $d$ is.",
+  "insight": "Centre an arithmetic sequence on a known middle term: symmetric terms are $m \\pm kd$.",
+  "distractors": {
+   "4": "Suspects $u_3u_7$ could exceed $49$ when $d$ is negative; but $u_3u_7 = 49 - 4d^2$ and $d^2 \\ge 0$ whatever the sign of $d$.",
+   "1": "Thinks $S_9$ needs the first term and common difference separately."
+  },
+  "time": 120
+ },
+ {
+  "id": "seq-07",
+  "topic": "seq",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "recurrence relation",
+   "periodic sequence"
+  ],
+  "stem": "A sequence is defined by $$u_1 = 2, \\qquad u_{n+1} = \\frac{1}{1 - u_n}.$$\nWhat is $\\displaystyle\\sum_{n=1}^{100} u_n$?",
+  "figure": null,
+  "options": [
+   "$\\frac{97}{2}$",
+   "$\\frac{99}{2}$",
+   "$50$",
+   "$\\frac{103}{2}$",
+   "$53$"
+  ],
+  "answer": 3,
+  "solution": "Compute a few terms: $u_1 = 2$, $u_2 = \\frac{1}{1-2} = -1$, $u_3 = \\frac{1}{2}$, $u_4 = \\frac{1}{1/2} = 2 = u_1$.\n\nSo the sequence has period $3$ with block sum $2 - 1 + \\tfrac12 = \\tfrac32$.\n\n$100 = 3\\cdot 33 + 1$, so the sum is $33$ blocks plus $u_{100} = u_1 = 2$:\n$$33\\cdot\\tfrac32 + 2 = \\tfrac{99}{2} + 2 = \\tfrac{103}{2}.$$",
+  "insight": "Generate terms until one repeats; then the sum is (number of full cycles) $\\times$ (cycle sum) plus the leftover terms.",
+  "distractors": {
+   "1": "Counts the $33$ complete cycles but forgets the leftover term $u_{100}$.",
+   "0": "Takes the leftover term to be $-1$ (misaligning the cycle).",
+   "2": "Takes the leftover term to be $\\tfrac12$ (misaligning the cycle)."
+  },
+  "time": 150
+ },
+ {
+  "id": "seq-08",
+  "topic": "seq",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "geometric series",
+   "convergence",
+   "inequalities"
+  ],
+  "stem": "The infinite geometric series\n$$1 + \\frac{2x-1}{3} + \\left(\\frac{2x-1}{3}\\right)^2 + \\left(\\frac{2x-1}{3}\\right)^3 + \\cdots$$\nconverges and has sum greater than $2$. What is the complete set of possible values of $x$?",
+  "figure": null,
+  "options": [
+   "$x > \\frac54$",
+   "$\\frac54 < x < 2$",
+   "$-1 < x < 2$",
+   "$-1 < x < \\frac54$",
+   "$1 < x < 2$"
+  ],
+  "answer": 1,
+  "solution": "**Convergence:** need $\\left|\\dfrac{2x-1}{3}\\right| < 1$, i.e. $-3 < 2x - 1 < 3$, i.e. $-1 < x < 2$.\n\n**Sum:** $S = \\dfrac{1}{1 - \\frac{2x-1}{3}} = \\dfrac{3}{4 - 2x}$. On $-1 < x < 2$ the denominator is positive, so\n$$\\frac{3}{4-2x} > 2 \\iff 3 > 8 - 4x \\iff x > \\tfrac54.$$\n\nCombining: $\\tfrac54 < x < 2$.",
+  "insight": "A sum-to-infinity formula is only valid inside the convergence interval, so always intersect with $|r|<1$.",
+  "distractors": {
+   "0": "Solves the inequality for the sum but forgets the convergence condition $|r| < 1$.",
+   "2": "Stops at the convergence condition and never uses 'sum greater than 2'.",
+   "3": "Flips the inequality when clearing the (positive) denominator."
+  },
+  "time": 150
+ },
+ {
+  "id": "seq-09",
+  "topic": "seq",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "binomial expansion",
+   "products of expansions"
+  ],
+  "stem": "What is the coefficient of $x^2$ in the expansion of $(1+x)^6(1-x)^4$?",
+  "figure": null,
+  "options": [
+   "$-9$",
+   "$-3$",
+   "$3$",
+   "$21$",
+   "$45$"
+  ],
+  "answer": 1,
+  "solution": "**Fast:** $(1+x)^6(1-x)^4 = (1-x^2)^4(1+x)^2 = (1 - 4x^2 + \\cdots)(1 + 2x + x^2)$.\n\nThe $x^2$ terms: $1\\cdot x^2 + (-4x^2)\\cdot 1 = -3x^2$. Coefficient $-3$.\n\n**Direct:** $(1 + 6x + 15x^2 + \\cdots)(1 - 4x + 6x^2 - \\cdots)$ gives $x^2$ coefficient $6 + 6\\cdot(-4) + 15 = -3$.",
+  "insight": "Pair up factors as $(1+x)(1-x) = 1 - x^2$ before expanding.",
+  "distractors": {
+   "4": "Takes the cross term as $+24$ instead of $6\\cdot(-4) = -24$.",
+   "3": "Adds the two $x^2$ coefficients $15 + 6$ and forgets the cross term $x \\cdot x$.",
+   "0": "Keeps the cross term but forgets one of the $x^2 \\times 1$ terms."
+  },
+  "time": 120
+ },
+ {
+  "id": "seq-10",
+  "topic": "seq",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "binomial expansion",
+   "sum of coefficients"
+  ],
+  "stem": "The expansion of $(1+2x)^6$ is written as $a_0 + a_1x + a_2x^2 + \\cdots + a_6x^6$.\nWhat is $a_0 + a_2 + a_4 + a_6$?",
+  "figure": null,
+  "options": [
+   "$32$",
+   "$364$",
+   "$365$",
+   "$729$",
+   "$730$"
+  ],
+  "answer": 2,
+  "solution": "Let $f(x) = (1+2x)^6$. Then\n$$f(1) = \\sum a_k = 3^6 = 729, \\qquad f(-1) = \\sum (-1)^k a_k = (-1)^6 = 1.$$\nAdding cancels the odd coefficients: $2(a_0 + a_2 + a_4 + a_6) = 730$, so the answer is $365$.",
+  "insight": "Substituting $x = 1$ and $x = -1$ and adding/subtracting isolates the even/odd coefficients.",
+  "distractors": {
+   "1": "Subtracts instead of adding, which gives the odd-coefficient sum $a_1 + a_3 + a_5$.",
+   "4": "Adds $f(1) + f(-1)$ but forgets to halve.",
+   "0": "Sums only the binomial coefficients $\\binom60 + \\binom62 + \\cdots$, ignoring the powers of $2$."
+  },
+  "time": 120
+ },
+ {
+  "id": "seq-11",
+  "topic": "seq",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "arithmetic series",
+   "inequalities"
+  ],
+  "stem": "Consider the arithmetic series $50 + 47 + 44 + \\cdots$.\n\nWhat is the smallest value of $n$ for which the sum of the first $n$ terms is negative?",
+  "figure": null,
+  "options": [
+   "$17$",
+   "$18$",
+   "$34$",
+   "$35$",
+   "$36$"
+  ],
+  "answer": 3,
+  "solution": "$S_n = \\frac n2\\big(100 - 3(n-1)\\big) = \\frac{n(103 - 3n)}{2}$.\n\n$S_n < 0 \\iff 103 - 3n < 0 \\iff n > 34\\tfrac13$, so $n = 35$.\n\nCheck: $S_{34} = \\tfrac{34\\cdot 1}{2} = 17 > 0$ and $S_{35} = \\tfrac{35\\cdot(-2)}{2} = -35 < 0$.",
+  "insight": "The first negative *term* comes long before the first negative *sum*: the positive terms must be cancelled first.",
+  "distractors": {
+   "1": "Finds the first negative term ($u_{18} = -1$) rather than the first negative sum.",
+   "2": "Rounds $34\\tfrac13$ down instead of taking the next integer."
+  },
+  "time": 120
+ },
+ {
+  "id": "seq-12",
+  "topic": "seq",
+  "paper": 2,
+  "difficulty": 3,
+  "skills": [
+   "arithmetic sequence",
+   "geometric sequence",
+   "logarithms"
+  ],
+  "stem": "Which of the following statements is/are true?\n\nI. If $u_1, u_2, u_3, \\ldots$ is an arithmetic sequence, then $2^{u_1}, 2^{u_2}, 2^{u_3}, \\ldots$ is a geometric sequence.\n\nII. If $u_1, u_2, u_3, \\ldots$ is a geometric sequence of positive terms, then $\\log u_1, \\log u_2, \\log u_3, \\ldots$ is an arithmetic sequence.\n\nIII. If $u_1, u_2, u_3, \\ldots$ and $v_1, v_2, v_3, \\ldots$ are geometric sequences, then $u_1 + v_1, u_2 + v_2, u_3 + v_3, \\ldots$ is a geometric sequence.",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 4,
+  "solution": "* I: $2^{u_{n+1}}/2^{u_n} = 2^{u_{n+1} - u_n} = 2^d$, a constant. True.\n* II: $\\log u_{n+1} - \\log u_n = \\log\\dfrac{u_{n+1}}{u_n} = \\log r$, a constant. True.\n* III: counterexample $u_n = 1$ (ratio $1$) and $v_n = 2^{n-1}$ (ratio $2$). The sums are $2, 3, 5, \\ldots$ and $\\tfrac32 \\ne \\tfrac53$. False.\n\nSo I and II only.",
+  "insight": "Exponentials turn constant differences into constant ratios, and logs do the reverse.",
+  "distractors": {
+   "7": "Assumes sums of geometric sequences are geometric (true only when the two ratios are equal).",
+   "1": "Worries that $\\log$ of a geometric sequence might fail — but positivity is given, so it is fine."
+  },
+  "time": 150
+ },
+ {
+  "id": "seq-13",
+  "topic": "seq",
+  "paper": 2,
+  "difficulty": 4,
+  "skills": [
+   "sum of first n terms",
+   "geometric sequence"
+  ],
+  "stem": "The sum of the first $n$ terms of a sequence is $S_n = 2^{n+1} + k$ for all $n \\ge 1$, where $k$ is a constant.\n\nThe sequence is geometric if and only if $k$ equals which of the following?",
+  "figure": null,
+  "options": [
+   "$-4$",
+   "$-2$",
+   "$-1$",
+   "$0$",
+   "$2$",
+   "the sequence is geometric for every value of $k$"
+  ],
+  "answer": 1,
+  "solution": "For $n \\ge 2$: $u_n = S_n - S_{n-1} = 2^{n+1} - 2^n = 2^n$. So $u_2 = 4, u_3 = 8, \\ldots$ with ratio $2$ whatever $k$ is.\n\nBut $u_1 = S_1 = 4 + k$. For the whole sequence to be geometric we need $u_2/u_1 = 2$, i.e. $u_1 = 2$, so $k = -2$.\n\nConversely, with $k = -2$ the sequence is $2, 4, 8, \\ldots$, which is geometric, and $S_n = 2^{n+1} - 2$ matches the formula.",
+  "insight": "$u_n = S_n - S_{n-1}$ only works for $n \\ge 2$; the first term must be checked separately via $u_1 = S_1$.",
+  "distractors": {
+   "5": "Sees $u_n = 2^n$ for $n \\ge 2$ and forgets that $u_1 = S_1$ depends on $k$.",
+   "3": "Thinks the '$+k$' should vanish; but with $k=0$ the sequence starts $4, 4, 8, \\ldots$, which is not geometric.",
+   "0": "Sets $u_1 = 0$ instead of $u_1 = 2$."
+  },
+  "time": 150
+ },
+ {
+  "id": "seq-14",
+  "topic": "seq",
+  "paper": 1,
+  "difficulty": 4,
+  "skills": [
+   "geometric series",
+   "sum to infinity"
+  ],
+  "stem": "An infinite geometric series has sum $3$, and the series formed by squaring each of its terms also has sum $3$.\n\nWhat is the sum of the series formed by cubing each of its terms?",
+  "figure": null,
+  "options": [
+   "$\\frac94$",
+   "$3$",
+   "$\\frac{27}{8}$",
+   "$\\frac{27}{7}$",
+   "$9$"
+  ],
+  "answer": 3,
+  "solution": "Let the first term be $a$ and ratio $r$ ($|r|<1$). Then\n$$\\frac{a}{1-r} = 3, \\qquad \\frac{a^2}{1-r^2} = \\frac{a}{1-r}\\cdot\\frac{a}{1+r} = 3.$$\nDividing: $\\dfrac{a}{1+r} = 1$, so $a = 1 + r$. Also $a = 3(1-r)$, so $1 + r = 3 - 3r$, giving $r = \\tfrac12$, $a = \\tfrac32$.\n\nThe cubes form a geometric series with first term $a^3 = \\tfrac{27}{8}$ and ratio $r^3 = \\tfrac18$:\n$$\\frac{27/8}{1 - 1/8} = \\frac{27/8}{7/8} = \\frac{27}{7}.$$",
+  "insight": "Factor $1 - r^2 = (1-r)(1+r)$ so the known sum can be divided out.",
+  "distractors": {
+   "2": "Finds $a^3 = \\tfrac{27}{8}$ but forgets to divide by $1 - r^3$.",
+   "1": "Assumes that, because the first two sums are equal, all such sums are equal."
+  },
+  "time": 180
+ },
+ {
+  "id": "seq-15",
+  "topic": "seq",
+  "paper": 1,
+  "difficulty": 4,
+  "skills": [
+   "binomial expansion",
+   "surds",
+   "rational terms"
+  ],
+  "stem": "When $\\left(\\sqrt2 + \\sqrt[3]{3}\\right)^{12}$ is expanded using the binomial theorem, how many of the $13$ terms are rational?",
+  "figure": null,
+  "options": [
+   "$1$",
+   "$2$",
+   "$3$",
+   "$4$",
+   "$5$",
+   "$7$"
+  ],
+  "answer": 2,
+  "solution": "The general term is $\\binom{12}{r}\\, 2^{(12-r)/2}\\, 3^{r/3}$.\n\nThis is rational exactly when $(12 - r)/2$ and $r/3$ are both integers, i.e. $r$ is even **and** a multiple of $3$, i.e. $r$ is a multiple of $6$.\n\nSo $r \\in \\{0, 6, 12\\}$: three rational terms.",
+  "insight": "Each surd imposes a divisibility condition on $r$; a term is rational only when all conditions hold at once.",
+  "distractors": {
+   "4": "Only checks that the cube root disappears ($r$ a multiple of $3$), giving $r = 0, 3, 6, 9, 12$.",
+   "5": "Only checks that the square root disappears ($r$ even), giving $7$ values."
+  },
+  "time": 150
+ },
+ {
+  "id": "seq-16",
+  "topic": "seq",
+  "paper": 1,
+  "difficulty": 4,
+  "skills": [
+   "binomial coefficients",
+   "combinatorial identities"
+  ],
+  "stem": "Evaluate $$\\sum_{r=0}^{8} r\\binom{8}{r}.$$",
+  "figure": null,
+  "options": [
+   "$256$",
+   "$512$",
+   "$1024$",
+   "$2048$",
+   "$4096$"
+  ],
+  "answer": 2,
+  "solution": "**Pairing:** replace $r$ by $8 - r$: since $\\binom8r = \\binom8{8-r}$, the sum $S$ also equals $\\sum (8 - r)\\binom8r$. Adding,\n$$2S = 8\\sum_{r=0}^8\\binom8r = 8\\cdot 2^8, \\qquad S = 4\\cdot 2^8 = 1024.$$\n\n**Alternatively:** $r\\binom8r = 8\\binom7{r-1}$, so $S = 8\\cdot 2^7 = 1024$. Or differentiate $(1+x)^8$ and put $x = 1$.",
+  "insight": "Symmetry $\\binom nr = \\binom n{n-r}$ lets you average $r$ with $n - r$: the mean value of $r$ is $n/2$.",
+  "distractors": {
+   "0": "Just sums the binomial coefficients, $2^8$, ignoring the factor $r$.",
+   "3": "Uses $r\\binom8r = 8\\binom8r$, i.e. $8 \\cdot 2^8$, forgetting to average $r$ with $8-r$."
+  },
+  "time": 150
+ },
+ {
+  "id": "seq-17",
+  "topic": "seq",
+  "paper": 1,
+  "difficulty": 5,
+  "skills": [
+   "arithmetic series",
+   "factors",
+   "counting"
+  ],
+  "stem": "In how many ways can $1000$ be written as the sum of two or more **consecutive positive integers**?",
+  "figure": null,
+  "options": [
+   "$1$",
+   "$2$",
+   "$3$",
+   "$4$",
+   "$5$",
+   "$6$"
+  ],
+  "answer": 2,
+  "solution": "If the $k$ integers start at $a \\ge 1$, then\n$$1000 = \\frac{k(2a + k - 1)}{2} \\iff 2000 = k\\,(2a + k - 1).$$\nThe two factors $k$ and $2a + k - 1$ have opposite parity, and $2a + k - 1 > k \\ge 2$.\n\n$2000 = 2^4\\cdot 5^3$, so one factor must be odd and the other must contain all of $2^4 = 16$. The odd part is one of $1, 5, 25, 125$.\n\n* odd part $1$: factors $1 \\times 2000$, but the smaller factor must be $k \\ge 2$ — reject.\n* $5 \\times 400$: $k = 5$, $2a + 4 = 400$, $a = 198$ ($198+\\cdots+202$).\n* $25 \\times 80$: $k = 25$, $2a + 24 = 80$, $a = 28$.\n* $125 \\times 16$: $k = 16$, $2a + 15 = 125$, $a = 55$.\n\nThree ways.",
+  "insight": "Sums of consecutive integers correspond to odd factors: $2N = k(2a+k-1)$ splits into an odd and an even factor.",
+  "distractors": {
+   "3": "Counts all four odd divisors of $1000$, including $1$ (which corresponds to the single term $1000$).",
+   "1": "Only finds the solutions with odd $k$ ($k = 5, 25$), missing $k = 16$."
+  },
+  "time": 210
+ },
+ {
+  "id": "seq-18",
+  "topic": "seq",
+  "paper": 2,
+  "difficulty": 5,
+  "skills": [
+   "recurrence relation",
+   "monotonic",
+   "convergence"
+  ],
+  "stem": "A sequence is defined by $u_1 = k$ and $u_{n+1} = u_n^2 - 2$ for $n \\ge 1$, where $k$ is a real constant.\n\nWhich of the following statements is/are true?\n\nI. If $k = 0$, the sequence is eventually constant.\n\nII. If $k < -2$, the sequence is increasing.\n\nIII. If $-2 < k < 2$, the sequence converges.",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 4,
+  "solution": "* I: $0, -2, 2, 2, 2, \\ldots$ True.\n* II: $u_2 = k^2 - 2 > 2 > k$, so $u_2 > u_1$. From then on $u_n > 2$, and $u_{n+1} - u_n = u_n^2 - u_n - 2 = (u_n - 2)(u_n + 1) > 0$. So the sequence is increasing. True.\n* III: Look for a 2-cycle: $u_3 = u_1$ with $u_2 \\ne u_1$. Solving $f(f(x)) = x$ and removing the fixed points $x = 2, -1$ leaves $x^2 + x - 1 = 0$, so $k = \\frac{\\sqrt5 - 1}{2}$ gives\n$$u_1 = \\tfrac{\\sqrt5 - 1}{2},\\quad u_2 = -\\tfrac{\\sqrt5 + 1}{2},\\quad u_3 = \\tfrac{\\sqrt5 - 1}{2}, \\ldots$$\nwhich oscillates forever and does not converge, although $-2 < k < 2$. False.\n\nSo I and II only.",
+  "insight": "For $u_{n+1} = f(u_n)$, compare $f(x)$ with $x$ to decide monotonicity, and hunt for 2-cycles to kill convergence claims.",
+  "distractors": {
+   "1": "Thinks a negative starting value makes the sequence decrease; but squaring makes $u_2$ large and positive.",
+   "7": "Assumes a sequence trapped in $[-2, 2]$ must settle down; bounded does not imply convergent."
+  },
+  "time": 240
+ }
+]

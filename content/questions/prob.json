@@ -1,0 +1,506 @@
+[
+ {
+  "id": "prob-01",
+  "topic": "prob",
+  "paper": 1,
+  "difficulty": 1,
+  "skills": [
+   "sample space",
+   "two dice"
+  ],
+  "stem": "Two fair six-sided dice are rolled. What is the probability that the total score is $8$?",
+  "figure": null,
+  "options": [
+   "$\\frac{1}{12}$",
+   "$\\frac{1}{9}$",
+   "$\\frac{5}{36}$",
+   "$\\frac{1}{6}$",
+   "$\\frac{7}{36}$"
+  ],
+  "answer": 2,
+  "solution": "There are $36$ equally likely ordered outcomes. Those with total $8$ are\n$$(2,6),\\ (3,5),\\ (4,4),\\ (5,3),\\ (6,2),$$\nso the probability is $\\frac{5}{36}$.",
+  "insight": "Use the $6\\times6$ grid of ordered outcomes, which are equally likely; unordered pairs are not.",
+  "distractors": {
+   "0": "Listing unordered pairs $\\{2,6\\},\\{3,5\\},\\{4,4\\}$ and dividing by $36$, forgetting that $(2,6)$ and $(6,2)$ are different outcomes.",
+   "3": "Confusing this with the most likely total, $7$, which has probability $\\frac16$."
+  },
+  "time": 60
+ },
+ {
+  "id": "prob-02",
+  "topic": "prob",
+  "paper": 1,
+  "difficulty": 1,
+  "skills": [
+   "at least one",
+   "complement"
+  ],
+  "stem": "Three fair coins are tossed. What is the probability of getting at least one head?",
+  "figure": null,
+  "options": [
+   "$\\frac{1}{8}$",
+   "$\\frac{3}{8}$",
+   "$\\frac{1}{2}$",
+   "$\\frac{3}{4}$",
+   "$\\frac{7}{8}$"
+  ],
+  "answer": 4,
+  "solution": "Use the complement. The only outcome with no heads is TTT, with probability $\\left(\\frac12\\right)^3=\\frac18$.\n\n$$P(\\text{at least one head})=1-\\tfrac18=\\tfrac78.$$",
+  "insight": "'At least one' is almost always fastest as $1-P(\\text{none})$.",
+  "distractors": {
+   "0": "Calculating $P(\\text{no heads})$ and forgetting to subtract it from $1$.",
+   "1": "Finding $P(\\text{exactly one head})=\\frac38$ instead of at least one."
+  },
+  "time": 45
+ },
+ {
+  "id": "prob-03",
+  "topic": "prob",
+  "paper": 1,
+  "difficulty": 2,
+  "skills": [
+   "without replacement",
+   "tree diagrams"
+  ],
+  "stem": "A bag contains $5$ red and $3$ blue counters. Two counters are taken at random without replacement. What is the probability that they are the same colour?",
+  "figure": null,
+  "options": [
+   "$\\frac{3}{28}$",
+   "$\\frac{5}{14}$",
+   "$\\frac{13}{28}$",
+   "$\\frac{17}{32}$",
+   "$\\frac{15}{28}$"
+  ],
+  "answer": 2,
+  "solution": "$$P(\\text{RR})=\\frac58\\cdot\\frac47=\\frac{20}{56},\\qquad P(\\text{BB})=\\frac38\\cdot\\frac27=\\frac{6}{56}.$$\n\n$$P(\\text{same})=\\frac{26}{56}=\\frac{13}{28}.$$\n\n*Alternative:* $\\dfrac{\\binom52+\\binom32}{\\binom82}=\\dfrac{10+3}{28}=\\dfrac{13}{28}$.",
+  "insight": "Without replacement, the second-stage denominators drop by one; or count with $\\binom{n}{2}$.",
+  "distractors": {
+   "3": "Treating the draws as with replacement: $\\frac{25}{64}+\\frac{9}{64}=\\frac{17}{32}$.",
+   "4": "Finding the probability of different colours, $\\frac{15}{28}$, instead."
+  },
+  "time": 90
+ },
+ {
+  "id": "prob-04",
+  "topic": "prob",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "arrangements",
+   "repeated letters",
+   "gaps method"
+  ],
+  "stem": "How many different arrangements of the letters of the word LETTER have the two T's **not** next to each other?",
+  "figure": null,
+  "options": [
+   "$60$",
+   "$90$",
+   "$120$",
+   "$180$",
+   "$240$"
+  ],
+  "answer": 2,
+  "solution": "**Gaps method.** Arrange the other letters L, E, E, R first: $\\frac{4!}{2!}=12$ ways. This creates $5$ gaps (including the ends), and the two identical T's go into $2$ different gaps: $\\binom52=10$ ways.\n\nTotal: $12\\times10=\\mathbf{120}$.\n\n*Alternative:* all arrangements $\\frac{6!}{2!\\,2!}=180$, minus those with TT together (treat TT as one block: $\\frac{5!}{2!}=60$), giving $180-60=120$.",
+  "insight": "For 'not adjacent', place the other items first and drop the restricted ones into the gaps.",
+  "distractors": {
+   "3": "Counting all $180$ arrangements and forgetting the restriction.",
+   "4": "Placing the T's into gaps in $5\\times4=20$ ordered ways, treating the two identical T's as different."
+  },
+  "time": 150
+ },
+ {
+  "id": "prob-05",
+  "topic": "prob",
+  "paper": 1,
+  "difficulty": 2,
+  "skills": [
+   "selections",
+   "combinations",
+   "at least one"
+  ],
+  "stem": "A committee of $3$ people is to be chosen from $5$ men and $4$ women. In how many ways can this be done if the committee must contain at least one woman?",
+  "figure": null,
+  "options": [
+   "$30$",
+   "$40$",
+   "$74$",
+   "$84$",
+   "$112$"
+  ],
+  "answer": 2,
+  "solution": "Count all committees and subtract those with no women:\n$$\\binom93-\\binom53=84-10=\\mathbf{74}.$$\n\n*Check by cases:* one woman $4\\cdot\\binom52=40$, two women $\\binom42\\cdot5=30$, three women $\\binom43=4$; total $74$.",
+  "insight": "For 'at least one', subtract the complement rather than choosing 'one woman, then anyone'.",
+  "distractors": {
+   "4": "Choosing 'one woman, then any two others': $4\\times\\binom82=112$ counts committees with several women more than once.",
+   "1": "Counting only committees with exactly one woman."
+  },
+  "time": 90
+ },
+ {
+  "id": "prob-06",
+  "topic": "prob",
+  "paper": 1,
+  "difficulty": 2,
+  "skills": [
+   "expected value"
+  ],
+  "stem": "In a game, a fair six-sided die is rolled once. If the score is even, the player wins that many pounds. If the score is odd, the player loses £3. What is the player's expected gain per game?",
+  "figure": null,
+  "options": [
+   "$-$£1.50",
+   "£0",
+   "£0.50",
+   "£1.50",
+   "£2"
+  ],
+  "answer": 2,
+  "solution": "$$E=\\frac16(2+4+6)+\\frac12(-3)=2-1.5=0.5.$$\n\nThe expected gain is **£0.50** per game.",
+  "insight": "Expected value is the sum of (value $\\times$ probability) over all outcomes, losses included as negatives.",
+  "distractors": {
+   "4": "Including only the winnings, $\\frac{2+4+6}{6}=2$, and forgetting the losses.",
+   "3": "Subtracting the £3 loss only once rather than for each of the three odd scores: $\\frac{2+4+6-3}{6}$."
+  },
+  "time": 90
+ },
+ {
+  "id": "prob-07",
+  "topic": "prob",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "conditional probability",
+   "tree diagrams"
+  ],
+  "stem": "A disease affects $1\\%$ of a population. A test for the disease gives a positive result for $90\\%$ of people who have it and for $10\\%$ of people who do not. A person chosen at random tests positive. What is the probability that they have the disease?",
+  "figure": null,
+  "options": [
+   "$\\frac{1}{12}$",
+   "$\\frac{1}{11}$",
+   "$\\frac{1}{10}$",
+   "$\\frac{1}{2}$",
+   "$\\frac{9}{10}$"
+  ],
+  "answer": 0,
+  "solution": "Imagine $1000$ people.\n\n* $10$ have the disease; $9$ of them test positive.\n* $990$ do not; $99$ of them test positive.\n\nOf the $9+99=108$ positives, $9$ have the disease:\n$$P(\\text{disease}\\mid\\text{positive})=\\frac{9}{108}=\\frac1{12}.$$",
+  "insight": "For 'given' questions, restrict to the branches where the condition holds and divide.",
+  "distractors": {
+   "1": "Dividing true positives by false positives, $\\frac{9}{99}$, instead of by all positives.",
+   "4": "Confusing $P(\\text{positive}\\mid\\text{disease})=\\frac9{10}$ with $P(\\text{disease}\\mid\\text{positive})$."
+  },
+  "time": 150
+ },
+ {
+  "id": "prob-08",
+  "topic": "prob",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "geometric series",
+   "turn-taking games"
+  ],
+  "stem": "Ann and Ben take turns to roll a fair die, with Ann going first. The first person to roll a six wins. What is the probability that Ann wins?",
+  "figure": null,
+  "options": [
+   "$\\frac{5}{11}$",
+   "$\\frac{1}{2}$",
+   "$\\frac{6}{11}$",
+   "$\\frac{7}{12}$",
+   "$\\frac{2}{3}$"
+  ],
+  "answer": 2,
+  "solution": "Let $p=P(\\text{Ann wins})$. Either Ann rolls a six immediately, or both miss (probability $\\frac{25}{36}$) and the game restarts:\n$$p=\\frac16+\\frac{25}{36}p\\quad\\Rightarrow\\quad\\frac{11}{36}p=\\frac16\\quad\\Rightarrow\\quad p=\\frac6{11}.$$\n\n*Alternative:* a round ends with a winner with probability $\\frac16+\\frac56\\cdot\\frac16=\\frac{11}{36}$, and Ann's share of that is $\\frac{6/36}{11/36}=\\frac6{11}$.",
+  "insight": "In a repeating game, write the probability in terms of itself using 'back to the start'.",
+  "distractors": {
+   "1": "Assuming the game is fair; going first is an advantage.",
+   "0": "Finding Ben's probability of winning instead."
+  },
+  "time": 150
+ },
+ {
+  "id": "prob-09",
+  "topic": "prob",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "counting",
+   "selections",
+   "arrangements"
+  ],
+  "stem": "A $4$-digit PIN uses the digits $0$–$9$, and digits may be repeated (a PIN may start with $0$). How many PINs use **exactly two** different digits?",
+  "figure": null,
+  "options": [
+   "$270$",
+   "$540$",
+   "$630$",
+   "$1260$",
+   "$5040$"
+  ],
+  "answer": 2,
+  "solution": "Choose the two digits: $\\binom{10}{2}=45$ ways.\n\nFill the $4$ positions using only those two digits: $2^4=16$ ways, minus the $2$ that use only one of them: $14$.\n\nTotal: $45\\times14=\\mathbf{630}$.",
+  "insight": "Choose the set of symbols first, then count the fillings that use every chosen symbol.",
+  "distractors": {
+   "0": "Only counting PINs with two of each digit: $45\\times\\binom42=270$, missing the $3+1$ patterns.",
+   "3": "Choosing the two digits in order ($10\\times9=90$), which counts every PIN twice."
+  },
+  "time": 150
+ },
+ {
+  "id": "prob-10",
+  "topic": "prob",
+  "paper": 2,
+  "difficulty": 2,
+  "skills": [
+   "at least one",
+   "mutually exclusive",
+   "errors in reasoning"
+  ],
+  "stem": "A student argues:\n\n> On each roll of a fair die, the probability of a six is $\\frac16$. So in six rolls, the probability of getting at least one six is $6\\times\\frac16=1$.\n\nWhich one of the following best describes the error in the argument?",
+  "figure": null,
+  "options": [
+   "The rolls are not independent, so the probabilities cannot be added.",
+   "The events 'six on roll $k$' are not mutually exclusive, so their probabilities cannot simply be added.",
+   "The probabilities should be multiplied, so the answer is $\\left(\\frac16\\right)^6$.",
+   "The probability of a six changes as more rolls are made.",
+   "There is no error: at least one six is certain in six rolls."
+  ],
+  "answer": 1,
+  "solution": "Adding probabilities, $P(E_1\\cup\\dots\\cup E_6)=P(E_1)+\\dots+P(E_6)$, is valid only when the events are mutually exclusive. Here two rolls can both be sixes, so the outcomes with several sixes are counted more than once.\n\nThe rolls *are* independent, and each has probability $\\frac16$, so the other suggested errors are wrong. The correct value is\n$$1-\\left(\\tfrac56\\right)^6\\approx0.67,$$\nwhich is clearly less than $1$ (six rolls with no six is certainly possible).",
+  "insight": "Probabilities add for 'or' only when the events cannot happen together.",
+  "distractors": {
+   "0": "The rolls are independent; independence is what justifies multiplying, not adding, so it is not the problem here.",
+   "2": "$\\left(\\frac16\\right)^6$ is the probability that all six rolls are sixes, not at least one."
+  },
+  "time": 90
+ },
+ {
+  "id": "prob-11",
+  "topic": "prob",
+  "paper": 2,
+  "difficulty": 3,
+  "skills": [
+   "probability laws",
+   "independence",
+   "mutually exclusive"
+  ],
+  "stem": "Events $A$ and $B$ satisfy $P(A)=0.5$ and $P(B)=0.4$. Which of the following **must** be true?\n\nI. $P(A\\cup B)\\ge0.5$\n\nII. $P(A\\cap B)\\le0.4$\n\nIII. If $A$ and $B$ are mutually exclusive, then they are independent.",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 4,
+  "solution": "**I is true:** $A\\subseteq A\\cup B$, so $P(A\\cup B)\\ge P(A)=0.5$.\n\n**II is true:** $A\\cap B\\subseteq B$, so $P(A\\cap B)\\le P(B)=0.4$.\n\n**III is false:** if they are mutually exclusive then $P(A\\cap B)=0$, but independence would need $P(A\\cap B)=P(A)P(B)=0.2$. (Mutually exclusive events with non-zero probabilities are never independent: knowing $A$ happened tells you $B$ did not.)\n\nSo the answer is **I and II only**.",
+  "insight": "Mutually exclusive and independent are different ideas; with non-zero probabilities they are incompatible.",
+  "distractors": {
+   "7": "Mixing up 'mutually exclusive' with 'independent'.",
+   "0": "Thinking the bounds need more information; they follow from $A\\cup B$ containing $A$ and $A\\cap B$ lying inside $B$."
+  },
+  "time": 150
+ },
+ {
+  "id": "prob-12",
+  "topic": "prob",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "geometric probability",
+   "area"
+  ],
+  "stem": "A point is chosen at random inside a square of side $1$. What is the probability that it is less than $\\frac14$ from the nearest side of the square?",
+  "figure": null,
+  "options": [
+   "$\\frac{1}{4}$",
+   "$\\frac{1}{2}$",
+   "$\\frac{9}{16}$",
+   "$\\frac{3}{4}$",
+   "$\\frac{15}{16}$"
+  ],
+  "answer": 3,
+  "solution": "The points at least $\\frac14$ from every side form a central square of side $1-2\\times\\frac14=\\frac12$, with area $\\frac14$.\n\nSo the required probability is $1-\\frac14=\\frac34$.",
+  "insight": "In geometric probability, probability is a ratio of areas, and the complement region is often simpler.",
+  "distractors": {
+   "0": "Finding the area of the central square and forgetting to take the complement.",
+   "2": "Shrinking the square by $\\frac14$ only once (side $\\frac34$) and answering its area $\\frac9{16}$."
+  },
+  "time": 120
+ },
+ {
+  "id": "prob-13",
+  "topic": "prob",
+  "paper": 1,
+  "difficulty": 4,
+  "skills": [
+   "conditional probability",
+   "without replacement"
+  ],
+  "stem": "A bag contains $3$ red and $2$ blue balls. Two balls are taken at random without replacement. Given that at least one of them is red, what is the probability that both are red?",
+  "figure": null,
+  "options": [
+   "$\\frac{3}{10}$",
+   "$\\frac{1}{3}$",
+   "$\\frac{1}{2}$",
+   "$\\frac{3}{5}$",
+   "$\\frac{2}{3}$"
+  ],
+  "answer": 1,
+  "solution": "$$P(\\text{both red})=\\frac35\\cdot\\frac24=\\frac3{10},\\qquad P(\\text{at least one red})=1-\\frac25\\cdot\\frac14=\\frac9{10}.$$\n\nSince 'both red' is contained in 'at least one red',\n$$P(\\text{both red}\\mid\\text{at least one red})=\\frac{3/10}{9/10}=\\frac13.$$\n\n*Counting check:* of the $\\binom52=10$ pairs, $9$ contain a red and $3$ are both red.",
+  "insight": "'Given at least one' is not the same as 'given the first one'; restrict to the whole conditioning event.",
+  "distractors": {
+   "2": "Interpreting the condition as 'the first ball is red', giving $\\frac24$.",
+   "0": "Ignoring the condition and giving the unconditional probability."
+  },
+  "time": 180
+ },
+ {
+  "id": "prob-14",
+  "topic": "prob",
+  "paper": 1,
+  "difficulty": 4,
+  "skills": [
+   "selections",
+   "no two consecutive",
+   "bijection"
+  ],
+  "stem": "In how many ways can three different numbers be chosen from $\\{1,2,3,\\ldots,10\\}$ so that no two of the chosen numbers are consecutive?",
+  "figure": null,
+  "options": [
+   "$48$",
+   "$56$",
+   "$64$",
+   "$84$",
+   "$120$"
+  ],
+  "answer": 1,
+  "solution": "Write the chosen numbers as $a<b<c$ with $b\\ge a+2$ and $c\\ge b+2$. Then $a,\\ b-1,\\ c-2$ are three different numbers from $\\{1,\\dots,8\\}$, and every such triple arises exactly once. So the answer is\n$$\\binom83=\\mathbf{56}.$$\n\n*Alternative (inclusion–exclusion):* $\\binom{10}3=120$ in total. A consecutive pair $(i,i+1)$ can be chosen in $9$ ways and the third number in $8$ ways, giving $72$; but each of the $8$ runs of three consecutive numbers has been counted twice. So $120-(72-8)=56$.",
+  "insight": "Squash the gaps: 'no two consecutive' choices of $k$ from $n$ correspond to ordinary choices of $k$ from $n-k+1$.",
+  "distractors": {
+   "0": "Subtracting $72$ without correcting for the runs $\\{i,i+1,i+2\\}$ counted twice: $120-72=48$.",
+   "4": "Ignoring the restriction: $\\binom{10}{3}$."
+  },
+  "time": 210
+ },
+ {
+  "id": "prob-15",
+  "topic": "prob",
+  "paper": 2,
+  "difficulty": 4,
+  "skills": [
+   "independence",
+   "two dice"
+  ],
+  "stem": "Two fair six-sided dice are rolled. Let $A$ be the event 'the first die shows an even number', $B$ the event 'the total is $7$', and $C$ the event 'the total is $8$'.\n\nWhich of the following pairs of events are independent?\n\nI. $A$ and $B$\n\nII. $A$ and $C$\n\nIII. $B$ and $C$",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 1,
+  "solution": "$P(A)=\\frac12$, $P(B)=\\frac6{36}=\\frac16$, $P(C)=\\frac5{36}$.\n\n**I:** $A\\cap B=\\{(2,5),(4,3),(6,1)\\}$, so $P(A\\cap B)=\\frac3{36}=\\frac1{12}=\\frac12\\cdot\\frac16$. Independent.\n\n**II:** $A\\cap C=\\{(2,6),(4,4),(6,2)\\}$, so $P(A\\cap C)=\\frac3{36}$, but $P(A)P(C)=\\frac5{72}\\ne\\frac6{72}$. Not independent.\n\n**III:** $B$ and $C$ cannot both happen, so $P(B\\cap C)=0\\ne P(B)P(C)$. Not independent.\n\nSo the answer is **I only**.",
+  "insight": "Test independence by checking $P(X\\cap Y)=P(X)P(Y)$ exactly; intuition about 'unrelated' events is unreliable.",
+  "distractors": {
+   "4": "Assuming that because $A$ and $B$ are independent, $A$ and $C$ must be too; for total $7$ every first-die value works, but for total $8$ a first die of $1$ is impossible.",
+   "5": "Thinking mutually exclusive events are independent."
+  },
+  "time": 210
+ },
+ {
+  "id": "prob-16",
+  "topic": "prob",
+  "paper": 1,
+  "difficulty": 4,
+  "skills": [
+   "without replacement",
+   "quadratics",
+   "unknown numbers"
+  ],
+  "stem": "A bag contains $n$ red balls and $3$ blue balls. Two balls are taken at random without replacement. The probability that the two balls are the same colour is $\\frac12$. What is the complete set of possible values of $n$?",
+  "figure": null,
+  "options": [
+   "$\\{1\\}$",
+   "$\\{3\\}$",
+   "$\\{6\\}$",
+   "$\\{1,6\\}$",
+   "$\\{2,3\\}$",
+   "$\\{3,6\\}$"
+  ],
+  "answer": 3,
+  "solution": "$$\\frac{n(n-1)+3\\cdot2}{(n+3)(n+2)}=\\frac12\\ \\Rightarrow\\ 2n^2-2n+12=n^2+5n+6\\ \\Rightarrow\\ n^2-7n+6=0,$$\nso $(n-1)(n-6)=0$ and $n=1$ or $n=6$.\n\nBoth are valid. For $n=1$: the only way to match is two blues, $\\frac{\\binom32}{\\binom42}=\\frac36=\\frac12$. For $n=6$: $\\frac{\\binom62+\\binom32}{\\binom92}=\\frac{15+3}{36}=\\frac12$.\n\nSo the complete set is $\\{1,6\\}$.",
+  "insight": "Set up the equation, solve it, then check each root in context rather than discarding one on instinct.",
+  "distractors": {
+   "2": "Rejecting $n=1$ because two reds cannot be drawn; the balls can still match by both being blue.",
+   "1": "Using with-replacement probabilities, $\\frac{n^2+9}{(n+3)^2}=\\frac12$, which gives $(n-3)^2=0$."
+  },
+  "time": 210
+ },
+ {
+  "id": "prob-17",
+  "topic": "prob",
+  "paper": 1,
+  "difficulty": 5,
+  "skills": [
+   "arrangements",
+   "inclusion-exclusion"
+  ],
+  "stem": "Three couples sit at random in a row of six chairs. What is the probability that nobody sits next to their partner?",
+  "figure": null,
+  "options": [
+   "$\\frac{1}{6}$",
+   "$\\frac{1}{5}$",
+   "$\\frac{1}{4}$",
+   "$\\frac{8}{27}$",
+   "$\\frac{1}{3}$",
+   "$\\frac{2}{5}$"
+  ],
+  "answer": 4,
+  "solution": "There are $6!=720$ seatings. Let $A_i$ be the set of seatings with couple $i$ together. Treating a couple as a block (which can be ordered $2$ ways):\n$$|A_i|=2\\cdot5!=240,\\qquad|A_i\\cap A_j|=2^2\\cdot4!=96,\\qquad|A_1\\cap A_2\\cap A_3|=2^3\\cdot3!=48.$$\n\nBy inclusion–exclusion, the number with at least one couple together is\n$$3(240)-3(96)+48=480.$$\n\nSo $720-480=240$ seatings have no couple together, and the probability is $\\frac{240}{720}=\\frac13$.",
+  "insight": "For 'none of these things happen', use inclusion–exclusion with blocks, and do not stop after two terms.",
+  "distractors": {
+   "5": "Stopping inclusion–exclusion before the last term: $720-720+288=288$, giving $\\frac25$.",
+   "3": "Treating the three events 'couple $i$ apart' (each of probability $\\frac23$) as independent: $\\left(\\frac23\\right)^3=\\frac8{27}$. They are not independent."
+  },
+  "time": 270
+ },
+ {
+  "id": "prob-18",
+  "topic": "prob",
+  "paper": 2,
+  "difficulty": 5,
+  "skills": [
+   "geometric probability",
+   "counting",
+   "regular polygons"
+  ],
+  "stem": "Three of the six vertices of a regular hexagon are chosen at random to form a triangle. Which of the following statements is/are true?\n\nI. The probability that the centre of the hexagon lies inside or on the triangle is $\\frac12$.\n\nII. The probability that the triangle is right-angled is $\\frac35$.\n\nIII. The probability that the triangle is isosceles (counting an equilateral triangle as isosceles) is $\\frac25$.",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 6,
+  "solution": "There are $\\binom63=20$ triangles, of three shapes (label the vertices $1$ to $6$ in order):\n\n* **Three adjacent vertices** (e.g. $1,2,3$): $6$ triangles, isosceles with a $120^\\circ$ angle; the centre is outside.\n* **Alternate vertices** ($1,3,5$ and $2,4,6$): $2$ equilateral triangles; the centre is inside.\n* **Containing a pair of opposite vertices** (a diameter of the circumcircle): $3$ diameters $\\times$ $4$ other vertices $=12$ triangles. By the angle in a semicircle each is right-angled (sides $1,\\sqrt3,2$, so scalene), and the centre lies on the hypotenuse.\n\n$6+2+12=20$ checks.\n\n**I:** inside or on: $2+12=14$, probability $\\frac7{10}$. False.\n\n**II:** right-angled: $\\frac{12}{20}=\\frac35$. True.\n\n**III:** isosceles (including equilateral): $6+2=8$, probability $\\frac8{20}=\\frac25$. True.\n\nSo the answer is **II and III only**.",
+  "insight": "Classify configurations by shape using symmetry, and check the classes add up to the total.",
+  "distractors": {
+   "2": "Not counting the equilateral triangles as isosceles (despite the stem), giving $\\frac6{20}$ for III.",
+   "7": "Accepting I without counting: the centre lies inside or on $14$ of the $20$ triangles (the $12$ right-angled ones have it on the hypotenuse), so the probability is $\\frac7{10}$, not $\\frac12$."
+  },
+  "time": 270
+ }
+]

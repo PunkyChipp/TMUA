@@ -1,0 +1,521 @@
+[
+ {
+  "id": "proof-01",
+  "topic": "proof",
+  "paper": 2,
+  "difficulty": 1,
+  "skills": [
+   "counterexample",
+   "primes"
+  ],
+  "stem": "Consider the statement: *if $p$ is a prime number, then $p^2+2$ is not prime.*\n\nWhich one of the following values of $p$ is a counterexample to the statement?",
+  "figure": null,
+  "options": [
+   "$p=2$",
+   "$p=3$",
+   "$p=5$",
+   "$p=7$",
+   "$p=11$"
+  ],
+  "answer": 1,
+  "solution": "A counterexample must satisfy the hypothesis ($p$ prime) **and** fail the conclusion ($p^2+2$ prime).\n\n- $p=2$: $6$, not prime.\n- $p=3$: $11$, prime, so this is a counterexample.\n- $p=5$: $27=3^3$; $p=7$: $51=3\\times17$; $p=11$: $123=3\\times41$.\n\nIn fact $p=3$ is the *only* counterexample: for any prime $p\\ne3$, $p^2\\equiv1 \\pmod 3$, so $3\\mid p^2+2$.",
+  "insight": "A counterexample makes the hypothesis true and the conclusion false; working mod 3 shows why 3 is special.",
+  "distractors": {
+   "3": "$51$ looks prime, but $51=3\\times17$.",
+   "0": "$p=2$ is the obvious 'special prime', but $2^2+2=6$ agrees with the statement."
+  },
+  "time": 60
+ },
+ {
+  "id": "proof-02",
+  "topic": "proof",
+  "paper": 2,
+  "difficulty": 1,
+  "skills": [
+   "counterexample",
+   "inequalities"
+  ],
+  "stem": "Which one of the following is a counterexample to the statement *for every real number $x$, $x^2\\ge x$*?",
+  "figure": null,
+  "options": [
+   "$x=-2$",
+   "$x=0$",
+   "$x=\\frac12$",
+   "$x=1$",
+   "$x=2$"
+  ],
+  "answer": 2,
+  "solution": "$x^2\\ge x \\iff x(x-1)\\ge0 \\iff x\\le0$ or $x\\ge1$. So the statement fails exactly for $0<x<1$.\n\nWith $x=\\frac12$: $x^2=\\frac14<\\frac12$. The other values give $4\\ge-2$, $0\\ge0$, $1\\ge1$, $4\\ge2$, all true.",
+  "insight": "When testing a claim about all reals, try a number between 0 and 1 as well as negatives.",
+  "distractors": {
+   "0": "Negative numbers often break inequalities, but $(-2)^2=4\\ge-2$ holds.",
+   "1": "$0\\ge0$ is true: equality still satisfies $\\ge$."
+  },
+  "time": 60
+ },
+ {
+  "id": "proof-03",
+  "topic": "proof",
+  "paper": 2,
+  "difficulty": 2,
+  "skills": [
+   "contradiction",
+   "negation"
+  ],
+  "stem": "The following statement about an integer $n$ is to be proved by contradiction:\n\n*If $n^2$ is even, then $n$ is even.*\n\nWhat should the proof begin by assuming?",
+  "figure": null,
+  "options": [
+   "$n^2$ is odd and $n$ is odd",
+   "$n^2$ is odd and $n$ is even",
+   "$n^2$ is even and $n$ is odd",
+   "$n^2$ is even and $n$ is even",
+   "$n^2$ is odd or $n$ is even"
+  ],
+  "answer": 2,
+  "solution": "The statement has the form $P\\Rightarrow Q$. Its negation is '$P$ and not $Q$': the hypothesis holds but the conclusion fails.\n\nSo assume $n^2$ is even **and** $n$ is odd. Then $n=2k+1$, $n^2=4k^2+4k+1$ is odd, contradicting $n^2$ even.",
+  "insight": "The negation of 'if $P$ then $Q$' is '$P$ and not $Q$', not another if-then statement.",
+  "distractors": {
+   "4": "'$n^2$ odd or $n$ even' is logically equivalent to the statement itself, so assuming it leads to no contradiction.",
+   "1": "Negating both parts gives the (false) negation of the converse, not the negation of the statement."
+  },
+  "time": 90
+ },
+ {
+  "id": "proof-04",
+  "topic": "proof",
+  "paper": 2,
+  "difficulty": 2,
+  "skills": [
+   "counterexample",
+   "primes",
+   "factorising"
+  ],
+  "stem": "It is claimed that $n^2+n+41$ is prime for every positive integer $n$.\n\nWhich one of the following values of $n$ gives a counterexample?",
+  "figure": null,
+  "options": [
+   "$1$",
+   "$10$",
+   "$20$",
+   "$39$",
+   "$40$"
+  ],
+  "answer": 4,
+  "solution": "Look for $n$ that makes every term share a factor. $n^2+n+41=n(n+1)+41$, so $n=40$ gives $40\\cdot41+41=41^2=1681$, which is not prime.\n\nThe others give $43$, $151$, $461$, $1601$, all prime (and you don't need to check them once you have spotted $n=40$).",
+  "insight": "To break a 'prime for all $n$' claim, choose $n$ so that the expression visibly factorises.",
+  "distractors": {
+   "3": "$39^2+39+41=1601$ is prime; the pattern survives up to $n=39$.",
+   "0": "$n=1$ gives $43$, which is prime."
+  },
+  "time": 90
+ },
+ {
+  "id": "proof-05",
+  "topic": "proof",
+  "paper": 2,
+  "difficulty": 2,
+  "skills": [
+   "divisibility",
+   "parity",
+   "consecutive integers"
+  ],
+  "stem": "Which of the following statements is/are true for every integer $n$?\n\nI $\\;n^2+n$ is even.\n\nII $\\;n^3-n$ is divisible by $6$.\n\nIII $\\;n^4-n$ is divisible by $4$.",
+  "figure": null,
+  "options": [
+   "None of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 4,
+  "solution": "I: $n^2+n=n(n+1)$, a product of two consecutive integers, so even. True.\n\nII: $n^3-n=(n-1)n(n+1)$, three consecutive integers, so divisible by $2$ and by $3$, hence by $6$. True.\n\nIII: $n=2$ gives $16-2=14$, not divisible by $4$. False.\n\nAnswer: I and II only.",
+  "insight": "Factorise into consecutive integers to prove divisibility; test small values to disprove it.",
+  "distractors": {
+   "7": "III holds for $n=0,1$ (and $n=4$), but $n=2$ gives $14$.",
+   "1": "II also factorises into three consecutive integers."
+  },
+  "time": 120
+ },
+ {
+  "id": "proof-06",
+  "topic": "proof",
+  "paper": 2,
+  "difficulty": 2,
+  "skills": [
+   "direct proof",
+   "parity",
+   "modular arithmetic"
+  ],
+  "stem": "Here is an incomplete proof that the square of any odd integer leaves remainder $1$ when divided by $8$.\n\n*Let $n$ be odd, so $n=2k+1$ for some integer $k$. Then $n^2=4k^2+4k+1=4k(k+1)+1$.* **[gap]** *Hence $n^2=8m+1$ for some integer $m$.*\n\nWhich one of the following correctly fills the gap?",
+  "figure": null,
+  "options": [
+   "Since $4k(k+1)$ is a multiple of $4$, it is a multiple of $8$.",
+   "One of $k$ and $k+1$ is even, so $k(k+1)$ is even and $4k(k+1)$ is a multiple of $8$.",
+   "Since $n$ is odd, $k$ is odd, so $k+1$ is even and $4k(k+1)$ is a multiple of $8$.",
+   "When $k=1$, $4k(k+1)=8$, which is a multiple of $8$.",
+   "Since $4k(k+1)+1$ is odd, it is one more than a multiple of $8$."
+  ],
+  "answer": 1,
+  "solution": "We need $8\\mid 4k(k+1)$, i.e. $2\\mid k(k+1)$. Consecutive integers always include an even one, so this holds for **every** integer $k$.\n\nOption C assumes $k$ is odd, which need not be true ($n=5$ gives $k=2$). Option D checks one case only. Options A and E are false inferences (e.g. $4$ is a multiple of $4$ but not $8$; $3$ is odd but not $8m+1$).",
+  "insight": "A justification must cover every case the variable can take, not just a convenient one.",
+  "distractors": {
+   "2": "$n$ odd does not force $k$ odd: $n=5=2\\cdot2+1$.",
+   "3": "Checking one value of $k$ is an example, not a proof."
+  },
+  "time": 120
+ },
+ {
+  "id": "proof-07",
+  "topic": "proof",
+  "paper": 2,
+  "difficulty": 3,
+  "skills": [
+   "quantifiers",
+   "for all / there exists"
+  ],
+  "stem": "Which of the following statements is/are true? (All variables are real numbers.)\n\nI $\\;$ For every $x$ there is a $y$ such that $y>x^2$.\n\nII $\\;$ There is a $y$ such that for every $x$, $y>x^2$.\n\nIII $\\;$ There is an $x$ such that for every $y$, $xy=x$.",
+  "figure": null,
+  "options": [
+   "None of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 5,
+  "solution": "I: given $x$, take $y=x^2+1$. True.\n\nII: one fixed $y$ would have to exceed every $x^2$; but $x=\\sqrt{|y|}+1$ gives $x^2>|y|\\ge y$. False.\n\nIII: $x=0$ gives $0\\cdot y=0$ for every $y$. True.\n\nSo I and III only. The difference between I and II is the order of quantifiers: in I, $y$ may depend on $x$; in II it may not.",
+  "insight": "'For every $x$ there is a $y$' lets $y$ depend on $x$; 'there is a $y$ for every $x$' demands one $y$ that works for all.",
+  "distractors": {
+   "1": "III is easy to miss: $x=0$ works for every $y$.",
+   "4": "II swaps the quantifiers of I; a single $y$ cannot beat every $x^2$."
+  },
+  "time": 150
+ },
+ {
+  "id": "proof-08",
+  "topic": "proof",
+  "paper": 2,
+  "difficulty": 3,
+  "skills": [
+   "primes",
+   "Euclid",
+   "proof structure"
+  ],
+  "stem": "Let $p_1,p_2,\\dots,p_n$ be the first $n$ primes (for some $n\\ge1$), and let $N=p_1p_2\\cdots p_n+1$.\n\nWhich of the following must be true?\n\nI $\\;N$ is prime.\n\nII $\\;N$ is not divisible by any of $p_1,\\dots,p_n$.\n\nIII $\\;N$ has a prime factor greater than $p_n$.",
+  "figure": null,
+  "options": [
+   "None of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 6,
+  "solution": "II: each $p_i$ divides $N-1$, so dividing $N$ by $p_i$ leaves remainder $1$. True.\n\nIII: $N>1$, so it has a prime factor; by II that factor is not among the first $n$ primes, so it exceeds $p_n$. True.\n\nI: false in general: $2\\cdot3\\cdot5\\cdot7\\cdot11\\cdot13+1=30031=59\\times509$.\n\nSo II and III only. Euclid's proof needs only III, not that $N$ itself is prime.",
+  "insight": "Euclid's argument produces a *new prime factor*, not necessarily a new prime $N$.",
+  "distractors": {
+   "7": "$N$ is prime for $n\\le5$, but $n=6$ gives $30031=59\\times509$.",
+   "2": "III follows from II because every integer greater than 1 has a prime factor."
+  },
+  "time": 150
+ },
+ {
+  "id": "proof-09",
+  "topic": "proof",
+  "paper": 2,
+  "difficulty": 3,
+  "skills": [
+   "converse",
+   "counterexample",
+   "primes"
+  ],
+  "stem": "It is a theorem that, for positive integers $n$, if $2^n-1$ is prime then $n$ is prime.\n\nWhich one of the following values of $n$ is a counterexample to the **converse** of this theorem?",
+  "figure": null,
+  "options": [
+   "$2$",
+   "$3$",
+   "$5$",
+   "$7$",
+   "$9$",
+   "$11$",
+   "$13$"
+  ],
+  "answer": 5,
+  "solution": "The converse is: *if $n$ is prime then $2^n-1$ is prime*. A counterexample needs $n$ prime and $2^n-1$ composite.\n\n$2^2-1=3$, $2^3-1=7$, $2^5-1=31$, $2^7-1=127$, $2^{13}-1=8191$ are all prime, but $2^{11}-1=2047=23\\times89$.\n\n$n=9$ is not a counterexample to the converse: $9$ is not prime, so the hypothesis fails ($2^9-1=511=7\\times73$ is consistent with the original theorem).",
+  "insight": "Write down the converse explicitly, then demand hypothesis true and conclusion false.",
+  "distractors": {
+   "4": "$2^9-1=511$ is composite, but $9$ is not prime, so the converse's hypothesis is not met.",
+   "6": "$8191$ is in fact prime (a Mersenne prime)."
+  },
+  "time": 150
+ },
+ {
+  "id": "proof-10",
+  "topic": "proof",
+  "paper": 2,
+  "difficulty": 3,
+  "skills": [
+   "counterexample",
+   "counting cases"
+  ],
+  "stem": "Consider the statement: *if $n$ is an odd positive integer, then $n^2+4$ is prime.*\n\nHow many counterexamples to the statement are there with $1\\le n\\le20$?",
+  "figure": null,
+  "options": [
+   "$0$",
+   "$1$",
+   "$2$",
+   "$3$",
+   "$4$",
+   "$13$"
+  ],
+  "answer": 3,
+  "solution": "Only odd $n$ can be counterexamples. Compute $n^2+4$:\n\n$1\\to5,\\ 3\\to13,\\ 5\\to29,\\ 7\\to53,\\ 9\\to85,\\ 11\\to125,\\ 13\\to173,\\ 15\\to229,\\ 17\\to293,\\ 19\\to365.$\n\nComposite: $85=5\\times17$, $125=5^3$, $365=5\\times73$. So there are $3$ counterexamples.\n\nShortcut: $n^2+4\\equiv0\\pmod5$ when $n\\equiv\\pm1\\pmod 5$, which flags $9,11,19$ (and $1$, giving $5$ itself).",
+  "insight": "Even values of $n$ cannot be counterexamples: they make the hypothesis false.",
+  "distractors": {
+   "5": "Counting the 10 even values (where $n^2+4$ is even) as well: they are not counterexamples since the hypothesis 'n odd' fails.",
+   "2": "Missing $365=5\\times73$ at $n=19$."
+  },
+  "time": 150
+ },
+ {
+  "id": "proof-11",
+  "topic": "proof",
+  "paper": 2,
+  "difficulty": 3,
+  "skills": [
+   "contradiction",
+   "irrationality",
+   "proof order"
+  ],
+  "stem": "The statements below are to be arranged into a proof by contradiction that $\\sqrt2$ is irrational.\n\nP: Then $p^2=2q^2$, so $p^2$ is even, and hence $p$ is even.\n\nQ: So $q^2$ is even, and hence $q$ is even.\n\nR: Suppose $\\sqrt2=\\frac pq$, where $p$ and $q$ are positive integers with no common factor.\n\nS: This contradicts the fact that $p$ and $q$ have no common factor.\n\nT: Write $p=2r$; then $4r^2=2q^2$, so $q^2=2r^2$.\n\nWhich order gives a correct proof?",
+  "figure": null,
+  "options": [
+   "R, P, Q, T, S",
+   "R, P, T, Q, S",
+   "R, T, P, Q, S",
+   "P, R, T, Q, S",
+   "R, Q, T, P, S"
+  ],
+  "answer": 1,
+  "solution": "R must come first (it introduces $p,q$ and the assumption). T writes $p=2r$, which needs $p$ even, so P precedes T. Q needs $q^2=2r^2$, so T precedes Q. S uses both $p$ and $q$ even, so it is last.\n\nOrder: R, P, T, Q, S.",
+  "insight": "In a proof each line may use only the assumption and lines already established.",
+  "distractors": {
+   "0": "Q (q even) cannot come before T, which is where $q^2=2r^2$ is derived.",
+   "2": "T writes $p=2r$ before we know $p$ is even."
+  },
+  "time": 150
+ },
+ {
+  "id": "proof-12",
+  "topic": "proof",
+  "paper": 2,
+  "difficulty": 3,
+  "skills": [
+   "counterexample",
+   "inequalities",
+   "reciprocals"
+  ],
+  "stem": "Consider the claim: *for all non-zero real numbers $a$ and $b$, if $a<b$ then $\\frac1a>\\frac1b$.*\n\nWhich one of the following is true?",
+  "figure": null,
+  "options": [
+   "The claim is true.",
+   "The claim is false, and every counterexample has $a$ and $b$ both negative.",
+   "The claim is false, and every counterexample has $a<0<b$.",
+   "The claim is false, and every counterexample has $a$ and $b$ both positive.",
+   "The claim is false, and there are counterexamples with $a,b$ both positive and others with $a,b$ both negative."
+  ],
+  "answer": 2,
+  "solution": "$\\frac1a-\\frac1b=\\frac{b-a}{ab}$. With $a<b$, $b-a>0$, so $\\frac1a>\\frac1b \\iff ab>0$.\n\nSo the claim holds whenever $a,b$ have the same sign, and fails exactly when $ab<0$, i.e. $a<0<b$ (e.g. $a=-1$, $b=1$: $\\frac1a=-1<1=\\frac1b$).",
+  "insight": "Combine into a single fraction and read off the sign condition instead of guessing cases.",
+  "distractors": {
+   "1": "For $a<b<0$, e.g. $-2<-1$: $-\\frac12>-1$, so the claim holds.",
+   "0": "The claim fails for $a=-1$, $b=1$."
+  },
+  "time": 150
+ },
+ {
+  "id": "proof-13",
+  "topic": "proof",
+  "paper": 2,
+  "difficulty": 4,
+  "skills": [
+   "proof by cases",
+   "modular arithmetic",
+   "squares"
+  ],
+  "stem": "Which of the following statements is/are true for all integers $a$ and $b$?\n\nI $\\;$ If $a^2+b^2$ is divisible by $3$, then $a$ and $b$ are both divisible by $3$.\n\nII $\\;$ If $a^2+b^2$ is divisible by $5$, then $a$ and $b$ are both divisible by $5$.\n\nIII $\\;$ If $a^2+b^2$ is divisible by $7$, then $a$ and $b$ are both divisible by $7$.",
+  "figure": null,
+  "options": [
+   "None of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 5,
+  "solution": "Work with squares modulo $m$ (proof by cases on residues).\n\nI: squares mod 3 are $0,1$. A sum $\\equiv0$ needs both $\\equiv0$, so $3\\mid a$ and $3\\mid b$. True.\n\nII: $1^2+2^2=5$. False.\n\nIII: squares mod 7 are $0,1,2,4$. To get a sum $\\equiv0$ with a non-zero square you would need pairs $(1,6),(2,5),(4,3)$, but $6,5,3$ are not squares mod 7. So both are $\\equiv0$. True.\n\nAnswer: I and III only.",
+  "insight": "Reduce to a finite check of residues: list the squares modulo $m$ and see which pairs sum to $0$.",
+  "distractors": {
+   "7": "II fails: $1^2+2^2=5$.",
+   "1": "III also works: the non-zero squares mod 7 are $1,2,4$, and no two of them sum to $7$."
+  },
+  "time": 200
+ },
+ {
+  "id": "proof-14",
+  "topic": "proof",
+  "paper": 2,
+  "difficulty": 4,
+  "skills": [
+   "counterexample",
+   "divisibility",
+   "Fermat"
+  ],
+  "stem": "For which one of the following values of $k$ is the statement\n\n*for every integer $n$, $n^k-n$ is divisible by $k$*\n\nfalse?",
+  "figure": null,
+  "options": [
+   "$2$",
+   "$3$",
+   "$5$",
+   "$7$",
+   "$9$",
+   "$13$"
+  ],
+  "answer": 4,
+  "solution": "Test $n=2$ for $k=9$: $2^9-2=510=9\\times56+6$, not divisible by $9$. So the statement is false for $k=9$.\n\nFor prime $k$ the statement is Fermat's little theorem, so it holds for $2,3,5,7,13$. (Without that theorem: check residues, e.g. $k=5$: $n^5-n=(n-1)n(n+1)(n^2+1)$ and $n^2+1\\equiv0$ when $n\\equiv2,3$.)",
+  "insight": "To disprove a 'for every $n$' claim, one explicit $n$ suffices; $n=2$ is the natural first try.",
+  "distractors": {
+   "5": "$13$ is prime, so $n^{13}-n$ is always divisible by $13$.",
+   "3": "$n^7-n$ is divisible by 7 for every $n$ since 7 is prime."
+  },
+  "time": 180
+ },
+ {
+  "id": "proof-15",
+  "topic": "proof",
+  "paper": 2,
+  "difficulty": 4,
+  "skills": [
+   "direct proof",
+   "AM-GM",
+   "logical direction"
+  ],
+  "stem": "Let $a$ and $b$ be non-negative real numbers. Which one of the following is a valid proof that $\\frac{a+b}2\\ge\\sqrt{ab}$?",
+  "figure": null,
+  "options": [
+   "Suppose $\\frac{a+b}2\\ge\\sqrt{ab}$. Then $a+b\\ge2\\sqrt{ab}$, so $a-2\\sqrt{ab}+b\\ge0$, i.e. $(\\sqrt a-\\sqrt b)^2\\ge0$, which is true.",
+   "$(\\sqrt a-\\sqrt b)^2\\ge0$, so $a-2\\sqrt{ab}+b\\ge0$, so $a+b\\ge2\\sqrt{ab}$; dividing by $2$ gives the result.",
+   "Since $(a-b)^2\\ge0$, we have $a^2+b^2\\ge2ab$; taking square roots, $a+b\\ge\\sqrt{2ab}$, and so $\\frac{a+b}{2}\\ge\\sqrt{ab}$.",
+   "When $a=b$ both sides equal $a$; increasing $a$ or $b$ increases the left side by more than the right side, so the inequality holds.",
+   "None of the above is a valid proof."
+  ],
+  "answer": 1,
+  "solution": "B starts from a known truth and moves forwards by valid steps to the result: a direct proof.\n\nA starts from the result and deduces something true; that proves nothing (you can deduce true things from false statements). C takes square roots wrongly ($\\sqrt{a^2+b^2}\\ne a+b$) and the final step loses the factor $2$. D is a heuristic with unproved claims about rates of increase.",
+  "insight": "A proof must run from what is known to what is claimed; deducing a truth from the claim is not a proof.",
+  "distractors": {
+   "0": "It works backwards from the claim; as written it assumes what it is trying to prove.",
+   "4": "B is a valid direct proof; the steps are the reverse of A."
+  },
+  "time": 180
+ },
+ {
+  "id": "proof-16",
+  "topic": "proof",
+  "paper": 2,
+  "difficulty": 4,
+  "skills": [
+   "proof by exhaustion",
+   "base cases",
+   "linear combinations"
+  ],
+  "stem": "Consider the claim: *every integer $n\\ge N$ can be written as $3a+5b$ with $a,b$ non-negative integers.*\n\nA proof checks $n=N$, $N+1$ and $N+2$ directly, and then notes that if $n=3a+5b$ then $n+3=3(a+1)+5b$.\n\nWhat is the smallest value of $N$ for which this argument gives a correct proof?",
+  "figure": null,
+  "options": [
+   "$5$",
+   "$6$",
+   "$7$",
+   "$8$",
+   "$9$",
+   "$15$"
+  ],
+  "answer": 3,
+  "solution": "The argument works exactly when $N,N+1,N+2$ are all representable: adding 3s then covers every integer from $N$ up.\n\nRepresentable values: $0,3,5,6,8,9,10,11,\\dots$ Not representable: $1,2,4,7$.\n\n$N=5$: $5,6,7$ fails at $7$. $N=6$: fails at $7$. $N=7$: fails at $7$. $N=8$: $8=3+5$, $9=3\\cdot3$, $10=5\\cdot2$. So $N=8$.",
+  "insight": "The step $n\\to n+3$ needs three consecutive base cases, one for each residue mod 3.",
+  "distractors": {
+   "2": "$7$ is the largest number that cannot be written as $3a+5b$, so it cannot be a base case.",
+   "5": "$15=3\\times5$ works but is far from the smallest."
+  },
+  "time": 180
+ },
+ {
+  "id": "proof-17",
+  "topic": "proof",
+  "paper": 2,
+  "difficulty": 5,
+  "skills": [
+   "contradiction",
+   "primes",
+   "modular arithmetic"
+  ],
+  "stem": "A proof that there are infinitely many primes of the form $4k+3$ runs as follows.\n\n*Suppose $p_1,\\dots,p_n$ are all the primes of the form $4k+3$, and let $N=4p_1p_2\\cdots p_n-1$. Then $N$ is odd and $N$ is of the form $4k+3$.* **[\\*]** *So $N$ has a prime factor of the form $4k+3$. This factor is not any $p_i$, since each $p_i$ leaves remainder $p_i-1$ when dividing $N$. This is a contradiction.*\n\nWhich one of the following, placed at **[\\*]**, correctly justifies the next step?",
+  "figure": null,
+  "options": [
+   "Every number of the form $4k+3$ is prime.",
+   "Any product of integers each of the form $4k+1$ is itself of the form $4k+1$.",
+   "Any product of integers each of the form $4k+3$ is itself of the form $4k+3$.",
+   "$N$ is not divisible by any $p_i$, so $N$ is prime.",
+   "Every odd prime is of the form $4k+1$ or $4k+3$, and there are infinitely many of each."
+  ],
+  "answer": 1,
+  "solution": "$N$ is odd, so every prime factor is of the form $4k+1$ or $4k+3$. If **all** were $4k+1$, then by B their product $N$ would be of the form $4k+1$, but $N$ is of the form $4k+3$. So some prime factor is of the form $4k+3$.\n\nB holds since $(4a+1)(4b+1)=4(4ab+a+b)+1$.\n\nC is false: $3\\times3=9=4\\cdot2+1$. A is false: $15$. D only rules out the $p_i$, not primes of the form $4k+1$, so $N$ need not be prime (e.g. from the list $3,7,11$ we get $N=923=13\\times71$). E assumes the result.",
+  "insight": "To force a factor of a given type, show that factors all of the other type would give the wrong residue.",
+  "distractors": {
+   "2": "False: $3\\times3=9$ is of the form $4k+1$.",
+   "3": "Here the $p_i$ are only the $4k+3$ primes, so $N$ could still have $4k+1$ prime factors."
+  },
+  "time": 240
+ },
+ {
+  "id": "proof-18",
+  "topic": "proof",
+  "paper": 2,
+  "difficulty": 5,
+  "skills": [
+   "contradiction",
+   "rational roots",
+   "parity"
+  ],
+  "stem": "To prove that $x^3+x+1=0$ has no rational solution, suppose $x=\\frac pq$ where $p,q$ are integers with $q>0$ and no common factor, so that\n\n$$p^3+pq^2+q^3=0.$$\n\nWhich of the following would correctly complete the proof?\n\nI $\\;$ $p$ and $q$ are not both even. In each of the three remaining parity cases, $p^3+pq^2+q^3$ is odd, so it cannot equal $0$.\n\nII $\\;$ $p^3=-q^2(p+q)$, so $q$ divides $p^3$; as $p,q$ have no common factor, $q=1$. Then $p(p^2+1)=-1$, so $p=\\pm1$, but neither satisfies $p^3+p+1=0$.\n\nIII $\\;$ $x^3+x+1$ is strictly increasing, so the equation has exactly one real root, and a cubic with exactly one real root cannot have a rational root.",
+  "figure": null,
+  "options": [
+   "None of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 4,
+  "solution": "I: both odd: odd + odd + odd = odd. $p$ odd, $q$ even: odd + even + even = odd. $p$ even, $q$ odd: even + even + odd = odd. So the left side is odd, never $0$. Valid.\n\nII: $q\\mid p^3$ with $\\gcd(p,q)=1$ forces $q=1$. Then $p$ divides $-1$, so $p=\\pm1$, giving $3$ and $-1$, not $0$. Valid.\n\nIII: the final claim is false: $x^3-1=0$ has exactly one real root, $x=1$, which is rational.\n\nAnswer: I and II only.",
+  "insight": "Clearing denominators and then using parity or divisibility is the standard route to 'no rational root'.",
+  "distractors": {
+   "7": "III rests on a false general claim: $x^3-1$ has one real root, and it is rational.",
+   "1": "II is also valid: it is the rational root theorem argument."
+  },
+  "time": 240
+ }
+]

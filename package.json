@@ -1,0 +1,19 @@
+{
+  "name": "tmua-revision",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Adaptive TMUA revision app: question bank, generators, mocks, study plan.",
+  "type": "module",
+  "scripts": {
+    "build": "node tools/build.mjs",
+    "watch": "node tools/build.mjs --watch",
+    "validate": "node tools/validate.mjs",
+    "test": "node tools/build.mjs && node --test tests/*.test.mjs",
+    "check": "node tools/validate.mjs && python3 tools/run_checks.py && npm test"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0",
+    "katex": "^0.16.22",
+    "marked": "^15.0.0"
+  }
+}

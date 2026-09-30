@@ -1,0 +1,505 @@
+[
+ {
+  "id": "explog-01",
+  "topic": "explog",
+  "paper": 1,
+  "difficulty": 1,
+  "skills": [
+   "laws of logarithms"
+  ],
+  "stem": "Evaluate $$\\log_3 12 + 2\\log_3 6 - \\log_3 16.$$",
+  "figure": null,
+  "options": [
+   "$1$",
+   "$2$",
+   "$3$",
+   "$\\log_3 32$",
+   "$4$"
+  ],
+  "answer": 2,
+  "solution": "Use $2\\log_3 6 = \\log_3 36$, then combine:\n$$\\log_3\\frac{12 \\times 36}{16} = \\log_3 27 = 3.$$",
+  "insight": "Move coefficients inside as powers first, then combine sums and differences into one log.",
+  "distractors": {
+   "1": "Treats $2\\log_3 6$ as $\\log_3 12$, giving $\\log_3 9$.",
+   "3": "Uses the false rule $\\log a + \\log b = \\log(a+b)$: $\\log_3(12 + 36 - 16)$."
+  },
+  "time": 60
+ },
+ {
+  "id": "explog-02",
+  "topic": "explog",
+  "paper": 1,
+  "difficulty": 1,
+  "skills": [
+   "exponential equations",
+   "common base"
+  ],
+  "stem": "Solve $$3^{2x+1} = 27^{x-1}.$$",
+  "figure": null,
+  "options": [
+   "$x=-4$",
+   "$x=1$",
+   "$x=2$",
+   "$x=4$",
+   "$x=5$"
+  ],
+  "answer": 3,
+  "solution": "Write $27 = 3^3$: $27^{x-1} = 3^{3(x-1)} = 3^{3x-3}$.\n\nEquate exponents: $2x + 1 = 3x - 3$, so $x = 4$.\n\nCheck: $3^9 = 27^3$. ✓",
+  "insight": "Rewrite both sides as powers of the same base, remembering to multiply the whole exponent.",
+  "distractors": {
+   "2": "Writes $27^{x-1} = 3^{3x-1}$, multiplying only the $x$ by $3$.",
+   "0": "Writes $27^{x-1}$ as $3^{x-3}$, adding instead of multiplying."
+  },
+  "time": 60
+ },
+ {
+  "id": "explog-03",
+  "topic": "explog",
+  "paper": 1,
+  "difficulty": 2,
+  "skills": [
+   "change of base"
+  ],
+  "stem": "Evaluate $$\\log_2 3 \\times \\log_3 5 \\times \\log_5 32.$$",
+  "figure": null,
+  "options": [
+   "$2$",
+   "$\\frac52$",
+   "$5$",
+   "$\\log_2 480$",
+   "$10$"
+  ],
+  "answer": 2,
+  "solution": "By change of base, $\\log_a b \\times \\log_b c = \\log_a c$. The product telescopes:\n$$\\frac{\\ln 3}{\\ln 2}\\cdot\\frac{\\ln 5}{\\ln 3}\\cdot\\frac{\\ln 32}{\\ln 5} = \\frac{\\ln 32}{\\ln 2} = \\log_2 32 = 5.$$",
+  "insight": "A chain $\\log_a b\\cdot\\log_b c\\cdot\\log_c d$ collapses to $\\log_a d$.",
+  "distractors": {
+   "3": "Treats the product of logs as a sum of logs, giving $\\log_2(3\\cdot5\\cdot32)$.",
+   "1": "Confuses $\\log_2 32 = 5$ with $\\log_4 32 = \\tfrac52$ when collapsing the chain."
+  },
+  "time": 75
+ },
+ {
+  "id": "explog-04",
+  "topic": "explog",
+  "paper": 1,
+  "difficulty": 2,
+  "skills": [
+   "hidden quadratic",
+   "exponential equations"
+  ],
+  "stem": "What is the sum of all real solutions of $$4^x - 6\\cdot 2^x + 8 = 0 ?$$",
+  "figure": null,
+  "options": [
+   "$1$",
+   "$2$",
+   "$3$",
+   "$6$",
+   "$8$"
+  ],
+  "answer": 2,
+  "solution": "Let $y = 2^x$, so $4^x = y^2$:\n$$y^2 - 6y + 8 = 0 \\implies (y-2)(y-4) = 0 \\implies 2^x = 2 \\text{ or } 2^x = 4.$$\nSo $x = 1$ or $x = 2$, with sum $3$.",
+  "insight": "Spot $4^x = (2^x)^2$ and solve a quadratic in $y = 2^x$, then convert back.",
+  "distractors": {
+   "3": "Gives the sum of the roots in $y$ (i.e. of the values of $2^x$), not in $x$.",
+   "4": "Gives the product of the roots in $y$.",
+   "1": "Gives the product of the solutions in $x$."
+  },
+  "time": 75
+ },
+ {
+  "id": "explog-05",
+  "topic": "explog",
+  "paper": 1,
+  "difficulty": 2,
+  "skills": [
+   "laws of logarithms"
+  ],
+  "stem": "Given that $\\log_a 2 = p$ and $\\log_a 3 = q$, which of the following is equal to $\\log_a 72$?",
+  "figure": null,
+  "options": [
+   "$2p + 3q$",
+   "$3p + 2q$",
+   "$6pq$",
+   "$p^3 + q^2$",
+   "$p^3q^2$"
+  ],
+  "answer": 1,
+  "solution": "$72 = 8 \\times 9 = 2^3 \\times 3^2$, so\n$$\\log_a 72 = 3\\log_a 2 + 2\\log_a 3 = 3p + 2q.$$",
+  "insight": "Factorise into primes; powers become coefficients and products become sums.",
+  "distractors": {
+   "0": "Swaps the exponents, thinking $72 = 2^2 \\times 3^3$ (that is $108$).",
+   "4": "Keeps the product structure: $\\log(2^3 3^2) \\neq (\\log 2)^3 (\\log 3)^2$."
+  },
+  "time": 60
+ },
+ {
+  "id": "explog-06",
+  "topic": "explog",
+  "paper": 2,
+  "difficulty": 2,
+  "skills": [
+   "graph transformations",
+   "log graphs"
+  ],
+  "stem": "Which of the following single transformations map the graph of $y = \\log_3 x$ onto the graph of $y = \\log_3(9x)$?\n\nI. A translation by $2$ units in the positive $y$-direction.\n\nII. A stretch parallel to the $x$-axis with scale factor $\\tfrac19$.\n\nIII. A translation by $9$ units in the negative $x$-direction.",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 4,
+  "solution": "* I: $\\log_3(9x) = \\log_3 9 + \\log_3 x = 2 + \\log_3 x$. True.\n* II: replacing $x$ by $9x$ is a horizontal stretch with scale factor $\\tfrac19$. True.\n* III: that would give $y = \\log_3(x + 9)$, which differs (e.g. at $x = 1$: $\\log_3 10 \\neq 2$). False.\n\nSo I and II only — the same graph arises from two different transformations.",
+  "insight": "For logs, a horizontal stretch is the same as a vertical translation: $\\log(kx) = \\log k + \\log x$.",
+  "distractors": {
+   "1": "Sees the vertical translation but assumes one graph can only come from one transformation.",
+   "2": "Sees the horizontal stretch but not the log law that turns it into a translation."
+  },
+  "time": 90
+ },
+ {
+  "id": "explog-07",
+  "topic": "explog",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "change of base",
+   "log equations",
+   "domain"
+  ],
+  "stem": "Solve $$\\log_4 x = \\log_2(x - 2).$$",
+  "figure": null,
+  "options": [
+   "$x = 1$",
+   "$x = 4$",
+   "$x = 1$ or $x = 4$",
+   "$x = 16$",
+   "there are no real solutions"
+  ],
+  "answer": 1,
+  "solution": "$\\log_4 x = \\dfrac{\\log_2 x}{\\log_2 4} = \\tfrac12\\log_2 x = \\log_2\\sqrt x$.\n\nSo $\\sqrt x = x - 2$. Squaring: $x = x^2 - 4x + 4$, i.e. $x^2 - 5x + 4 = 0$, so $x = 1$ or $x = 4$.\n\n$x = 1$ fails: $\\log_2(1 - 2)$ is undefined (also $\\sqrt1 \\ne -1$). Hence $x = 4$ only. Check: $\\log_4 4 = 1 = \\log_2 2$. ✓",
+  "insight": "Convert to a common base, and always check candidate solutions against the domain of every log.",
+  "distractors": {
+   "2": "Doesn't check $x = 1$ in the original equation; $\\log_2(-1)$ is undefined.",
+   "4": "Converts wrongly, $\\log_4 x = 2\\log_2 x$, leading to $x^2 = x - 2$ with no real roots."
+  },
+  "time": 120
+ },
+ {
+  "id": "explog-08",
+  "topic": "explog",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "log inequalities",
+   "base less than 1"
+  ],
+  "stem": "What is the complete set of values of $x$ for which $$\\log_{\\frac12}(x - 1) > -2 ?$$",
+  "figure": null,
+  "options": [
+   "$x > 5$",
+   "$x < 5$",
+   "$1 < x < 5$",
+   "$1 < x < \\frac54$",
+   "$x > \\frac54$"
+  ],
+  "answer": 2,
+  "solution": "The function $\\log_{1/2}$ is **decreasing**, so applying $t \\mapsto (\\tfrac12)^t$ reverses the inequality:\n$$\\log_{1/2}(x-1) > -2 \\iff x - 1 < \\left(\\tfrac12\\right)^{-2} = 4.$$\nTogether with the domain $x - 1 > 0$: $1 < x < 5$.",
+  "insight": "When the base is between $0$ and $1$, the log is decreasing, so the inequality flips; and the domain always cuts in.",
+  "distractors": {
+   "0": "Doesn't flip the inequality for a base less than $1$.",
+   "1": "Flips correctly but forgets the domain $x > 1$.",
+   "3": "Evaluates $(\\tfrac12)^{-2}$ as $\\tfrac14$."
+  },
+  "time": 120
+ },
+ {
+  "id": "explog-09",
+  "topic": "explog",
+  "paper": 2,
+  "difficulty": 3,
+  "skills": [
+   "comparing powers",
+   "estimation"
+  ],
+  "stem": "Which of the following statements is/are true?\n\nI. $2^{30} > 10^{9}$\n\nII. $3^{20} > 2^{30}$\n\nIII. $5^{13} < 10^{9}$",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 4,
+  "solution": "* I: $2^{30} = (2^{10})^3 = 1024^3 > 1000^3 = 10^9$. True.\n* II: $3^{20} = 9^{10} > 8^{10} = 2^{30}$. True.\n* III: $5^{13} = \\dfrac{10^{13}}{2^{13}} = \\dfrac{10^{13}}{8192} > \\dfrac{10^{13}}{10^4} = 10^9$. False.\n\nSo I and II only.",
+  "insight": "Rewrite powers with a common exponent (or a common base like 10) so they can be compared directly.",
+  "distractors": {
+   "7": "Thinks $5^{13}$ is small because $5 < 10$, not noticing that $5^{13} = 10^{13}/2^{13}$.",
+   "1": "Thinks the larger exponent wins, so $2^{30} > 3^{20}$."
+  },
+  "time": 120
+ },
+ {
+  "id": "explog-10",
+  "topic": "explog",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "exponential models"
+  ],
+  "stem": "The value, £$V$, of a machine $t$ years after purchase is modelled by $V = Ab^t$, where $A$ and $b$ are positive constants. After $2$ years the value is £$16\\,000$, and after $6$ years it is £$4000$.\n\nAccording to the model, after how many years is the value £$1000$?",
+  "figure": null,
+  "options": [
+   "$7$",
+   "$8$",
+   "$10$",
+   "$12$",
+   "$14$"
+  ],
+  "answer": 2,
+  "solution": "Dividing: $b^4 = \\dfrac{4000}{16000} = \\dfrac14$, so over every $4$ years the value quarters, i.e. it **halves every $2$ years**.\n\nFrom £$16\\,000$ at $t = 2$: $16000 \\to 8000 \\to 4000 \\to 2000 \\to 1000$ is four halvings, i.e. $8$ more years. So $t = 10$.\n\n(Algebraically: $b = 2^{-1/2}$, $A = 32000$, and $32000\\cdot 2^{-t/2} = 1000 \\iff 2^{t/2} = 32 \\iff t = 10$.)",
+  "insight": "In an exponential model, equal time steps multiply by equal factors, so find the halving time and count.",
+  "distractors": {
+   "0": "Assumes a linear decrease of £$3000$ per year.",
+   "1": "Counts $8$ years of halvings but forgets they start at $t = 2$, not $t = 0$."
+  },
+  "time": 120
+ },
+ {
+  "id": "explog-11",
+  "topic": "explog",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "change of base",
+   "hidden quadratic"
+  ],
+  "stem": "What is the product of all the real solutions of $$\\log_2 x + \\log_x 2 = \\frac52 ?$$",
+  "figure": null,
+  "options": [
+   "$1$",
+   "$\\frac52$",
+   "$4$",
+   "$4\\sqrt2$",
+   "$8$"
+  ],
+  "answer": 3,
+  "solution": "Let $t = \\log_2 x$; then $\\log_x 2 = \\dfrac1t$. So\n$$t + \\frac1t = \\frac52 \\implies 2t^2 - 5t + 2 = 0 \\implies t = 2 \\text{ or } t = \\tfrac12.$$\nHence $x = 4$ or $x = \\sqrt2$ (both valid: positive and $\\ne 1$), with product $4\\sqrt2$.\n\nShortcut: the product of the $x$ values is $2^{t_1 + t_2} = 2^{5/2} = 4\\sqrt2$.",
+  "insight": "$\\log_x a$ and $\\log_a x$ are reciprocals, so equations mixing them become quadratics.",
+  "distractors": {
+   "0": "Gives the product of the $t$ values ($t_1t_2 = 1$) instead of the $x$ values.",
+   "2": "Finds $t = 2$ only and misses the second root $t = \\tfrac12$."
+  },
+  "time": 120
+ },
+ {
+  "id": "explog-12",
+  "topic": "explog",
+  "paper": 2,
+  "difficulty": 3,
+  "skills": [
+   "laws of logarithms",
+   "counterexamples"
+  ],
+  "stem": "Let $a$ and $b$ be positive real numbers, both different from $1$. Which of the following statements is/are **always** true?\n\nI. $\\log_a b \\times \\log_b a = 1$\n\nII. $\\log_a b + \\log_b a \\ge 2$\n\nIII. $\\log_{a^2}\\!\\left(b^2\\right) = \\log_a b$",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 5,
+  "solution": "* I: by change of base, $\\dfrac{\\ln b}{\\ln a}\\cdot\\dfrac{\\ln a}{\\ln b} = 1$. True.\n* II: with $t = \\log_a b$, the sum is $t + \\frac1t$, which is $\\ge 2$ only when $t > 0$. Take $a = 2$, $b = \\tfrac12$: $t = -1$ and the sum is $-2$. False.\n* III: $\\dfrac{\\ln b^2}{\\ln a^2} = \\dfrac{2\\ln b}{2\\ln a} = \\log_a b$. True.\n\nSo I and III only.",
+  "insight": "$t + 1/t \\ge 2$ needs $t > 0$; logs can be negative, so test a base and argument on opposite sides of $1$.",
+  "distractors": {
+   "7": "Applies AM–GM to $t + 1/t$ without checking that $t$ is positive.",
+   "1": "Suspects that squaring the base and the argument changes the value, but the factors of $2$ cancel."
+  },
+  "time": 120
+ },
+ {
+  "id": "explog-13",
+  "topic": "explog",
+  "paper": 1,
+  "difficulty": 4,
+  "skills": [
+   "comparing logs",
+   "estimation"
+  ],
+  "stem": "Let $a = \\log_2 3$, $b = \\log_3 4$ and $c = \\log_4 5$. Which of the following is correct?",
+  "figure": null,
+  "options": [
+   "$a < b < c$",
+   "$a < c < b$",
+   "$b < a < c$",
+   "$c < a < b$",
+   "$c < b < a$"
+  ],
+  "answer": 4,
+  "solution": "Compare each with a convenient benchmark:\n\n* $2^{3/2} = 2\\sqrt2 \\approx 2.83 < 3$, so $a > \\tfrac32$.\n* $3^{3/2} = 3\\sqrt3 \\approx 5.2 > 4$, so $b < \\tfrac32$. And $3^{5/4} = 3\\cdot 3^{1/4} < 4$ because $3^{1/4} < \\tfrac43$ (as $3 < \\tfrac{256}{81}$), so $b > \\tfrac54$.\n* $4^{5/4} = 4\\sqrt2 \\approx 5.66 > 5$, so $c < \\tfrac54$.\n\nHence $c < b < a$.\n\n(In general $\\log_n(n+1) = 1 + \\log_n\\!\\left(1 + \\tfrac1n\\right)$ decreases as $n$ increases: the argument shrinks and the base grows.)",
+  "insight": "Trap each log between simple fractional powers, or spot that $\\log_n(n+1)$ is decreasing in $n$.",
+  "distractors": {
+   "0": "Assumes bigger numbers give bigger logs, ignoring that the base grows too.",
+   "3": "Correctly finds $c$ smallest but misjudges $a$ versus $b$."
+  },
+  "time": 180
+ },
+ {
+  "id": "explog-14",
+  "topic": "explog",
+  "paper": 1,
+  "difficulty": 4,
+  "skills": [
+   "log inequalities",
+   "variable base"
+  ],
+  "stem": "What is the complete set of values of $x$ (with $x > 0$, $x \\neq 1$) for which $$\\log_x 2 < 1 ?$$",
+  "figure": null,
+  "options": [
+   "$x > 2$",
+   "$1 < x < 2$",
+   "$0 < x < 1$ or $x > 2$",
+   "$0 < x < 2$, $x \\neq 1$",
+   "$0 < x < 1$ or $1 < x < 2$"
+  ],
+  "answer": 2,
+  "solution": "Split by the size of the base.\n\n* $x > 1$: $\\log_x$ is increasing, so $\\log_x 2 < 1 = \\log_x x \\iff 2 < x$.\n* $0 < x < 1$: $\\ln x < 0$ so $\\log_x 2 = \\dfrac{\\ln 2}{\\ln x} < 0 < 1$ — always true.\n\nHence $0 < x < 1$ or $x > 2$.\n\nAlternatively: $\\log_x 2 = \\dfrac{\\ln 2}{\\ln x}$ and sketch $y = 1/\\ln x$ against $y = 1/\\ln 2$.",
+  "insight": "With a variable base, split into base $>1$ and base $<1$; the inequality behaves differently in each case.",
+  "distractors": {
+   "0": "Treats $\\log_x$ as increasing for every $x$ and misses the whole interval $0 < x < 1$.",
+   "4": "Handles $0 < x < 1$ correctly but reverses the inequality in the $x > 1$ case.",
+   "1": "Reverses the inequality for $x > 1$ and also misses $0 < x < 1$."
+  },
+  "time": 150
+ },
+ {
+  "id": "explog-15",
+  "topic": "explog",
+  "paper": 1,
+  "difficulty": 4,
+  "skills": [
+   "hidden quadratic",
+   "number of solutions",
+   "parameters"
+  ],
+  "stem": "What is the complete set of values of $k$ for which the equation $$9^x - k\\cdot 3^x + 4 = 0$$ has two distinct real solutions?",
+  "figure": null,
+  "options": [
+   "$k > 0$",
+   "$k > 4$",
+   "$k \\ge 4$",
+   "$k < -4$ or $k > 4$",
+   "$-4 < k < 4$"
+  ],
+  "answer": 1,
+  "solution": "Let $y = 3^x > 0$: $y^2 - ky + 4 = 0$. Each **positive** root $y$ gives exactly one $x$, so we need two distinct positive roots.\n\n* Distinct: $k^2 - 16 > 0$, i.e. $|k| > 4$.\n* Product of roots $= 4 > 0$, so the roots share a sign; sum $= k$, so both are positive iff $k > 0$.\n\nHence $k > 4$.",
+  "insight": "With $y = a^x$, only positive roots in $y$ count; use the sum and product of roots to control signs.",
+  "distractors": {
+   "3": "Uses only the discriminant, forgetting that $3^x$ cannot be negative (for $k < -4$ both roots are negative).",
+   "2": "Includes $k = 4$, where the repeated root $y = 2$ gives only one solution."
+  },
+  "time": 150
+ },
+ {
+  "id": "explog-16",
+  "topic": "explog",
+  "paper": 2,
+  "difficulty": 4,
+  "skills": [
+   "monotonicity",
+   "log inequalities",
+   "must be true"
+  ],
+  "stem": "Let $a$ and $b$ be real numbers with $a > b > 0$ and $a \\ne 1$, $b \\neq 1$. Which of the following **must** be true?\n\nI. $\\log_{\\frac12} a < \\log_{\\frac12} b$\n\nII. $\\left(\\tfrac12\\right)^{a} > \\left(\\tfrac12\\right)^{b}$\n\nIII. $\\log_a 2 < \\log_b 2$",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 1,
+  "solution": "* I: $\\log_{1/2}$ is decreasing, so $a > b$ gives $\\log_{1/2} a < \\log_{1/2} b$. True.\n* II: $t \\mapsto (\\tfrac12)^t$ is decreasing, so $(\\tfrac12)^a < (\\tfrac12)^b$. False.\n* III: $\\log_a 2 = \\dfrac{\\ln 2}{\\ln a}$. Take $a = 2$, $b = \\tfrac12$: $\\log_2 2 = 1$ but $\\log_{1/2}2 = -1$, so $1 < -1$ fails. False. (It does hold when $a, b$ are both greater than $1$, or both less than $1$.)\n\nSo I only.",
+  "insight": "Decide monotonicity first; for a variable base, $\\log_x 2 = \\ln 2/\\ln x$ jumps sign at $x = 1$.",
+  "distractors": {
+   "5": "Believes '$\\log_x 2$ decreases as $x$ increases' everywhere, missing the sign change across $x = 1$.",
+   "4": "Forgets that $(\\tfrac12)^t$ is a decreasing function."
+  },
+  "time": 150
+ },
+ {
+  "id": "explog-17",
+  "topic": "explog",
+  "paper": 1,
+  "difficulty": 5,
+  "skills": [
+   "hidden quadratic",
+   "substitution",
+   "number of solutions"
+  ],
+  "stem": "What is the complete set of values of $k$ for which the equation\n$$4^x + 4^{-x} + k = 3\\left(2^x + 2^{-x}\\right)$$\nhas exactly two real solutions?",
+  "figure": null,
+  "options": [
+   "$k < 4$",
+   "$k \\le 4$",
+   "$k < \\frac{17}{4}$",
+   "$4 < k < \\frac{17}{4}$",
+   "$k > 4$"
+  ],
+  "answer": 0,
+  "solution": "Let $u = 2^x + 2^{-x}$. Then $u \\ge 2$, with $u = 2$ only at $x = 0$, and each $u > 2$ comes from exactly two values of $x$ (namely $\\pm x_0$). Also $4^x + 4^{-x} = u^2 - 2$, so the equation becomes\n$$g(u) = u^2 - 3u + k - 2 = 0.$$\nThe vertex of $g$ is at $u = \\tfrac32 < 2$, so $g$ is increasing on $u \\ge 2$ and has at most one root there.\n\n* $g(2) = k - 4 < 0$: exactly one root $u > 2$, giving **two** $x$.\n* $k = 4$: root at $u = 2$, giving one $x$ (namely $x = 0$).\n* $k > 4$: no root with $u \\ge 2$, so no solutions.\n\nHence $k < 4$.",
+  "insight": "After substituting $u = 2^x + 2^{-x}$, keep track of the range $u \\ge 2$ and how many $x$ each $u$ gives.",
+  "distractors": {
+   "2": "Uses only the discriminant $17 - 4k > 0$ for real $u$, forgetting that $u$ must be at least $2$.",
+   "1": "Includes $k = 4$, where $u = 2$ gives only the single solution $x = 0$."
+  },
+  "time": 240
+ },
+ {
+  "id": "explog-18",
+  "topic": "explog",
+  "paper": 1,
+  "difficulty": 5,
+  "skills": [
+   "log inequalities",
+   "variable base",
+   "domain"
+  ],
+  "stem": "What is the complete set of values of $x$ for which $$\\log_x(2x - 1) > 2 ?$$",
+  "figure": null,
+  "options": [
+   "there are no such $x$",
+   "$\\frac12 < x < 1$",
+   "$x > 1$",
+   "$\\frac12 < x < 1$ or $x > 1$",
+   "$0 < x < 1$"
+  ],
+  "answer": 1,
+  "solution": "Domain: $x > 0$, $x \\ne 1$, $2x - 1 > 0$, so $x > \\tfrac12$, $x \\ne 1$. Note $2 = \\log_x(x^2)$, and\n$$x^2 - (2x - 1) = (x-1)^2 > 0 \\quad(x \\neq 1),$$\nso $2x - 1 < x^2$ throughout the domain.\n\n* $x > 1$: $\\log_x$ is increasing, so $\\log_x(2x-1) < \\log_x(x^2) = 2$. Never satisfied.\n* $\\tfrac12 < x < 1$: $\\log_x$ is decreasing, so $\\log_x(2x-1) > \\log_x(x^2) = 2$. Always satisfied.\n\nHence $\\tfrac12 < x < 1$.",
+  "insight": "Write the right-hand side as a log with the same base, compare the arguments, then split on whether the base exceeds $1$.",
+  "distractors": {
+   "0": "Treats the log as increasing, needs $2x - 1 > x^2$, i.e. $(x-1)^2 < 0$, and concludes there are no solutions.",
+   "4": "Handles the base correctly but forgets that $2x - 1$ must be positive.",
+   "3": "Checks the domain but assumes the inequality holds throughout it."
+  },
+  "time": 210
+ }
+]

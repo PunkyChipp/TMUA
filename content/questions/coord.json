@@ -1,0 +1,519 @@
+[
+ {
+  "id": "coord-01",
+  "topic": "coord",
+  "paper": 1,
+  "difficulty": 1,
+  "skills": [
+   "straight lines",
+   "gradient",
+   "intercepts"
+  ],
+  "stem": "The straight line through $(1, 2)$ and $(4, 11)$ meets the $y$-axis at $(0, c)$. What is $c$?",
+  "figure": null,
+  "options": [
+   "$-3$",
+   "$-1$",
+   "$\\tfrac13$",
+   "$3$",
+   "$5$"
+  ],
+  "answer": 1,
+  "solution": "Gradient $= \\dfrac{11-2}{4-1} = 3$. Stepping back 1 unit in $x$ from $(1,2)$ lowers $y$ by $3$, so at $x=0$, $y = 2 - 3 = -1$.\n\nEquivalently $y - 2 = 3(x-1)$ gives $y = 3x - 1$.",
+  "insight": "Use the gradient as 'rise per unit step' to walk from a known point to the axis.",
+  "distractors": {
+   "4": "Sign slip: walking from $(1,2)$ to $x=0$ is a step of $-1$, so $y$ changes by $-3$, not $+3$.",
+   "2": "$\\tfrac13$ is where the line meets the $x$-axis, not the $y$-axis.",
+   "3": "$3$ is the gradient, not the intercept."
+  },
+  "time": 60
+ },
+ {
+  "id": "coord-02",
+  "topic": "coord",
+  "paper": 1,
+  "difficulty": 1,
+  "skills": [
+   "circles",
+   "completing the square"
+  ],
+  "stem": "The circle $x^2 + y^2 - 6x + 4y - 12 = 0$ has centre $C$ and radius $r$. Which one of the following is correct?",
+  "figure": null,
+  "options": [
+   "$C = (3, -2)$, $r = 5$",
+   "$C = (3, -2)$, $r = 1$",
+   "$C = (-3, 2)$, $r = 5$",
+   "$C = (3, -2)$, $r = \\sqrt{12}$",
+   "$C = (3, -2)$, $r = 25$"
+  ],
+  "answer": 0,
+  "solution": "Complete the square:\n$$(x-3)^2 - 9 + (y+2)^2 - 4 - 12 = 0 \\;\\Rightarrow\\; (x-3)^2 + (y+2)^2 = 25.$$\n\nSo $C = (3,-2)$ and $r = 5$.\n\nShortcut: for $x^2+y^2+2gx+2fy+c=0$, centre $(-g,-f)$ and $r^2 = g^2+f^2-c = 9 + 4 + 12$.",
+  "insight": "Centre coordinates are *minus half* the linear coefficients; then $r^2 = g^2 + f^2 - c$.",
+  "distractors": {
+   "1": "Sign slip with the constant: $9 + 4 - 12 = 1$ instead of $9 + 4 + 12 = 25$.",
+   "2": "Taking the centre as half the coefficients without the minus sign.",
+   "4": "Giving $r^2$ instead of $r$."
+  },
+  "time": 60
+ },
+ {
+  "id": "coord-03",
+  "topic": "coord",
+  "paper": 1,
+  "difficulty": 2,
+  "skills": [
+   "perpendicular lines",
+   "midpoint",
+   "perpendicular bisector"
+  ],
+  "stem": "$A$ is the point $(-1, 3)$ and $B$ is the point $(5, -1)$. What is the equation of the perpendicular bisector of $AB$?",
+  "figure": null,
+  "options": [
+   "$3x - 2y = 4$",
+   "$2x - 3y = 1$",
+   "$3x + 2y = 8$",
+   "$2x + 3y = 7$",
+   "$3x - 2y = 5$"
+  ],
+  "answer": 0,
+  "solution": "* Midpoint $M = \\left(\\frac{-1+5}{2}, \\frac{3-1}{2}\\right) = (2, 1)$.\n* Gradient of $AB = \\frac{-1-3}{5+1} = -\\frac23$, so the perpendicular gradient is $\\frac32$.\n* Line: $y - 1 = \\frac32(x - 2) \\Rightarrow 2y - 2 = 3x - 6 \\Rightarrow 3x - 2y = 4$.\n\nQuick elimination: the answer must pass through $(2,1)$ — that rules out E — and have gradient $\\tfrac32$, i.e. the form $3x - 2y = \\ldots$.",
+  "insight": "A perpendicular bisector passes through the midpoint and has gradient $-1/m_{AB}$; test options against both.",
+  "distractors": {
+   "2": "Gradient $-\\tfrac32$: took the reciprocal but forgot to change the sign.",
+   "3": "This has gradient $-\\tfrac23$: it is parallel to $AB$, not perpendicular.",
+   "4": "Right gradient, but through $(3,2)$ — half the *differences* instead of the midpoint."
+  },
+  "time": 100
+ },
+ {
+  "id": "coord-04",
+  "topic": "coord",
+  "paper": 1,
+  "difficulty": 2,
+  "skills": [
+   "area of triangle",
+   "shoelace"
+  ],
+  "stem": "What is the area of the triangle with vertices $(1, 2)$, $(5, 3)$ and $(2, 7)$?",
+  "figure": null,
+  "options": [
+   "$\\tfrac{17}{2}$",
+   "$9$",
+   "$\\tfrac{19}{2}$",
+   "$10$",
+   "$19$"
+  ],
+  "answer": 2,
+  "solution": "Translate so that $(1,2)$ is at the origin: the other vertices become $(4,1)$ and $(1,5)$.\n\nArea $= \\tfrac12\\,|4\\times5 - 1\\times1| = \\tfrac12 \\times 19 = \\tfrac{19}{2}$.\n\nAlternative: enclose it in the rectangle $[1,5]\\times[2,7]$ (area $20$) and subtract the three corner right triangles, $\\tfrac12(4)(1) = 2$, $\\tfrac12(3)(4) = 6$ and $\\tfrac12(1)(5) = \\tfrac52$, leaving $20 - \\tfrac{21}{2} = \\tfrac{19}{2}$.",
+  "insight": "Move one vertex to the origin; then the area is $\\tfrac12|x_1y_2 - x_2y_1|$.",
+  "distractors": {
+   "4": "Forgetting the $\\tfrac12$ in the determinant formula.",
+   "3": "Rectangle-minus-triangles with a slip on one corner triangle (e.g. $2$ instead of $\\tfrac52$ for the one with legs $1$ and $5$)."
+  },
+  "time": 100
+ },
+ {
+  "id": "coord-05",
+  "topic": "coord",
+  "paper": 1,
+  "difficulty": 2,
+  "skills": [
+   "tangents",
+   "line–circle intersection",
+   "discriminant"
+  ],
+  "stem": "The line $y = x + c$ is a tangent to the circle $x^2 + y^2 = 8$. What are the possible values of $c$?",
+  "figure": null,
+  "options": [
+   "$c = \\pm 2$",
+   "$c = \\pm 2\\sqrt2$",
+   "$c = 4$ only",
+   "$c = \\pm 4$",
+   "$c = \\pm 8$"
+  ],
+  "answer": 3,
+  "solution": "**Distance method:** the distance from $(0,0)$ to $x - y + c = 0$ is $\\dfrac{|c|}{\\sqrt2}$. Tangency means this equals the radius $\\sqrt8 = 2\\sqrt2$, so $|c| = 4$.\n\n**Discriminant method:** $x^2 + (x+c)^2 = 8 \\Rightarrow 2x^2 + 2cx + c^2 - 8 = 0$. Repeated root: $4c^2 - 8(c^2 - 8) = 0 \\Rightarrow c^2 = 16$.\n\nSo $c = \\pm4$ (one tangent on each side of the circle).",
+  "insight": "A line is tangent when its perpendicular distance from the centre equals the radius — usually quicker than a discriminant.",
+  "distractors": {
+   "1": "Setting $|c|$ equal to the radius, forgetting to divide by $\\sqrt{1^2+1^2}$ in the distance formula.",
+   "2": "Forgetting the second tangent on the other side of the circle."
+  },
+  "time": 100
+ },
+ {
+  "id": "coord-06",
+  "topic": "coord",
+  "paper": 1,
+  "difficulty": 2,
+  "skills": [
+   "intersection of lines",
+   "distance"
+  ],
+  "stem": "The lines $2x + 3y = 7$ and $4x - y = 7$ meet at $P$. What is the distance from $P$ to the point $(5, 5)$?",
+  "figure": null,
+  "options": [
+   "$3$",
+   "$4$",
+   "$5$",
+   "$6$",
+   "$7$"
+  ],
+  "answer": 2,
+  "solution": "From the second line, $y = 4x - 7$. Substituting: $2x + 12x - 21 = 7$, so $x = 2$ and $y = 1$.\n\n$P = (2,1)$, and the distance to $(5,5)$ is $\\sqrt{3^2 + 4^2} = 5$.",
+  "insight": "Solve by substitution when one equation already gives $y$ (or $x$) cheaply, then look for a Pythagorean triple.",
+  "distractors": {
+   "4": "Adding the horizontal and vertical differences ($3+4$) instead of using Pythagoras.",
+   "1": "Reporting only one component of the displacement."
+  },
+  "time": 90
+ },
+ {
+  "id": "coord-07",
+  "topic": "coord",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "tangents",
+   "circles",
+   "perpendicular lines"
+  ],
+  "stem": "The point $(5, 3)$ lies on the circle $(x-2)^2 + (y+1)^2 = 25$. The tangent to the circle at this point meets the $x$-axis at $(a, 0)$. What is $a$?",
+  "figure": null,
+  "options": [
+   "$1$",
+   "$\\tfrac{11}{4}$",
+   "$\\tfrac{27}{4}$",
+   "$\\tfrac{29}{4}$",
+   "$9$"
+  ],
+  "answer": 4,
+  "solution": "The radius from the centre $(2,-1)$ to $(5,3)$ has gradient $\\frac{4}{3}$, so the tangent has gradient $-\\frac34$.\n\nTangent: $y - 3 = -\\frac34(x - 5)$. Setting $y=0$: $-3 = -\\frac34(x-5) \\Rightarrow x - 5 = 4 \\Rightarrow x = 9$.\n\n(Equation: $3x + 4y = 27$.)",
+  "insight": "The tangent is perpendicular to the radius, so get the radius gradient from centre to point and take the negative reciprocal.",
+  "distractors": {
+   "1": "Using the radius gradient $\\tfrac43$ as the tangent gradient.",
+   "2": "$\\tfrac{27}{4}$ is the $y$-intercept of $3x+4y=27$, not the $x$-intercept.",
+   "3": "Using gradient $-\\tfrac43$: changed the sign but did not take the reciprocal."
+  },
+  "time": 120
+ },
+ {
+  "id": "coord-08",
+  "topic": "coord",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "chords",
+   "line–circle intersection"
+  ],
+  "stem": "The line $y = x + 1$ meets the circle $x^2 + y^2 = 13$ at the points $A$ and $B$. What is the length of $AB$?",
+  "figure": null,
+  "options": [
+   "$\\tfrac{5\\sqrt2}{2}$",
+   "$5$",
+   "$5\\sqrt2$",
+   "$2\\sqrt{13}$",
+   "$10$"
+  ],
+  "answer": 2,
+  "solution": "Substitute: $x^2 + (x+1)^2 = 13 \\Rightarrow x^2 + x - 6 = 0 \\Rightarrow x = 2$ or $-3$.\n\nSo $A = (2, 3)$, $B = (-3, -2)$ and $AB = \\sqrt{5^2 + 5^2} = 5\\sqrt2$.\n\n**Alternative:** distance from the centre to the line $x - y + 1 = 0$ is $\\frac{1}{\\sqrt2}$, so half the chord is $\\sqrt{13 - \\frac12} = \\frac{5}{\\sqrt2}$ and $AB = 5\\sqrt2$.",
+  "insight": "Chord length $= 2\\sqrt{r^2 - d^2}$, where $d$ is the distance from the centre to the line.",
+  "distractors": {
+   "1": "Using only the difference in $x$-coordinates; the line has gradient 1, so the length is $\\sqrt2$ times this.",
+   "0": "Stopping at the half-chord $\\sqrt{r^2-d^2}$.",
+   "3": "$2\\sqrt{13}$ is the diameter, the longest possible chord; this line misses the centre."
+  },
+  "time": 120
+ },
+ {
+  "id": "coord-09",
+  "topic": "coord",
+  "paper": 2,
+  "difficulty": 3,
+  "skills": [
+   "circles touching",
+   "intersecting circles"
+  ],
+  "stem": "Consider the circles $x^2 + y^2 = 4$ and $(x - a)^2 + (y - 4)^2 = 9$, where $a$ is a real constant.\n\n**I** If $-3 < a < 3$, the circles meet at exactly two points.\n\n**II** There are exactly two values of $a$ for which the circles touch.\n\n**III** For some value of $a$, one circle lies entirely inside the other.\n\nWhich of the statements are true?",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 4,
+  "solution": "Radii $2$ and $3$; distance between centres $d = \\sqrt{a^2 + 16} \\ge 4$.\n\n* Two intersection points iff $|3-2| < d < 3+2$, i.e. $1 < \\sqrt{a^2+16} < 5 \\iff a^2 < 9$. So **I** is true.\n* External touching: $d = 5 \\iff a = \\pm3$. Internal touching needs $d = 1$, impossible since $d\\ge4$. So exactly two values: **II** true.\n* One inside the other needs $d < 1$: impossible. **III** false.\n\nAnswer: I and II only.",
+  "insight": "Compare the distance between centres with $r_1 + r_2$ and $|r_1 - r_2|$ — that single number decides every circle–circle configuration.",
+  "distractors": {
+   "7": "III would need $d < |r_1 - r_2| = 1$, but the centres are always at least $4$ apart.",
+   "1": "Forgetting that $a$ can be negative, so thinking only $a=3$ gives touching."
+  },
+  "time": 150
+ },
+ {
+  "id": "coord-10",
+  "topic": "coord",
+  "paper": 2,
+  "difficulty": 3,
+  "skills": [
+   "families of lines",
+   "perpendicular lines"
+  ],
+  "stem": "For each real number $k$, $L_k$ is the line $kx + y = 2k + 3$.\n\n**I** Every line $L_k$ passes through the point $(2, 3)$.\n\n**II** For some value of $k$, $L_k$ is perpendicular to the $x$-axis.\n\n**III** For some value of $k$, $L_k$ is perpendicular to the line $x - y = 4$.\n\nWhich of the statements are true?",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 5,
+  "solution": "Rewrite as $k(x - 2) + (y - 3) = 0$.\n\n* **I:** at $(2,3)$ this is $0$ for every $k$. True.\n* **II:** $L_k$ is $y = -kx + 2k + 3$, which always has a finite gradient $-k$; it is never vertical. False.\n* **III:** $x - y = 4$ has gradient $1$, so we need gradient $-1$, i.e. $k = 1$. True.\n\nAnswer: I and III only.",
+  "insight": "Collect the parameter: $k\\cdot(\\ldots) + (\\ldots) = 0$ exposes the fixed point that every line passes through.",
+  "distractors": {
+   "7": "The family covers every line through $(2,3)$ *except* the vertical one, because the coefficient of $y$ is always $1$.",
+   "1": "III is true: gradient $-k$ can be any value, including $-1$."
+  },
+  "time": 150
+ },
+ {
+  "id": "coord-11",
+  "topic": "coord",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "loci",
+   "circles"
+  ],
+  "stem": "$A = (0, 0)$ and $B = (3, 0)$. The point $P$ moves so that $PA = 2PB$. The locus of $P$ is a circle. What are its centre and radius?",
+  "figure": null,
+  "options": [
+   "centre $(-1, 0)$, radius $2$",
+   "centre $(4, 0)$, radius $2$",
+   "centre $(2, 0)$, radius $2$",
+   "centre $(4, 0)$, radius $2\\sqrt7$",
+   "centre $(4, 0)$, radius $4$"
+  ],
+  "answer": 1,
+  "solution": "Square to avoid roots: $PA^2 = 4PB^2$.\n$$x^2 + y^2 = 4\\left[(x-3)^2 + y^2\\right] \\Rightarrow 3x^2 + 3y^2 - 24x + 36 = 0 \\Rightarrow x^2 + y^2 - 8x + 12 = 0.$$\n\nSo $(x-4)^2 + y^2 = 4$: centre $(4,0)$, radius $2$.\n\nSanity check: the circle crosses the $x$-axis at $(2,0)$ (distances 2 and 1) and $(6,0)$ (distances 6 and 3). ✓",
+  "insight": "Square both sides of a distance condition, and check your locus with an easy point on the axis.",
+  "distractors": {
+   "0": "This is the locus of $PB = 2PA$: the ratio has been applied the wrong way round.",
+   "3": "Sign slip in $r^2 = 16 - 12$ (using $16+12$)."
+  },
+  "time": 150
+ },
+ {
+  "id": "coord-12",
+  "topic": "coord",
+  "paper": 1,
+  "difficulty": 4,
+  "skills": [
+   "regions",
+   "area",
+   "modulus"
+  ],
+  "stem": "What is the area of the region of points $(x, y)$ satisfying both $|x| + |y| \\le 4$ and $y \\ge x - 2$?",
+  "figure": null,
+  "options": [
+   "$16$",
+   "$20$",
+   "$24$",
+   "$28$",
+   "$48$"
+  ],
+  "answer": 2,
+  "solution": "$|x| + |y| \\le 4$ is the square with vertices $(\\pm4, 0)$, $(0, \\pm4)$: area $\\tfrac12 \\times 8 \\times 8 = 32$.\n\nThe line $y = x - 2$ is **parallel** to the edge $y = x - 4$ joining $(4,0)$ and $(0,-4)$. It meets the square at $(3, 1)$ and $(-1, -3)$.\n\nThe part removed ($y < x - 2$) is a rectangle between these two parallel lines: one side from $(3,1)$ to $(-1,-3)$ has length $4\\sqrt2$ and the gap between the lines is $\\frac{2}{\\sqrt2} = \\sqrt2$, so its area is $8$.\n\nRequired area $= 32 - 8 = 24$.\n\n(Check by shoelace on $(3,1), (0,4), (-4,0), (-1,-3)$: $\\tfrac12(12 + 16 + 12 + 8) = 24$.)",
+  "insight": "Draw the region first; spotting that the line is parallel to a side turns the cut-off piece into a rectangle.",
+  "distractors": {
+   "3": "Treating the cut-off piece as a triangle of area $4$.",
+   "4": "Working in rotated coordinates $u = x+y$, $v = x-y$ (a $6 \\times 8$ rectangle) without halving for the change of area scale."
+  },
+  "time": 180
+ },
+ {
+  "id": "coord-13",
+  "topic": "coord",
+  "paper": 1,
+  "difficulty": 4,
+  "skills": [
+   "tangents",
+   "circles",
+   "area"
+  ],
+  "stem": "From the point $P(7, 1)$ two tangents are drawn to the circle $x^2 + y^2 - 4x + 2y - 4 = 0$, touching it at $A$ and $B$. The centre of the circle is $C$. What is the area of the quadrilateral $PACB$?",
+  "figure": null,
+  "options": [
+   "$3\\sqrt5$",
+   "$2\\sqrt{29}$",
+   "$6\\sqrt5$",
+   "$3\\sqrt{29}$",
+   "$12\\sqrt5$"
+  ],
+  "answer": 2,
+  "solution": "Centre $C = (2, -1)$, $r^2 = 4 + 1 + 4 = 9$, so $r = 3$.\n\n$CP^2 = 5^2 + 2^2 = 29$. Since $CA \\perp PA$, the tangent length is $PA = \\sqrt{29 - 9} = 2\\sqrt5$.\n\n$PACB$ consists of two congruent right-angled triangles $PAC$ and $PBC$, each of area $\\tfrac12 \\times 3 \\times 2\\sqrt5 = 3\\sqrt5$.\n\nTotal: $6\\sqrt5$.",
+  "insight": "Radius meets tangent at a right angle, so tangent length $= \\sqrt{CP^2 - r^2}$ and the kite splits into two right triangles.",
+  "distractors": {
+   "0": "Counting only one of the two right triangles.",
+   "3": "Using $CP \\times r$: $CP$ is the hypotenuse, not a leg.",
+   "4": "Forgetting the $\\tfrac12$ in each triangle's area."
+  },
+  "time": 180
+ },
+ {
+  "id": "coord-14",
+  "topic": "coord",
+  "paper": 1,
+  "difficulty": 4,
+  "skills": [
+   "line–circle intersection",
+   "discriminant",
+   "parameters"
+  ],
+  "stem": "What is the complete set of values of $m$ for which the line $y = mx + 2$ does **not** meet the circle $x^2 + y^2 - 6x = 0$?",
+  "figure": null,
+  "options": [
+   "$m > \\tfrac{5}{12}$",
+   "$0 < m < \\tfrac{5}{12}$",
+   "$m < \\tfrac{5}{12}$",
+   "$m > \\tfrac{12}{5}$",
+   "$m < -\\tfrac{5}{12}$ or $m > \\tfrac{5}{12}$"
+  ],
+  "answer": 0,
+  "solution": "Substitute: $x^2 + (mx+2)^2 - 6x = 0 \\Rightarrow (1 + m^2)x^2 + (4m - 6)x + 4 = 0$.\n\nNo intersection means discriminant $< 0$:\n$$(4m-6)^2 - 16(1+m^2) = -48m + 20 < 0 \\iff m > \\tfrac{5}{12}.$$\n\nThe $m^2$ terms cancel, so the answer is a single inequality, not a 'two-sided' one.\n\nSketch check: the circle has centre $(3,0)$, radius 3, passing through the origin; lines through $(0,2)$ with negative gradient clearly cut it, while steep positive ones pass above it.",
+  "insight": "Don't assume a quadratic-looking condition gives a symmetric answer — expand the discriminant and let the $m^2$ terms cancel if they do.",
+  "distractors": {
+   "2": "This is the set where the line cuts the circle at two points — the opposite of what was asked.",
+   "3": "Inverting the fraction when solving $48m > 20$.",
+   "4": "Assuming the answer must be symmetric in $m$ because $m^2$ appears — but the $m^2$ terms cancel."
+  },
+  "time": 180
+ },
+ {
+  "id": "coord-15",
+  "topic": "coord",
+  "paper": 2,
+  "difficulty": 4,
+  "skills": [
+   "loci",
+   "circles",
+   "right angles",
+   "area of triangle"
+  ],
+  "stem": "$A = (0,0)$, $B = (6,0)$ and $C = (p, q)$ with $q \\ne 0$.\n\n**I** If $p^2 + q^2 = 6p$, then angle $ACB = 90^\\circ$.\n\n**II** If angle $ACB > 90^\\circ$, then $(p - 3)^2 + q^2 < 9$.\n\n**III** If triangle $ABC$ has area $12$, then $q = 4$.\n\nWhich of the statements must be true?",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 4,
+  "solution": "The circle on $AB$ as diameter is $(x-3)^2 + y^2 = 9$, i.e. $x^2 + y^2 = 6x$.\n\nUse vectors: $\\vec{CA}\\cdot\\vec{CB} = (-p)(6-p) + q^2 = p^2 - 6p + q^2$.\n\n* **I:** $p^2 + q^2 = 6p$ makes the dot product $0$, so angle $ACB = 90^\\circ$ (Thales). True.\n* **II:** an obtuse angle means the dot product is negative: $p^2 - 6p + q^2 < 0 \\iff (p-3)^2 + q^2 < 9$. True.\n* **III:** area $= \\tfrac12 \\times 6 \\times |q| = 12 \\Rightarrow |q| = 4$, so $q = -4$ is also possible. False.\n\nAnswer: I and II only.",
+  "insight": "Angle $ACB$ is right, obtuse or acute according as $C$ is on, inside or outside the circle with diameter $AB$.",
+  "distractors": {
+   "7": "III forgets that $C$ may be below the $x$-axis: area uses $|q|$.",
+   "1": "II is the 'inside the circle' half of Thales' theorem, and it is true."
+  },
+  "time": 180
+ },
+ {
+  "id": "coord-16",
+  "topic": "coord",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "reflection in a line",
+   "perpendicular lines",
+   "midpoint"
+  ],
+  "stem": "The point $P(1, 2)$ is reflected in the line $y = 2x - 5$. What are the coordinates of its image?",
+  "figure": null,
+  "options": [
+   "$(-3, 4)$",
+   "$(3, 1)$",
+   "$(4, -1)$",
+   "$(5, 0)$",
+   "$(9, -2)$"
+  ],
+  "answer": 3,
+  "solution": "The line has gradient $2$, so the perpendicular through $P$ has gradient $-\\tfrac12$: points $(1 + 2t, 2 - t)$.\n\nIt meets $y = 2x - 5$ when $2 - t = 2 + 4t - 5$, so $t = 1$: the foot is $F = (3, 1)$.\n\nThe image is as far beyond $F$ as $P$ is before it: $P' = 2F - P = (5, 0)$.\n\nCheck: midpoint of $PP'$ is $(3,1)$, which lies on the line ✓, and $PP'$ has gradient $-\\tfrac12$ ✓.",
+  "insight": "Reflection = go to the foot of the perpendicular, then the same distance again.",
+  "distractors": {
+   "1": "$(3,1)$ is the foot of the perpendicular — only halfway.",
+   "0": "Moving along the perpendicular in the wrong direction.",
+   "4": "Going twice as far as needed: $P + 4(F - P)$ doubles the whole distance $PP'$ instead of stopping at $2F - P$."
+  },
+  "time": 150
+ },
+ {
+  "id": "coord-17",
+  "topic": "coord",
+  "paper": 1,
+  "difficulty": 5,
+  "skills": [
+   "circles touching axes",
+   "common chord",
+   "symmetry"
+  ],
+  "stem": "Two different circles each touch both coordinate axes and pass through the point $P(2, 1)$. The circles meet again at a second point $Q$. What is the length $PQ$?",
+  "figure": null,
+  "options": [
+   "$1$",
+   "$\\sqrt2$",
+   "$2$",
+   "$2\\sqrt2$",
+   "$4\\sqrt2$"
+  ],
+  "answer": 1,
+  "solution": "A circle touching both axes in the first quadrant has centre $(r, r)$ and radius $r$. Through $(2,1)$:\n$$(2-r)^2 + (1-r)^2 = r^2 \\Rightarrow r^2 - 6r + 5 = 0 \\Rightarrow r = 1 \\text{ or } 5.$$\n\n**Symmetry shortcut:** both centres lie on $y = x$, so both circles are symmetric in $y = x$. The reflection of $P(2,1)$, namely $Q(1,2)$, lies on both. Hence $PQ = \\sqrt{1^2 + 1^2} = \\sqrt2$.\n\n(Algebraically: subtracting $(x-1)^2+(y-1)^2=1$ from $(x-5)^2+(y-5)^2=25$ gives the common chord $x + y = 3$, which meets the circles at $(2,1)$ and $(1,2)$.)",
+  "insight": "When both centres lie on a line of symmetry, the second intersection is just the mirror image of the first.",
+  "distractors": {
+   "4": "$4\\sqrt2$ is the distance between the centres $(1,1)$ and $(5,5)$, not the common chord.",
+   "3": "Taking $Q$ as $(0,3)$ or similar — guessing a point on $x+y=3$ without checking it lies on the circles."
+  },
+  "time": 210
+ },
+ {
+  "id": "coord-18",
+  "topic": "coord",
+  "paper": 2,
+  "difficulty": 5,
+  "skills": [
+   "line–circle intersection",
+   "necessary and sufficient"
+  ],
+  "stem": "The line $y = mx + c$ meets the circle $x^2 + y^2 = 1$ at two distinct points if and only if $c^2 < 1 + m^2$.\n\n**I** The condition $|c| < 1$ is sufficient for the line to meet the circle at two distinct points.\n\n**II** The condition $|c| < 1$ is necessary for the line to meet the circle at two distinct points.\n\n**III** The condition $|c| < 1 + |m|$ is necessary for the line to meet the circle at two distinct points.\n\nWhich of the statements are true?",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 5,
+  "solution": "* **I:** if $|c|<1$ then $c^2 < 1 \\le 1 + m^2$. Sufficient. True.\n* **II:** $m = 10$, $c = 2$: $c^2 = 4 < 101$, so the line meets the circle twice although $|c| \\not< 1$. Not necessary. False.\n* **III:** if $c^2 < 1 + m^2$ then $|c| < \\sqrt{1+m^2} \\le 1 + |m|$ (square both: $1 + m^2 \\le 1 + 2|m| + m^2$). So whenever the line meets the circle twice, $|c| < 1 + |m|$. Necessary. True.\n\n(III is not *sufficient*: $m=1$, $c = 1.9$ has $|c| < 2$ but $c^2 = 3.61 > 2$.)\n\nAnswer: I and III only.",
+  "insight": "'$P$ is sufficient for $Q$' means $P \\Rightarrow Q$; 'necessary' means $Q \\Rightarrow P$ — test each direction separately, using counterexamples to kill false ones.",
+  "distractors": {
+   "4": "Confusing necessary with sufficient in II: a steep line can cut the unit circle even when its $y$-intercept is outside it.",
+   "1": "Rejecting III by finding an example where $|c|<1+|m|$ but the line misses — that shows III is not *sufficient*, which is not what III claims."
+  },
+  "time": 210
+ }
+]

@@ -1,0 +1,516 @@
+[
+ {
+  "id": "trig-01",
+  "topic": "trig",
+  "paper": 1,
+  "difficulty": 1,
+  "skills": [
+   "exact values",
+   "CAST"
+  ],
+  "stem": "What is the exact value of $\\tan\\frac{4\\pi}{3}\\,\\cos\\frac{7\\pi}{6}$?",
+  "figure": null,
+  "options": [
+   "$-\\frac{3}{2}$",
+   "$-\\frac{\\sqrt3}{2}$",
+   "$-\\frac{1}{2}$",
+   "$\\frac{1}{2}$",
+   "$\\frac{3}{2}$"
+  ],
+  "answer": 0,
+  "solution": "$\\frac{4\\pi}{3}$ is in the third quadrant with reference angle $\\frac{\\pi}{3}$, where $\\tan$ is positive: $\\tan\\frac{4\\pi}{3}=\\sqrt3$.\n\n$\\frac{7\\pi}{6}$ is also in the third quadrant with reference angle $\\frac{\\pi}{6}$, where $\\cos$ is negative: $\\cos\\frac{7\\pi}{6}=-\\frac{\\sqrt3}{2}$.\n\nProduct: $\\sqrt3\\cdot\\left(-\\frac{\\sqrt3}{2}\\right)=-\\frac32$.",
+  "insight": "Reduce each angle to a reference angle, then fix the sign by quadrant.",
+  "distractors": {
+   "4": "Forgetting that cosine is negative in the third quadrant.",
+   "2": "Using $\\tan\\frac{\\pi}{6}=\\frac{1}{\\sqrt3}$ instead of $\\tan\\frac{\\pi}{3}$ for the reference angle.",
+   "1": "Taking $\\tan\\frac{4\\pi}{3}=1$ (confusing it with $\\tan\\frac{5\\pi}{4}$)."
+  },
+  "time": 60
+ },
+ {
+  "id": "trig-02",
+  "topic": "trig",
+  "paper": 1,
+  "difficulty": 1,
+  "skills": [
+   "radians",
+   "arc length",
+   "sector area"
+  ],
+  "stem": "A sector of a circle has arc length $6$ cm and area $15$ cm$^2$. What is the angle of the sector, in radians?",
+  "figure": null,
+  "options": [
+   "$\\frac{3}{5}$",
+   "$\\frac{5}{6}$",
+   "$\\frac{6}{5}$",
+   "$\\frac{5}{3}$",
+   "$\\frac{12}{5}$"
+  ],
+  "answer": 2,
+  "solution": "With arc length $s=r\\theta$, the area is $\\frac12 r^2\\theta=\\frac12 r s$.\n\nSo $15=\\frac12\\cdot r\\cdot 6$, giving $r=5$, and $\\theta=\\frac{s}{r}=\\frac65$.",
+  "insight": "Sector area $=\\frac12 r s$ links area and arc length without finding $\\theta$ first.",
+  "distractors": {
+   "4": "Using area $= rs$ (dropping the $\\frac12$) gives $r=\\frac52$ and $\\theta=\\frac{12}{5}$.",
+   "1": "Computing $\\frac{r}{s}$ instead of $\\frac{s}{r}$."
+  },
+  "time": 75
+ },
+ {
+  "id": "trig-03",
+  "topic": "trig",
+  "paper": 1,
+  "difficulty": 2,
+  "skills": [
+   "sin^2+cos^2=1",
+   "counting solutions"
+  ],
+  "stem": "How many solutions does the equation $$2\\cos^2 x=\\sin x+1$$ have in the interval $0\\le x\\le 2\\pi$?",
+  "figure": null,
+  "options": [
+   "$1$",
+   "$2$",
+   "$3$",
+   "$4$",
+   "$5$",
+   "$6$"
+  ],
+  "answer": 2,
+  "solution": "Replace $\\cos^2x$ by $1-\\sin^2x$: $2-2\\sin^2x=\\sin x+1$, so $2\\sin^2x+\\sin x-1=0$, i.e. $(2\\sin x-1)(\\sin x+1)=0$.\n\n* $\\sin x=\\frac12$: $x=\\frac{\\pi}{6},\\frac{5\\pi}{6}$ (two solutions).\n* $\\sin x=-1$: $x=\\frac{3\\pi}{2}$ only (one solution, at the bottom of the curve).\n\nTotal: $3$.",
+  "insight": "$\\sin x=\\pm1$ gives only one solution per period, not two.",
+  "distractors": {
+   "3": "Assuming every value of $\\sin x$ gives two solutions, including $\\sin x=-1$.",
+   "1": "Solving only $\\sin x=\\frac12$ or making a sign error in the factorisation."
+  },
+  "time": 90
+ },
+ {
+  "id": "trig-04",
+  "topic": "trig",
+  "paper": 1,
+  "difficulty": 2,
+  "skills": [
+   "cosine rule",
+   "obtuse angles"
+  ],
+  "stem": "A triangle has two sides of length $3$ and $5$, and the angle between them is $\\frac{2\\pi}{3}$. What is the length of the third side?",
+  "figure": null,
+  "options": [
+   "$4$",
+   "$\\sqrt{19}$",
+   "$\\sqrt{34}$",
+   "$7$",
+   "$8$"
+  ],
+  "answer": 3,
+  "solution": "Cosine rule with $\\cos\\frac{2\\pi}{3}=-\\frac12$:\n$$c^2=3^2+5^2-2\\cdot3\\cdot5\\cdot\\left(-\\tfrac12\\right)=9+25+15=49,$$\nso $c=7$.",
+  "insight": "An obtuse included angle makes the cosine-rule correction term positive.",
+  "distractors": {
+   "1": "Using $\\cos\\frac{2\\pi}{3}=+\\frac12$ gives $c^2=19$.",
+   "2": "Ignoring the $-2ab\\cos C$ term (treating it as a right angle) gives $\\sqrt{34}$."
+  },
+  "time": 75
+ },
+ {
+  "id": "trig-05",
+  "topic": "trig",
+  "paper": 1,
+  "difficulty": 2,
+  "skills": [
+   "sin^2+cos^2=1",
+   "max and min"
+  ],
+  "stem": "What is the greatest value of $$3\\sin^2x-4\\cos^2x+2$$ as $x$ varies over the real numbers?",
+  "figure": null,
+  "options": [
+   "$1$",
+   "$2$",
+   "$3$",
+   "$5$",
+   "$7$",
+   "$9$"
+  ],
+  "answer": 3,
+  "solution": "Write everything in terms of $\\sin^2x$: $3\\sin^2x-4(1-\\sin^2x)+2=7\\sin^2x-2$.\n\nSince $0\\le\\sin^2x\\le1$, the expression lies between $-2$ and $5$, and the greatest value $5$ occurs when $\\sin^2x=1$.",
+  "insight": "Convert to a single function using $\\sin^2x+\\cos^2x=1$, then use its range.",
+  "distractors": {
+   "5": "Maximising $3\\sin^2x$ and $-4\\cos^2x$ separately (as $3$ and $+4$), which cannot happen at the same $x$ and also flips a sign.",
+   "0": "Assuming $\\sin^2x$ and $\\cos^2x$ can both be $1$: $3-4+2=1$."
+  },
+  "time": 75
+ },
+ {
+  "id": "trig-06",
+  "topic": "trig",
+  "paper": 1,
+  "difficulty": 2,
+  "skills": [
+   "transformations",
+   "trig graphs"
+  ],
+  "stem": "The graph of $y=\\sin x$ is translated by $\\frac{\\pi}{3}$ in the positive $x$-direction, and the result is then stretched parallel to the $x$-axis with scale factor $\\frac12$. What is the equation of the final graph?",
+  "figure": null,
+  "options": [
+   "$y=\\sin\\left(2x-\\frac{2\\pi}{3}\\right)$",
+   "$y=\\sin\\left(2x-\\frac{\\pi}{3}\\right)$",
+   "$y=\\sin\\left(2x-\\frac{\\pi}{6}\\right)$",
+   "$y=\\sin\\left(\\frac{x}{2}-\\frac{\\pi}{3}\\right)$",
+   "$y=\\sin\\left(\\frac{x}{2}-\\frac{\\pi}{6}\\right)$",
+   "$y=\\sin\\left(2x+\\frac{\\pi}{3}\\right)$"
+  ],
+  "answer": 1,
+  "solution": "Apply the transformations in order, each as a replacement of $x$:\n\n1. Translate right by $\\frac{\\pi}{3}$: replace $x$ by $x-\\frac{\\pi}{3}$, giving $y=\\sin\\left(x-\\frac{\\pi}{3}\\right)$.\n2. Stretch by factor $\\frac12$ parallel to the $x$-axis: replace $x$ by $2x$, giving $y=\\sin\\left(2x-\\frac{\\pi}{3}\\right)$.\n\nCheck: the zero at $x=\\frac{\\pi}{3}$ after step 1 should move to $x=\\frac{\\pi}{6}$, and indeed $2\\cdot\\frac{\\pi}{6}-\\frac{\\pi}{3}=0$.",
+  "insight": "Each transformation replaces $x$ in the current equation, so the order matters.",
+  "distractors": {
+   "0": "Doing the stretch first, i.e. $\\sin(2(x-\\frac{\\pi}{3}))$.",
+   "3": "Replacing $x$ by $\\frac{x}{2}$ for a stretch of factor $\\frac12$ (that is a stretch of factor $2$)."
+  },
+  "time": 90
+ },
+ {
+  "id": "trig-07",
+  "topic": "trig",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "counting solutions",
+   "multiple angles"
+  ],
+  "stem": "How many solutions does the equation $$2\\sin^2(2x)=\\sin(2x)$$ have in the interval $0\\le x\\le 2\\pi$?",
+  "figure": null,
+  "options": [
+   "$4$",
+   "$5$",
+   "$6$",
+   "$7$",
+   "$8$",
+   "$9$",
+   "$10$"
+  ],
+  "answer": 5,
+  "solution": "Factorise (do not divide by $\\sin 2x$): $\\sin 2x\\,(2\\sin 2x-1)=0$.\n\nLet $\\theta=2x$, so $0\\le\\theta\\le4\\pi$ (two full periods).\n\n* $\\sin\\theta=0$: $\\theta=0,\\pi,2\\pi,3\\pi,4\\pi$ — five values, both endpoints included.\n* $\\sin\\theta=\\frac12$: two per period, so four values.\n\nTotal $5+4=9$.",
+  "insight": "Substitute for the multiple angle, stretch the interval to match, and count endpoints carefully.",
+  "distractors": {
+   "4": "Forgetting one endpoint ($\\theta=0$ or $\\theta=4\\pi$) for $\\sin\\theta=0$.",
+   "0": "Dividing by $\\sin 2x$ and losing the $\\sin 2x=0$ solutions."
+  },
+  "time": 120
+ },
+ {
+  "id": "trig-08",
+  "topic": "trig",
+  "paper": 2,
+  "difficulty": 3,
+  "skills": [
+   "sine rule",
+   "ambiguous case"
+  ],
+  "stem": "In triangle $ABC$, $AB=10$ and angle $ABC=30^\\circ$. The length $AC=x$ is to be chosen. For which of the following sets of values of $x$ is the following statement true?\n\n*There are exactly two non-congruent triangles $ABC$ with these measurements* **if and only if** *$x$ lies in the set.*",
+  "figure": null,
+  "options": [
+   "$0<x<5$",
+   "$5<x<10$",
+   "$5\\le x<10$",
+   "$5<x\\le10$",
+   "$x>5$",
+   "$x\\ge10$"
+  ],
+  "answer": 1,
+  "solution": "Draw $BA$ of length $10$ and the ray from $B$ at $30^\\circ$. $C$ is where the circle centre $A$, radius $x$, meets the ray. The distance from $A$ to the ray is $10\\sin30^\\circ=5$.\n\n* $x<5$: no triangle.\n* $x=5$: circle touches the ray; one (right-angled) triangle.\n* $5<x<10$: circle cuts the ray twice on the positive side; two triangles.\n* $x\\ge10$: the second intersection is at $B$ or behind $B$; one triangle.\n\nSo exactly two triangles if and only if $5<x<10$.",
+  "insight": "Ambiguous case: two triangles exactly when (height) < (opposite side) < (adjacent side).",
+  "distractors": {
+   "2": "At $x=5$ the two intersection points coincide, giving only one triangle.",
+   "3": "At $x=10$ the second intersection point is $B$ itself, which gives a degenerate triangle.",
+   "4": "Forgetting that for $x\\ge10$ the second solution for angle $C$ makes the angle sum exceed $180^\\circ$."
+  },
+  "time": 150
+ },
+ {
+  "id": "trig-09",
+  "topic": "trig",
+  "paper": 2,
+  "difficulty": 3,
+  "skills": [
+   "identities",
+   "sin^2+cos^2=1"
+  ],
+  "stem": "Which of the following are identities, true for all values of $x$ for which both sides are defined?\n\nI. $(\\sin x+\\cos x)^2+(\\sin x-\\cos x)^2=2$\n\nII. $\\cos^4x-\\sin^4x=1-2\\cos^2x$\n\nIII. $\\tan x+\\dfrac{1}{\\tan x}=\\dfrac{1}{\\sin x\\cos x}$",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 5,
+  "solution": "**I.** Expanding, the cross terms $\\pm2\\sin x\\cos x$ cancel, leaving $2(\\sin^2x+\\cos^2x)=2$. True.\n\n**II.** $\\cos^4x-\\sin^4x=(\\cos^2x-\\sin^2x)(\\cos^2x+\\sin^2x)=\\cos^2x-(1-\\cos^2x)=2\\cos^2x-1$. This is the *negative* of the right-hand side; test $x=0$: LHS $=1$, RHS $=-1$. False.\n\n**III.** $\\dfrac{\\sin x}{\\cos x}+\\dfrac{\\cos x}{\\sin x}=\\dfrac{\\sin^2x+\\cos^2x}{\\sin x\\cos x}=\\dfrac{1}{\\sin x\\cos x}$. True.",
+  "insight": "Test a claimed identity at a convenient value like $x=0$ before trying to prove it.",
+  "distractors": {
+   "7": "II has the right shape but the wrong sign; $x=0$ exposes it immediately.",
+   "1": "Rejecting III because it looks unfamiliar, without combining the fractions."
+  },
+  "time": 120
+ },
+ {
+  "id": "trig-10",
+  "topic": "trig",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "quadratic in sin",
+   "range"
+  ],
+  "stem": "What is the complete set of values of $k$ for which the equation $$4\\cos^2x+4\\sin x-1=k$$ has at least one real solution $x$?",
+  "figure": null,
+  "options": [
+   "$-5\\le k\\le 3$",
+   "$-5\\le k\\le 4$",
+   "$-5\\le k\\le 7$",
+   "$-4\\le k\\le 4$",
+   "$3\\le k\\le 4$"
+  ],
+  "answer": 1,
+  "solution": "Let $s=\\sin x$, with $-1\\le s\\le1$. Then the left-hand side is\n$$4(1-s^2)+4s-1=-4s^2+4s+3=4-4\\left(s-\\tfrac12\\right)^2.$$\nOn $[-1,1]$ this has maximum $4$ at $s=\\frac12$ (inside the interval) and minimum at the endpoint furthest from $\\frac12$, namely $s=-1$: $4-4\\cdot\\frac94=-5$.\n\nBy continuity every value in between is attained, so $-5\\le k\\le4$.",
+  "insight": "After substituting $s=\\sin x$, find the range of a quadratic on $[-1,1]$: check the vertex and both endpoints.",
+  "distractors": {
+   "0": "Evaluating only at the endpoints $s=\\pm1$ and missing the vertex at $s=\\frac12$.",
+   "2": "Bounds the two terms separately, $4\\cos^2x-1\\in[-1,3]$ and $4\\sin x\\in[-4,4]$, although they cannot reach their extremes at the same $x$.",
+   "4": "Restricts $s=\\sin x$ to $[0,1]$ instead of $[-1,1]$."
+  },
+  "time": 150
+ },
+ {
+  "id": "trig-11",
+  "topic": "trig",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "sine rule",
+   "cosine rule",
+   "area of triangle"
+  ],
+  "stem": "In triangle $ABC$, $\\sin A:\\sin B:\\sin C=3:5:7$ and the perimeter is $30$. What is the area of the triangle?",
+  "figure": null,
+  "options": [
+   "$\\frac{15\\sqrt3}{2}$",
+   "$15$",
+   "$15\\sqrt3$",
+   "$30$",
+   "$30\\sqrt3$"
+  ],
+  "answer": 2,
+  "solution": "By the sine rule the sides are in the ratio $3:5:7$, so with perimeter $30$ they are $6,10,14$.\n\nThe largest angle $C$ is opposite $14$: $\\cos C=\\dfrac{36+100-196}{2\\cdot6\\cdot10}=-\\dfrac12$, so $C=120^\\circ$.\n\nArea $=\\frac12\\cdot6\\cdot10\\cdot\\sin120^\\circ=30\\cdot\\frac{\\sqrt3}{2}=15\\sqrt3$.",
+  "insight": "By the sine rule, a ratio of sines is a ratio of sides.",
+  "distractors": {
+   "4": "Forgetting the $\\frac12$ in $\\frac12ab\\sin C$.",
+   "0": "Using the sides $3,5,7$ scaled wrongly, or halving twice."
+  },
+  "time": 120
+ },
+ {
+  "id": "trig-12",
+  "topic": "trig",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "transformations",
+   "symmetry of trig graphs"
+  ],
+  "stem": "The graph of $y=\\sin x$ is reflected in the line $x=\\frac{\\pi}{4}$. What is the equation of the resulting graph?",
+  "figure": null,
+  "options": [
+   "$y=\\cos x$",
+   "$y=-\\cos x$",
+   "$y=-\\sin x$",
+   "$y=\\sin\\left(x-\\frac{\\pi}{4}\\right)$",
+   "$y=\\sin\\left(x+\\frac{\\pi}{4}\\right)$",
+   "$y=\\sin\\left(\\frac{\\pi}{4}-x\\right)$"
+  ],
+  "answer": 0,
+  "solution": "Reflection in $x=a$ sends $x$ to $2a-x$, so the new graph is $y=\\sin\\left(\\frac{\\pi}{2}-x\\right)=\\cos x$.\n\nCheck: the maximum of $\\sin x$ at $x=\\frac{\\pi}{2}$ is $\\frac{\\pi}{4}$ to the right of the mirror, so it moves to $x=0$ — exactly where $\\cos x$ has a maximum.",
+  "insight": "Reflecting in $x=a$ means replacing $x$ by $2a-x$; check with one landmark point.",
+  "distractors": {
+   "5": "Replacing $x$ by $a-x$ instead of $2a-x$.",
+   "2": "Reflecting in the $x$-axis or the $y$-axis rather than in the line $x=\\frac{\\pi}{4}$."
+  },
+  "time": 90
+ },
+ {
+  "id": "trig-13",
+  "topic": "trig",
+  "paper": 1,
+  "difficulty": 4,
+  "skills": [
+   "sector area",
+   "segment area",
+   "radians"
+  ],
+  "stem": "Two circles, each of radius $2$, are drawn so that each passes through the centre of the other. What is the area of the region inside both circles?",
+  "figure": null,
+  "options": [
+   "$\\frac{4\\pi}{3}-2\\sqrt3$",
+   "$\\frac{8\\pi}{3}-4\\sqrt3$",
+   "$\\frac{4\\pi}{3}-\\sqrt3$",
+   "$\\frac{8\\pi}{3}-2\\sqrt3$",
+   "$\\frac{8\\pi}{3}$"
+  ],
+  "answer": 3,
+  "solution": "Let the centres be $O_1,O_2$ and the intersection points $P,Q$. Triangles $O_1O_2P$ and $O_1O_2Q$ are equilateral (all sides $2$), so angle $PO_1Q=\\frac{2\\pi}{3}$.\n\nThe overlap is two equal segments cut off by the chord $PQ$. Each segment has area\n$$\\tfrac12r^2(\\theta-\\sin\\theta)=\\tfrac12\\cdot4\\left(\\tfrac{2\\pi}{3}-\\tfrac{\\sqrt3}{2}\\right)=\\tfrac{4\\pi}{3}-\\sqrt3.$$\nSo the overlap is $\\frac{8\\pi}{3}-2\\sqrt3$.",
+  "insight": "Split a lens into two circular segments, each sector minus triangle.",
+  "distractors": {
+   "2": "Finding one segment and forgetting to double it.",
+   "0": "Using angle $\\frac{\\pi}{3}$ at the centre (from the equilateral triangle) instead of $\\frac{2\\pi}{3}$."
+  },
+  "time": 180
+ },
+ {
+  "id": "trig-14",
+  "topic": "trig",
+  "paper": 1,
+  "difficulty": 4,
+  "skills": [
+   "solving equations",
+   "sum of solutions"
+  ],
+  "stem": "What is the sum of all the solutions of $$\\sin\\left(2x-\\frac{\\pi}{3}\\right)=\\frac{\\sqrt3}{2}$$ in the interval $0\\le x\\le2\\pi$?",
+  "figure": null,
+  "options": [
+   "$\\frac{5\\pi}{6}$",
+   "$\\frac{11\\pi}{6}$",
+   "$3\\pi$",
+   "$\\frac{10\\pi}{3}$",
+   "$\\frac{11\\pi}{3}$",
+   "$4\\pi$"
+  ],
+  "answer": 4,
+  "solution": "Let $\\theta=2x-\\frac{\\pi}{3}$; then $-\\frac{\\pi}{3}\\le\\theta\\le\\frac{11\\pi}{3}$.\n\n$\\sin\\theta=\\frac{\\sqrt3}{2}$ gives $\\theta=\\frac{\\pi}{3},\\frac{2\\pi}{3},\\frac{7\\pi}{3},\\frac{8\\pi}{3}$ (the next, $\\frac{13\\pi}{3}$, is too big).\n\n$x=\\frac12\\left(\\theta+\\frac{\\pi}{3}\\right)$: $x=\\frac{\\pi}{3},\\frac{\\pi}{2},\\frac{4\\pi}{3},\\frac{3\\pi}{2}$.\n\nSum $=\\frac{2\\pi+3\\pi+8\\pi+9\\pi}{6}=\\frac{11\\pi}{3}$.\n\n*Shortcut:* the second pair is the first pair shifted by $\\pi$ (the period of $\\sin 2x$), so the sum is $2\\left(\\frac{\\pi}{3}+\\frac{\\pi}{2}\\right)+2\\pi=\\frac{11\\pi}{3}$.",
+  "insight": "Transform the interval along with the angle, then use the period to generate the rest.",
+  "distractors": {
+   "0": "Finding only the solutions in the first period.",
+   "2": "Halving the sum of the $\\theta$-values without adding $\\frac{\\pi}{3}$ to each first."
+  },
+  "time": 180
+ },
+ {
+  "id": "trig-15",
+  "topic": "trig",
+  "paper": 2,
+  "difficulty": 4,
+  "skills": [
+   "ambiguous case",
+   "sufficient conditions"
+  ],
+  "stem": "In triangle $PQR$, $PQ=8$ and angle $QPR=30^\\circ$. Which of the following additional facts would, on its own, be **sufficient** to determine the triangle uniquely (up to congruence)?\n\nI. $QR=5$\n\nII. $QR=4$\n\nIII. $QR=10$",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 6,
+  "solution": "The distance from $Q$ to the line $PR$ is $8\\sin30^\\circ=4$. $R$ lies on the ray from $P$ where the circle centre $Q$, radius $QR$, meets it.\n\n* **I.** $4<5<8$: the circle meets the ray at two points, giving two different triangles. Not sufficient.\n* **II.** $QR=4$: the circle touches the ray; one right-angled triangle. Sufficient.\n* **III.** $QR=10\\ge8$: the circle meets the ray once on the far side (the other intersection is behind $P$). Sufficient.\n\nSo II and III only.",
+  "insight": "Given an angle and its adjacent side, the opposite side fixes the triangle unless height < opposite < adjacent.",
+  "distractors": {
+   "7": "Assuming two sides and an angle always fix a triangle (true for SAS, not for SSA).",
+   "3": "Believing that the tangent case $QR=4$ is ambiguous or impossible."
+  },
+  "time": 150
+ },
+ {
+  "id": "trig-16",
+  "topic": "trig",
+  "paper": 2,
+  "difficulty": 4,
+  "skills": [
+   "bounds",
+   "sin^2+cos^2=1",
+   "inequalities"
+  ],
+  "stem": "Which of the following statements are true for **all** real $x$?\n\nI. $\\sin x+\\cos x\\le\\sqrt2$\n\nII. $\\sin x\\cos x\\le\\frac12$\n\nIII. $\\sin^4x+\\cos^4x\\ge\\frac34$",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 4,
+  "solution": "Let $s=\\sin x$, $c=\\cos x$, with $s^2+c^2=1$.\n\n**II.** $(s-c)^2\\ge0$ gives $2sc\\le s^2+c^2=1$, so $sc\\le\\frac12$. True.\n\n**I.** $(s+c)^2=1+2sc\\le2$ by II, so $s+c\\le\\sqrt2$. True.\n\n**III.** $s^4+c^4=(s^2+c^2)^2-2s^2c^2=1-2s^2c^2$. At $x=\\frac{\\pi}{4}$, $s^2=c^2=\\frac12$, giving $1-\\frac12=\\frac12<\\frac34$. False.",
+  "insight": "$(s\\pm c)^2$ and $(s^2+c^2)^2$ turn bounds on $\\sin x$ and $\\cos x$ into bounds on products.",
+  "distractors": {
+   "7": "Checking III only at $x=0$ (value $1$) and not at the symmetric point $x=\\frac{\\pi}{4}$.",
+   "2": "Thinking $\\sin x+\\cos x$ can reach $2$, since each term can be $1$ (not at the same $x$)."
+  },
+  "time": 150
+ },
+ {
+  "id": "trig-17",
+  "topic": "trig",
+  "paper": 1,
+  "difficulty": 5,
+  "skills": [
+   "counting solutions",
+   "graph sketching"
+  ],
+  "stem": "How many real solutions does the equation $$\\sin x=\\frac{x}{10}$$ have? (Here $x$ is in radians.)",
+  "figure": null,
+  "options": [
+   "$3$",
+   "$5$",
+   "$6$",
+   "$7$",
+   "$8$",
+   "$9$"
+  ],
+  "answer": 3,
+  "solution": "Sketch $y=\\sin x$ and the line $y=\\frac{x}{10}$. Any solution has $|x|\\le10$, and both sides are odd functions, so count $x>0$ and double, then add $x=0$.\n\nUse $\\pi\\approx3.14$, so $10$ lies between $3\\pi\\approx9.42$ and $\\frac{7\\pi}{2}\\approx11$:\n\n* $(0,\\pi]$: the curve starts above the line (gradient $1>\\frac1{10}$) and ends below it at $x=\\pi$ — one crossing.\n* $(\\pi,2\\pi)$: $\\sin x<0<\\frac{x}{10}$ — none.\n* $(2\\pi,3\\pi)$: the hump reaches $1$ at $x=\\frac{5\\pi}{2}\\approx7.85$, where the line is only about $0.79$; the curve is below the line at both ends — two crossings.\n* $(3\\pi,10]$: $\\sin x<0$ — none.\n\nThat is $3$ positive solutions, $3$ negative, and $x=0$: $7$ in total.",
+  "insight": "For curve-versus-line counts, bound the region, use symmetry, and examine each hump of the curve.",
+  "distractors": {
+   "2": "Forgetting the solution $x=0$.",
+   "0": "Counting only the positive solutions.",
+   "1": "Missing the two crossings on the hump $2\\pi<x<3\\pi$ on one side: the line is at height about $0.8$ there, still below the peak value $1$."
+  },
+  "time": 210
+ },
+ {
+  "id": "trig-18",
+  "topic": "trig",
+  "paper": 1,
+  "difficulty": 5,
+  "skills": [
+   "quadratic in sin",
+   "counting solutions",
+   "parameters"
+  ],
+  "stem": "The equation $$\\cos^2x-\\sin x=k$$ has exactly three solutions in the interval $0\\le x<2\\pi$. What is the value of $k$?",
+  "figure": null,
+  "options": [
+   "$-1$",
+   "$0$",
+   "$1$",
+   "$\\frac{9}{8}$",
+   "$\\frac54$"
+  ],
+  "answer": 2,
+  "solution": "Let $s=\\sin x$. Then $k=1-s-s^2=g(s)$, a downward parabola with vertex at $s=-\\frac12$, $g=\\frac54$.\n\nOn $0\\le x<2\\pi$, each $s\\in(-1,1)$ comes from **two** values of $x$, while $s=1$ and $s=-1$ each come from **one**.\n\nAn odd total (three) forces one root in $s$ to be $\\pm1$. So three solutions need one root at $s=\\pm1$ and another in $(-1,1)$.\n\n* $s=-1$: $k=g(-1)=1$. Then $s^2+s=0$ gives $s=0$ or $s=-1$: $2+1=3$ solutions.\n* $s=1$: $k=g(1)=-1$. Then $s^2+s-2=0$ gives $s=1$ or $s=-2$ (impossible): only $1$ solution.\n\nSo $k=1$.",
+  "insight": "Count $x$-solutions per $s$-value: interior values give two, $\\pm1$ give one — parity then pins down the case.",
+  "distractors": {
+   "4": "At the vertex $k=\\frac54$ there is a repeated root $s=-\\frac12$, giving only two solutions.",
+   "3": "For $1<k<\\frac54$ there are two roots in $(-1,0)$ and four solutions, not three.",
+   "0": "$k=-1$ uses $s=1$, but the partner root $s=-2$ is impossible, leaving just one solution."
+  },
+  "time": 210
+ }
+]
