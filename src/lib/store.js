@@ -18,6 +18,8 @@ export function defaultState() {
     diag: null,        // { done: ts }
     learned: {},       // topic -> ts note read
     active: null,      // resumable mock/session snapshot
+    tomb: { papers: [] }, // deleted past-paper ids (so sync merges don't resurrect them)
+    updatedAt: 0,
   };
 }
 
@@ -33,6 +35,7 @@ function load() {
 
 function migrate(s) {
   s.settings = { ...defaultState().settings, ...s.settings };
+  s.tomb = { papers: [], ...(s.tomb || {}) };
   return s;
 }
 
@@ -47,15 +50,23 @@ export function save() {
 export const S = () => state;
 export function update(fn) {
   fn(state);
+  state.updatedAt = Date.now();
   save();
-  for (const l of listeners) l(state);
+  for (const l of listeners) l(state, 'local');
+}
+
+// Replace state with a merged copy that came from another device.
+export function applyRemote(next) {
+  state = migrate({ ...defaultState(), ...next });
+  save();
+  for (const l of listeners) l(state, 'remote');
 }
 export const subscribe = fn => (listeners.add(fn), () => listeners.delete(fn));
 
 export function replaceState(next) {
-  state = migrate({ ...defaultState(), ...next });
+  state = migrate({ ...defaultState(), ...next, updatedAt: Date.now() });
   save();
-  for (const l of listeners) l(state);
+  for (const l of listeners) l(state, 'local');
 }
 export function resetState() { replaceState(defaultState()); }
 

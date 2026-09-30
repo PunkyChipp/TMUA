@@ -1,12 +1,17 @@
 import { S, dueReviews, storageWorks } from '../lib/store.js';
 import { TOPICS, TOPIC, PAST_PAPERS, PREP_URL } from '../data/topics.js';
-import { masteryLabel, predict } from '../engine/model.js';
+import { masteryLabel, predict, priorities } from '../engine/model.js';
 import { BANK, BY_TOPIC, NOTES, getQuestion, bankStats } from '../engine/bank.js';
 import { GENERATORS } from '../gen/index.js';
 import { esc, dateKey, addDays, fmtDate, fmtSecs, pct, LETTERS, mean } from '../lib/util.js';
 import { ICON } from './icons.js';
 import { md, mdi, diffDots, topicChip, figureHTML, optionsHTML, solutionHTML } from './common.js';
 import { REASONS } from './session.js';
+import { masteryWheel } from './viz.js';
+import { tutorHTML, coachHTML } from './tutor.js';
+import { getCaps } from '../lib/caps.js';
+import { syncStatus } from '../lib/sync.js';
+import { dueReviews as dueList } from '../lib/store.js';
 
 const toneOf = ml => (ml.tone === 'good' ? 'good' : ml.tone === 'bad' ? 'bad' : ml.tone === 'warn' ? 'warn' : '');
 
@@ -15,10 +20,10 @@ export function practiceView(model) {
   const st = S();
   const due = dueReviews().length;
   const flags = Object.keys(st.flags).length;
-  const topicBtns = paper => TOPICS.filter(t => t.paper === paper).map(t => {
+  const topicBtns = paper => TOPICS.filter(t => t.paper === paper).map((t, i) => {
     const m = model.topics[t.key];
     const ml = masteryLabel(m.mastery, m.n);
-    return `<button class="topic-card" data-act="start" data-kind="drill" data-topic="${t.key}">
+    return `<button class="topic-card rise" style="--i:${i}" data-act="start" data-kind="drill" data-topic="${t.key}">
       <div class="spread"><h3>${esc(t.name)}</h3></div>
       <div class="meter ${toneOf(ml)}"><i style="width:${m.n ? Math.round(m.mastery * 100) : 0}%"></i></div>
       <div class="spread small muted"><span>${m.n ? `${m.ok}/${m.n} right` : 'Not started'}</span><span>${(BY_TOPIC[t.key] || []).length} questions${GENERATORS.some(g => g.topic === t.key) ? ' + generated' : ''}</span></div>
@@ -79,11 +84,19 @@ export function noteView(key, model) {
   const m = t ? model.topics[key] : null;
   const ml = m ? masteryLabel(m.mastery, m.n) : null;
   const skills = t ? Array.from(new Set((BY_TOPIC[key] || []).flatMap(q => q.skills || []))).slice(0, 14) : [];
+  const heads = [];
+  const html = md(src).replace(/<h2>([\s\S]*?)<\/h2>/g, (m, t) => {
+    const id = `sec-${heads.length + 1}`;
+    heads.push({ id, t: t.replace(/<[^>]+>/g, '') });
+    return `<h2 id="${id}">${t}</h2>`;
+  });
   return `<div class="col wide">
+    <div class="readbar" aria-hidden="true"></div>
     <div class="row"><button class="btn sm ghost" data-act="go" data-to="learn">${ICON.arrowL}All notes</button></div>
     <div class="learn-layout">
-      <article class="sheet pad note">${md(src)}</article>
+      <article class="sheet pad note">${html}</article>
       <aside class="learn-side">
+        ${heads.length ? `<nav class="toc" aria-label="On this page"><span class="eyebrow" style="margin-bottom:6px">On this page</span>${heads.map(h => `<a href="#${h.id}">${h.t}</a>`).join('')}</nav>` : ''}
         ${t ? `<div class="sheet pad stack">
           <span class="eyebrow">${esc(t.name)}</span>
           <div class="meter ${toneOf(ml)}"><i style="width:${m.n ? Math.round(m.mastery * 100) : 0}%"></i></div>
@@ -187,7 +200,7 @@ export function questionView(id, back = 'review') {
       <div class="stem">${md(q.stem)}</div>
       ${figureHTML(q.figure)}
       ${optionsHTML(q, { sel: last?.choice ?? null, reveal: true })}
-      <div class="feedback">${solutionHTML(q, last?.choice)}</div>
+      <div class="feedback">${solutionHTML(q, last?.choice)}${tutorHTML(q, { choice: last?.choice ?? null, checked: true })}</div>
       <div class="row"><button class="btn" data-act="start" data-kind="drill" data-topic="${q.topic}">Drill ${esc(TOPIC[q.topic].short)}</button></div>
     </article>
   </div>`;
@@ -244,6 +257,15 @@ export function progressView(model) {
     <section class="sheet predict">
       ${[1, 2].map(p => `<div><span class="eyebrow">Predicted Paper ${p}</span>${enough ? `<span class="big num">${pred[p].exp.toFixed(1)}<span> / 20</span></span><span class="small muted">Likely ${pred[p].lo.toFixed(0)}–${pred[p].hi.toFixed(0)}</span>` : '<span class="big">–</span><span class="small muted">Needs 10+ answers</span>'}</div>`).join('')}
     </section>
+    <section class="sheet pad marks">
+      <div class="stack" style="justify-items:center">${masteryWheel(model)}</div>
+      <div class="stack">
+        <h3>Shape of your strengths</h3>
+        <p class="small muted">Wedge length is estimated mastery: the chance you get a typical TMUA question on that topic right. Dotted rings mark 45%, 62% and 80%. The blue labels are Paper 2 only. Tap a wedge to drill it.</p>
+        ${strongWeak(model)}
+      </div>
+    </section>
+    ${coachHTML()}
     <section class="stack">
       <div class="section-head"><h2>Topics, weakest first</h2><span class="small muted">Mastery = estimated chance of a typical TMUA question right</span></div>
       <div class="sheet table-wrap"><table class="data">
@@ -323,8 +345,8 @@ export function settingsView(ui) {
     </section>
     <section class="sheet pad stack">
       <h3>Back up or move your progress</h3>
-      <p class="small muted">Progress is stored in this browser only${storageWorks() ? '' : ' (and storage is blocked here, so it will be lost when you close the page)'}. Copy the backup code to move it to another device, then paste it there.</p>
-      <div class="row"><button class="btn" data-act="export">Copy backup code</button><button class="btn ghost" data-act="show-import">Paste a backup…</button></div>
+      <p class="small muted">${syncStatus() !== 'local' ? 'Your progress syncs automatically to every device where you open this page while signed in. Backups are still useful before a reset.' : `Progress is stored in this browser only${storageWorks() ? '' : ' (and storage is blocked here, so it will be lost when you close the page)'}. Use a backup to move it to another device.`}</p>
+      <div class="row">${getCaps().downloads ? '<button class="btn" data-act="download-backup">Download backup file</button>' : ''}<button class="btn ${getCaps().downloads ? 'ghost' : ''}" data-act="export">Copy backup code</button><button class="btn ghost" data-act="show-import">Paste a backup…</button><label class="btn ghost" for="import-file">Restore from file…</label><input type="file" id="import-file" accept=".json,application/json" hidden></div>
       ${ui.exportText ? `<textarea class="input" id="export-box" readonly>${esc(ui.exportText)}</textarea>` : ''}
       ${ui.importing ? `<textarea class="input" id="import-box" placeholder="Paste your backup code here"></textarea><div class="row"><button class="btn primary" data-act="import">Restore</button><span class="small muted">This replaces the progress on this device.</span></div>` : ''}
     </section>
@@ -347,9 +369,14 @@ export function onboardingView(ui) {
   const stats = bankStats();
   return `<div class="onb">
     <div class="answer-sheet" aria-hidden="true">${LETTERS.split('').map((l, i) => `<span class="${i === 3 ? 'fill' : ''}">${l}</span>`).join('')}</div>
-    <div class="stack" style="gap:12px">
-      <h1>Two weeks to the TMUA. Let's spend them well.</h1>
+    <div class="stack" style="gap:14px">
+      <h1>Two weeks to the TMUA. <em>Let's spend them well.</em></h1>
       <p class="lede">A diagnostic finds your weak spots. Each day's plan and practice then goes after them, with timed papers so you get used to 20 questions in 75 minutes.</p>
+    </div>
+    <div class="features">
+      <div><b>Adapts to you</b><span>Every answer updates your topic estimates and tomorrow's plan.</span></div>
+      <div><b>${getCaps().sample ? 'A tutor on call' : 'Worked solutions'}</b><span>${getCaps().sample ? 'Hints that don\'t spoil it, and explanations of your exact mistake.' : 'Every question explains the trap behind each tempting wrong answer.'}</span></div>
+      <div><b>Exam pace</b><span>Timed sets and full mocks with a pace line, flags and a navigator.</span></div>
     </div>
     <section class="stack">
       <span class="eyebrow">When is your test?</span>
@@ -362,4 +389,37 @@ export function onboardingView(ui) {
     </div>
     <p class="small muted">${stats.questions} worked questions across ${TOPICS.length} topics, plus generators that make unlimited checked variants. Progress stays on this device.</p>
   </div>`;
+}
+
+function strongWeak(model) {
+  const tested = TOPICS.map(t => ({ t, m: model.topics[t.key] })).filter(x => x.m.n >= 3).sort((a, b) => b.m.mastery - a.m.mastery);
+  if (tested.length < 2) return '<p class="small">Answer a few questions in each topic and this fills in.</p>';
+  const top = tested.slice(0, 2), bottom = tested.slice(-2).reverse();
+  const li = x => `<li><b>${esc(x.t.name)}</b> <span class="muted">${pct(x.m.mastery)}</span></li>`;
+  return `<div class="grid-2" style="gap:12px"><div><span class="eyebrow">Strongest</span><ul class="small" style="margin:6px 0 0;padding-left:1.1em">${top.map(li).join('')}</ul></div><div><span class="eyebrow">Weakest</span><ul class="small" style="margin:6px 0 0;padding-left:1.1em">${bottom.map(li).join('')}</ul></div></div>`;
+}
+
+// Plain-text summary of the student's data for the study coach.
+export function coachSummary(model) {
+  const st = S();
+  const pred = predict(model);
+  const left = Math.round((new Date(st.settings.examDate) - new Date(dateKey())) / 86400000);
+  const topics = TOPICS.map(t => {
+    const m = model.topics[t.key];
+    return `- ${t.name} (Paper ${t.paper === 2 ? '2 only' : '1 and 2'}): ${m.n ? `${m.ok}/${m.n} right, mastery ${pct(m.mastery)}, avg ${fmtSecs(m.avgMs || 0)} per question` : 'not practised'}`;
+  }).join('\n');
+  const wrong = st.attempts.filter(a => !a.ok);
+  const reasons = {};
+  for (const a of wrong) reasons[a.reason || 'untagged'] = (reasons[a.reason || 'untagged'] || 0) + 1;
+  const slow = st.attempts.filter(a => a.ok && a.target && a.ms > a.target * 1500).length;
+  const sessions = st.sessions.slice(-6).map(x => `${x.title}: ${x.ok}/${x.n}`).join('; ') || 'none';
+  const papers = st.papers.map(p => `${p.year} P${p.paper}: ${p.score}/20 in ${p.mins} min`).join('; ') || 'none logged';
+  return `Days until the test: ${left}. Answers logged: ${st.attempts.length}. Predicted marks: Paper 1 ${pred[1].exp.toFixed(1)}/20, Paper 2 ${pred[2].exp.toFixed(1)}/20.
+Topics:
+${topics}
+Reasons tagged on wrong answers: ${Object.entries(reasons).map(([k, v]) => `${k} ${v}`).join(', ') || 'none'}.
+Correct but slow (over 1.5x target time): ${slow}. Guessed answers: ${st.attempts.filter(a => a.guess).length}. Hints used: ${st.attempts.filter(a => a.hint).length}.
+Mistakes due for review: ${dueList().length}.
+Recent sessions: ${sessions}.
+Official past papers: ${papers}.`;
 }

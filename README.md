@@ -6,9 +6,22 @@ the two weeks before the October 2026 sitting (12–16 October).
 It works out what you're weakest at, then plans each day around that: short notes, drills pitched
 at your level, mistakes brought back on a spaced schedule, and full papers at exam pace.
 
-**To use it:** open `dist/index.html` in any browser. It's one self-contained file, so it works
-offline and on a phone. Or use the GitHub Pages site once it's deployed (see below). Progress is
-saved in your browser; use *Settings → Copy backup code* to move it between devices.
+**To use it:** open the published claude.ai artifact (best: progress syncs across your devices and
+the AI tutor is switched on), or open `dist/index.html` in any browser (one self-contained file,
+works offline), or use the GitHub Pages site once it's deployed. Outside claude.ai progress is saved
+in the browser; use *Settings → backup* to move it.
+
+### When opened on claude.ai
+
+The page uses the artifact runtime's capabilities, and every one degrades gracefully elsewhere:
+
+- **Sync** (`db` + `user`): progress is kept in your private per-user space (`data/users/<id>/`) and
+  merged across devices live: answers and papers are unioned, everything else is newest-wins.
+- **Tutor** (`sample`): *Hint* before answering (never reveals the answer; counts like a guess),
+  *Explain my mistake* aimed at the exact option you picked, *Explain it another way*,
+  *Fastest exam route*, and follow-up questions, streamed with typeset maths. Plus a **study
+  coach** on the Progress page that reads your stats. Runs on your own Claude account.
+- **Backup files** (`downloads`): download a backup; restore from file or pasted code.
 
 ## What's in it
 
@@ -25,8 +38,18 @@ saved in your browser; use *Settings → Copy backup code* to move it between de
 | **Past papers** | Log official papers (free from the [UAT-UK preparation page](https://esat-tmua.ac.uk/tmua-preparation-materials/)), tap the ones you got wrong, and tag their topics. That feeds the plan too. |
 | **Progress** | Topic mastery, pace by difficulty against target, activity over 14 days, and session history. |
 
-Keyboard: `A`–`H` answer, `Enter` check/next, `Shift`+letter (or right-click) crosses out an
-option, `G` marks a guess, `F` flags (in timed modes).
+Keyboard: `⌘K`/`Ctrl K`/`/` opens the command palette (jump to any page, topic, drill or mode),
+`A`–`H` answer, `Enter` check/next, `Shift`+letter (or right-click) crosses out an option, `G`
+marks a guess, `F` flags and `←`/`→` move in timed modes.
+
+### Design
+
+Built on current platform features, all with fallbacks: OKLCH colour tokens with a hand-tuned
+dark theme, View Transitions for page changes and question-to-question slides, `@starting-style`
+entrances, scroll-driven reading progress on notes, animated `<details>` via `::details-content`,
+container queries, and a `<dialog>` command palette. The fortnight dial on Today doubles as a
+study heatmap; the mastery wheel shows the shape of your strengths across all 14 topics. Timed
+papers switch to a distraction-free exam room. Motion respects `prefers-reduced-motion`.
 
 ### The content
 
