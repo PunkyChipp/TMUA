@@ -1,6 +1,6 @@
 # Logic of arguments
 
-Paper 2 tests logic in several questions every sitting. The maths is rarely hard: the difficulty is reading precisely. Expect to rewrite English as "if ..., then ...", decide whether a condition is necessary or sufficient (heavily examined since 2024), negate statements containing "every", "some" and "at most", compare nested "for every ... there is ..." statements, and decide what must, could or cannot be true. Everything in the exam is written in words. You are **not** expected to use logic symbols or fill in formal truth tables; the symbols at the end of these notes are optional shorthand.
+Paper 2 tests logic in several questions every sitting. The maths is rarely hard: the difficulty is reading precisely. Expect to rewrite English as "if ..., then ...", decide whether a condition is necessary or sufficient, negate statements containing "every", "some" and "at most", compare nested "for every ... there is ..." statements, and decide what must, could or cannot be true. Everything in the exam is written in words. You are **not** expected to use logic symbols or fill in formal truth tables; the symbols at the end of these notes are optional shorthand.
 
 ## Must-know facts
 
@@ -59,7 +59,7 @@ To prove "not sufficient", find an example with C true and P false. To prove "no
 **Negating quantified statements.** Swap "every" and "some", in order, and negate only the final condition:
 
 * not (every card is red) = some card is not red
-* not (some player scored in every match) = every player failed to score in at least one match
+* not (some player scored in every match) = for every player there is at least one match in which they did not score
 * not (at most one is positive) = at least two are positive
 * not (for every $\varepsilon$ there is an $N$ such that for all $n>N$, $|a_n|<\varepsilon$) = there is an $\varepsilon$ such that for every $N$, some $n>N$ has $|a_n|\ge\varepsilon$
 

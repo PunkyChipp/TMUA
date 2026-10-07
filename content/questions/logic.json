@@ -106,13 +106,13 @@
   "figure": null,
   "options": [
    "No player in the squad has scored in any match this season.",
-   "Every player in the squad has failed to score in at least one match this season.",
-   "Some player in the squad has failed to score in every match this season.",
-   "Some player in the squad has failed to score in at least one match this season.",
-   "In every match this season, at least one player in the squad failed to score."
+   "For every player in the squad, there is at least one match this season in which that player did not score.",
+   "Some player in the squad did not score in any match this season.",
+   "There is a player in the squad and a match this season in which that player did not score.",
+   "In every match this season, at least one player in the squad did not score."
   ],
   "answer": 1,
-  "solution": "The statement claims that at least one player has a perfect record. It is false exactly when **no** player has a perfect record, i.e. every player has missed out in at least one match.\n\nSo the negation is: every player in the squad has failed to score in at least one match (B).\n\nMechanically: \"some player\" becomes \"every player\", and \"scored in every match\" becomes \"failed to score in at least one match\".",
+  "solution": "The statement claims that at least one player has a perfect record. It is false exactly when **no** player has a perfect record, i.e. every player has missed out in at least one match.\n\nSo the negation is: for every player in the squad, there is at least one match this season in which that player did not score (B).\n\nMechanically: \"some player\" becomes \"every player\", and \"scored in every match\" becomes \"there is a match in which they did not score\".",
   "insight": "Flip each quantifier in order (some to every, every to at least one) and negate the property itself.",
   "distractors": {
    "0": "Far too strong: one goal by a player in one match does not rescue the original if nobody scored in every match.",
@@ -985,7 +985,7 @@
    "contrapositive",
    "everyday language"
   ],
-  "stem": "A bank's rule is:\n\n> If a customer is over 18 and has photo ID, then they may open an account.\n\nWhich of the following are logically equivalent to the rule?\n\nI. If a customer is over 18, then they may open an account if they have photo ID.\n\nII. If a customer may not open an account, then they are not over 18 or they do not have photo ID.\n\nIII. If a customer is over 18, then they may open an account; and if a customer has photo ID, then they may open an account.",
+  "stem": "A bank's rule is:\n\n> If a customer is over 18 and has photo ID, then they may open an account.\n\nWhich of the following are logically equivalent to the rule?\n\nI. If a customer is over 18, then they may open an account if they have photo ID.\n\nII. If a customer may not open an account, then they are not over 18 or they do not have photo ID (or both).\n\nIII. If a customer is over 18, then they may open an account; and if a customer has photo ID, then they may open an account.",
   "figure": null,
   "options": [
    "none of them",
@@ -1021,7 +1021,7 @@
    "contrapositive",
    "everyday language"
   ],
-  "stem": "A train company's rule is:\n\n> If a train is cancelled or is delayed by more than an hour, then passengers receive a refund.\n\nWhich of the following are logically equivalent to the rule?\n\nI. If a train is cancelled, then passengers receive a refund; and if a train is delayed by more than an hour, then passengers receive a refund.\n\nII. If passengers do not receive a refund, then the train was not cancelled or was not delayed by more than an hour.\n\nIII. A train is cancelled or delayed by more than an hour only if passengers receive a refund.",
+  "stem": "A train company's rule is:\n\n> If a train is cancelled or is delayed by more than an hour, then passengers receive a refund.\n\nWhich of the following are logically equivalent to the rule?\n\nI. If a train is cancelled, then passengers receive a refund; and if a train is delayed by more than an hour, then passengers receive a refund.\n\nII. If passengers do not receive a refund, then the train was not cancelled, or the train was not delayed by more than an hour (or both).\n\nIII. A train is cancelled or delayed by more than an hour only if passengers receive a refund.",
   "figure": null,
   "options": [
    "none of them",
@@ -1049,7 +1049,7 @@
   "id": "logic-17",
   "topic": "logic",
   "paper": 2,
-  "difficulty": 5,
+  "difficulty": 4,
   "skills": [
    "for some",
    "for all",
@@ -1084,7 +1084,7 @@
   "id": "logic-17b",
   "topic": "logic",
   "paper": 2,
-  "difficulty": 5,
+  "difficulty": 4,
   "skills": [
    "for some",
    "for all",
@@ -1376,7 +1376,7 @@
   "insight": "Each conditional rules out exactly one combination; list it, then test every case against it.",
   "distractors": {
    "5": "Reads Rule 2 as making no promise after noon; the rule applies whenever express is paid.",
-   "6": "Reads \"only if\" in Rule 1 backwards, as \"if before noon or express, then next day\".",
+   "6": "Overlooks that II breaks Rule 1: a next-day delivery must have been placed before noon or paid for express, and II has neither.",
    "0": "Thinks being out of stock breaks Rule 2; it is the exception the rule allows.",
    "7": "Treats both rules as mere guidelines that can be broken."
   },

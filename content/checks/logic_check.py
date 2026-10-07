@@ -586,7 +586,7 @@ exactly([(o is None and not sols) or (o is not None and sols == [o]) for o in op
 orig_ids = [f"logic-{i:02d}" for i in range(1, 25)]
 assert [q["id"] for q in QLIST] == [x for i in orig_ids for x in (i, i + "b")]
 assert CHECKED == set(QS), sorted(set(QS) - CHECKED)
-assert Counter(QS[i]["difficulty"] for i in orig_ids) == {2: 2, 3: 8, 4: 8, 5: 6}
+assert Counter(QS[i]["difficulty"] for i in orig_ids) == {2: 2, 3: 8, 4: 9, 5: 5}
 BANNED = ["⇒", "⇔", "→", "∧", "∨", "¬", "∀", "∃", "\\Rightarrow", "\\Leftrightarrow", "\\iff", "\\implies",
           "\\land", "\\lor", "\\neg", "\\lnot", "\\forall", "\\exists", "\\to ", "truth table"]
 for i in orig_ids:
