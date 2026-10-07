@@ -737,7 +737,7 @@
    "$14$"
   ],
   "answer": 1,
-  "solution": "Write the integers in order as $a\\le b\\le c\\le d\\le e\\le f$. Then $c+d=16$ and the sum is $54$. Since $5<8$, the $5$s are among $a,b,c$.\n\n**Two 5s** ($a=b=5$, $c>5$): every other value occurs at most once, so $c<d<e<f$. Then $e+f=54-10-16=28$ with $e<f$, so $f\\ge15$ and the range is at least $10$.\n\n**Three 5s** ($a=b=c=5$): then $d=11$ and $e+f=54-15-11=28$ with $e,f\\ge11$. Now $e$ and $f$ may be equal, since appearing twice does not tie with the three $5$s: $e=f=14$. The list $5,5,5,11,14,14$ has range $14-5=9$.\n\nSince $a=5$ in every case and $f\\ge14$ (because $e+f=28$ with $e\\le f$), the range is never below $9$. Smallest range: $9$.",
+  "solution": "Write the integers in order as $a\\le b\\le c\\le d\\le e\\le f$. Then $c+d=16$ and the sum is $54$. Since $5<8$, the $5$s are among $a,b,c$.\n\n**Two 5s** ($a=b=5$, $c>5$): every other value occurs at most once, so $c<d<e<f$. Then $e+f=54-10-16=28$ with $e<f$, so $f\\ge15$ and the range is at least $10$.\n\n**Three 5s** ($a=b=c=5$): then $d=11$ and $e+f=54-15-11=28$ with $e,f\\ge11$. Now $e$ and $f$ may be equal, since appearing twice does not tie with the three $5$s: $e=f=14$. The list $5,5,5,11,14,14$ has range $14-5=9$.\n\n**No list does better:** at least two of $a,b,c$ equal $5$, so $a\\le5$ and $a+b\\le10$. Then $e+f=38-(a+b)\\ge28$ with $e\\le f$, so $f\\ge14$ and the range $f-a\\ge9$. Smallest range: $9$.",
   "insight": "To minimise a range, make the large values as equal as the conditions allow; check whether extra copies of the mode relax the 'unique mode' restriction.",
   "distractors": {
    "0": "Ignoring the mode condition: mean $9$ and median $8$ alone allow a range as small as $3$.",

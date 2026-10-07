@@ -1,151 +1,264 @@
-"""Verification for content/questions/number.json.
+"""Verification for content/questions/number.json (originals number-NN and twins number-NNb).
 
-Each check computes the answer independently (brute force where possible), asserts that
-the keyed option matches, and asserts that every other option is wrong.
+Each check computes the answer independently (brute force / exact arithmetic where possible),
+asserts that the keyed option equals it, and that no other option does.
+Run: python3 content/checks/number_check.py
 """
 import json
+import math
 import os
+from collections import Counter
 from fractions import Fraction as F
-from itertools import combinations
-from math import gcd, lcm
-
-from sympy import isprime
+from itertools import permutations
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 QS = {q["id"]: q for q in json.load(open(os.path.join(HERE, "..", "questions", "number.json"), encoding="utf-8"))}
-assert len(QS) == 18 and all(f"number-{i:02d}" in QS for i in range(1, 19))
+ROMAN = ["none of them", "I only", "II only", "III only", "I and II only",
+         "I and III only", "II and III only", "I, II and III"]
+ROMAN_IDX = {(0, 0, 0): 0, (1, 0, 0): 1, (0, 1, 0): 2, (0, 0, 1): 3, (1, 1, 0): 4,
+             (1, 0, 1): 5, (0, 1, 1): 6, (1, 1, 1): 7}
 
-ROMAN_IDX = {(0, 0, 0): 0, (1, 0, 0): 1, (0, 1, 0): 2, (0, 0, 1): 3,
-             (1, 1, 0): 4, (1, 0, 1): 5, (0, 1, 1): 6, (1, 1, 1): 7}
 
-
-def check_values(qid, values, correct):
-    """values[i] is the mathematical value of option i."""
+def check_values(qid, values, correct, ascending=True):
     q = QS[qid]
     assert len(values) == len(q["options"]), qid
-    assert len(set(values)) == len(values), f"{qid}: duplicate option values"
-    assert values[q["answer"]] == correct, f"{qid}: key {q['answer']} value {values[q['answer']]} != {correct}"
-    assert sum(v == correct for v in values) == 1, qid
-    assert len(set(q["options"])) == len(q["options"]), qid
-    print(qid, "ok")
+    hits = [i for i, v in enumerate(values) if v == correct]
+    assert hits == [q["answer"]], f"{qid}: hits {hits}, key {q['answer']}, correct {correct}"
+    if ascending:
+        assert list(values) == sorted(values), f"{qid}: options not ascending"
 
 
 def check_roman(qid, truths):
     q = QS[qid]
+    assert q["options"] == ROMAN, qid
     assert q["answer"] == ROMAN_IDX[tuple(int(bool(t)) for t in truths)], f"{qid}: truths {truths}"
-    print(qid, "ok")
 
 
-# 01: +25% then -20%
-check_values("number-01", [F(-5), F(-4), F(0), F(4), F(5)], (F(125, 100) * F(80, 100) - 1) * 100)
+def opt_num(qid):
+    """Parse simple numeric options like '$12$', '$\\frac{3}{22}$', '$\\frac16$', '$54\\,000$'."""
+    import re
+    out = []
+    for o in QS[qid]["options"]:
+        s = o.strip("$").replace("\\,", "")
+        m = re.fullmatch(r"(-?)\\frac(?:\{(\d+)\}|(\d))(?:\{(\d+)\}|(\d+))", s)
+        if m:
+            v = F(int(m.group(2) or m.group(3)), int(m.group(4) or m.group(5)))
+            out.append(-v if m.group(1) else v)
+        else:
+            out.append(F(s))
+    return out
 
-# 02: last digit of 7^2026
-check_values("number-02", [1, 3, 7, 9], pow(7, 2026, 10))
 
-# 03: removed number (brute-ish: totals)
-check_values("number-03", [1, 11, 12, 13, 21], 10 * 12 - 9 * 11)
+# number-01: 0.8^n < 1/3
+n = 0
+while F(4, 5) ** n >= F(1, 3):
+    n += 1
+check_values("number-01", opt_num("number-01"), n)
+assert F(4, 5) ** 4 > F(1, 3) > F(4, 5) ** 5
 
-# 04: reverse percentage; search over pence
-orig = [p for p in range(1, 100000) if p * 85 == 6800 * 100]  # price in pence, 0.85p = 6800
-assert orig == [8000]
-check_values("number-04", [F(5780, 100), F(7820, 100), F(80), F(85)], F(orig[0], 100))
+# number-01b
+n, c = 0, F(400)
+while c <= 3000:
+    c *= F(3, 2)
+    n += 1
+check_values("number-01b", opt_num("number-01b"), n)
 
-# 05: counterexample to n^2+n+41 prime
-vals = [n * n + n + 41 for n in (1, 10, 20, 30, 40)]
-comp = [not isprime(v) for v in vals]
-assert comp == [False, False, False, False, True]
-assert QS["number-05"]["answer"] == 4
-print("number-05 ok")
+# number-02: 0.1363636...
+x = F(1, 10) + F(36, 990)
+assert x == F(3, 22)
+vals = [F(41, 330), F(5, 37), F(136, 999), F(3, 22), F(68, 495)]
+assert opt_num("number-02") == vals
+check_values("number-02", [float(v) for v in vals], float(x))
+# decimal expansion check
+digits = "".join(str((x * 10 ** k).__floor__() % 10) for k in range(1, 12))
+assert digits == "13636363636"
 
-# 06: I mean increases (proof + random test), II median, III range counterexamples
-import random
-from statistics import median
-random.seed(1)
-for _ in range(20000):
-    L = [random.randint(-20, 20) for _ in range(random.randint(2, 6))]
-    mu = F(sum(L), len(L))
-    x = mu + F(random.randint(1, 40), random.randint(1, 5))
-    L2 = L + [x]
-    assert F(sum(L2)) / len(L2) > mu
-L = [1, 5, 5, 5]; x = 6
-assert x > F(sum(L), 4) and median(L + [x]) == median(L)
-L = [1, 2, 9]; x = 5
-assert x > F(sum(L), 3) and max(L + [x]) - min(L + [x]) == max(L) - min(L)
-check_roman("number-06", (True, False, False))
+# number-02b
+v = F(18, 99) * (F(8, 10) + F(3, 90))
+assert F(8, 10) + F(3, 90) == F(5, 6)
+vals = [F(3, 20), F(5, 33), F(166, 1089), F(1, 6), F(83, 495)]
+assert opt_num("number-02b") == vals
+check_values("number-02b", [float(t) for t in vals], float(v))
 
-# 07: HCF 6, LCM 360 unordered pairs (brute force)
-pairs = [(a, b) for a in range(1, 361) for b in range(a, 361) if gcd(a, b) == 6 and lcm(a, b) == 360]
-assert sorted(pairs) == sorted([(6, 360), (24, 90), (18, 120), (30, 72)])
-check_values("number-07", [3, 4, 6, 8, 12], len(pairs))
+# number-03: upper bound speed = 25.5 / (15.75 - 12.35)
+v = F(255, 10) / (F(1575, 100) - F(1235, 100))
+check_values("number-03", opt_num("number-03"), v)
+assert opt_num("number-03") == [F(255, 10) / F(36, 10), F(25) / F(35, 10), F(255, 10) / F(35, 10), v, F(255, 10) / F(33, 10)]
 
-# 08: divisors of 720 that are multiples of 6
-check_values("number-08", [8, 12, 16, 20, 24, 30], sum(1 for d in range(1, 721) if 720 % d == 0 and d % 6 == 0))
-assert sum(1 for d in range(1, 721) if 720 % d == 0) == 30
-assert sum(1 for d in range(1, 721) if 720 % d == 0 and d % 2 == 0) == 24
+# number-03b
+v = 495 - 30 * F(25, 2)
+check_values("number-03b", opt_num("number-03b"), v)
 
-# 09: 1/x + 1/y = 1/6 ordered positive pairs (x,y <= 42 since x-6 divides 36)
-sols = [(x, y) for x in range(1, 500) for y in range(1, 500) if F(1, x) + F(1, y) == F(1, 6)]
-assert all(x <= 42 and y <= 42 for x, y in sols)
-check_values("number-09", [4, 5, 8, 9, 10, 18], len(sols))
+# number-04: 1.2^2 * 0.9^3
+mult = F(12, 10) ** 2 * F(9, 10) ** 3
+pct = float((mult - 1) * 100)
+claims = [-13, 1, 5, 10, 30]   # option meanings (about)
+close = [i for i, c in enumerate(claims) if abs(pct - c) < 0.6]
+assert close == [QS["number-04"]["answer"]], (pct, close)
+assert "5\\%" in QS["number-04"]["options"][2]
 
-# 10: divisible by 3 or 5 but not 15
-c = sum(1 for n in range(1, 1001) if (n % 3 == 0 or n % 5 == 0) and n % 15 != 0)
-check_values("number-10", [335, 401, 467, 533], c)
+# number-04b
+mult = F(15, 10) / F(125, 100) ** 2
+assert mult == F(24, 25)
+pct = (mult - 1) * 100
+claims = [-4, 0, 4, 20, 134]
+close = [i for i, c in enumerate(claims) if abs(float(pct) - c) < 0.5 and (c != 4 or pct > 0)]
+assert close == [QS["number-04b"]["answer"]], close
+assert "decrease of $4" in QS["number-04b"]["options"][0]
 
-# 11
-t1 = all((n * n - n) % 2 == 0 for n in range(1, 5000))
-t2 = all((n ** 3 - n) % 6 == 0 for n in range(1, 5000))
-t3 = all((n ** 4 - n ** 2) % 24 == 0 for n in range(1, 5000))
-assert (n := 2) and (n ** 4 - n ** 2) % 24 != 0
+
+# number-05
+def is_prime(m):
+    return m > 1 and all(m % d for d in range(2, int(m ** 0.5) + 1))
+
+
+comp = [i for i, n in enumerate((1, 10, 20, 30, 40)) if not is_prime(n * n + n + 41)]
+assert comp == [QS["number-05"]["answer"]]
+comp = [i for i, p in enumerate((2, 3, 5, 7, 11)) if not is_prime(2 * p + 1)]
+assert comp == [QS["number-05b"]["answer"]] and all(is_prime(p) for p in (2, 3, 5, 7, 11))
+
+# number-06: sqrt(4.9e7) / 2e-2
+side = math.isqrt(49 * 10 ** 6)
+assert side * side == 49 * 10 ** 6
+v = F(side) / F(2, 100)
+check_values("number-06", [F(35), F(140), F(110000), F(350000), F(1100000)], v)
+assert QS["number-06"]["options"][3] == "$3.5\\times10^{5}$"
+
+# number-06b: closest
+exact = 0.00031 * 59800 / 0.0198
+opts = [9, 90, 900, 9000, 90000]
+assert opt_num("number-06b") == [F(t) for t in opts]
+best = min(range(5), key=lambda i: abs(math.log(opts[i] / exact)))
+assert best == QS["number-06b"]["answer"]
+assert abs(exact - opts[best]) < abs(exact - opts[best + 1]) and abs(exact - opts[best]) < abs(exact - opts[best - 1])
+
+# number-07
+pairs = {(a, 360 * 6 // a) for a in range(6, 361, 6) if 360 * 6 % a == 0
+         and math.gcd(a, 2160 // a) == 6 and a <= 2160 // a}
+check_values("number-07", opt_num("number-07"), len(pairs))
+
+# number-07b
+cnt = sum(1 for m in range(1, 1000) if math.lcm(12, 18, m) == 180)
+check_values("number-07b", opt_num("number-07b"), cnt)
+
+# number-08
+check_values("number-08", opt_num("number-08"), sum(1 for d in range(1, 721) if 720 % d == 0 and d % 6 == 0))
+# number-08b
+check_values("number-08b", opt_num("number-08b"), sum(1 for d in range(1, 1801) if 1800 % d == 0 and d % 2))
+
+# number-09
+sols = [(a, b) for a in range(1, 100) for b in range(1, 100) if F(1, a) + F(1, b) == F(1, 6)]
+check_values("number-09", opt_num("number-09"), len(sols))
+# number-09b
+sols = [(a, b) for a in range(1, 200) for b in range(1, 200) if F(3, a) + F(4, b) == 1]
+check_values("number-09b", opt_num("number-09b"), len(sols))
+
+# number-10: litres per minute
+rate_cm3_s = 50 * 180
+check_values("number-10", opt_num("number-10"), F(rate_cm3_s * 60, 1000))
+
+# number-10b
+mass_kg = F(20 * 10 * 5 * 8, 1000)
+area_m2 = F(10 * 5, 10 ** 4)
+check_values("number-10b", opt_num("number-10b"), mass_kg * 10 / area_m2)
+
+# number-11
+rng = [n for n in range(-60, 61)]
+t1 = all((n * n - n) % 2 == 0 for n in rng)
+t2 = all((n ** 3 - n) % 6 == 0 for n in rng)
+t3 = all((n ** 4 - n * n) % 24 == 0 for n in rng)
 check_roman("number-11", (t1, t2, t3))
+odd = [n for n in range(-61, 62) if n % 2]
+check_roman("number-11b", (all((n * n - 1) % 8 == 0 for n in odd), all((n ** 4 - 1) % 32 == 0 for n in odd),
+                           all((n * n + 3) % 4 == 0 for n in odd)))
 
-# 12: five distinct positive integers, mean 10, median 8, max largest
-best = max(max(s) for s in combinations(range(1, 51), 5) if sum(s) == 50 and sorted(s)[2] == 8)
-check_values("number-12", [26, 29, 30, 31, 32], best)
+# number-12
+cnt = sum(1 for m in range(1000, 10000) if len(set(str(m))) == 4 and m % 2 == 0)
+check_values("number-12", opt_num("number-12"), cnt)
+# number-12b
+cnt = sum(1 for m in range(100, 1000) if math.prod(int(d) for d in str(m)) == 24)
+check_values("number-12b", opt_num("number-12b"), cnt)
 
-# 13: last digit of sum k^k
-check_values("number-13", [1, 3, 5, 7, 9], sum(k ** k for k in range(1, 11)) % 10)
+# number-13: exact iteration
+u, n = F(2000), 0
+while u >= 1000:
+    u = u * F(6, 5) - 500
+    n += 1
+check_values("number-13", opt_num("number-13"), n)
+assert F(6, 5) ** 6 < 3 < F(6, 5) ** 7
 
-# 14: integer solutions of x^2 - y^2 = 60 (|x|,|y| <= 31 since (|x|-|y|)(|x|+|y|)=60)
-sols = [(x, y) for x in range(-100, 101) for y in range(-100, 101) if x * x - y * y == 60]
-check_values("number-14", [2, 4, 6, 8, 12, 16], len(sols))
+# number-13b
+b, n = F(8000), 0
+while b > 0:
+    b = b * F(5, 4)
+    pay = min(b, F(2500))
+    b -= pay
+    n += 1
+check_values("number-13b", opt_num("number-13b"), n)
 
-# 15: ordering
-import math
-nums = {"2": 2 ** 0.5, "3": 3 ** (1 / 3), "5": 5 ** 0.2, "6": 6 ** (1 / 6)}
-order = "".join(sorted(nums, key=nums.get))
-# exact integer confirmation of every pairwise comparison
-assert 2 ** 3 < 3 ** 2 and 5 ** 2 < 2 ** 5 and 6 ** 5 < 5 ** 6
-opt_orders = []
-for o in QS["number-15"]["options"]:
-    bases = [tok.split("^")[0].strip("$ ") for tok in o.split("<")]
-    opt_orders.append("".join(bases))
-check_values("number-15", opt_orders, order)
+# number-14
+sols = [(a, b) for a in range(-100, 101) for b in range(-100, 101) if a * a - b * b == 60]
+check_values("number-14", opt_num("number-14"), len(sols))
+# number-14b
+reps = {a * a - b * b for a in range(0, 60) for b in range(0, 60)}
+check_values("number-14b", opt_num("number-14b"), sum(1 for m in range(1, 51) if m in reps))
 
-# 16: sufficiency for 12 | n
-R = range(-3000, 3001)
-s1 = all(n % 12 == 0 for n in R if (n * n) % 24 == 0)
-s2 = all(n % 12 == 0 for n in R if n % 2 == 0 and n % 6 == 0)
-s3 = all(n % 12 == 0 for n in R if (n ** 3) % 18 == 0)
+# number-15: orderings
+vals = {"2^{1/2}": 2 ** 0.5, "3^{1/3}": 3 ** (1 / 3), "5^{1/5}": 5 ** 0.2, "6^{1/6}": 6 ** (1 / 6)}
+order = "$" + "<".join(sorted(vals, key=vals.get)) + "$"
+assert [o for o in QS["number-15"]["options"]].index(order) == QS["number-15"]["answer"]
+assert len(QS["number-15"]["options"]) == 5
+vals = {"2^{48}": 2 ** 48, "3^{32}": 3 ** 32, "5^{20}": 5 ** 20, "7^{16}": 7 ** 16}
+order = "$" + "<".join(sorted(vals, key=vals.get)) + "$"
+assert QS["number-15b"]["options"].index(order) == QS["number-15b"]["answer"]
+
+# number-16
+rng = range(1, 5000)
+s1 = all(n % 12 == 0 for n in rng if (n * n) % 24 == 0)
+s2 = all(n % 12 == 0 for n in rng if n % 2 == 0 and n % 6 == 0)
+s3 = all(n % 12 == 0 for n in rng if n ** 3 % 18 == 0)
 check_roman("number-16", (s1, s2, s3))
+s1 = all(n * n % 72 == 0 for n in rng if n % 12 == 0)
+s2 = all(n * n % 72 == 0 for n in rng if n * n % 48 == 0)
+s3 = all(n * n % 72 == 0 for n in rng if n ** 3 % 36 == 0)
+check_roman("number-16b", (s1, s2, s3))
 
-# 17: values k in 1..30 not achieved as trailing zeros of n!
-def tz(m):
-    s = str(m)
-    return len(s) - len(s.rstrip("0"))
-fact = 1
-achieved = set()
-for n in range(1, 200):
-    fact *= n
-    achieved.add(tz(fact))
-missing = [k for k in range(1, 31) if k not in achieved]
-assert missing == [5, 11, 17, 23, 29, 30]
-check_values("number-17", [1, 4, 5, 6, 7], len(missing))
 
-# 18: repunit of 2026 ones mod 7
-check_values("number-18", [0, 1, 2, 3, 4, 5, 6], int("1" * 2026) % 7)
+# number-17
+def Z(m):
+    z, p = 0, 5
+    while p <= m:
+        z += m // p
+        p *= 5
+    return z
 
-# difficulty spread
-from collections import Counter
-assert Counter(q["difficulty"] for q in QS.values()) == Counter({1: 2, 2: 4, 3: 6, 4: 4, 5: 2})
+
+attained = {Z(m) for m in range(1, 200)}
+missing = [kk for kk in range(1, 31) if kk not in attained]
+check_values("number-17", opt_num("number-17"), len(missing))
+# number-17b
+m = 1
+while math.factorial(m) % 12 ** 10:
+    m += 1
+check_values("number-17b", opt_num("number-17b"), m)
+
+# number-18
+check_values("number-18", opt_num("number-18"), int("1" * 2026) % 7)
+check_values("number-18b", opt_num("number-18b"), (2 ** 2026 + 3 ** 2026) % 7)
+
+# ---------------------------------------------------------------- structure
+ids = [f"number-{i:02d}" for i in range(1, 19)]
+assert sorted(QS) == sorted(ids + [i + "b" for i in ids])
+assert Counter(QS[i]["difficulty"] for i in ids) == Counter({2: 2, 3: 6, 4: 6, 5: 4})
+for i in ids:
+    a_, b_ = QS[i], QS[i + "b"]
+    assert a_["family"] == b_["family"] == i
+    assert a_["difficulty"] == b_["difficulty"], i
+    assert a_["answer"] != b_["answer"], i
+for q in QS.values():
+    assert len(set(q["options"])) == len(q["options"])
+    assert str(q["answer"]) not in q["distractors"]
+    assert len(q["distractors"]) >= 3, q["id"]
+    assert len(q["options"]) == 5 or q["options"] == ROMAN, q["id"]
+    assert q["difficulty"] >= 2
 print("ALL OK")

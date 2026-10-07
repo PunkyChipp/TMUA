@@ -11,13 +11,18 @@ Algebra underpins almost every TMUA question, but questions set purely on it ten
 * **Roots:** for $ax^2+bx+c=0$, $\alpha+\beta=-\frac ba$ and $\alpha\beta=\frac ca$. For a cubic $x^3+px^2+qx+r$: $\sum\alpha=-p$, $\sum\alpha\beta=q$, $\alpha\beta\gamma=-r$.
 * **Symmetric expressions:** $\alpha^2+\beta^2=(\alpha+\beta)^2-2\alpha\beta$ and $\alpha^3+\beta^3=(\alpha+\beta)^3-3\alpha\beta(\alpha+\beta)$.
 * **Factor/remainder theorem:** the remainder when $p(x)$ is divided by $(x-c)$ is $p(c)$. Dividing by $(ax-b)$ leaves remainder $p(b/a)$.
-* **Functions:** $fg(x)=f(g(x))$, so $g$ is applied first. The range of $f$ is the domain of $f^{-1}$. $f^{-1}$ exists only if $f$ is one-to-one on its domain.
+* **Division by a quadratic:** the remainder has degree at most $1$, so write $p(x)=d(x)q(x)+ax+b$. If $d(x)$ factorises, substitute its roots; if not, do the long division (keep $0x^3$-type placeholders).
+* **Functions:** $fg(x)=f(g(x))$, so $g$ is applied first. The range of $f$ is the domain of $f^{-1}$. $f^{-1}$ exists only if $f$ is **one-to-one** (no two inputs give the same output). $x^2$ on $\mathbb R$ is many-to-one; on $x\ge0$ it is one-to-one. On an interval, a function is one-to-one exactly when it has no turning point (or flat stretch) strictly inside.
+* **Roots and modulus:** $\sqrt x$ always means the non-negative root, so $\sqrt{x^2}=|x|$, not $x$. $|x|=x$ for $x\ge0$ and $-x$ for $x<0$; $|a|=|b|\iff a=\pm b$.
+* **Identity vs equation:** an identity ($\equiv$) holds for every $x$, so all coefficients must match; an equation holds for particular $x$. "Not an identity" does not mean "no solutions": $(x-a)^2=x^2-a^2$ has the single solution $x=a$ when $a\ne0$, and is an identity when $a=0$.
 
 ## Techniques
 
+* **Modulus equations and inequalities:** sketch the V (or the reflected curve) and count crossings; or split into cases at the point where the inside changes sign. If both sides are non-negative, e.g. $|x-3|>2|x|$, squaring is safe.
+* **Square-root equations:** squaring can create false roots, because $a^2=b^2$ only gives $a=\pm b$. Always check that the side equal to $\sqrt{\ }$ is non-negative.
 * **Line meets curve:** substitute the linear equation into the quadratic, then use the discriminant of the resulting quadratic to count the intersections (0, 1 tangent, or 2).
 * **Signs of the roots from sum and product:** both roots positive $\iff \Delta\ge0$, sum $>0$, product $>0$. If the product is $<0$, the roots have opposite signs, and you don't need to check $\Delta$.
-* **Hidden quadratics:** $4^x=(2^x)^2$, $x^4=(x^2)^2$, $x-5\sqrt x+6=0$. Set $u=\ldots$, solve, then **keep only the valid $u$**: $u=2^x$ must be $>0$, and $u=x^2$ must be $\ge0$. Each positive $u=x^2$ gives two $x$ values and $u=0$ gives one.
+* **Hidden quadratics:** $4^x=(2^x)^2$, $x^4=(x^2)^2$, $x^{2/3}=(x^{1/3})^2$, $x^2=|x|^2$, $x-5\sqrt x+6=0$. Set $u=\ldots$, solve, then **keep only the valid $u$**: $u=2^x$ must be $>0$, and $u=x^2$ must be $\ge0$. Each positive $u=x^2$ gives two $x$ values and $u=0$ gives one.
 * **Quadratic inequalities:** find the roots and sketch the parabola, then read off the answer. Don't try to reason it out without the sketch.
 * **Inequalities with $x$ in a denominator:** multiply by $x^2$ (which is positive), not by $x$, then draw a sign diagram for the resulting cubic.
 * **Polynomial with given values:** if $p(1)=1$, $p(2)=2$, ... then $p(x)-x$ has known roots. Write it in factor form.
@@ -41,6 +46,8 @@ Algebra underpins almost every TMUA question, but questions set purely on it ten
 * Sufficient and necessary are different. "$m>3$" can be sufficient for two intersections without being necessary.
 * $\alpha^3+\beta^3\ne(\alpha+\beta)(\alpha^2+\beta^2)$. You need the $-\alpha\beta$ term.
 * The domain of $f^{-1}$ is the **range** of $f$, not the domain of $f$.
+* With $u=|x|$ or $u=x^2$, a positive $u$ gives two values of $x$ but $u=0$ gives only one.
+* A curve and its reflection in $y=x$ (e.g. $y=x^2-a$, $x=y^2-a$) can also meet **off** the line $y=x$: subtract the equations and factorise.
 
 ## Worked examples
 
@@ -64,12 +71,20 @@ Put $u=x^2$: $u^2-3u-4=(u-4)(u+1)=0$, so $u=4$ or $u=-1$. Only $u=4$ is allowed,
 
 </details>
 
-**3.** When $p(x)$ is divided by $(x-1)$ the remainder is $3$, and when it is divided by $(x+2)$ the remainder is $-3$. Find the remainder when $p(x)$ is divided by $(x-1)(x+2)$.
+**3.** Find the remainder when $x^4+2x^3-x+5$ is divided by $x^2+x-1$.
 
 <details><summary>Show solution</summary>
 
-The remainder on division by a quadratic is linear: $p(x)=(x-1)(x+2)q(x)+ax+b$.
+Long division: $x^2(x^2+x-1)=x^4+x^3-x^2$ leaves $x^3+x^2-x+5$; then $x(x^2+x-1)=x^3+x^2-x$ leaves $5$. So the quotient is $x^2+x$ and the remainder is $5$.
 
-$p(1)=a+b=3$ and $p(-2)=-2a+b=-3$, so $a=2$ and $b=1$. The remainder is $2x+1$.
+Check at a root $r$ of $x^2+x-1$: $r^2=1-r$, $r^3=r-r^2=2r-1$, $r^4=r\cdot r^3=2r^2-r=2-3r$, so $r^4+2r^3-r+5=2-3r+4r-2-r+5=5$ ✓.
+
+</details>
+
+**4.** Solve $|2x+1|=x+5$.
+
+<details><summary>Show solution</summary>
+
+$2x+1=x+5$ gives $x=4$; $2x+1=-(x+5)$ gives $x=-2$. Both make $x+5\ge0$ ($9$ and $3$), so both are valid: check $|9|=9$ and $|-3|=3$ ✓. Had the right-hand side been negative at a root, that root would be rejected.
 
 </details>
