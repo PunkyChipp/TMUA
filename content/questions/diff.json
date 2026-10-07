@@ -3,57 +3,126 @@
   "id": "diff-01",
   "topic": "diff",
   "paper": 1,
-  "difficulty": 1,
+  "difficulty": 3,
   "skills": [
-   "differentiation",
    "fractional powers",
-   "negative powers"
+   "simplify first",
+   "stationary points",
+   "context"
   ],
-  "stem": "Find the gradient of the curve $y = 4\\sqrt{x} - \\dfrac{8}{x}$ at the point where $x = 4$.",
+  "stem": "A manufacturer models the cost, in pounds, of making each item when $x$ thousand items are produced as\n$$C = \\frac{(x+3)^2}{x\\sqrt{x}}, \\qquad x > 0.$$\n\nAccording to this model, what is the least possible cost per item?",
   "figure": null,
   "options": [
-   "$\\frac{1}{2}$",
-   "$1$",
-   "$\\frac{3}{2}$",
-   "$2$",
-   "$\\frac{5}{2}$"
+   "$\\frac{16}{9}$",
+   "$\\frac{16}{3}$",
+   "$4\\sqrt{3}$",
+   "$9$",
+   "$16$"
+  ],
+  "answer": 1,
+  "solution": "Divide every term by $x\\sqrt x = x^{3/2}$ first:\n$$C = \\frac{x^2 + 6x + 9}{x^{3/2}} = x^{1/2} + 6x^{-1/2} + 9x^{-3/2}.$$\n\n$$\\frac{dC}{dx} = \\tfrac12 x^{-1/2} - 3x^{-3/2} - \\tfrac{27}{2}x^{-5/2}.$$\n\nMultiply by $2x^{5/2}$ (positive): $x^2 - 6x - 27 = 0$, so $(x-9)(x+3) = 0$ and $x = 9$.\n\n$C' < 0$ for $0 < x < 9$ and $C' > 0$ for $x > 9$, so this is the minimum:\n$$C(9) = \\frac{12^2}{9 \\times 3} = \\frac{144}{27} = \\frac{16}{3}.$$",
+  "insight": "Turn a quotient by a power of $x$ into a sum of powers before differentiating; then clear the negative powers by multiplying through.",
+  "distractors": {
+   "0": "Evaluating $9\\sqrt 9$ as $81$ instead of $27$ at the last step.",
+   "2": "Differentiating $6x^{-1/2}$ as $+3x^{-3/2}$ (losing the minus sign) gives $x^2 + 6x - 27 = 0$, so $x = 3$ and $C = \\frac{36}{3\\sqrt3} = 4\\sqrt3$.",
+   "3": "Giving the value of $x$ at the minimum rather than the minimum cost.",
+   "4": "Treating $x\\sqrt x$ as $x^{1/2}$: then $C = x^{3/2} + 6x^{1/2} + 9x^{-1/2}$, whose minimum is at $x = 1$ with value $16$."
+  },
+  "time": 180,
+  "family": "diff-01"
+ },
+ {
+  "id": "diff-01b",
+  "topic": "diff",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "fractional powers",
+   "simplify first",
+   "stationary points"
+  ],
+  "stem": "What is the least value of\n$$y = \\frac{(x^2 + 12)^2}{x^3}$$\nfor $x > 0$?",
+  "figure": null,
+  "options": [
+   "$6$",
+   "$4\\sqrt{6}$",
+   "$\\frac{32}{3}$",
+   "$8\\sqrt{3}$",
+   "$64$"
   ],
   "answer": 2,
-  "solution": "Write in index form: $y = 4x^{1/2} - 8x^{-1}$.\n\n$$\\frac{dy}{dx} = 2x^{-1/2} + 8x^{-2} = \\frac{2}{\\sqrt{x}} + \\frac{8}{x^2}.$$\n\nAt $x = 4$: $\\frac{2}{2} + \\frac{8}{16} = 1 + \\frac12 = \\frac32$.",
-  "insight": "Rewrite roots and reciprocals as powers of $x$ before differentiating; watch the sign when differentiating a negative power.",
+  "solution": "Expand and divide by $x^3$:\n$$y = \\frac{x^4 + 24x^2 + 144}{x^3} = x + 24x^{-1} + 144x^{-3}.$$\n\n$$\\frac{dy}{dx} = 1 - 24x^{-2} - 432x^{-4}.$$\n\nMultiply by $x^4$: $x^4 - 24x^2 - 432 = 0$, i.e. $(x^2 - 36)(x^2 + 12) = 0$, so $x = 6$.\n\n$y' < 0$ just below $6$ and $y' > 0$ above, so this is the minimum:\n$$y(6) = \\frac{48^2}{216} = \\frac{2304}{216} = \\frac{32}{3}.$$",
+  "insight": "Rewrite as a sum of powers of $x$; a quartic in $x$ with only even powers is a quadratic in $x^2$.",
   "distractors": {
-   "0": "Differentiating $-8x^{-1}$ as $-8x^{-2}$ (losing the sign flip from the negative power) gives $1 - \\frac12$.",
-   "1": "Only the first term was differentiated correctly and the second was dropped."
+   "0": "Giving the value of $x$ at the minimum, not the value of $y$.",
+   "1": "Dropping the constant term when expanding $(x^2+12)^2$, so minimising $x + 24x^{-1}$: minimum $2\\sqrt{24} = 4\\sqrt6$.",
+   "3": "A sign slip in $\\frac{d}{dx}(24x^{-1})$ gives $x^4 + 24x^2 - 432 = 0$, so $x^2 = 12$ and $y = \\frac{576}{24\\sqrt3} = 8\\sqrt3$.",
+   "4": "Finding $x = 6$ correctly but dividing by $6^2$ instead of $6^3$."
   },
-  "time": 60
+  "time": 180,
+  "family": "diff-01"
  },
  {
   "id": "diff-02",
   "topic": "diff",
   "paper": 1,
-  "difficulty": 1,
+  "difficulty": 4,
   "skills": [
-   "stationary points",
-   "cubics"
+   "rates of change",
+   "context",
+   "stationary points"
   ],
-  "stem": "The curve $y = x^3 - 6x^2 + 9x + 1$ has two stationary points.\n\nWhat is the $y$-coordinate of the local minimum?",
+  "stem": "A robot moves back and forth along a straight track. At time $t$ seconds its displacement from its starting point is\n$$s = t^3 - 9t^2 + 24t \\text{ metres}, \\qquad 0 \\le t \\le 5.$$\n\nWhat is the total distance travelled by the robot during these 5 seconds?",
   "figure": null,
   "options": [
-   "$-15$",
-   "$0$",
-   "$1$",
-   "$3$",
-   "$5$"
+   "$20$",
+   "$24$",
+   "$28$",
+   "$36$",
+   "$40$"
   ],
   "answer": 2,
-  "solution": "$\\frac{dy}{dx} = 3x^2 - 12x + 9 = 3(x-1)(x-3)$, so stationary points at $x=1$ and $x=3$.\n\nA positive cubic goes up, down, up, so the left stationary point is the maximum and the right one is the minimum.\n\nAt $x = 3$: $y = 27 - 54 + 27 + 1 = 1$.",
-  "insight": "For a cubic with positive $x^3$ coefficient the larger stationary $x$ is always the local minimum; no second derivative needed.",
+  "solution": "The velocity is $\\dfrac{ds}{dt} = 3t^2 - 18t + 24 = 3(t-2)(t-4)$.\n\nSo the robot moves forwards for $0<t<2$, backwards for $2<t<4$ and forwards again for $4<t<5$.\n\n$s(0) = 0$, $s(2) = 8 - 36 + 48 = 20$, $s(4) = 64 - 144 + 96 = 16$, $s(5) = 125 - 225 + 120 = 20$.\n\nDistance $= 20 + |16 - 20| + |20 - 16| = 20 + 4 + 4 = 28$ m.",
+  "insight": "Distance travelled needs the times where the rate of change is zero: split there and add the sizes of the changes.",
   "distractors": {
-   "4": "$5$ is the $y$-value at $x=1$, the local maximum.",
-   "3": "$3$ is the $x$-coordinate of the minimum, not its $y$-coordinate.",
-   "0": "Solving $3x^2-12x+9=0$ with a sign slip gives $x=-1$, where $y=-15$."
+   "0": "This is the final displacement $s(5)$, which ignores the backward leg and the return.",
+   "1": "Splitting at $t = 2$ and $t = 4$ but forgetting the final leg: $20 + 4$.",
+   "3": "Adding the displacements $s(2) + s(4) = 36$ instead of the changes between them.",
+   "4": "Adding $s(2) + s(5)$, the displacements at the turning time and the end."
   },
-  "time": 75
+  "time": 210,
+  "family": "diff-02"
+ },
+ {
+  "id": "diff-02b",
+  "topic": "diff",
+  "paper": 1,
+  "difficulty": 4,
+  "skills": [
+   "rates of change",
+   "context",
+   "stationary points"
+  ],
+  "stem": "A drone takes off from the ground. Its height $t$ minutes after take-off is\n$$h = 2t^3 - 21t^2 + 60t \\text{ metres}, \\qquad 0 \\le t \\le 6.$$\n\nWhat is the total vertical distance (up and down combined) that the drone travels during these 6 minutes?",
+  "figure": null,
+  "options": [
+   "$36$",
+   "$63$",
+   "$79$",
+   "$90$",
+   "$113$"
+  ],
+  "answer": 3,
+  "solution": "$\\dfrac{dh}{dt} = 6t^2 - 42t + 60 = 6(t-2)(t-5)$, so the drone rises for $0<t<2$, descends for $2<t<5$ and rises again for $5<t<6$.\n\n$h(0)=0$, $h(2) = 16 - 84 + 120 = 52$, $h(5) = 250 - 525 + 300 = 25$, $h(6) = 432 - 756 + 360 = 36$.\n\nTotal $= 52 + (52 - 25) + (36 - 25) = 52 + 27 + 11 = 90$ m.",
+  "insight": "The rate $dh/dt$ changes sign where the motion reverses; add the size of each monotonic stretch.",
+  "distractors": {
+   "0": "This is the final height $h(6)$, the net change only.",
+   "1": "Missing the descent: $52 + 11$.",
+   "2": "Missing the final climb: $52 + 27$.",
+   "4": "Adding the heights $52 + 25 + 36$ at the key times instead of the changes."
+  },
+  "time": 210,
+  "family": "diff-02"
  },
  {
   "id": "diff-03",
@@ -76,72 +145,170 @@
   ],
   "answer": 2,
   "solution": "Gradient at $P$ is $3x^2 = 3$.\n\n* Tangent: $y - 1 = 3(x-1)$; at $y=0$, $x = \\frac23$. So $A = (\\frac23, 0)$.\n* Normal: gradient $-\\frac13$, $y - 1 = -\\frac13(x-1)$; at $y=0$, $x = 4$. So $B = (4, 0)$.\n\nBase $AB = 4 - \\frac23 = \\frac{10}{3}$, height $=1$ (the $y$-coordinate of $P$).\n\nArea $= \\frac12 \\cdot \\frac{10}{3} \\cdot 1 = \\frac53$.\n\nShortcut: from a point at height $h$, a line of gradient $m$ hits the $x$-axis a horizontal distance $h/|m|$ away, so $AB = \\frac13 + 3$.",
-  "insight": "With the base on the $x$-axis, the height of the triangle is just the $y$-coordinate of $P$; each intercept is a horizontal distance $h/|m|$ from $P$.",
+  "insight": "With the base on the $x$-axis, the height of the triangle is the $y$-coordinate of $P$; each intercept is a horizontal distance $h/|m|$ from $P$.",
   "distractors": {
    "4": "Forgetting the $\\frac12$ in the area of a triangle.",
    "1": "Taking the normal gradient as $+\\frac13$ puts $B$ at $(-2,0)$, giving base $\\frac83$.",
-   "0": "Using $-3$ as the normal gradient (negating instead of taking the negative reciprocal)."
+   "0": "Using $-3$ as the normal gradient (negating instead of taking the negative reciprocal) puts $B$ at $(\\frac43, 0)$, giving base $\\frac23$."
   },
-  "time": 120
+  "time": 120,
+  "family": "diff-03"
+ },
+ {
+  "id": "diff-03b",
+  "topic": "diff",
+  "paper": 1,
+  "difficulty": 2,
+  "skills": [
+   "tangents",
+   "normals",
+   "area"
+  ],
+  "stem": "The tangent and the normal to the curve $y = \\dfrac{8}{x}$ at the point $P(2, 4)$ meet the $y$-axis at $A$ and $B$ respectively.\n\nWhat is the area of triangle $PAB$?",
+  "figure": null,
+  "options": [
+   "$3$",
+   "$5$",
+   "$8$",
+   "$10$",
+   "$16$"
+  ],
+  "answer": 1,
+  "solution": "$y = 8x^{-1}$, so $\\dfrac{dy}{dx} = -8x^{-2} = -2$ at $x = 2$.\n\n* Tangent: $y - 4 = -2(x - 2)$, i.e. $y = -2x + 8$, so $A = (0, 8)$.\n* Normal: gradient $\\frac12$, $y - 4 = \\frac12(x - 2)$, i.e. $y = \\frac12 x + 3$, so $B = (0, 3)$.\n\nThe base $AB = 5$ lies on the $y$-axis, so the height is the $x$-coordinate of $P$, which is $2$.\n\nArea $= \\frac12 \\times 5 \\times 2 = 5$.",
+  "insight": "When the base lies on an axis, the height of the triangle is just the other coordinate of $P$.",
+  "distractors": {
+   "0": "Taking the normal gradient as $-\\frac12$ (sign slip) gives $B = (0, 5)$ and base $3$.",
+   "2": "Using gradient $2$ for the normal (negating without the reciprocal) gives $B = (0,0)$, base $8$, area $8$.",
+   "3": "Forgetting the $\\frac12$ in the area of a triangle.",
+   "4": "Both slips together: base $8$ from the wrong normal and no $\\frac12$."
+  },
+  "time": 120,
+  "family": "diff-03"
  },
  {
   "id": "diff-04",
   "topic": "diff",
   "paper": 1,
-  "difficulty": 2,
+  "difficulty": 3,
   "skills": [
    "increasing and decreasing",
-   "fractional powers"
+   "fractional powers",
+   "parameters",
+   "context"
   ],
-  "stem": "For $x > 0$, let $f(x) = x^{3/2} - 3x$.\n\nFor which values of $x$ is $f$ decreasing?",
+  "stem": "A firm's profit, in thousands of pounds, from producing $x$ tonnes of a product is modelled by\n$$P(x) = kx - 2x^{3/2},$$\nwhere $k$ is a positive constant. The firm wants profit to increase with output throughout $0 < x < 4$, that is, $P'(x) > 0$ for every $x$ with $0 < x < 4$.\n\nWhat is the complete set of values of $k$ for which this holds?",
   "figure": null,
   "options": [
-   "$0 < x < 2$",
-   "$0 < x < 4$",
-   "$0 < x < 9$",
-   "$x > 2$",
-   "$x > 4$"
+   "$0 < k \\le 6$",
+   "$k \\ge 4$",
+   "$k > 6$",
+   "$k \\ge 6$",
+   "$k \\ge 12$"
   ],
-  "answer": 1,
-  "solution": "$f'(x) = \\frac32 x^{1/2} - 3$.\n\n$f'(x) < 0 \\iff \\sqrt{x} < 2 \\iff 0 < x < 4$.",
-  "insight": "Decreasing means $f'(x) < 0$; with a $\\sqrt{x}$ term, square at the end, not at the start.",
+  "answer": 3,
+  "solution": "$P'(x) = k - 3x^{1/2}$.\n\nWe need $k > 3\\sqrt x$ for every $x$ in $0<x<4$. On this open interval $3\\sqrt x$ takes every value in $0 < 3\\sqrt x < 6$ but never reaches $6$.\n\n* If $k \\ge 6$, then $k > 3\\sqrt x$ for all such $x$. (With $k = 6$, $P'(x) = 6 - 3\\sqrt x > 0$ because $x<4$.)\n* If $k < 6$, choose $x$ with $3\\sqrt x > k$, e.g. just below $4$: then $P'(x) < 0$.\n\nSo $k \\ge 6$.",
+  "insight": "For a condition to hold on an open interval, compare with the supremum of the function there; the endpoint itself is not in the interval, so equality is allowed.",
   "distractors": {
-   "0": "Stopping at $\\sqrt{x} < 2$ and reading it as $x < 2$.",
-   "4": "This is where $f$ is increasing ($f' > 0$).",
-   "2": "Differentiating $x^{3/2}$ as $x^{1/2}$ (dropping the $\\frac32$) gives $\\sqrt x < 3$."
+   "2": "Excluding $k=6$ because $P'(4) = 0$; but $x=4$ is not in the interval.",
+   "1": "Differentiating $2x^{3/2}$ as $2x^{1/2}$ (dropping the $\\frac32$), so $k \\ge 2\\sqrt4 = 4$.",
+   "4": "Forgetting the square root: comparing $k$ with $3x$ at $x = 4$.",
+   "0": "Reversing the inequality, which is the condition for $P$ to be decreasing somewhere near $x = 4$ rather than increasing throughout."
   },
-  "time": 90
+  "time": 180,
+  "family": "diff-04"
+ },
+ {
+  "id": "diff-04b",
+  "topic": "diff",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "increasing and decreasing",
+   "fractional powers",
+   "parameters"
+  ],
+  "stem": "Let $f(x) = 3x^{4/3} - kx$, where $k$ is a constant.\n\nWhat is the complete set of values of $k$ for which $f'(x) > 0$ for every $x > 8$?",
+  "figure": null,
+  "options": [
+   "$k \\le 6$",
+   "$k < 8$",
+   "$k \\le 8$",
+   "$k \\ge 8$",
+   "$k \\le 32$"
+  ],
+  "answer": 2,
+  "solution": "$f'(x) = 4x^{1/3} - k$.\n\nFor $x > 8$, $x^{1/3} > 2$, so $4x^{1/3}$ takes every value greater than $8$ (but not $8$ itself).\n\n* If $k \\le 8$: $4x^{1/3} > 8 \\ge k$, so $f'(x) > 0$ for all $x > 8$.\n* If $k > 8$: for $x$ just above $8$, $4x^{1/3}$ is close to $8 < k$, so $f'(x) < 0$ there.\n\nHence $k \\le 8$.",
+  "insight": "The interval $x > 8$ does not contain $8$, so the boundary value of $k$ is allowed.",
+  "distractors": {
+   "0": "Differentiating $3x^{4/3}$ as $3x^{1/3}$ (forgetting to multiply by $\\frac43$) gives $k \\le 6$.",
+   "1": "Excluding $k = 8$ because $f'(8) = 0$; but $x = 8$ is not in the interval.",
+   "3": "Reversing the inequality.",
+   "4": "Forgetting the cube root: comparing $k$ with $4x$ at $x = 8$."
+  },
+  "time": 180,
+  "family": "diff-04"
  },
  {
   "id": "diff-05",
   "topic": "diff",
-  "paper": 2,
-  "difficulty": 3,
+  "paper": 1,
+  "difficulty": 5,
   "skills": [
+   "cubics",
    "stationary points",
-   "second derivative",
-   "points of inflection"
+   "symmetry"
   ],
-  "stem": "Let $f(x) = x^4 - 4x^3$.\n\nWhich of the following statements is/are true?\n\nI. $f'(0) = 0$ and $f''(0) = 0$.\n\nII. $f$ has a local maximum at $x = 0$.\n\nIII. $f(x) \\ge -27$ for all real $x$.",
+  "stem": "The curve\n$$y = x^3 + bx^2 + cx + d,$$\nwhere $b$, $c$ and $d$ are real constants, has a local maximum and a local minimum. The $y$-coordinate of the local maximum is $32$ more than the $y$-coordinate of the local minimum.\n\nWhat is the distance between the $x$-coordinates of the two stationary points?",
   "figure": null,
   "options": [
-   "none of them",
-   "I only",
-   "II only",
-   "III only",
-   "I and II only",
-   "I and III only",
-   "II and III only",
-   "I, II and III"
+   "$2$",
+   "$2\\sqrt[3]{4}$",
+   "$4$",
+   "$4\\sqrt[3]{2}$",
+   "$8$"
   ],
-  "answer": 5,
-  "solution": "$f'(x) = 4x^3 - 12x^2 = 4x^2(x-3)$ and $f''(x) = 12x^2 - 24x$.\n\n**I** True: $f'(0) = 0$, $f''(0) = 0$.\n\n**II** False: $f''(0)=0$ tells us nothing, so look at the sign of $f'$. Since $4x^2 \\ge 0$, the sign of $f'$ is the sign of $x - 3$: negative on both sides of $0$. So $x=0$ is a stationary point of inflection, not a maximum.\n\n**III** True: $f' < 0$ for $x<3$ (except at $0$) and $f'>0$ for $x>3$, so the global minimum is $f(3) = 81 - 108 = -27$.",
-  "insight": "When $f''=0$ at a stationary point, decide its nature from the sign of $f'$ either side; a squared factor in $f'$ means no sign change.",
+  "answer": 2,
+  "solution": "Translating the curve does not change the answer, so shift it so that the stationary points are at $x = -s$ and $x = s$ (with $s > 0$) and ignore the constant term. Then $f'(x) = 3(x - s)(x + s) = 3x^2 - 3s^2$, so (up to a constant)\n$$f(x) = x^3 - 3s^2 x.$$\n\nThe maximum is at $x = -s$ (a positive cubic rises, falls, rises):\n$$f(-s) - f(s) = (-s^3 + 3s^3) - (s^3 - 3s^3) = 2s^3 + 2s^3 = 4s^3.$$\n\n$4s^3 = 32$ gives $s = 2$, so the distance is $2s = 4$.\n\nEquivalently, for a monic cubic with stationary points $\\alpha < \\beta$: $f(\\alpha) - f(\\beta) = \\frac12(\\beta - \\alpha)^3$.",
+  "insight": "A translation does not change the shape: put the turning points symmetrically at $\\pm s$ and the cubic becomes $x^3 - 3s^2x$.",
   "distractors": {
-   "7": "Assuming that every stationary point is a maximum or minimum, so reading $x=0$ as a maximum.",
-   "1": "Missing that the only turning point is the minimum at $x=3$, so $-27$ is the global minimum value."
+   "0": "Finding $s = 2$ but forgetting that the distance between $-s$ and $s$ is $2s$.",
+   "1": "Assuming the difference is $(\\beta - \\alpha)^3$ without the factor $\\frac12$, so $(\\beta-\\alpha)^3 = 32$.",
+   "3": "Using $\\frac14(\\beta - \\alpha)^3$, so $(\\beta-\\alpha)^3 = 128$.",
+   "4": "Assuming the difference grows like the square of the distance: $\\frac12(\\beta-\\alpha)^2 = 32$."
   },
-  "time": 150
+  "time": 270,
+  "family": "diff-05"
+ },
+ {
+  "id": "diff-05b",
+  "topic": "diff",
+  "paper": 1,
+  "difficulty": 5,
+  "skills": [
+   "cubics",
+   "stationary points",
+   "symmetry"
+  ],
+  "stem": "The curve\n$$y = 2x^3 + px^2 + qx + r,$$\nwhere $p$, $q$ and $r$ are real constants, has stationary points at $x = \\alpha$ and $x = \\beta$, where $\\beta - \\alpha = 3$.\n\nBy how much does the $y$-coordinate of the local maximum exceed the $y$-coordinate of the local minimum?",
+  "figure": null,
+  "options": [
+   "$9$",
+   "$\\frac{27}{2}$",
+   "$18$",
+   "$27$",
+   "$54$"
+  ],
+  "answer": 3,
+  "solution": "Shift the curve horizontally so the stationary points are at $\\pm\\frac32$, and drop the constant (neither changes the difference of the stationary values).\n\nThen $f'(x) = 6\\left(x^2 - \\frac94\\right)$, so $f(x) = 2x^3 - \\frac{27}{2}x$.\n\nThe maximum is at $x = -\\frac32$ (positive leading coefficient):\n$$f\\!\\left(-\\tfrac32\\right) = -\\tfrac{27}{4} + \\tfrac{81}{4} = \\tfrac{27}{2}, \\qquad f\\!\\left(\\tfrac32\\right) = -\\tfrac{27}{2}.$$\n\nDifference $= 27$.\n\nIn general, for leading coefficient $a$: difference $= \\frac{|a|}{2}(\\beta - \\alpha)^3 = \\frac22 \\times 27 = 27$.",
+  "insight": "The gap between the stationary values of a cubic depends only on the leading coefficient and the distance between the stationary points.",
+  "distractors": {
+   "0": "Using $\\frac{a}{2}(\\beta-\\alpha)^2$: treating the gap as quadratic in the distance.",
+   "1": "Using the monic result $\\frac12(\\beta - \\alpha)^3$ and forgetting the leading coefficient $2$.",
+   "2": "Using $a(\\beta-\\alpha)^2$.",
+   "4": "Using $a(\\beta - \\alpha)^3$ without the factor $\\frac12$."
+  },
+  "time": 270,
+  "family": "diff-05"
  },
  {
   "id": "diff-06",
@@ -149,29 +316,61 @@
   "paper": 1,
   "difficulty": 4,
   "skills": [
-   "stationary points",
-   "discriminant",
-   "parameters"
+   "increasing and decreasing",
+   "parameters",
+   "quadratics"
   ],
-  "stem": "What is the complete set of values of $k$ for which the curve\n$$y = x^3 + kx^2 + 3x + 1$$\nhas **no** local maximum and **no** local minimum?",
+  "stem": "Let $f(x) = x^3 - 3kx^2 + 3x$, where $k$ is a constant.\n\nWhat is the complete set of values of $k$ for which $f'(x) < 0$ for every $x$ with $1 < x < 2$ (so that $f$ is strictly decreasing on this interval)?",
   "figure": null,
   "options": [
-   "$k < -3$ or $k > 3$",
-   "$k \\le -3$ or $k \\ge 3$",
-   "$-\\sqrt{3} < k < \\sqrt{3}$",
-   "$-3 < k < 3$",
-   "$-3 \\le k \\le 3$",
-   "$-9 \\le k \\le 9$"
+   "$k < -1$ or $k > 1$",
+   "$k \\ge 1$",
+   "$k > \\frac54$",
+   "$k \\ge \\frac54$",
+   "$k \\ge \\frac52$"
   ],
-  "answer": 4,
-  "solution": "$\\frac{dy}{dx} = 3x^2 + 2kx + 3$, with discriminant $4k^2 - 36$.\n\n* If $4k^2 - 36 > 0$ there are two roots, $y'$ changes sign at each: one max and one min.\n* If $4k^2 - 36 < 0$ there are no stationary points at all.\n* If $4k^2 - 36 = 0$ ($k = \\pm 3$), $y' = 3(x \\pm 1)^2 \\ge 0$ never changes sign: a stationary point of inflection, which is neither a maximum nor a minimum.\n\nSo the answer is $k^2 \\le 9$, i.e. $-3 \\le k \\le 3$.",
-  "insight": "A repeated root of $f'$ gives a stationary point that is not a turning point, so \"no max or min\" includes the discriminant-zero case.",
+  "answer": 3,
+  "solution": "$f'(x) = 3(x^2 - 2kx + 1)$. Let $g(x) = x^2 - 2kx + 1$, an upward parabola.\n\nOn an interval, an upward parabola is largest at an endpoint. So $g < 0$ on the open interval $1 < x < 2$ exactly when $g(1) \\le 0$ and $g(2) \\le 0$ (if both are $\\le 0$, the parabola is strictly below both on the open interval, since it is not constant).\n\n* $g(1) = 2 - 2k \\le 0 \\iff k \\ge 1$.\n* $g(2) = 5 - 4k \\le 0 \\iff k \\ge \\frac54$.\n\nSo $k \\ge \\frac54$. Check $k = \\frac54$: $g(x) = (x - 2)(x - \\frac12) < 0$ for $\\frac12 < x < 2$.",
+  "insight": "An upward parabola is negative throughout an interval exactly when it is non-positive at both ends; check both ends, not just the discriminant.",
   "distractors": {
-   "3": "Solving \"no stationary points\" instead of \"no max or min\" and so excluding $k=\\pm3$.",
-   "0": "This is the condition for having a maximum and a minimum.",
-   "5": "Not taking the square root at the end: reading $k^2 \\le 9$ as $-9 \\le k \\le 9$."
+   "0": "This only says $f'$ is negative somewhere (two real roots), not throughout $1<x<2$.",
+   "1": "Checking only the endpoint $x=1$.",
+   "2": "Excluding $k = \\frac54$ because $f'(2) = 0$; but $x=2$ is not in the interval.",
+   "4": "Differentiating $3kx^2$ as $3kx$, giving $x^2 - kx + 1$ and then $k \\ge \\frac52$ from $x = 2$."
   },
-  "time": 180
+  "time": 210,
+  "family": "diff-06"
+ },
+ {
+  "id": "diff-06b",
+  "topic": "diff",
+  "paper": 1,
+  "difficulty": 4,
+  "skills": [
+   "increasing and decreasing",
+   "parameters",
+   "quadratics"
+  ],
+  "stem": "Let $f(x) = x^3 - 6x^2 + kx$, where $k$ is a constant.\n\nWhat is the complete set of values of $k$ for which $f'(x) > 0$ for every $x$ with $0 < x < 1$ (so that $f$ is strictly increasing on this interval)?",
+  "figure": null,
+  "options": [
+   "$k \\ge 0$",
+   "$k > 9$",
+   "$k \\ge 9$",
+   "$k > 12$",
+   "$k \\ge 12$"
+  ],
+  "answer": 2,
+  "solution": "$f'(x) = 3x^2 - 12x + k$, an upward parabola with vertex at $x = 2$.\n\nThe vertex is to the right of the interval, so $f'$ is decreasing on $0 < x < 1$. Its smallest values are near $x = 1$, where it approaches $f'(1) = k - 9$.\n\n* If $k \\ge 9$: for $0<x<1$, $f'(x) > f'(1) = k - 9 \\ge 0$.\n* If $k < 9$: $f'(1) < 0$, so $f'(x) < 0$ for $x$ just below $1$.\n\nSo $k \\ge 9$.",
+  "insight": "Locate the vertex of $f'$ before reaching for the discriminant: if it is outside the interval, only one endpoint matters.",
+  "distractors": {
+   "0": "Checking only the endpoint $x = 0$, where $f'(0) = k$.",
+   "1": "Excluding $k=9$ because $f'(1) = 0$; but $x = 1$ is not in the interval.",
+   "3": "Demanding $f'(x) > 0$ for all real $x$ (discriminant $144 - 12k < 0$), which is far stronger than needed.",
+   "4": "Discriminant condition with the boundary included; still more than needed on $0<x<1$."
+  },
+  "time": 210,
+  "family": "diff-06"
  },
  {
   "id": "diff-07",
@@ -179,25 +378,59 @@
   "paper": 1,
   "difficulty": 3,
   "skills": [
-   "optimisation"
+   "optimisation",
+   "context"
   ],
-  "stem": "A rectangle has two vertices on the $x$-axis and the other two on the curve $y = 12 - x^2$, above the $x$-axis. The rectangle is symmetric about the $y$-axis.\n\nWhat is the largest possible area of the rectangle?",
+  "stem": "A window is to be fitted inside an arch. With the ground as the $x$-axis and lengths in metres, the arch has equation $y = 12 - x^2$. The window is a rectangle with its bottom edge on the ground and its two top corners on the arch.\n\nWhat is the largest possible area of the window, in m$^2$?",
   "figure": null,
   "options": [
+   "$8$",
    "$16$",
-   "$24$",
    "$32$",
-   "$36$",
-   "$48$"
+   "$48$",
+   "$64$"
   ],
   "answer": 2,
-  "solution": "Let the upper vertices be $(\\pm a, 12 - a^2)$ with $0 < a < \\sqrt{12}$. Then\n$$A = 2a(12 - a^2) = 24a - 2a^3.$$\n$A'(a) = 24 - 6a^2 = 0 \\Rightarrow a = 2$, and $A'' = -12a < 0$, so this is a maximum.\n\n$A = 4 \\times 8 = 32$.",
-  "insight": "Put one free parameter on the curve, write the quantity in terms of it, and differentiate.",
+  "solution": "By symmetry let the top corners be $(\\pm a, 12 - a^2)$ with $0 < a < \\sqrt{12}$. Then\n$$A = 2a(12 - a^2) = 24a - 2a^3.$$\n$A'(a) = 24 - 6a^2 = 0 \\Rightarrow a = 2$, and $A''(a) = -12a < 0$, so this is a maximum.\n\n$A = 4 \\times 8 = 32$.",
+  "insight": "Put one free parameter on the curve, write the quantity in terms of it, differentiate, and confirm it is a maximum.",
   "distractors": {
-   "0": "Using width $a$ instead of $2a$ (only half the rectangle).",
-   "4": "Taking the height as $12$ instead of $12 - a^2$ once $a=2$ was found."
+   "0": "Giving the height $12 - a^2 = 8$ of the optimal window instead of its area.",
+   "1": "Using width $a$ instead of $2a$ (only half the window).",
+   "3": "Taking the height as $12$ instead of $12 - a^2$ once $a = 2$ was found.",
+   "4": "Substituting $a^2 = 4$ in place of $a$: $2 \\times 4 \\times 8$."
   },
-  "time": 150
+  "time": 150,
+  "family": "diff-07"
+ },
+ {
+  "id": "diff-07b",
+  "topic": "diff",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "optimisation",
+   "context"
+  ],
+  "stem": "An open box is made from a square sheet of card of side $12$ cm by cutting a square of side $x$ cm from each corner and folding up the sides.\n\nWhat is the largest possible volume of the box, in cm$^3$?",
+  "figure": null,
+  "options": [
+   "$2$",
+   "$8$",
+   "$64$",
+   "$128$",
+   "$256$"
+  ],
+  "answer": 3,
+  "solution": "The base is $(12 - 2x)$ by $(12 - 2x)$ and the height is $x$, with $0 < x < 6$:\n$$V = x(12 - 2x)^2.$$\n\n$$V'(x) = (12 - 2x)^2 - 4x(12 - 2x) = (12 - 2x)(12 - 6x).$$\n\nIn $0<x<6$, $V' = 0$ only at $x = 2$; $V' > 0$ before and $V' < 0$ after, so it is a maximum.\n\n$V(2) = 2 \\times 8^2 = 128$.",
+  "insight": "Write the volume in one variable, keep track of the allowed range, and check the stationary point is a maximum.",
+  "distractors": {
+   "0": "Giving the optimal cut $x = 2$ instead of the volume.",
+   "1": "Giving the side of the base $12 - 2x = 8$.",
+   "2": "Giving the base area $8^2$, forgetting to multiply by the height (or assuming the best box is a cube of side $4$).",
+   "4": "Cutting only one side of each corner: $V = x(12 - x)^2$, maximised at $x = 4$ with $V = 256$."
+  },
+  "time": 150,
+  "family": "diff-07"
  },
  {
   "id": "diff-08",
@@ -218,13 +451,45 @@
    "$32$"
   ],
   "answer": 2,
-  "solution": "The tangent at $(t, t^2)$ is $y = 2tx - t^2$. It passes through $(1,-3)$ when\n$$-3 = 2t - t^2 \\iff t^2 - 2t - 3 = 0 \\iff t = 3 \\text{ or } t = -1.$$\nSo $A = (3, 9)$ and $B = (-1, 1)$.\n\nArea by the shoelace formula with vectors $\\vec{PA} = (2, 12)$, $\\vec{PB} = (-2, 4)$:\n$$\\tfrac12 |2\\cdot 4 - 12\\cdot(-2)| = \\tfrac12 \\cdot 32 = 16.$$",
+  "solution": "The tangent at $(t, t^2)$ is $y = 2tx - t^2$. It passes through $(1,-3)$ when\n$$-3 = 2t - t^2 \\iff t^2 - 2t - 3 = 0 \\iff t = 3 \\text{ or } t = -1.$$\nSo $A = (3, 9)$ and $B = (-1, 1)$.\n\nWith $\\vec{PA} = (2, 12)$ and $\\vec{PB} = (-2, 4)$:\n$$\\text{area} = \\tfrac12 |2\\cdot 4 - 12\\cdot(-2)| = \\tfrac12 \\cdot 32 = 16.$$",
   "insight": "For a tangent from an external point, write the tangent at a general point $t$ and force it through the given point: this gives an equation in $t$.",
   "distractors": {
-   "4": "Forgetting the $\\frac12$ in the shoelace/determinant formula.",
-   "0": "Sign slip in the determinant: computing $2\\cdot4 - 12\\cdot2 = -16$ instead of $2\\cdot4 - 12\\cdot(-2) = 32$, then halving."
+   "4": "Forgetting the $\\frac12$ in the determinant formula.",
+   "0": "Sign slip in the determinant: $2\\cdot4 - 12\\cdot2 = -16$ instead of $32$, then halving.",
+   "3": "Taking half of the bounding box: width $4$ and height $12$ (from $y=-3$ to $y=9$), giving $24$."
   },
-  "time": 210
+  "time": 210,
+  "family": "diff-08"
+ },
+ {
+  "id": "diff-08b",
+  "topic": "diff",
+  "paper": 1,
+  "difficulty": 4,
+  "skills": [
+   "tangents",
+   "tangent from external point"
+  ],
+  "stem": "Two tangents to the curve $y = \\frac12 x^2$ pass through the point $P(1, -4)$. They touch the curve at $A$ and $B$.\n\nWhat is the area of triangle $PAB$?",
+  "figure": null,
+  "options": [
+   "$9$",
+   "$27$",
+   "$36$",
+   "$54$",
+   "$72$"
+  ],
+  "answer": 1,
+  "solution": "The tangent at $(t, \\frac12 t^2)$ has gradient $t$: $y = tx - \\frac12 t^2$. Through $(1, -4)$:\n$$-4 = t - \\tfrac12 t^2 \\iff t^2 - 2t - 8 = 0 \\iff t = 4 \\text{ or } t = -2.$$\nSo $A = (4, 8)$ and $B = (-2, 2)$.\n\n$\\vec{PA} = (3, 12)$, $\\vec{PB} = (-3, 6)$:\n$$\\text{area} = \\tfrac12|3 \\cdot 6 - 12 \\cdot (-3)| = \\tfrac12 \\cdot 54 = 27.$$",
+  "insight": "Parametrise the point of contact, impose the external point, and the contact points drop out of a quadratic.",
+  "distractors": {
+   "0": "Sign slip in the determinant: $\\frac12|18 - 36| = 9$.",
+   "2": "Half of the bounding box: width $6$, height $12$ (from $y=-4$ to $y=8$).",
+   "3": "Forgetting the $\\frac12$ in the determinant formula.",
+   "4": "Using the whole bounding box, $6 \\times 12$."
+  },
+  "time": 210,
+  "family": "diff-08"
  },
  {
   "id": "diff-09",
@@ -232,15 +497,16 @@
   "paper": 1,
   "difficulty": 3,
   "skills": [
+   "graph of f'",
    "reasoning about derivatives",
-   "graph of f'"
+   "second derivative"
   ],
-  "stem": "The graph shows $y = f'(x)$, the **derivative** of a function $f$. It crosses the $x$-axis at $x=-1$ and touches it at $x=2$.\n\nWhich of the following statements is/are true?\n\nI. $f$ has a local minimum at $x = -1$.\n\nII. $f$ has a local maximum at $x = 2$.\n\nIII. $f(0) > f(2)$.",
+  "stem": "The graph shows $y = f'(x)$, the **derivative** of a function $f$, for $-1.8 \\le x \\le 4.2$. It crosses the $x$-axis at $x = -1$, $x = 1$ and $x = 3$ only.\n\nWhich of the following statements is/are true?\n\nI. $f$ has a local maximum at $x = 1$.\n\nII. $f$ is decreasing for $0 < x < 1$.\n\nIII. $f''(3) > 0$.",
   "figure": {
    "plot": {
     "x": [
-     -2,
-     4
+     -1.8,
+     4.2
     ],
     "y": [
      -6,
@@ -248,7 +514,7 @@
     ],
     "curves": [
      {
-      "fn": "(x+1)*(x-2)^2"
+      "fn": "(x+1)*(x-1)*(x-3)/2"
      }
     ],
     "points": [
@@ -257,29 +523,40 @@
       0
      ],
      [
-      2,
+      1,
+      0
+     ],
+     [
+      3,
       0
      ]
     ],
     "labels": [
      {
       "at": [
-       -1,
+       -1.3,
        0
       ],
       "text": "-1"
      },
      {
       "at": [
-       2,
+       0.85,
        0
       ],
-      "text": "2"
+      "text": "1"
      },
      {
       "at": [
-       3.1,
-       6.5
+       2.85,
+       0
+      ],
+      "text": "3"
+     },
+     {
+      "at": [
+       2.7,
+       6.2
       ],
       "text": "y = f'(x)"
      }
@@ -297,70 +574,233 @@
    "II and III only",
    "I, II and III"
   ],
-  "answer": 1,
-  "solution": "Read signs from the graph of $f'$, not its shape.\n\n* $f' < 0$ for $x < -1$ and $f' > 0$ for $x > -1$ (apart from $f'(2) = 0$).\n\n**I** True: $f'$ changes from negative to positive at $x=-1$.\n\n**II** False: $f'$ is positive on both sides of $x = 2$, so it is a stationary point of inflection.\n\n**III** False: $f' \\ge 0$ on $[0, 2]$, so $f$ is increasing there and $f(0) < f(2)$.",
-  "insight": "On a graph of $f'$, the stationary points of $f$ are the $x$-intercepts and their nature comes from whether the graph crosses or touches the axis.",
+  "answer": 5,
+  "solution": "Read **signs** of $f'$ for $f$, and **slopes** of the graph of $f'$ for $f''$.\n\n**I** True: $f'$ is positive on $(-1, 1)$ and negative on $(1, 3)$, so $f$ changes from increasing to decreasing.\n\n**II** False: on $(0, 1)$ the graph of $f'$ is falling but still above the axis, so $f' > 0$ and $f$ is increasing.\n\n**III** True: the graph of $f'$ is rising as it crosses the axis at $x = 3$, so $f''(3) > 0$ (indeed $f$ has a local minimum there).",
+  "insight": "The height of the graph of $f'$ tells you whether $f$ rises or falls; the slope of the graph of $f'$ is $f''$.",
   "distractors": {
-   "4": "Treating the touching point of $f'$ like a turning point of $f$; the graph of $f'$ has a minimum there, but $f$ does not.",
-   "5": "Reading the graph as if it were $y=f(x)$: the curve is falling just after $x=0$, but that means $f'$ is decreasing, not $f$."
+   "4": "Reading the falling graph on $(0,1)$ as if it were $f$ itself.",
+   "1": "Not connecting the slope of the graph of $f'$ with $f''$, and so rejecting III.",
+   "7": "Accepting II by treating the graph as $y = f(x)$.",
+   "2": "Mixing up the roles: thinking a $+$ to $-$ crossing of $f'$ gives a minimum."
   },
-  "time": 150
+  "time": 150,
+  "family": "diff-09"
+ },
+ {
+  "id": "diff-09b",
+  "topic": "diff",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "graph of f'",
+   "reasoning about derivatives",
+   "second derivative"
+  ],
+  "stem": "The graph shows $y = f'(x)$, the **derivative** of a function $f$, for $-2.6 \\le x \\le 2.6$. It crosses the $x$-axis at $x = -2$, $x = 0$ and $x = 2$ only.\n\nWhich of the following statements is/are true?\n\nI. $f$ has a local minimum at $x = 0$.\n\nII. $f(1) < f(2)$.\n\nIII. $f''(2) > 0$.",
+  "figure": {
+   "plot": {
+    "x": [
+     -2.6,
+     2.6
+    ],
+    "y": [
+     -4,
+     4
+    ],
+    "curves": [
+     {
+      "fn": "-x*(x-2)*(x+2)/2"
+     }
+    ],
+    "points": [
+     [
+      -2,
+      0
+     ],
+     [
+      0,
+      0
+     ],
+     [
+      2,
+      0
+     ]
+    ],
+    "labels": [
+     {
+      "at": [
+       -2.35,
+       0
+      ],
+      "text": "-2"
+     },
+     {
+      "at": [
+       0.05,
+       0
+      ],
+      "text": "0"
+     },
+     {
+      "at": [
+       1.8,
+       0
+      ],
+      "text": "2"
+     },
+     {
+      "at": [
+       -2.5,
+       3.2
+      ],
+      "text": "y = f'(x)"
+     }
+    ],
+    "ticks": false
+   }
+  },
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 4,
+  "solution": "**I** True: $f'$ is negative on $(-2, 0)$ and positive on $(0, 2)$, so $f$ changes from decreasing to increasing at $0$.\n\n**II** True: $f' > 0$ throughout $(1, 2)$, so $f$ is increasing there and $f(1) < f(2)$. It does not matter that the graph of $f'$ is falling on part of this interval: $f$ still increases, just more slowly.\n\n**III** False: the graph of $f'$ is falling as it crosses the axis at $x = 2$, so $f''(2) < 0$ (a local maximum of $f$).",
+  "insight": "Above the axis means $f$ increasing, however the graph of $f'$ is sloping; the slope of $f'$ is $f''$.",
+  "distractors": {
+   "1": "Reading the falling part of the graph of $f'$ near $x = 2$ as $f$ decreasing, so rejecting II.",
+   "5": "Rejecting II as above and also misreading the slope at $x=2$.",
+   "7": "Thinking $f'(2) = 0$ at a crossing forces $f''(2) > 0$.",
+   "0": "Treating the graph as $y = f(x)$: then $x = 0$ would be a root, not a minimum."
+  },
+  "time": 150,
+  "family": "diff-09"
  },
  {
   "id": "diff-10",
   "topic": "diff",
   "paper": 1,
-  "difficulty": 2,
+  "difficulty": 3,
+  "skills": [
+   "tangents",
+   "cubics",
+   "intersections"
+  ],
+  "stem": "The tangent to the curve $y = x^3 - 3x^2 + 2$ at the point where $x = -1$ meets the curve again at the point $Q$.\n\nWhat is the $x$-coordinate of $Q$?",
+  "figure": null,
+  "options": [
+   "$-5$",
+   "$2$",
+   "$3$",
+   "$4$",
+   "$5$"
+  ],
+  "answer": 4,
+  "solution": "At $x = -1$: $y = -1 - 3 + 2 = -2$ and $y' = 3x^2 - 6x = 9$. Tangent: $y = 9x + 7$.\n\nIntersect: $x^3 - 3x^2 + 2 = 9x + 7 \\iff x^3 - 3x^2 - 9x - 5 = 0$.\n\nA tangent meets the curve at a **double** root, so $x = -1$ is a repeated root. The sum of the roots is $3$: $(-1) + (-1) + q = 3$, so $q = 5$.\n\nCheck: $x^3 - 3x^2 - 9x - 5 = (x+1)^2(x-5)$.",
+  "insight": "A tangent gives a repeated root of the intersection equation, so use the sum (or product) of roots with the point of contact counted twice.",
+  "distractors": {
+   "3": "Counting $x=-1$ only once in the sum of roots: $3 - (-1) = 4$.",
+   "2": "Finding the other point with the **same gradient** ($3x^2 - 6x = 9$ gives $x = 3$) instead of where the tangent meets the curve.",
+   "0": "Using the product of roots with the wrong sign: $(-1)^2 q = -5$."
+  },
+  "time": 150,
+  "family": "diff-10"
+ },
+ {
+  "id": "diff-10b",
+  "topic": "diff",
+  "paper": 1,
+  "difficulty": 3,
   "skills": [
    "normals",
    "intersections"
   ],
-  "stem": "The normal to the curve $y = x^2 - 4x$ at the point $(1, -3)$ meets the curve again at $Q$.\n\nWhat is the $x$-coordinate of $Q$?",
+  "stem": "The normal to the curve $y = x^2 - 2x - 3$ at the point $(3, 0)$ meets the curve again at the point $Q$.\n\nWhat is the $x$-coordinate of $Q$?",
   "figure": null,
   "options": [
-   "$2$",
-   "$\\frac{5}{2}$",
-   "$3$",
-   "$\\frac{7}{2}$",
-   "$5$"
+   "$-5$",
+   "$-\\frac{5}{4}$",
+   "$-1$",
+   "$-\\frac{3}{4}$",
+   "$\\frac{5}{4}$"
   ],
-  "answer": 3,
-  "solution": "$y' = 2x - 4 = -2$ at $x = 1$, so the normal has gradient $\\frac12$: $y = \\frac12 x - \\frac72$.\n\nIntersect: $x^2 - 4x = \\frac12 x - \\frac72 \\iff 2x^2 - 9x + 7 = 0 \\iff (x-1)(2x-7) = 0$.\n\nWe already know $x = 1$ is a root, so $Q$ has $x = \\frac72$ (product of roots is $\\frac72$, a quick check).",
-  "insight": "When intersecting a line with a curve through a known point, that point is a root you can factor out immediately.",
+  "answer": 1,
+  "solution": "$y' = 2x - 2 = 4$ at $x = 3$, so the normal has gradient $-\\frac14$: $y = -\\frac14(x - 3)$.\n\nIntersect: $x^2 - 2x - 3 = -\\frac14(x - 3)$, i.e. $4x^2 - 8x - 12 + x - 3 = 0$, so $4x^2 - 7x - 15 = 0$.\n\n$x = 3$ is a root, and the product of roots is $-\\frac{15}{4}$, so the other root is $-\\frac{5}{4}$.\n\nCheck: $4x^2 - 7x - 15 = (x - 3)(4x + 5)$.",
+  "insight": "The known point is a root of the intersection equation; the product (or sum) of roots gives the other one at once.",
   "distractors": {
-   "4": "Using the gradient $2$ (reciprocal without the sign change) gives $x^2 - 6x + 5 = 0$.",
-   "1": "Using $-\\frac12$ (sign error) gives $2x^2 - 7x + 5 = 0$."
+   "0": "Using gradient $-4$ (negating without the reciprocal): $x^2 + 2x - 15 = 0$ gives $x = -5$.",
+   "2": "Giving the other point where the curve meets the $x$-axis, not where the normal meets it.",
+   "3": "Using gradient $+\\frac14$ (reciprocal without the sign change): $4x^2 - 9x - 9 = 0$ gives $x = -\\frac34$.",
+   "4": "Sign slip in the last step: taking the other root as $+\\frac54$."
   },
-  "time": 120
+  "time": 150,
+  "family": "diff-10"
  },
  {
   "id": "diff-11",
   "topic": "diff",
   "paper": 1,
-  "difficulty": 3,
+  "difficulty": 4,
   "skills": [
    "stationary points",
    "number of roots",
    "parameters"
   ],
-  "stem": "What is the complete set of values of $k$ for which the equation\n$$x^3 - 3x + k = 0$$\nhas three distinct real solutions?",
+  "stem": "What is the complete set of values of $k$ for which the equation\n$$x^3 - 3kx + 2 = 0$$\nhas three distinct real solutions?",
   "figure": null,
   "options": [
-   "$-1 < k < 1$",
-   "$-2 < k < 2$",
-   "$-2 \\le k \\le 2$",
-   "$0 < k < 2$",
-   "$k < -2$ or $k > 2$",
-   "$k > -2$"
+   "$k > 0$",
+   "$0 < k < 1$",
+   "$k \\ge 1$",
+   "$k > 1$",
+   "$k > 2$"
   ],
-  "answer": 1,
-  "solution": "Let $g(x) = x^3 - 3x$; we need the horizontal line $y = -k$ to cross $y = g(x)$ three times.\n\n$g'(x) = 3x^2 - 3 = 0$ at $x = \\pm 1$: local maximum $g(-1) = 2$, local minimum $g(1) = -2$.\n\nThree crossings exactly when $-2 < -k < 2$, i.e. $-2 < k < 2$. At $k = \\pm 2$ the line is tangent and there are only two distinct solutions.",
-  "insight": "A cubic has three real roots exactly when its two stationary values have opposite signs.",
+  "answer": 3,
+  "solution": "Let $f(x) = x^3 - 3kx + 2$, so $f'(x) = 3x^2 - 3k$.\n\nIf $k \\le 0$ then $f' \\ge 0$, $f$ is increasing and there is only one root. So $k > 0$, with stationary points at $x = \\pm\\sqrt k$:\n$$f(-\\sqrt k) = 2 + 2k\\sqrt k > 0, \\qquad f(\\sqrt k) = 2 - 2k\\sqrt k.$$\n\nThree distinct real roots exactly when the stationary values have opposite signs, i.e. $2 - 2k^{3/2} < 0$, so $k^{3/2} > 1$ and $k > 1$.\n\nAt $k = 1$ the local minimum touches the axis: a repeated root and only two distinct solutions.",
+  "insight": "A cubic has three distinct real roots exactly when it has two stationary points whose values have opposite signs.",
   "distractors": {
-   "2": "Including the tangent cases $k = \\pm2$, where a repeated root means only two distinct solutions.",
-   "0": "Using the $x$-coordinates of the stationary points instead of the stationary values."
+   "0": "Stopping once there are two stationary points; that is necessary but not sufficient.",
+   "1": "Reversing the final inequality ($2 - 2k^{3/2} > 0$).",
+   "2": "Including $k=1$, where there is a repeated root and only two distinct solutions."
   },
-  "time": 150
+  "time": 210,
+  "family": "diff-11"
+ },
+ {
+  "id": "diff-11b",
+  "topic": "diff",
+  "paper": 1,
+  "difficulty": 4,
+  "skills": [
+   "stationary points",
+   "number of roots",
+   "parameters"
+  ],
+  "stem": "What is the complete set of values of $k$ for which the equation\n$$kx^3 - 3x + 1 = 0$$\nhas three distinct real solutions?",
+  "figure": null,
+  "options": [
+   "$k < 4$",
+   "$0 < k < 2$",
+   "$0 < k < 4$",
+   "$0 < k \\le 4$",
+   "$k > 4$"
+  ],
+  "answer": 2,
+  "solution": "If $k = 0$ the equation is linear (one solution). If $k < 0$, $f'(x) = 3kx^2 - 3 < 0$ everywhere, so $f$ is decreasing and has one root.\n\nFor $k > 0$, the stationary points are at $x = \\pm\\frac{1}{\\sqrt k}$:\n$$f\\!\\left(\\tfrac{1}{\\sqrt k}\\right) = \\tfrac{1}{\\sqrt k} - \\tfrac{3}{\\sqrt k} + 1 = 1 - \\tfrac{2}{\\sqrt k}, \\qquad f\\!\\left(-\\tfrac{1}{\\sqrt k}\\right) = 1 + \\tfrac{2}{\\sqrt k} > 0.$$\n\nThree distinct roots iff $1 - \\frac{2}{\\sqrt k} < 0$, i.e. $\\sqrt k < 2$, i.e. $0 < k < 4$.",
+  "insight": "First decide when there are two stationary points at all, then demand opposite-signed stationary values.",
+  "distractors": {
+   "0": "Forgetting that $k \\le 0$ gives no turning points (and $k = 0$ is not even a cubic).",
+   "1": "Stopping at $\\sqrt k < 2$ and reading it as $k < 2$.",
+   "3": "Including $k = 4$, where a repeated root leaves only two distinct solutions.",
+   "4": "Reversing the inequality at the last step."
+  },
+  "time": 210,
+  "family": "diff-11"
  },
  {
   "id": "diff-12",
@@ -372,7 +812,7 @@
    "second derivative",
    "logic"
   ],
-  "stem": "Let $f$ be a polynomial and let $a$ be a real number.\n\nWhich of the following statements is/are true?\n\nI. If $f'(a) = 0$, then $f$ has a local maximum or a local minimum at $x = a$.\n\nII. If $f$ has a local minimum at $x = a$, then $f'(a) = 0$.\n\nIII. If $f'(a) = 0$ and $f''(a) > 0$, then $f$ has a local minimum at $x = a$.",
+  "stem": "Let $f$ be a polynomial, and let $a < b$ be real numbers.\n\nWhich of the following statements is/are true?\n\nI. If $f'(x) > 0$ for every $x$ with $a < x < b$, then $f(b) > f(a)$.\n\nII. If $f$ has a local minimum at $x = a$, then $f'(a) = 0$.\n\nIII. If $f$ has a local minimum at $x = a$, then $f''(a) > 0$.",
   "figure": null,
   "options": [
    "none of them",
@@ -384,14 +824,51 @@
    "II and III only",
    "I, II and III"
   ],
-  "answer": 6,
-  "solution": "**I** False: $f(x) = x^3$, $a = 0$ has $f'(0)=0$ but $f$ is increasing through $0$.\n\n**II** True: a polynomial is differentiable everywhere, and at an interior local minimum the gradient must be $0$ (if $f'(a) \\neq 0$, $f$ would be strictly smaller on one side).\n\n**III** True: this is the second-derivative test. $f''(a) > 0$ means $f'$ is increasing through $a$, so $f'$ goes from negative to positive.",
-  "insight": "$f'(a)=0$ is necessary for a turning point of a differentiable function, but not sufficient.",
+  "answer": 4,
+  "solution": "**I** True: $f$ is strictly increasing on the interval, so the value at the right end is larger.\n\n**II** True: a polynomial is differentiable everywhere, and at a local minimum the tangent must be horizontal (if $f'(a) \\neq 0$, $f$ would take smaller values on one side of $a$).\n\n**III** False: $f(x) = x^4$ has a local (indeed global) minimum at $0$, but $f''(0) = 0$. The second-derivative test works in one direction only: $f'(a) = 0$ and $f''(a) > 0$ guarantee a minimum, not the other way round.",
+  "insight": "$f''(a) > 0$ is sufficient for a minimum (given $f'(a) = 0$) but not necessary; $x^4$ is the standard counterexample.",
   "distractors": {
-   "7": "Believing the converse of II: stationary points need not be turning points ($x^3$ at $0$).",
-   "2": "Doubting the second-derivative test; it is fully reliable when $f''(a) \\neq 0$."
+   "7": "Believing the converse of the second-derivative test (III).",
+   "1": "Doubting II; at an interior minimum of a differentiable function the gradient must be zero.",
+   "6": "Doubting I, perhaps worrying about the endpoints, and accepting III.",
+   "5": "Accepting the converse in III while rejecting the true statement II."
   },
-  "time": 150
+  "time": 150,
+  "family": "diff-12"
+ },
+ {
+  "id": "diff-12b",
+  "topic": "diff",
+  "paper": 2,
+  "difficulty": 3,
+  "skills": [
+   "stationary points",
+   "second derivative",
+   "logic"
+  ],
+  "stem": "Let $f$ be a polynomial and let $a$ be a real number.\n\nWhich of the following statements is/are true?\n\nI. If $f'(a) = 0$ and $f''(a) < 0$, then $f$ has a local maximum at $x = a$.\n\nII. If $f$ has a local maximum at $x = a$, then $f''(a) < 0$.\n\nIII. If $f''(x) > 0$ for all real $x$, then $f$ has at most one stationary point.",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 5,
+  "solution": "**I** True: this is the second-derivative test. $f''(a) < 0$ means $f'$ is decreasing through $a$, so $f'$ goes from positive to negative.\n\n**II** False: $f(x) = -x^4$ has a local maximum at $0$ but $f''(0) = 0$.\n\n**III** True: if $f'' > 0$ everywhere then $f'$ is strictly increasing, so it can be zero at most once.",
+  "insight": "$f'' > 0$ makes $f'$ strictly increasing, so $f'$ has at most one zero; but $f''(a) < 0$ is not needed for a maximum.",
+  "distractors": {
+   "7": "Believing the converse of the second-derivative test (II).",
+   "1": "Missing that III follows from $f'$ being strictly increasing.",
+   "4": "Accepting II (the converse of I) and missing III.",
+   "3": "Doubting the second-derivative test in I."
+  },
+  "time": 150,
+  "family": "diff-12"
  },
  {
   "id": "diff-13",
@@ -410,17 +887,50 @@
    "$p^2 > q$",
    "$q < 0$",
    "$q > 0$",
-   "$p > 0$",
-   "$p^2 < 3q$"
+   "$p > 0$"
   ],
   "answer": 2,
-  "solution": "$f'(x) = 3x^2 + 2px + q$ has two distinct roots iff $4p^2 - 12q > 0$, i.e. $p^2 > 3q$. So A is necessary **and** sufficient.\n\n* C: if $q < 0$ then $3q < 0 \\le p^2$, so sufficient. Not necessary: $p = 3, q = 1$ works.\n* B: $p^2 > q$ is implied by $p^2 > 3q$ (necessary) but $p = 1, q = \\frac12$ satisfies it and fails. Necessary, not sufficient.\n* D: $p=0, q=1$ fails, so not sufficient. E: $p = 1, q = 1$ fails. F: this gives no stationary points.",
-  "insight": "A sufficient-not-necessary condition is a strictly smaller set sitting inside the exact condition.",
+  "solution": "$f'(x) = 3x^2 + 2px + q$ has two distinct roots iff $4p^2 - 12q > 0$, i.e. $p^2 > 3q$.\n\n* A is the exact condition: necessary **and** sufficient.\n* C: if $q < 0$ then $3q < 0 \\le p^2$, so it is sufficient. Not necessary: $p = 3, q = 1$ works.\n* B: $p = 1, q = \\frac12$ satisfies $p^2 > q$, but $p^2 = 1 < \\frac32 = 3q$, so B is not sufficient (it is in fact necessary).\n* D: $p = 0, q = 1$ fails, so not sufficient.\n* E: $p = 1, q = 1$ fails, so not sufficient.",
+  "insight": "A sufficient-but-not-necessary condition is a strictly smaller set sitting inside the exact condition.",
   "distractors": {
    "0": "This is the exact condition, so it is both necessary and sufficient.",
-   "1": "This is a larger set containing the exact condition: necessary, not sufficient."
+   "1": "A larger set than the exact condition: $p=1,\\ q=\\frac12$ satisfies it but gives no stationary points.",
+   "3": "$q > 0$ is neither: $p = 0,\\ q = 1$ gives no stationary points.",
+   "4": "The sign of $p$ is irrelevant to the discriminant's sign on its own: $p=1,\\ q=1$ fails."
   },
-  "time": 200
+  "time": 200,
+  "family": "diff-13"
+ },
+ {
+  "id": "diff-13b",
+  "topic": "diff",
+  "paper": 2,
+  "difficulty": 4,
+  "skills": [
+   "necessary and sufficient",
+   "increasing and decreasing",
+   "discriminant"
+  ],
+  "stem": "Let $f(x) = x^3 + px^2 + qx$, where $p$ and $q$ are real constants.\n\nWhich one of the following is a **necessary but not sufficient** condition for $f'(x) > 0$ for all real $x$?",
+  "figure": null,
+  "options": [
+   "$p^2 < 3q$",
+   "$q > 0$",
+   "$q > p^2$",
+   "$p = 0$",
+   "$p > 0$ and $q > 0$"
+  ],
+  "answer": 1,
+  "solution": "$f'(x) = 3x^2 + 2px + q > 0$ for all $x$ iff its discriminant is negative: $4p^2 - 12q < 0$, i.e. $p^2 < 3q$.\n\n* A is the exact condition (necessary and sufficient).\n* B: if $p^2 < 3q$ then $3q > p^2 \\ge 0$, so $q > 0$: necessary. Not sufficient: $p = 3, q = 1$ gives $9 > 3$.\n* C: if $q > p^2$ then $3q > 3p^2 \\ge p^2$ (and $q>0$), so it is sufficient; not necessary since $p = 1, q = \\frac12$ works ($1 < \\frac32$) with $q < p^2$.\n* D: not necessary ($p = 1, q = 1$ works) and not sufficient ($p = 0, q = -1$ fails).\n* E: not necessary ($p = -1, q = 1$ works) and not sufficient ($p = 3, q = 1$ fails).",
+  "insight": "A necessary-but-not-sufficient condition is a strictly larger set containing the exact condition.",
+  "distractors": {
+   "0": "This is the exact condition: necessary and sufficient.",
+   "2": "This set sits inside the exact condition: sufficient but not necessary (the reverse of what is asked).",
+   "3": "Thinking $p$ must vanish; $p=1,\\ q=1$ already works.",
+   "4": "Thinking positive coefficients are needed; $p=-1,\\ q=1$ works."
+  },
+  "time": 200,
+  "family": "diff-13"
  },
  {
   "id": "diff-14",
@@ -435,52 +945,114 @@
   "stem": "What is the complete set of values of $a$ for which exactly **three** distinct tangents to the curve $y = x^3 - x$ pass through the point $(a, 0)$?",
   "figure": null,
   "options": [
-   "$a \\ne 0$",
    "$0 < |a| < 1$",
    "$|a| > \\frac{1}{\\sqrt{3}}$",
    "$a > 1$",
    "$|a| \\ge 1$",
    "$|a| > 1$"
   ],
-  "answer": 5,
+  "answer": 4,
   "solution": "The tangent at $x = t$ is $y = (3t^2 - 1)(x - t) + t^3 - t$. Through $(a, 0)$:\n$$0 = (3t^2-1)(a-t) + t^3 - t \\iff 2t^3 - 3at^2 + a = 0.$$\nDifferent $t$ give different tangent lines, so we need $h(t) = 2t^3 - 3at^2 + a$ to have three distinct real roots.\n\n$h'(t) = 6t(t - a)$, stationary values $h(0) = a$ and $h(a) = a - a^3$.\n\nThree roots iff these have opposite signs: $a(a - a^3) = a^2(1 - a^2) < 0 \\iff |a| > 1$.\n\n(At $|a| = 1$ there is a repeated root, giving only two tangents; for $|a|<1$ only one.)",
   "insight": "Counting tangents from a point reduces to counting real roots of a cubic in the contact parameter $t$, which is decided by its stationary values.",
   "distractors": {
-   "4": "Including $|a| = 1$, where the cubic in $t$ has a double root: only two distinct tangents.",
-   "3": "Forgetting the symmetric case $a < -1$ (the curve is odd, so the answer must be symmetric)."
+   "3": "Including $|a| = 1$, where the cubic in $t$ has a double root: only two distinct tangents.",
+   "2": "Forgetting the symmetric case $a < -1$ (the curve is odd, so the answer must be symmetric).",
+   "0": "Reversing the sign condition on $a^2(1 - a^2)$.",
+   "1": "Using the $x$-coordinates of the stationary points of $y = x^3 - x$ as the boundary."
   },
-  "time": 270
+  "time": 270,
+  "family": "diff-14"
+ },
+ {
+  "id": "diff-14b",
+  "topic": "diff",
+  "paper": 1,
+  "difficulty": 5,
+  "skills": [
+   "tangent from external point",
+   "cubics",
+   "number of roots"
+  ],
+  "stem": "What is the complete set of values of $k$ for which exactly **three** distinct tangents to the curve $y = x^3$ pass through the point $(1, k)$?",
+  "figure": null,
+  "options": [
+   "$0 < k < 1$",
+   "$0 \\le k \\le 1$",
+   "$-1 < k < 1$",
+   "$k > 0$",
+   "$k < 0$ or $k > 1$"
+  ],
+  "answer": 0,
+  "solution": "The tangent at $(t, t^3)$ is $y = 3t^2 x - 2t^3$. Through $(1, k)$:\n$$k = 3t^2 - 2t^3 \\iff h(t) = 2t^3 - 3t^2 + k = 0.$$\nDistinct values of $t$ give distinct tangents (different gradients or different points), so we need three distinct real roots of $h$.\n\n$h'(t) = 6t(t - 1)$: stationary values $h(0) = k$ and $h(1) = k - 1$.\n\nOpposite signs: $k(k-1) < 0 \\iff 0 < k < 1$.\n\nAt $k = 0$ or $k = 1$ there is a repeated root and only two tangents.",
+  "insight": "Impose the external point on the general tangent to get a cubic in $t$; its stationary values decide how many tangents there are.",
+  "distractors": {
+   "1": "Including $k = 0$ and $k = 1$, where the cubic in $t$ has a double root: only two tangents.",
+   "2": "Assuming a symmetric answer; the point $(1, k)$ breaks the symmetry of $y=x^3$.",
+   "3": "Using only one of the two stationary-value conditions ($h(0) = k > 0$) and forgetting $h(1) = k - 1 < 0$.",
+   "4": "Reversing the sign condition: this is where there is only one tangent."
+  },
+  "time": 270,
+  "family": "diff-14"
  },
  {
   "id": "diff-15",
   "topic": "diff",
-  "paper": 2,
+  "paper": 1,
   "difficulty": 5,
   "skills": [
-   "cubics",
-   "symmetry",
-   "second derivative"
+   "normals",
+   "optimisation",
+   "fractional powers"
   ],
-  "stem": "The cubic $f(x) = x^3 + bx^2 + cx + d$ has two distinct stationary points, at $x = \\alpha$ and $x = \\beta$. Let $m = \\frac{\\alpha + \\beta}{2}$.\n\nWhich of the following **must** be true?\n\nI. $f''(m) = 0$.\n\nII. $f(\\alpha) + f(\\beta) = 2f(m)$.\n\nIII. $f(\\alpha)$ and $f(\\beta)$ have opposite signs.",
+  "stem": "The point $P(p, p^2)$, where $p > 0$, lies on the curve $y = x^2$. The normal to the curve at $P$ meets the curve again at $Q$.\n\nAs $p$ varies, what is the least possible value of $PQ^2$?",
   "figure": null,
   "options": [
-   "none of them",
-   "I only",
-   "II only",
-   "III only",
-   "I and II only",
-   "I and III only",
-   "II and III only",
-   "I, II and III"
+   "$4$",
+   "$\\frac{27}{4}$",
+   "$\\frac{125}{16}$",
+   "$8$",
+   "$\\frac{27}{2}$"
   ],
-  "answer": 4,
-  "solution": "$f'(x) = 3x^2 + 2bx + c$, so $\\alpha + \\beta = -\\frac{2b}{3}$ and $m = -\\frac b3$.\n\n**I** True: $f''(x) = 6x + 2b = 0$ at $x = -\\frac b3 = m$.\n\n**II** True: every cubic has half-turn symmetry about its point of inflection. With $x = m + u$, $f(m+u) - f(m) = u^3 + pu$ for some $p$ (no $u^2$ term since $f''(m)=0$), which is odd in $u$. As $\\alpha = m - s$, $\\beta = m + s$, the two deviations cancel.\n\n**III** False: $f(x) = x^3 - 3x + 5$ has $f(-1) = 7$ and $f(1) = 3$, both positive.",
-  "insight": "A cubic is rotationally symmetric about its inflection point, which lies exactly midway between its turning points.",
+  "answer": 1,
+  "solution": "The normal at $P$ has gradient $-\\frac{1}{2p}$. On $y = x^2$, a chord through $(p, p^2)$ and $(q, q^2)$ has gradient $p + q$, so\n$$p + q = -\\frac{1}{2p}, \\qquad q = -p - \\frac{1}{2p}.$$\n\nHorizontal separation: $p - q = 2p + \\frac{1}{2p} = \\frac{4p^2 + 1}{2p}$. Since the chord has gradient $-\\frac{1}{2p}$,\n$$PQ^2 = (p - q)^2\\left(1 + \\frac{1}{4p^2}\\right) = \\frac{(4p^2+1)^2}{4p^2}\\cdot\\frac{4p^2+1}{4p^2} = \\frac{(4p^2 + 1)^3}{16p^4}.$$\n\nLet $s = 4p^2 > 0$: $PQ^2 = \\dfrac{(s+1)^3}{s^2}$. Differentiating, $\\dfrac{3(s+1)^2 s^2 - 2s(s+1)^3}{s^4} = \\dfrac{(s+1)^2(s - 2)}{s^3}$, which is negative for $s<2$ and positive for $s>2$.\n\nMinimum at $s = 2$: $PQ^2 = \\frac{27}{4}$.",
+  "insight": "Use the chord-gradient fact $p + q$ for $y = x^2$, write the length in one variable, and substitute $s = 4p^2$ to make the calculus clean.",
   "distractors": {
-   "7": "III describes the three-real-roots case only; shifting the cubic up or down changes the signs of the stationary values.",
-   "1": "Missing the half-turn symmetry that makes II hold."
+   "0": "Minimising only the horizontal separation $2p + \\frac{1}{2p}$ (least value $2$) and squaring it.",
+   "2": "Guessing that $p = 1$ is optimal: $PQ^2 = \\frac{125}{16}$ there.",
+   "3": "Minimising the horizontal separation (at $p = \\frac12$) and then computing the true $PQ^2$ there; that is not the minimum of $PQ^2$.",
+   "4": "Doubling the correct value, e.g. by using $1 + \\frac{1}{2p^2}$ for the slope factor."
   },
-  "time": 270
+  "time": 300,
+  "family": "diff-15"
+ },
+ {
+  "id": "diff-15b",
+  "topic": "diff",
+  "paper": 1,
+  "difficulty": 5,
+  "skills": [
+   "tangents",
+   "optimisation"
+  ],
+  "stem": "The point $P(p, 3 - p^2)$, where $0 < p < \\sqrt3$, lies on the curve $y = 3 - x^2$. The tangent to the curve at $P$ meets the positive $x$-axis at $A$ and the positive $y$-axis at $B$.\n\nAs $p$ varies, what is the least possible area of triangle $OAB$, where $O$ is the origin?",
+  "figure": null,
+  "options": [
+   "$2$",
+   "$3$",
+   "$4$",
+   "$3\\sqrt{3}$",
+   "$8$"
+  ],
+  "answer": 2,
+  "solution": "The tangent at $P$ has gradient $-2p$:\n$$y = -2p(x - p) + 3 - p^2 = -2px + p^2 + 3.$$\nSo $B = (0, p^2 + 3)$ and $A = \\left(\\dfrac{p^2 + 3}{2p}, 0\\right)$.\n\n$$\\text{Area} = \\frac12 \\cdot \\frac{p^2 + 3}{2p}\\cdot (p^2 + 3) = \\frac{(p^2+3)^2}{4p} = \\frac14\\left(p^3 + 6p + 9p^{-1}\\right).$$\n\n$\\dfrac{d}{dp}$: $\\frac14\\left(3p^2 + 6 - 9p^{-2}\\right) = 0 \\iff p^4 + 2p^2 - 3 = 0 \\iff (p^2 + 3)(p^2 - 1) = 0$, so $p = 1$.\n\nThe derivative is negative for $p<1$ and positive for $p > 1$, so this is the minimum: area $= \\frac{16}{4} = 4$.",
+  "insight": "Express the area in terms of the point of contact, expand into powers of $p$, and differentiate.",
+  "distractors": {
+   "4": "Forgetting the $\\frac12$ in the area of the triangle.",
+   "3": "Assuming the extreme case $p = \\sqrt3$ is optimal: the area there is $\\frac{36}{4\\sqrt3} = 3\\sqrt3$, and $p = \\sqrt3$ is not even allowed.",
+   "0": "Halving twice: using $\\frac{(p^2+3)^2}{8p}$."
+  },
+  "time": 300,
+  "family": "diff-15"
  },
  {
   "id": "diff-16",
@@ -489,7 +1061,8 @@
   "difficulty": 2,
   "skills": [
    "differentiation",
-   "fractional powers"
+   "fractional powers",
+   "simplify first"
   ],
   "stem": "Given $y = \\dfrac{x^2 + 4}{\\sqrt{x}}$, find the value of $\\dfrac{dy}{dx}$ when $x = 4$.",
   "figure": null,
@@ -506,64 +1079,168 @@
   "distractors": {
    "4": "Differentiating top and bottom separately: $\\frac{2x}{\\frac12 x^{-1/2}} = 4x^{3/2} = 32$.",
    "3": "Sign slip: differentiating $4x^{-1/2}$ as $+2x^{-3/2}$.",
-   "2": "Dropping the second term entirely."
+   "2": "Dropping the second term entirely.",
+   "0": "Differentiating $x^{3/2}$ as $x^{1/2}$ and dropping the second term's contribution."
   },
-  "time": 90
+  "time": 90,
+  "family": "diff-16"
+ },
+ {
+  "id": "diff-16b",
+  "topic": "diff",
+  "paper": 1,
+  "difficulty": 2,
+  "skills": [
+   "differentiation",
+   "fractional powers",
+   "simplify first"
+  ],
+  "stem": "Given $y = \\dfrac{(\\sqrt{x} - 3)^2}{x}$, find the value of $\\dfrac{dy}{dx}$ when $x = 4$.",
+  "figure": null,
+  "options": [
+   "$-\\frac{15}{16}$",
+   "$-\\frac{9}{16}$",
+   "$-\\frac{3}{16}$",
+   "$\\frac{3}{16}$",
+   "$\\frac{15}{16}$"
+  ],
+  "answer": 2,
+  "solution": "Expand then divide by $x$: $(\\sqrt x - 3)^2 = x - 6x^{1/2} + 9$, so\n$$y = 1 - 6x^{-1/2} + 9x^{-1}.$$\n\n$$\\frac{dy}{dx} = 3x^{-3/2} - 9x^{-2}.$$\n\nAt $x = 4$: $\\frac{3}{8} - \\frac{9}{16} = -\\frac{3}{16}$.",
+  "insight": "Expand and divide term by term to get powers of $x$, then differentiate.",
+  "distractors": {
+   "0": "Sign slip on the middle term: $-\\frac38 - \\frac9{16}$.",
+   "1": "Expanding $(\\sqrt x - 3)^2$ as $x + 9$ (dropping the cross term), so $y = 1 + 9x^{-1}$.",
+   "3": "Sign slip in the final subtraction.",
+   "4": "Differentiating $9x^{-1}$ as $+9x^{-2}$."
+  },
+  "time": 90,
+  "family": "diff-16"
  },
  {
   "id": "diff-17",
   "topic": "diff",
   "paper": 1,
-  "difficulty": 3,
+  "difficulty": 4,
   "skills": [
    "optimisation",
    "endpoints",
-   "stationary points"
+   "parameters",
+   "context"
   ],
-  "stem": "What is the greatest value of $f(x) = x^3 - 6x^2 + 9x$ for $0 \\le x \\le 5$?",
+  "stem": "A drone's height above the ground, $t$ seconds after it starts a manoeuvre, is\n$$h = t^3 - 6t^2 + 9t \\text{ metres}.$$\n(It touches down briefly at $t = 3$ and then climbs again.)\n\nThe manoeuvre lasts from $t = 0$ to $t = a$, where $a > 0$. What is the complete set of values of $a$ for which the greatest height reached during the manoeuvre is exactly $4$ metres?",
   "figure": null,
   "options": [
-   "$0$",
-   "$4$",
-   "$9$",
-   "$20$",
-   "$45$"
+   "$a = 1$",
+   "$1 \\le a \\le 3$",
+   "$1 \\le a \\le 4$",
+   "$1 < a < 4$",
+   "$a \\ge 1$"
+  ],
+  "answer": 2,
+  "solution": "$h'(t) = 3t^2 - 12t + 9 = 3(t-1)(t-3)$: local maximum $h(1) = 4$, local minimum $h(3) = 0$.\n\n* If $a < 1$: $h$ is increasing on $[0, a]$, so the greatest height is $h(a) < 4$.\n* If $a \\ge 1$: the greatest height is the larger of $h(1) = 4$ and $h(a)$ (the only other candidate is the endpoint).\n\n$h(a) - 4 = a^3 - 6a^2 + 9a - 4 = (a - 1)^2(a - 4)$, which is $\\le 0$ exactly when $a \\le 4$.\n\nSo the greatest height is $4$ exactly when $1 \\le a \\le 4$.",
+  "insight": "On a closed interval the greatest value is the larger of the local maxima and the endpoint values; find where the endpoint overtakes the local maximum.",
+  "distractors": {
+   "0": "Thinking only the interval ending at the local maximum works.",
+   "1": "Stopping at the local minimum $t=3$; the curve climbs back to height $4$ only at $t = 4$.",
+   "3": "Excluding the endpoints, but at $a = 1$ and $a = 4$ the greatest height is exactly $4$.",
+   "4": "Forgetting that the drone climbs above $4$ m after $t = 4$."
+  },
+  "time": 210,
+  "family": "diff-17"
+ },
+ {
+  "id": "diff-17b",
+  "topic": "diff",
+  "paper": 1,
+  "difficulty": 4,
+  "skills": [
+   "optimisation",
+   "endpoints",
+   "parameters"
+  ],
+  "stem": "Let $f(x) = 2x^3 - 9x^2 + 12x$, and let $c > 0$.\n\nWhat is the complete set of values of $c$ for which the greatest value of $f(x)$ on the interval $0 \\le x \\le c$ is $f(c)$?",
+  "figure": null,
+  "options": [
+   "$0 < c \\le 1$",
+   "$c \\ge \\frac52$",
+   "$0 < c \\le 1$ or $c \\ge 2$",
+   "$0 < c \\le 1$ or $c \\ge \\frac52$",
+   "$0 < c < 1$ or $c > \\frac52$"
   ],
   "answer": 3,
-  "solution": "$f'(x) = 3(x-1)(x-3)$: local maximum $f(1) = 4$, local minimum $f(3) = 0$.\n\nBut the greatest value on a closed interval can occur at an endpoint: $f(0) = 0$, $f(5) = 125 - 150 + 45 = 20$.\n\nGreatest value $= 20$.",
-  "insight": "On a closed interval, compare the stationary values with the endpoint values; a local maximum need not be the greatest value.",
+  "solution": "$f'(x) = 6x^2 - 18x + 12 = 6(x-1)(x-2)$: local maximum $f(1) = 5$, local minimum $f(2) = 4$.\n\n* For $0 < c \\le 1$: $f$ is increasing on $[0, c]$, so the greatest value is $f(c)$.\n* For $c > 1$: the interval contains $x = 1$, so the greatest value is $f(c)$ only if $f(c) \\ge 5$.\n\n$f(c) - 5 = 2c^3 - 9c^2 + 12c - 5 = (c - 1)^2(2c - 5)$, which is $\\ge 0$ for $c > 1$ exactly when $c \\ge \\frac52$.\n\nSo $0 < c \\le 1$ or $c \\ge \\frac52$.",
+  "insight": "The endpoint value wins only before the first local maximum or once it has climbed back above that maximum.",
   "distractors": {
-   "1": "Stopping at the local maximum and ignoring the endpoint $x=5$.",
-   "4": "Evaluating only the $9x$ term at $x=5$ (arithmetic slip in $f(5)$)."
+   "0": "Forgetting that $f$ eventually climbs back above the local maximum.",
+   "1": "Missing the easy case where the interval stops before the local maximum.",
+   "2": "Using the local minimum $x=2$ as the switching point instead of where $f$ regains the value $5$.",
+   "4": "Excluding the boundary cases, where $f(c)$ ties with (so still equals) the greatest value."
   },
-  "time": 120
+  "time": 210,
+  "family": "diff-17"
  },
  {
   "id": "diff-18",
   "topic": "diff",
   "paper": 1,
-  "difficulty": 4,
+  "difficulty": 5,
   "skills": [
    "stationary points",
    "number of roots",
-   "quartics"
+   "quartics",
+   "modulus"
   ],
-  "stem": "Let $f(x) = 3x^4 - 8x^3 - 6x^2 + 24x$.\n\nFor how many **integer** values of $c$ does the equation $f(x) = c$ have exactly four distinct real solutions?",
+  "stem": "Let $f(x) = 3x^4 - 8x^3 - 6x^2 + 24x$.\n\nFor how many **integer** values of $c$ does the equation $|f(x)| = c$ have exactly four distinct real solutions?",
   "figure": null,
   "options": [
-   "$2$",
-   "$3$",
    "$4$",
    "$5$",
-   "$6$"
+   "$7$",
+   "$12$",
+   "$13$"
   ],
-  "answer": 2,
-  "solution": "$f'(x) = 12x^3 - 24x^2 - 12x + 24 = 12(x-2)(x-1)(x+1)$.\n\nStationary values: $f(-1) = -19$ (min), $f(1) = 13$ (max), $f(2) = 8$ (min).\n\nSketch: the quartic comes down to $-19$, up to $13$, down to $8$, then up again. A horizontal line $y = c$ meets it four times exactly when it lies above **both** minima and below the maximum: $8 < c < 13$.\n\nIntegers $9, 10, 11, 12$: four values.",
-  "insight": "Counting solutions of $f(x)=c$ means sliding a horizontal line across a sketch whose shape is fixed by the stationary values.",
+  "answer": 3,
+  "solution": "$f'(x) = 12x^3 - 24x^2 - 12x + 24 = 12(x-2)(x-1)(x+1)$.\n\nStationary values: $f(-1) = -19$ (min), $f(1) = 13$ (max), $f(2) = 8$ (min). Also $f(0) = 0$, and $f$ has exactly two real roots: $x = 0$ and one root below $-1$ (on $(-1, 0)$ it rises from $-19$ to $0$, and for $x > 0$ it stays at least $8$).\n\nReflect the negative part in the $x$-axis to get $y = |f(x)|$. Reading left to right it: falls to $0$, rises to $19$ (at $x=-1$), falls to $0$ (at $x=0$), rises to $13$, falls to $8$, then rises for ever.\n\nCount crossings with $y = c$ for $c > 0$:\n* $0 < c < 8$: $1 + 1 + 1 + 1 = 4$.\n* $c = 8$: $5$; $\\ 8 < c < 13$: $6$; $\\ c = 13$: $5$.\n* $13 < c < 19$: $1 + 1 + 1 + 1 = 4$.\n* $c = 19$: $3$; $\\ c > 19$: $2$. (And $c = 0$ gives $2$.)\n\nFour solutions for $c = 1, \\dots, 7$ and $c = 14, \\dots, 18$: $7 + 5 = 12$ values.",
+  "insight": "Sketch from the stationary values, reflect the negative part for the modulus, then slide a horizontal line and count crossings band by band.",
   "distractors": {
-   "4": "Including $c = 8$ and $c = 13$, where the line is tangent and there are only three distinct solutions.",
-   "3": "Including only one endpoint."
+   "0": "Solving $f(x) = c$ instead of $|f(x)| = c$: four solutions for $8 < c < 13$, i.e. $9, 10, 11, 12$.",
+   "1": "Finding only the band $13 < c < 19$ created by the reflected minimum.",
+   "2": "Finding only the band $0 < c < 8$.",
+   "4": "Including a boundary value such as $c = 8$ or $c=19$, where the line is tangent and the count changes."
   },
-  "time": 210
+  "time": 300,
+  "family": "diff-18"
+ },
+ {
+  "id": "diff-18b",
+  "topic": "diff",
+  "paper": 1,
+  "difficulty": 5,
+  "skills": [
+   "stationary points",
+   "number of roots",
+   "cubics",
+   "modulus"
+  ],
+  "stem": "Let $g(x) = x^3 - 3x^2 - 9x$.\n\nFor how many **integer** values of $c$ does the equation $|g(x)| = c$ have exactly four distinct real solutions?",
+  "figure": null,
+  "options": [
+   "$21$",
+   "$22$",
+   "$23$",
+   "$26$",
+   "$31$"
+  ],
+  "answer": 0,
+  "solution": "$g'(x) = 3x^2 - 6x - 9 = 3(x-3)(x+1)$: local maximum $g(-1) = 5$, local minimum $g(3) = -27$.\n\n$g(x) = x(x^2 - 3x - 9)$ has three real roots: $0$ and $\\frac{3 \\pm 3\\sqrt5}{2}$ (one negative, one positive).\n\nSo $y = |g(x)|$, left to right: falls to $0$, rises to $5$ (at $x = -1$), falls to $0$ (at $x=0$), rises to $27$ (at $x = 3$), falls to $0$, rises for ever.\n\nCount crossings with $y = c$, $c > 0$:\n* $0 < c < 5$: six.  $c = 5$: five.\n* $5 < c < 27$: four (the outer branches and both sides of the peak at height $27$).\n* $c = 27$: three. $c > 27$: two.\n\nFour solutions for $c = 6, 7, \\dots, 26$: $21$ values.",
+  "insight": "For a modulus equation, reflect the parts below the axis and count crossings band by band; the boundaries are the stationary values.",
+  "distractors": {
+   "1": "Including one of the boundary values $c = 5$ or $c = 27$.",
+   "2": "Including both boundary values $c=5$ and $c=27$.",
+   "3": "Counting $c = 1, \\dots, 26$, missing that small $c$ gives six solutions because of the small hump near $x=-1$.",
+   "4": "Counting where $g(x) = c$ has three solutions ($-27 < c < 5$) instead of working with $|g(x)|$."
+  },
+  "time": 300,
+  "family": "diff-18"
  }
 ]

@@ -3,106 +3,245 @@
   "id": "number-01",
   "topic": "number",
   "paper": 1,
-  "difficulty": 1,
+  "difficulty": 2,
   "skills": [
-   "percentage change",
+   "compound decay",
+   "percentages",
    "multipliers"
   ],
-  "stem": "The price of a bike is increased by $25\\%$. The new price is then decreased by $20\\%$. What is the overall percentage change from the original price?",
+  "stem": "Each hour, $20\\%$ of the amount of a drug present in a patient's bloodstream is removed.\n\nAfter how many complete hours does the amount of the drug first fall below one third of the initial amount?",
   "figure": null,
   "options": [
-   "a decrease of $5\\%$",
-   "a decrease of $4\\%$",
-   "no change",
-   "an increase of $4\\%$",
-   "an increase of $5\\%$"
+   "$1$",
+   "$4$",
+   "$5$",
+   "$6$",
+   "$8$"
   ],
   "answer": 2,
-  "solution": "Use multipliers: a $25\\%$ increase is $\\times 1.25=\\times\\frac54$ and a $20\\%$ decrease is $\\times 0.8=\\times\\frac45$.\n\n$$\\tfrac54\\times\\tfrac45=1,$$\n\nso the final price equals the original price: **no change**.",
-  "insight": "Successive percentage changes combine by multiplying their multipliers, never by adding the percentages.",
+  "solution": "Removing $20\\%$ each hour multiplies the amount by $0.8$, so after $n$ hours a fraction $0.8^n$ remains.\n\n$$0.8^2=0.64,\\quad 0.8^3=0.512,\\quad 0.8^4=0.4096,\\quad 0.8^5=0.32768.$$\n\nOne third is $0.333\\ldots$, and $0.4096>\\frac13>0.32768$. So the amount first falls below a third after **5** hours.",
+  "insight": "Repeated percentage change is repeated multiplication: a $20\\%$ decrease each step multiplies by $0.8$ each step.",
   "distractors": {
-   "4": "Adding the percentages: $+25\\%-20\\%=+5\\%$.",
-   "1": "Using the familiar '$+20\\%$ then $-20\\%$' result ($1.2\\times0.8=0.96$) instead of the actual multipliers $1.25$ and $0.8$."
+   "0": "Using $0.2^n$ (the fraction removed) instead of $0.8^n$ (the fraction remaining).",
+   "1": "Treating the decrease as linear, $20\\%$ of the *original* each hour, so $20\\%$ is left after $4$ hours.",
+   "3": "Counting the start as hour $1$, an off-by-one error.",
+   "4": "Assuming the amount halves roughly every $4$ hours and that a third needs about twice as long."
   },
-  "time": 60
+  "time": 120,
+  "family": "number-01"
+ },
+ {
+  "id": "number-01b",
+  "topic": "number",
+  "paper": 1,
+  "difficulty": 2,
+  "skills": [
+   "compound growth",
+   "percentages",
+   "multipliers"
+  ],
+  "stem": "A culture starts with $400$ cells. The number of cells increases by $50\\%$ every hour.\n\nAfter how many complete hours does the number of cells first exceed $3000$?",
+  "figure": null,
+  "options": [
+   "$3$",
+   "$5$",
+   "$6$",
+   "$7$",
+   "$14$"
+  ],
+  "answer": 1,
+  "solution": "After $n$ hours there are $400\\times1.5^n$ cells, so we need $1.5^n>\\frac{3000}{400}=7.5$.\n\n$$1.5^2=2.25,\\quad1.5^3=3.375,\\quad1.5^4=5.0625,\\quad1.5^5=7.59375.$$\n\n$1.5^4<7.5<1.5^5$, so the number first exceeds $3000$ after **5** hours ($400\\times7.59375=3037.5$).",
+  "insight": "Divide by the starting value to get the required multiplier, then build up powers of the growth factor.",
+  "distractors": {
+   "0": "Treating a $50\\%$ increase as doubling: $400\\times2^3=3200$.",
+   "2": "Rounding $1.5^5\\approx7.5$ and deciding it does not exceed $7.5$, so going one hour further.",
+   "4": "Treating the growth as linear: $200$ more cells each hour needs $13$ hours to add $2600$, so $14$ to exceed.",
+   "3": "Making both the rounding error and an off-by-one error in counting hours."
+  },
+  "time": 120,
+  "family": "number-01"
  },
  {
   "id": "number-02",
   "topic": "number",
   "paper": 1,
-  "difficulty": 1,
+  "difficulty": 3,
   "skills": [
-   "last digits",
-   "cycles of powers"
+   "recurring decimals",
+   "fractions"
   ],
-  "stem": "What is the last digit of $7^{2026}$?",
+  "stem": "Which of the following is equal to the recurring decimal\n$$0.1\\dot{3}\\dot{6}=0.1363636\\ldots\\,?$$",
   "figure": null,
   "options": [
-   "$1$",
-   "$3$",
-   "$7$",
-   "$9$"
+   "$\\frac{41}{330}$",
+   "$\\frac{5}{37}$",
+   "$\\frac{136}{999}$",
+   "$\\frac{3}{22}$",
+   "$\\frac{68}{495}$"
   ],
   "answer": 3,
-  "solution": "The last digits of $7^1,7^2,7^3,7^4,\\dots$ are $7,9,3,1,7,9,3,1,\\dots$, repeating with period $4$ (because $7^4$ ends in $1$).\n\n$2026=4\\times506+2$, so $7^{2026}$ has the same last digit as $7^2$, namely **9**.",
-  "insight": "Last digits of powers cycle, so reduce the exponent modulo the cycle length.",
+  "solution": "Let $x=0.1363636\\ldots$. The repeating block has length $2$, so multiply by $100$:\n$$100x=13.63636\\ldots$$\nSubtract: $99x=13.5$, so $x=\\dfrac{13.5}{99}=\\dfrac{135}{990}=\\dfrac{3}{22}$.\n\n**Check:** $3\\div22=0.13636\\ldots$ ✓.\n\n*Shortcut:* $0.1\\dot3\\dot6=\\dfrac{136-1}{990}$ (the digits up to the end of the first block, minus the non-recurring part, over as many $9$s as recurring digits followed by as many $0$s as non-recurring digits).",
+  "insight": "Multiply by $10^{(\\text{length of repeating block})}$ and subtract so that the infinite tails cancel.",
   "distractors": {
-   "0": "Treating $2026$ as a multiple of $4$ (it is $2024$ that is), which would give last digit $1$.",
-   "2": "Assuming a power of $7$ always ends in $7$, without looking at the cycle."
+   "0": "Subtracting $13$ instead of $1$ in the shortcut: $\\frac{136-13}{990}$.",
+   "1": "Using the right numerator $135$ but over $999$ instead of $990$.",
+   "2": "Treating all three digits as recurring, i.e. $0.\\dot1\\dot3\\dot6$.",
+   "4": "Forgetting to subtract the non-recurring part: $\\frac{136}{990}$."
   },
-  "time": 60
+  "time": 150,
+  "family": "number-02"
+ },
+ {
+  "id": "number-02b",
+  "topic": "number",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "recurring decimals",
+   "fractions"
+  ],
+  "stem": "What is the value of\n$$0.\\dot{1}\\dot{8}\\times0.8\\dot{3}\\,?$$\n(Here $0.\\dot1\\dot8=0.181818\\ldots$ and $0.8\\dot3=0.83333\\ldots$)",
+  "figure": null,
+  "options": [
+   "$\\frac{3}{20}$",
+   "$\\frac{5}{33}$",
+   "$\\frac{166}{1089}$",
+   "$\\frac16$",
+   "$\\frac{83}{495}$"
+  ],
+  "answer": 1,
+  "solution": "Convert each to a fraction.\n\n* $0.\\dot1\\dot8=\\dfrac{18}{99}=\\dfrac{2}{11}$.\n* $x=0.8\\dot3$: $10x=8.3\\dot3$ and $100x=83.\\dot3$, so $90x=75$ and $x=\\dfrac{75}{90}=\\dfrac56$.\n\nProduct: $\\dfrac2{11}\\times\\dfrac56=\\dfrac{10}{66}=\\dfrac{5}{33}$.",
+  "insight": "Convert recurring decimals to fractions before multiplying; a decimal like $0.8\\dot3$ with a non-recurring digit needs the $10x$/$100x$ subtraction.",
+  "distractors": {
+   "0": "Treating $0.\\dot1\\dot8$ as the terminating decimal $0.18$.",
+   "2": "Writing $0.8\\dot3$ as $\\frac{83}{99}$, as if both digits recurred.",
+   "3": "Writing $0.\\dot1\\dot8$ as $\\frac{18}{90}=\\frac15$.",
+   "4": "Writing $0.8\\dot3$ as $\\frac{83}{90}$, forgetting to subtract the non-recurring $8$."
+  },
+  "time": 180,
+  "family": "number-02"
  },
  {
   "id": "number-03",
   "topic": "number",
   "paper": 1,
-  "difficulty": 2,
+  "difficulty": 4,
   "skills": [
-   "mean",
-   "totals"
+   "upper and lower bounds",
+   "speed"
   ],
-  "stem": "The mean of ten numbers is $12$. One number is removed, and the mean of the remaining nine numbers is $11$. What number was removed?",
+  "stem": "A sprinter passes a marker at time $12.3$ s and crosses the finish line at time $15.8$ s, both measured from the start and both correct to the nearest $0.1$ s. The distance from the marker to the finish line is $25$ m, correct to the nearest metre.\n\nWhat is the upper bound for the sprinter's average speed between the marker and the finish line, in m/s?",
   "figure": null,
   "options": [
-   "$1$",
-   "$11$",
-   "$12$",
-   "$13$",
-   "$21$"
+   "$\\frac{85}{12}$",
+   "$\\frac{50}{7}$",
+   "$\\frac{51}{7}$",
+   "$\\frac{15}{2}$",
+   "$\\frac{85}{11}$"
   ],
-  "answer": 4,
-  "solution": "Work with totals, not means.\n\n* Original total: $10\\times12=120$.\n* New total: $9\\times11=99$.\n\nThe removed number is $120-99=\\mathbf{21}$.",
-  "insight": "Convert every mean to a total; changes in totals are easy to track.",
+  "answer": 3,
+  "solution": "Speed $=\\dfrac{\\text{distance}}{\\text{time}}$ is largest for the largest distance and the smallest time.\n\n* Distance: $24.5\\le d<25.5$, upper bound $25.5$ m.\n* The time taken is $t_2-t_1$, with $15.75\\le t_2<15.85$ and $12.25\\le t_1<12.35$. The smallest difference uses the **lower** bound of $t_2$ and the **upper** bound of $t_1$: $15.75-12.35=3.4$ s.\n\nUpper bound for speed $=\\dfrac{25.5}{3.4}=\\dfrac{255}{34}=\\dfrac{15}{2}=7.5$ m/s.",
+  "insight": "For a quotient, maximise the numerator and minimise the denominator; for a difference, minimise it with the lower bound of the larger and the upper bound of the smaller.",
   "distractors": {
-   "0": "Subtracting the means ($12-11=1$) instead of the totals.",
-   "2": "Assuming the removed number must be the old mean, $12$ (removing the mean would leave the mean unchanged, not reduce it)."
+   "0": "Using the largest possible time difference, $15.85-12.25=3.6$ s.",
+   "1": "Ignoring bounds altogether: $\\frac{25}{3.5}$.",
+   "2": "Using the upper bound for the distance but the measured time difference $3.5$ s.",
+   "4": "Using errors of $\\pm0.1$ s instead of $\\pm0.05$ s: $15.7-12.4=3.3$ s."
   },
-  "time": 75
+  "time": 240,
+  "family": "number-03"
+ },
+ {
+  "id": "number-03b",
+  "topic": "number",
+  "paper": 1,
+  "difficulty": 4,
+  "skills": [
+   "upper and lower bounds",
+   "rates"
+  ],
+  "stem": "A tank contains $500$ litres of water, correct to the nearest $10$ litres. Water drains out at a constant rate of $12$ litres per minute, correct to the nearest litre per minute, for exactly $30$ minutes. (The tank does not empty.)\n\nWhat is the lower bound for the volume of water left in the tank, in litres?",
+  "figure": null,
+  "options": [
+   "$100$",
+   "$120$",
+   "$130$",
+   "$140$",
+   "$150$"
+  ],
+  "answer": 1,
+  "solution": "Volume left $=V-30r$, which is smallest when $V$ is smallest and $r$ is largest.\n\n* $495\\le V<505$, so the lower bound for $V$ is $495$.\n* $11.5\\le r<12.5$, so the upper bound for $r$ is $12.5$ and the volume drained is at most $30\\times12.5=375$.\n\nLower bound $=495-375=120$ litres.",
+  "insight": "In a difference, the lower bound uses the lower bound of the first quantity and the upper bound of the one subtracted.",
+  "distractors": {
+   "0": "Using errors of a whole unit: $490-30\\times13$.",
+   "2": "Using the upper bounds of both: $505-375$.",
+   "3": "Ignoring bounds: $500-360$.",
+   "4": "Using the lower bounds of both: $495-345$."
+  },
+  "time": 180,
+  "family": "number-03"
  },
  {
   "id": "number-04",
   "topic": "number",
   "paper": 1,
-  "difficulty": 2,
+  "difficulty": 4,
   "skills": [
-   "reverse percentage"
+   "direct proportion",
+   "powers",
+   "percentage change"
   ],
-  "stem": "In a sale, all prices are reduced by $15\\%$. A coat costs £68 in the sale. What was its price before the sale?",
+  "stem": "The power $P$ generated by a wind turbine is proportional to $r^2v^3$, where $r$ is the blade length and $v$ is the wind speed.\n\nA new design has blades $20\\%$ longer and is installed at a site where the wind speed is $10\\%$ lower. What is the percentage change in the power generated?",
   "figure": null,
   "options": [
-   "£57.80",
-   "£78.20",
-   "£80",
-   "£85"
+   "a decrease of about $13\\%$",
+   "an increase of about $1\\%$",
+   "an increase of about $5\\%$",
+   "an increase of $10\\%$",
+   "an increase of about $30\\%$"
   ],
   "answer": 2,
-  "solution": "The sale price is $85\\%$ of the original price $P$:\n\n$$0.85P=68\\quad\\Rightarrow\\quad P=\\frac{68}{0.85}=\\frac{6800}{85}=80.$$\n\nThe original price was **£80**. (Check: $15\\%$ of $80$ is $12$, and $80-12=68$.)",
-  "insight": "For a reverse percentage, divide by the multiplier rather than adding the percentage back on.",
+  "solution": "The power is multiplied by\n$$1.2^2\\times0.9^3=1.44\\times0.729.$$\n\n$1.44\\times0.729=0.729+0.44\\times0.729=0.729+0.32076=1.04976.$\n\nSo the power increases by about $5\\%$.",
+  "insight": "Under $P\\propto r^2v^3$, scale factors multiply after raising each to its power; percentage changes do not simply add.",
   "distractors": {
-   "1": "Adding $15\\%$ of the sale price: $68\\times1.15=78.20$. The $15\\%$ was of the original price, not of £68.",
-   "0": "Reducing the sale price by a further $15\\%$: $68\\times0.85=57.80$."
+   "0": "Swapping the powers: $1.2\\times0.9^3\\approx0.875$.",
+   "1": "Cubing the $10\\%$ decrease as a $30\\%$ decrease: $1.44\\times0.7=1.008$.",
+   "3": "Adding weighted percentages: $2\\times20\\%-3\\times10\\%=10\\%$.",
+   "4": "Forgetting to cube the wind factor: $1.44\\times0.9\\approx1.30$."
   },
-  "time": 75
+  "time": 210,
+  "family": "number-04"
+ },
+ {
+  "id": "number-04b",
+  "topic": "number",
+  "paper": 1,
+  "difficulty": 4,
+  "skills": [
+   "inverse proportion",
+   "powers",
+   "percentage change"
+  ],
+  "stem": "The electrical resistance $R$ of a wire is directly proportional to its length $L$ and inversely proportional to the square of its diameter $d$.\n\nA wire is replaced by one that is $50\\%$ longer and whose diameter is $25\\%$ larger. What is the percentage change in the resistance?",
+  "figure": null,
+  "options": [
+   "a decrease of $4\\%$",
+   "no change",
+   "an increase of about $4\\%$",
+   "an increase of $20\\%$",
+   "an increase of about $134\\%$"
+  ],
+  "answer": 0,
+  "solution": "$R=\\dfrac{kL}{d^2}$, so $R$ is multiplied by\n$$\\frac{1.5}{1.25^2}=\\frac{1.5}{1.5625}=\\frac{24}{25}=0.96.$$\n\nThat is a decrease of $4\\%$.",
+  "insight": "Write the relationship as one formula, $R=kL/d^2$, then substitute the scale factors.",
+  "distractors": {
+   "1": "Adding percentage effects: $+50\\%$ from the length and $-2\\times25\\%$ from the diameter.",
+   "2": "Inverting the ratio, $\\frac{1.5625}{1.5}\\approx1.04$.",
+   "3": "Forgetting to square the diameter factor: $\\frac{1.5}{1.25}=1.2$.",
+   "4": "Treating the diameter as directly proportional: $1.5\\times1.5625\\approx2.34$."
+  },
+  "time": 180,
+  "family": "number-04"
  },
  {
   "id": "number-05",
@@ -127,41 +266,102 @@
   "insight": "To break a claim about $f(n)$ being prime, choose $n$ so that the expression visibly factorises.",
   "distractors": {
    "3": "Guessing that the largest-looking value other than $40$ must be composite; $971$ is in fact prime.",
-   "1": "Assuming $151$ has a small factor without checking; it is prime."
+   "1": "Assuming $151$ has a small factor without checking; it is prime.",
+   "0": "Testing only that $n=1$ gives $43$ and mistaking it for composite.",
+   "2": "Assuming $461$ is divisible by a small prime without checking; it is prime."
   },
-  "time": 90
+  "time": 90,
+  "family": "number-05"
  },
  {
-  "id": "number-06",
+  "id": "number-05b",
   "topic": "number",
   "paper": 2,
   "difficulty": 2,
   "skills": [
-   "mean",
-   "median",
-   "range",
-   "must be true"
+   "primes",
+   "counterexample"
   ],
-  "stem": "A list of at least two real numbers has mean $\\mu$. A new number $x$, with $x>\\mu$, is added to the list.\n\nWhich of the following **must** be true for the new list?\n\nI. The mean is greater than $\\mu$.\n\nII. The median is greater than the median of the original list.\n\nIII. The range is greater than the range of the original list.",
+  "stem": "Consider the statement:\n\n> For every prime number $p$, the number $2p+1$ is prime.\n\nWhich one of the following values of $p$ gives a counterexample to this statement?",
   "figure": null,
   "options": [
-   "none of them",
-   "I only",
-   "II only",
-   "III only",
-   "I and II only",
-   "I and III only",
-   "II and III only",
-   "I, II and III"
+   "$p=2$",
+   "$p=3$",
+   "$p=5$",
+   "$p=7$",
+   "$p=11$"
   ],
-  "answer": 1,
-  "solution": "**I is true.** If the list has $n$ numbers with total $n\\mu$, the new mean is\n$$\\frac{n\\mu+x}{n+1}>\\frac{n\\mu+\\mu}{n+1}=\\mu.$$\n\n**II is false.** Take $1,5,5,5$ (mean $4$, median $5$) and add $x=6$: the new list $1,5,5,5,6$ still has median $5$.\n\n**III is false.** Take $1,2,9$ (mean $4$, range $8$) and add $x=5$: the range is still $8$, because $x$ lies between the smallest and largest values.\n\nSo the answer is **I only**.",
-  "insight": "For 'must be true' statements, prove the ones that feel solid and hunt for small counterexamples to the rest.",
+  "answer": 3,
+  "solution": "A counterexample must be a prime $p$ for which $2p+1$ is **not** prime.\n\n* $p=2$: $5$, prime. $p=3$: $7$, prime. $p=5$: $11$, prime. $p=11$: $23$, prime.\n* $p=7$: $2\\times7+1=15=3\\times5$, not prime.\n\nSo $p=7$ is a counterexample.",
+  "insight": "A counterexample must satisfy the hypothesis (here: $p$ prime) and make the conclusion fail.",
   "distractors": {
-   "7": "Assuming that adding a 'large' value pushes every statistic up; the median and range depend only on where $x$ sits relative to the existing values.",
-   "4": "Believing the median must increase; it can stay the same when there are repeated middle values (it can even decrease if $x$ is above the mean but below the median)."
+   "0": "Choosing $p=2$ because it is the only even prime, without checking that $2p+1=5$ is prime.",
+   "4": "Mistaking $23$ for a composite number.",
+   "2": "Mistaking $11$ for composite, or thinking a counterexample is a value where $2p+1$ *is* prime."
   },
-  "time": 120
+  "time": 90,
+  "family": "number-05"
+ },
+ {
+  "id": "number-06",
+  "topic": "number",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "standard form",
+   "square roots",
+   "indices"
+  ],
+  "stem": "A square plot of land has area $4.9\\times10^{7}$ m$^2$. One side of the plot is divided into strips, each $2\\times10^{-2}$ m wide.\n\nHow many strips are there along one side?",
+  "figure": null,
+  "options": [
+   "$3.5\\times10^{1}$",
+   "$1.4\\times10^{2}$",
+   "$1.1\\times10^{5}$",
+   "$3.5\\times10^{5}$",
+   "$1.1\\times10^{6}$"
+  ],
+  "answer": 3,
+  "solution": "Make the power of $10$ even before taking the square root:\n$$4.9\\times10^7=49\\times10^6,\\qquad\\sqrt{49\\times10^6}=7\\times10^3\\text{ m}.$$\n\nNumber of strips $=\\dfrac{7\\times10^3}{2\\times10^{-2}}=3.5\\times10^{5}$.",
+  "insight": "To square-root a number in standard form, first adjust it so the power of $10$ is even.",
+  "distractors": {
+   "0": "Dividing by $2\\times10^{2}$, a sign slip in the exponent.",
+   "1": "Multiplying by the strip width instead of dividing.",
+   "2": "Taking $\\sqrt{4.9}\\approx2.2$ and halving the exponent $7$ to $3$, giving a side of about $2.2\\times10^3$ m.",
+   "4": "Taking $\\sqrt{4.9}\\approx2.2$ and rounding the exponent up to $4$."
+  },
+  "time": 150,
+  "family": "number-06"
+ },
+ {
+  "id": "number-06b",
+  "topic": "number",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "estimation",
+   "standard form"
+  ],
+  "stem": "Without using a calculator, which of the following is closest to\n$$\\frac{0.00031\\times59\\,800}{0.0198}\\,?$$",
+  "figure": null,
+  "options": [
+   "$9$",
+   "$90$",
+   "$900$",
+   "$9000$",
+   "$90\\,000$"
+  ],
+  "answer": 2,
+  "solution": "Round each number to one significant figure and use standard form:\n$$\\frac{3\\times10^{-4}\\times6\\times10^{4}}{2\\times10^{-2}}=\\frac{18}{2\\times10^{-2}}=9\\times10^{2}=900.$$\n\n(The exact value is about $936$, so $900$ is clearly closest.)",
+  "insight": "Round to one significant figure, then handle the powers of $10$ separately.",
+  "distractors": {
+   "1": "Dividing by $0.2$ instead of $0.02$.",
+   "3": "Dividing by $0.002$ instead of $0.02$.",
+   "0": "Combining $10^{-4}\\times10^{4}$ as $10^{-2}$, giving $0.18$ on top.",
+   "4": "Combining $10^{-4}\\times10^{4}$ as $10^{2}$, giving $1800$ on top."
+  },
+  "time": 120,
+  "family": "number-06"
  },
  {
   "id": "number-07",
@@ -187,9 +387,42 @@
   "insight": "Divide out the HCF; what remains must be a coprime split of LCM/HCF, decided prime power by prime power.",
   "distractors": {
    "2": "Counting all factor pairs of $60$ (there are $6$) without requiring $p,q$ coprime; e.g. $p=2,q=30$ gives $12$ and $180$, whose HCF is $12$.",
-   "3": "Counting ordered pairs instead of unordered pairs."
+   "3": "Counting ordered pairs instead of unordered pairs.",
+   "0": "Treating $2^2$ as two separate primes to share out, or forgetting the split with everything in one number, $(6,360)$.",
+   "4": "Counting all ordered factor pairs of $60$ ($12$ of them)."
   },
-  "time": 150
+  "time": 150,
+  "family": "number-07"
+ },
+ {
+  "id": "number-07b",
+  "topic": "number",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "LCM",
+   "prime factorisation"
+  ],
+  "stem": "The lowest common multiple of $12$, $18$ and $n$ is $180$, where $n$ is a positive integer.\n\nHow many possible values of $n$ are there?",
+  "figure": null,
+  "options": [
+   "$3$",
+   "$6$",
+   "$9$",
+   "$12$",
+   "$18$"
+  ],
+  "answer": 2,
+  "solution": "Factorise: $12=2^2\\cdot3$, $18=2\\cdot3^2$, $180=2^2\\cdot3^2\\cdot5$.\n\nThe LCM takes the highest power of each prime, and $\\operatorname{lcm}(12,18)=2^2\\cdot3^2=36$ already supplies $2^2$ and $3^2$. So $n$ must:\n\n* divide $180$ (otherwise the LCM would be bigger), and\n* contain the factor $5$ (otherwise the LCM would be $36$).\n\nSo $n=2^a\\cdot3^b\\cdot5$ with $a\\in\\{0,1,2\\}$ and $b\\in\\{0,1,2\\}$: $3\\times3=\\mathbf9$ values ($5,10,15,20,30,45,60,90,180$).",
+  "insight": "Write everything as prime powers: $n$ may take any power up to the target for primes already supplied, but must itself supply any prime power that is missing.",
+  "distractors": {
+   "0": "Thinking $n$ must also supply the powers of $2$ (or of $3$) itself, so only one exponent can vary.",
+   "1": "Allowing the exponents of $2$ and $3$ only the values $1,2$ for one of them: $3\\times2$.",
+   "4": "Counting all $18$ divisors of $180$, forgetting that $n$ must contain the factor $5$.",
+   "3": "Counting divisors of $180$ that contain $2^2$ or $5$ without care."
+  },
+  "time": 150,
+  "family": "number-07"
  },
  {
   "id": "number-08",
@@ -207,45 +440,108 @@
    "$12$",
    "$16$",
    "$20$",
-   "$24$",
-   "$30$"
+   "$24$"
   ],
   "answer": 2,
   "solution": "A multiple of $6$ dividing $720$ has the form $6k$ where $k$ divides $720/6=120$.\n\n$120=2^3\\cdot3\\cdot5$ has $(3+1)(1+1)(1+1)=\\mathbf{16}$ divisors.\n\n*Alternative:* $720=2^4\\cdot3^2\\cdot5$. A divisor $2^a3^b5^c$ is a multiple of $6$ when $a\\ge1$ and $b\\ge1$: $4\\times2\\times2=16$ choices.",
   "insight": "Divisors of $N$ that are multiples of $d$ correspond exactly to divisors of $N/d$.",
   "distractors": {
-   "5": "Counting all $5\\times3\\times2=30$ divisors of $720$.",
-   "4": "Only requiring the divisor to be even ($a\\ge1$): $4\\times3\\times2=24$."
+   "4": "Only requiring the divisor to be even ($a\\ge1$): $4\\times3\\times2=24$.",
+   "1": "Requiring $a\\ge1$ and $b\\ge1$ but allowing only $a\\in\\{1,2,3\\}$: $3\\times2\\times2$.",
+   "0": "Treating each of the primes $2$, $3$, $5$ in $120$ as simply present or absent: $2^3$.",
+   "3": "Counting divisors of $720$ with $b\\ge1$ only (multiples of $3$): $5\\times2\\times2$."
   },
-  "time": 150
+  "time": 150,
+  "family": "number-08"
+ },
+ {
+  "id": "number-08b",
+  "topic": "number",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "divisors",
+   "prime factorisation"
+  ],
+  "stem": "How many positive divisors of $1800$ are odd?",
+  "figure": null,
+  "options": [
+   "$6$",
+   "$9$",
+   "$12$",
+   "$18$",
+   "$27$"
+  ],
+  "answer": 1,
+  "solution": "$1800=2^3\\cdot3^2\\cdot5^2$. A divisor $2^a3^b5^c$ is odd exactly when $a=0$.\n\nThen $b\\in\\{0,1,2\\}$ and $c\\in\\{0,1,2\\}$: $3\\times3=\\mathbf9$ odd divisors.\n\n(They are $1,3,5,9,15,25,45,75,225$, the divisors of $225=1800/8$.)",
+  "insight": "Odd divisors of $N$ are exactly the divisors of the largest odd factor of $N$.",
+  "distractors": {
+   "0": "Forgetting the exponent $0$ for one of the primes: $3\\times2$.",
+   "3": "Assuming exactly half of the $36$ divisors are odd.",
+   "4": "Counting the even divisors, $36-9$.",
+   "2": "Counting with the exponent of $2$ instead of $5$: $(3+1)\\times3$."
+  },
+  "time": 120,
+  "family": "number-08"
  },
  {
   "id": "number-09",
   "topic": "number",
   "paper": 1,
-  "difficulty": 3,
+  "difficulty": 4,
   "skills": [
    "integer solutions",
    "factorising"
   ],
-  "stem": "How many ordered pairs of positive integers $(x,y)$ satisfy $\\dfrac1x+\\dfrac1y=\\dfrac16$?",
+  "stem": "Tap A on its own fills a tank in $x$ hours and tap B on its own fills it in $y$ hours, where $x$ and $y$ are positive integers. With both taps on, the tank fills in exactly $6$ hours.\n\nHow many ordered pairs $(x,y)$ are possible?",
   "figure": null,
   "options": [
-   "$4$",
    "$5$",
    "$8$",
    "$9$",
    "$10$",
    "$18$"
   ],
-  "answer": 3,
-  "solution": "Multiply by $6xy$: $6y+6x=xy$, so $xy-6x-6y=0$, and adding $36$ to both sides,\n\n$$(x-6)(y-6)=36.$$\n\nSince $\\frac1x<\\frac16$, we need $x>6$, and likewise $y>6$, so $x-6$ and $y-6$ are positive. Each positive divisor $d$ of $36$ gives one solution $x=6+d$, $y=6+\\frac{36}{d}$.\n\n$36=2^2\\cdot3^2$ has $3\\times3=\\mathbf{9}$ divisors, so there are $9$ ordered pairs.",
+  "answer": 2,
+  "solution": "The taps fill $\\frac1x$ and $\\frac1y$ of the tank per hour, so $\\frac1x+\\frac1y=\\frac16$.\n\nMultiply by $6xy$: $6y+6x=xy$, so $xy-6x-6y=0$, and adding $36$ to both sides,\n\n$$(x-6)(y-6)=36.$$\n\nSince $\\frac1x<\\frac16$, we need $x>6$, and likewise $y>6$, so $x-6$ and $y-6$ are positive. Each positive divisor $d$ of $36$ gives one solution $x=6+d$, $y=6+\\frac{36}{d}$.\n\n$36=2^2\\cdot3^2$ has $3\\times3=\\mathbf{9}$ divisors, so there are $9$ ordered pairs.",
   "insight": "Rearrange to $(x-a)(y-b)=c$ ('Simon's favourite factoring trick') and count divisors.",
   "distractors": {
-   "1": "Counting unordered pairs: $(7,42),(8,24),(9,18),(10,15),(12,12)$.",
-   "5": "Also counting negative factor pairs of $36$; these give $x\\le 6$ or $y\\le6$ (e.g. $x-6=-6$ gives $x=0$), which are not positive solutions."
+   "0": "Counting unordered pairs: $(7,42),(8,24),(9,18),(10,15),(12,12)$.",
+   "4": "Also counting negative factor pairs of $36$; these give $x\\le6$ or $y\\le6$ (e.g. $x-6=-6$ gives $x=0$), which are impossible.",
+   "1": "Excluding $x=y=12$ on the grounds that the taps are different.",
+   "3": "Counting $9$ divisors and adding the 'pair' $x=y$ again."
   },
-  "time": 150
+  "time": 150,
+  "family": "number-09"
+ },
+ {
+  "id": "number-09b",
+  "topic": "number",
+  "paper": 1,
+  "difficulty": 4,
+  "skills": [
+   "integer solutions",
+   "factorising"
+  ],
+  "stem": "How many ordered pairs of positive integers $(x,y)$ satisfy\n$$\\frac3x+\\frac4y=1\\,?$$",
+  "figure": null,
+  "options": [
+   "$3$",
+   "$6$",
+   "$8$",
+   "$12$",
+   "$24$"
+  ],
+  "answer": 1,
+  "solution": "Multiply by $xy$: $3y+4x=xy$, so $xy-4x-3y=0$. Add $12$:\n$$(x-3)(y-4)=12.$$\n\nSince $\\frac3x<1$ and $\\frac4y<1$, we need $x>3$ and $y>4$, so both factors are positive. Each positive divisor $d$ of $12$ gives $x=3+d$, $y=4+\\frac{12}d$.\n\n$12$ has $6$ positive divisors, so there are **6** ordered pairs: $(4,16),(5,10),(6,8),(7,7),(9,6),(15,5)$.",
+  "insight": "Clear fractions and complete the product: $xy-ax-by=0$ becomes $(x-b)(y-a)=ab$.",
+  "distractors": {
+   "0": "Halving to count unordered pairs, though the equation is not symmetric in $x$ and $y$.",
+   "3": "Also counting negative factor pairs; these force $x\\le2$ or $y\\le3$, giving no positive solutions.",
+   "4": "Counting both signs and also doubling for the order of the factors."
+  },
+  "time": 180,
+  "family": "number-09"
  },
  {
   "id": "number-10",
@@ -253,25 +549,62 @@
   "paper": 1,
   "difficulty": 3,
   "skills": [
-   "counting",
-   "inclusion-exclusion"
+   "compound units",
+   "unit conversion",
+   "rates"
   ],
-  "stem": "How many integers from $1$ to $1000$ inclusive are divisible by $3$ or by $5$, but **not** by $15$?",
+  "stem": "Water flows along a pipe at a speed of $1.8$ m/s. The cross-sectional area of the pipe is $50$ cm$^2$.\n\nHow many litres of water flow out of the pipe each minute? ($1$ litre $=1000$ cm$^3$.)",
   "figure": null,
   "options": [
-   "$335$",
-   "$401$",
-   "$467$",
-   "$533$"
+   "$9$",
+   "$54$",
+   "$540$",
+   "$5400$",
+   "$54\\,000$"
   ],
-  "answer": 1,
-  "solution": "Multiples of $3$: $\\lfloor1000/3\\rfloor=333$. Multiples of $5$: $200$. Multiples of $15$: $66$.\n\nDivisible by $3$ or $5$: $333+200-66=467$ (inclusion–exclusion).\n\nThose divisible by $15$ are among these $467$, so remove them: $467-66=\\mathbf{401}$.\n\n*Alternative:* 'exactly one of $3$, $5$' is $(333-66)+(200-66)=267+134=401$.",
-  "insight": "Draw the two-set Venn diagram: 'or but not both' is the union minus the intersection.",
+  "answer": 2,
+  "solution": "Volume per second $=$ area $\\times$ speed. Work in cm: $1.8$ m/s $=180$ cm/s, so\n\n$$50\\times180=9000\\text{ cm}^3\\text{/s}=9\\text{ litres per second}.$$\n\nPer minute: $9\\times60=540$ litres.\n\n(In metres: $50$ cm$^2=50\\times10^{-4}$ m$^2=0.005$ m$^2$, and $0.005\\times1.8=0.009$ m$^3$/s $=9$ L/s.)",
+  "insight": "Convert everything to one unit system first; remember $1\\text{ m}^2=10^4\\text{ cm}^2$, not $10^2$.",
   "distractors": {
-   "2": "Stopping at the size of the union and forgetting to remove the multiples of $15$.",
-   "0": "Subtracting the $66$ multiples of $15$ twice more after inclusion–exclusion, instead of once."
+   "0": "Finding the flow per second ($9$ L) and forgetting to multiply by $60$.",
+   "1": "Using $1$ m$^3=100$ litres instead of $1000$.",
+   "3": "Converting $50$ cm$^2$ to $0.05$ m$^2$ (dividing by $1000$).",
+   "4": "Converting $50$ cm$^2$ to $0.5$ m$^2$ (dividing by $100$)."
   },
-  "time": 150
+  "time": 150,
+  "family": "number-10"
+ },
+ {
+  "id": "number-10b",
+  "topic": "number",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "compound units",
+   "density",
+   "pressure",
+   "unit conversion"
+  ],
+  "stem": "A solid metal block is a cuboid measuring $20$ cm by $10$ cm by $5$ cm, made of metal with density $8$ g/cm$^3$. It rests on a horizontal table on its smallest face.\n\nTaking the weight of a mass of $1$ kg to be $10$ N, and using pressure $=\\dfrac{\\text{force}}{\\text{area}}$, what pressure does the block exert on the table, in N/m$^2$?",
+  "figure": null,
+  "options": [
+   "$160$",
+   "$1600$",
+   "$4000$",
+   "$16\\,000$",
+   "$160\\,000$"
+  ],
+  "answer": 3,
+  "solution": "Volume $=20\\times10\\times5=1000$ cm$^3$, so the mass is $8\\times1000=8000$ g $=8$ kg, and the weight is $80$ N.\n\nThe smallest face is $10\\times5=50$ cm$^2=50\\times10^{-4}$ m$^2=0.005$ m$^2$.\n\nPressure $=\\dfrac{80}{0.005}=16\\,000$ N/m$^2$.",
+  "insight": "Convert area carefully: $1\\text{ cm}^2=10^{-4}\\text{ m}^2$, so small faces give large pressures.",
+  "distractors": {
+   "1": "Converting $50$ cm$^2$ to $0.05$ m$^2$, or forgetting to multiply the mass by $10$.",
+   "2": "Using the largest face, $20\\times10=200$ cm$^2$.",
+   "0": "Converting $50$ cm$^2$ to $0.5$ m$^2$.",
+   "4": "Converting $50$ cm$^2$ to $0.0005$ m$^2$."
+  },
+  "time": 180,
+  "family": "number-10"
  },
  {
   "id": "number-11",
@@ -300,64 +633,169 @@
   "insight": "Factorise into consecutive integers to prove divisibility, and test small values to disprove it.",
   "distractors": {
    "7": "Extrapolating the pattern from I and II without testing III; $n=2$ gives $12$.",
-   "6": "Doubting I because $n^2-n$ looks like it could be odd, without factorising it as $(n-1)n$."
+   "6": "Doubting I because $n^2-n$ looks like it could be odd, without factorising it as $(n-1)n$.",
+   "1": "Accepting I but doubting II because $n^3-n$ was not factorised into three consecutive integers."
   },
-  "time": 150
+  "time": 150,
+  "family": "number-11"
+ },
+ {
+  "id": "number-11b",
+  "topic": "number",
+  "paper": 2,
+  "difficulty": 3,
+  "skills": [
+   "divisibility",
+   "odd numbers",
+   "must be true"
+  ],
+  "stem": "Let $n$ be any odd integer. Which of the following statements **must** be true?\n\nI. $n^2-1$ is divisible by $8$.\n\nII. $n^4-1$ is divisible by $32$.\n\nIII. $n^2+3$ is divisible by $4$.",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 5,
+  "solution": "**I:** $n^2-1=(n-1)(n+1)$, a product of two consecutive even numbers. One of them is a multiple of $4$, so the product is a multiple of $8$. True.\n\n**II:** Try $n=3$: $81-1=80$, which is not divisible by $32$. False. (It is always divisible by $16$: $n^4-1=(n^2-1)(n^2+1)$ is $8\\times$ an even number.)\n\n**III:** By I, $n^2=8m+1$ for some integer $m$, so $n^2+3=8m+4=4(2m+1)$. True.\n\nSo **I and III only**.",
+  "insight": "For odd $n$, $n^2-1$ is a product of consecutive even numbers, so $n^2\\equiv1$ modulo $8$; test small values to break stronger claims.",
+  "distractors": {
+   "7": "Extrapolating from I to II without testing $n=3$.",
+   "1": "Thinking $n^2+3$ is odd plus odd-looking and so not a multiple of $4$, without using I.",
+   "4": "Extrapolating: since $n^2-1$ is a multiple of $8$, assuming $n^4-1=(n^2-1)(n^2+1)$ gains a further factor of $4$.",
+   "3": "Doubting I because only one of $n-1$, $n+1$ is a multiple of $4$."
+  },
+  "time": 150,
+  "family": "number-11"
  },
  {
   "id": "number-12",
   "topic": "number",
   "paper": 1,
-  "difficulty": 3,
+  "difficulty": 4,
   "skills": [
-   "mean",
-   "median",
-   "optimisation"
+   "product rule",
+   "systematic counting",
+   "cases"
   ],
-  "stem": "Five different positive integers have mean $10$ and median $8$. What is the largest possible value of the largest of the five integers?",
+  "stem": "A locker code is a four-digit number from $1000$ to $9999$ in which all four digits are different.\n\nHow many such codes are even?",
   "figure": null,
   "options": [
-   "$26$",
-   "$29$",
-   "$30$",
-   "$31$",
-   "$32$"
+   "$1792$",
+   "$2240$",
+   "$2268$",
+   "$2296$",
+   "$2520$"
+  ],
+  "answer": 3,
+  "solution": "Fill the most restricted places first: the last digit (must be even) and the first digit (cannot be $0$). Split by the last digit.\n\n* **Last digit $0$:** first digit $9$ choices ($1$–$9$), then $8$ and $7$ for the middle two: $9\\times8\\times7=504$.\n* **Last digit $2,4,6$ or $8$** ($4$ choices): first digit cannot be $0$ or the last digit, so $8$ choices; then $8$ and $7$: $4\\times8\\times8\\times7=1792$.\n\nTotal: $504+1792=2296$.",
+  "insight": "With two restricted positions that interact (no leading zero, even last digit), split into cases according to whether the last digit is $0$.",
+  "distractors": {
+   "0": "Forgetting the case where the last digit is $0$.",
+   "1": "Treating all five even last digits alike: $5\\times8\\times8\\times7$.",
+   "2": "Taking half of the $9\\times9\\times8\\times7=4536$ codes with distinct digits.",
+   "4": "Choosing the last digit first ($5$ ways) and then $9\\times8\\times7$ for the rest, ignoring that $0$ cannot lead."
+  },
+  "time": 210,
+  "family": "number-12"
+ },
+ {
+  "id": "number-12b",
+  "topic": "number",
+  "paper": 1,
+  "difficulty": 4,
+  "skills": [
+   "systematic listing",
+   "product rule",
+   "arrangements"
+  ],
+  "stem": "How many three-digit numbers (from $100$ to $999$) have digits whose product is $24$?",
+  "figure": null,
+  "options": [
+   "$4$",
+   "$18$",
+   "$21$",
+   "$24$",
+   "$27$"
   ],
   "answer": 2,
-  "solution": "The total is $5\\times10=50$. Write the integers as $a<b<8<d<e$.\n\nTo make $e$ as large as possible, make the others as small as possible: $a=1$, $b=2$, $d=9$. Then\n\n$$e=50-1-2-8-9=\\mathbf{30}.$$\n\nThese are distinct, the median is $8$ and the mean is $10$, so $30$ is attained.",
-  "insight": "To maximise one value under a fixed total, minimise all the others subject to the constraints.",
+  "solution": "None of the digits can be $0$, so list the multisets of three digits from $1$–$9$ with product $24=2^3\\cdot3$ systematically by largest digit:\n\n* $8$: $\\{8,3,1\\}$\n* $6$: $\\{6,4,1\\}$, $\\{6,2,2\\}$\n* $4$: $\\{4,3,2\\}$\n* $3$ or less: $3\\times3\\times3=27$... no, the largest digit $3$ allows at most $3\\cdot3\\cdot2=18<24$, so nothing more.\n\nCount arrangements: three different digits give $3!=6$ numbers; $\\{6,2,2\\}$ gives $3$.\n\nTotal: $6+6+3+6=21$.",
+  "insight": "List the digit sets systematically (by largest digit), then count arrangements of each, taking care with repeated digits.",
   "distractors": {
-   "3": "Taking $d=8$, forgetting that the integers are all different, so $d\\ge9$.",
-   "4": "Ignoring distinctness altogether: $1+1+8+8+e=50$ gives $32$."
+   "0": "Counting the digit sets instead of the numbers.",
+   "1": "Missing the set $\\{6,2,2\\}$ with a repeated digit.",
+   "3": "Counting $6$ arrangements for $\\{6,2,2\\}$ as if the two $2$s were different.",
+   "4": "Counting $3$ choices of digit for each of the three places, $3^3$."
   },
-  "time": 150
+  "time": 210,
+  "family": "number-12"
  },
  {
   "id": "number-13",
   "topic": "number",
   "paper": 1,
-  "difficulty": 4,
+  "difficulty": 5,
   "skills": [
-   "last digits",
-   "cycles of powers"
+   "iterative processes",
+   "compound growth",
+   "estimation"
   ],
-  "stem": "What is the last digit of $1^1+2^2+3^3+\\cdots+10^{10}$?",
+  "stem": "A fish farm starts with $2000$ fish. Each year the number of fish increases by $20\\%$, and then $500$ fish are harvested.\n\nAfter how many harvests does the number of fish first fall below $1000$?",
   "figure": null,
   "options": [
-   "$1$",
-   "$3$",
    "$5$",
+   "$6$",
    "$7$",
+   "$8$",
+   "$10$"
+  ],
+  "answer": 2,
+  "solution": "Let $u_n$ be the number after $n$ harvests: $u_{n+1}=1.2u_n-500$, $u_0=2000$.\n\nThe fixed point is $u=1.2u-500\\iff u=2500$. Let $v_n=u_n-2500$; then $v_{n+1}=1.2v_n$ and $v_0=-500$, so\n$$u_n=2500-500\\times1.2^n.$$\n\n$u_n<1000\\iff 1.2^n>3$. Now $1.2^3=1.728$ and $1.2^6=1.728^2\\approx2.986<3$, while $1.2^7\\approx3.583>3$.\n\nSo the number first falls below $1000$ after **7** harvests ($u_6\\approx1007$, $u_7\\approx708$).\n\n(Direct iteration also works: $1900,\\ 1780,\\ 1636,\\ 1463.2,\\ 1255.84,\\ 1007.0,\\ 708.4$.)",
+  "insight": "For $u_{n+1}=ru_n-c$, measure distances from the fixed point: they grow geometrically by $r$.",
+  "distractors": {
+   "1": "Estimating $1.2^6\\approx3$ and so stopping one harvest early; $u_6\\approx1007$ is still above $1000$.",
+   "3": "Counting the initial year as a harvest, an off-by-one error.",
+   "4": "Assuming the stock falls by a constant $100$ a year (the first year's fall).",
+   "0": "Solving $2500-500\\times1.2^n<1000$ as $1.2^n>2.5$, a slip in $1500\\div500$."
+  },
+  "time": 300,
+  "family": "number-13"
+ },
+ {
+  "id": "number-13b",
+  "topic": "number",
+  "paper": 1,
+  "difficulty": 5,
+  "skills": [
+   "iterative processes",
+   "compound interest",
+   "estimation"
+  ],
+  "stem": "A loan of £$8000$ is taken out. At the end of each year, interest of $25\\%$ is added to the amount owed, and then a repayment of £$2500$ is made (the final repayment may be smaller, to clear the debt exactly).\n\nHow many repayments are needed in total?",
+  "figure": null,
+  "options": [
+   "$4$",
+   "$6$",
+   "$7$",
+   "$8$",
    "$9$"
   ],
   "answer": 3,
-  "solution": "Only last digits matter. Use the cycles of last digits of powers:\n\n| $k$ | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |\n|---|---|---|---|---|---|---|---|---|---|---|\n| last digit of $k^k$ | 1 | 4 | 7 | 6 | 5 | 6 | 3 | 6 | 9 | 0 |\n\nFor example $3^3=27$; $7$ has cycle $7,9,3,1$ and $7\\equiv3\\pmod4$, giving $3$; $8$ has cycle $8,4,2,6$ and $8\\equiv0\\pmod4$, giving $6$; $9^{\\text{odd}}$ ends in $9$.\n\nSum of last digits: $1+4+7+6+5+6+3+6+9+0=47$, so the last digit is **7**.",
-  "insight": "Work modulo $10$ throughout, using the period-4 cycles of last digits.",
+  "solution": "Let $B_n$ be the debt after $n$ repayments: $B_{n+1}=1.25B_n-2500$, $B_0=8000$.\n\nFixed point: $B=1.25B-2500\\iff B=10\\,000$. Then $B_n-10\\,000=(8000-10\\,000)\\times1.25^n$, so\n$$B_n=10\\,000-2000\\times1.25^n.$$\n\nThe debt is cleared once $B_n\\le0$, i.e. $1.25^n\\ge5$.\n\n$1.25^2=1.5625$, $1.25^4\\approx2.441$, $1.25^6\\approx3.815$, $1.25^7\\approx4.768<5$, $1.25^8\\approx5.96>5$.\n\nSo after $7$ full repayments about £$463$ is still owed, and the **8th** (smaller) repayment clears it: $8$ repayments.",
+  "insight": "Repayment problems are iterations $B_{n+1}=rB_n-c$; shift by the fixed point to get a geometric sequence.",
   "distractors": {
-   "0": "Taking $7^7$ to end in $7$ (as if the cycle had period $1$): the total becomes $51$.",
-   "4": "Taking $8^8$ to end in $8$ instead of $6$: the total becomes $49$."
+   "0": "Ignoring interest: $8000\\div2500=3.2$, so $4$ repayments.",
+   "2": "Taking $1.25^7\\approx5$, so believing the debt is cleared after $7$.",
+   "4": "Counting the first year as a repayment year twice, an off-by-one error.",
+   "1": "Solving $1.25^n\\ge\\frac{8000}{2500}=3.2$ instead of using the fixed point."
   },
-  "time": 210
+  "time": 300,
+  "family": "number-13"
  },
  {
   "id": "number-14",
@@ -374,19 +812,52 @@
   "options": [
    "$2$",
    "$4$",
-   "$6$",
    "$8$",
    "$12$",
    "$16$"
   ],
-  "answer": 3,
+  "answer": 2,
   "solution": "Factorise: $(x-y)(x+y)=60$.\n\nThe two factors have the same parity (their sum is $2x$), and their product is even, so both are even. Write $x-y=2a$, $x+y=2b$; then $ab=15$.\n\nThe integer factor pairs $(a,b)$ of $15$ are $(1,15),(3,5),(5,3),(15,1)$ and their negatives: $8$ ordered pairs. Each gives exactly one solution $x=a+b$, $y=b-a$:\n\n$$(16,14),\\ (8,2),\\ (8,-2),\\ (16,-14)$$\n\nand their negatives. So there are **8** pairs.",
   "insight": "For $x^2-y^2=N$, factorise and use parity: the two factors must be both odd or both even.",
   "distractors": {
    "0": "Only counting positive solutions, $(16,14)$ and $(8,2)$.",
-   "4": "Using every ordered factor pair of $60$ ($12$ of them) without checking that $x$ and $y$ come out as integers; e.g. $1\\times60$ gives $x=30.5$."
+   "3": "Using every ordered factor pair of $60$ ($12$ of them) without checking that $x$ and $y$ come out as integers; e.g. $1\\times60$ gives $x=30.5$.",
+   "1": "Counting only positive values of $x$ (with $y$ of either sign).",
+   "4": "Doubling the correct count by also swapping the roles of $x-y$ and $x+y$, which are already both included."
   },
-  "time": 210
+  "time": 210,
+  "family": "number-14"
+ },
+ {
+  "id": "number-14b",
+  "topic": "number",
+  "paper": 1,
+  "difficulty": 4,
+  "skills": [
+   "difference of squares",
+   "parity",
+   "counting"
+  ],
+  "stem": "How many of the integers $1,2,3,\\ldots,50$ can be written in the form $x^2-y^2$, where $x$ and $y$ are integers?",
+  "figure": null,
+  "options": [
+   "$25$",
+   "$37$",
+   "$38$",
+   "$39$",
+   "$50$"
+  ],
+  "answer": 1,
+  "solution": "$x^2-y^2=(x-y)(x+y)$, and the factors $x-y$, $x+y$ have the same parity (they differ by $2y$).\n\n* Odd $n=2k+1$: $(k+1)^2-k^2=n$. All odd numbers work.\n* Multiples of $4$, $n=4k$: $(k+1)^2-(k-1)^2=4k$. All work.\n* $n\\equiv2\\pmod4$: the two factors would have the same parity; both odd gives an odd product, both even gives a multiple of $4$. Impossible.\n\nNumbers $\\le50$ that are $\\equiv2\\pmod4$: $2,6,10,\\ldots,50$, which is $13$ numbers. So $50-13=\\mathbf{37}$ can be written in the form.",
+  "insight": "$x^2-y^2$ is the product of two factors of the same parity, so it is odd or a multiple of $4$, and every such number occurs.",
+  "distractors": {
+   "0": "Only counting odd numbers, missing the multiples of $4$.",
+   "2": "Miscounting the numbers $2,6,\\ldots,50$ as $12$.",
+   "4": "Assuming every integer is a difference of two squares.",
+   "3": "Excluding only the numbers $2,6,\\ldots,42$."
+  },
+  "time": 210,
+  "family": "number-14"
  },
  {
   "id": "number-15",
@@ -404,8 +875,7 @@
    "$6^{1/6}<5^{1/5}<3^{1/3}<2^{1/2}$",
    "$5^{1/5}<6^{1/6}<2^{1/2}<3^{1/3}$",
    "$6^{1/6}<5^{1/5}<2^{1/2}<3^{1/3}$",
-   "$6^{1/6}<2^{1/2}<5^{1/5}<3^{1/3}$",
-   "$2^{1/2}<6^{1/6}<5^{1/5}<3^{1/3}$"
+   "$6^{1/6}<2^{1/2}<5^{1/5}<3^{1/3}$"
   ],
   "answer": 3,
   "solution": "Compare in pairs by raising both sides to a power that clears the fractional indices (all numbers are positive, so this preserves order).\n\n* $2^{1/2}$ vs $3^{1/3}$: sixth powers are $8$ and $9$, so $2^{1/2}<3^{1/3}$.\n* $5^{1/5}$ vs $2^{1/2}$: tenth powers are $25$ and $32$, so $5^{1/5}<2^{1/2}$.\n* $6^{1/6}$ vs $5^{1/5}$: thirtieth powers are $6^5=7776$ and $5^6=15625$, so $6^{1/6}<5^{1/5}$.\n\nHence $6^{1/6}<5^{1/5}<2^{1/2}<3^{1/3}$.",
@@ -414,13 +884,44 @@
    "0": "Assuming a larger base gives a larger number, ignoring that the root also gets stronger.",
    "1": "Assuming a stronger root always wins, so the list is decreasing; but $2^{1/2}<3^{1/3}$ since $8<9$."
   },
-  "time": 210
+  "time": 210,
+  "family": "number-15"
+ },
+ {
+  "id": "number-15b",
+  "topic": "number",
+  "paper": 1,
+  "difficulty": 4,
+  "skills": [
+   "comparing sizes",
+   "indices"
+  ],
+  "stem": "Which of the following correctly orders the numbers $2^{48}$, $3^{32}$, $5^{20}$ and $7^{16}$?",
+  "figure": null,
+  "options": [
+   "$2^{48}<3^{32}<5^{20}<7^{16}$",
+   "$7^{16}<5^{20}<3^{32}<2^{48}$",
+   "$7^{16}<5^{20}<2^{48}<3^{32}$",
+   "$5^{20}<7^{16}<2^{48}<3^{32}$",
+   "$7^{16}<2^{48}<5^{20}<3^{32}$"
+  ],
+  "answer": 2,
+  "solution": "All the exponents are multiples of $4$, so write each as a fourth power:\n$$2^{48}=(2^{12})^4=4096^4,\\quad3^{32}=(3^8)^4=6561^4,\\quad5^{20}=(5^5)^4=3125^4,\\quad7^{16}=(7^4)^4=2401^4.$$\n\nSince $2401<3125<4096<6561$, the order is $7^{16}<5^{20}<2^{48}<3^{32}$.",
+  "insight": "Rewrite powers with a common exponent (use the HCF of the exponents) and compare the bases.",
+  "distractors": {
+   "0": "Assuming a larger base always gives a larger number.",
+   "1": "Assuming a larger exponent always gives a larger number.",
+   "3": "Miscalculating $7^4$ as more than $5^5$.",
+   "4": "Miscalculating $5^5$ as more than $2^{12}$."
+  },
+  "time": 180,
+  "family": "number-15"
  },
  {
   "id": "number-16",
   "topic": "number",
   "paper": 2,
-  "difficulty": 4,
+  "difficulty": 5,
   "skills": [
    "divisibility",
    "sufficient conditions",
@@ -443,9 +944,46 @@
   "insight": "Divisibility by several numbers means divisibility by their LCM, and $p^a\\mid n^k$ gives $p^{\\lceil a/k\\rceil}\\mid n$.",
   "distractors": {
    "4": "Multiplying instead of taking the LCM: '$2$ and $6$ gives $12$'.",
-   "5": "Reading $18\\mid n^3$ as giving $2^2\\cdot3$ in $n$; a single factor of $2$ in $n^3$ needs only one $2$ in $n$."
+   "5": "Reading $18\\mid n^3$ as giving $2^2\\cdot3$ in $n$; a single factor of $2$ in $n^3$ needs only one $2$ in $n$.",
+   "7": "Accepting all three by multiplying divisors instead of taking the LCM and misreading the prime powers.",
+   "0": "Rejecting I by thinking $2^3\\mid n^2$ gives only $2\\mid n$."
   },
-  "time": 210
+  "time": 210,
+  "family": "number-16"
+ },
+ {
+  "id": "number-16b",
+  "topic": "number",
+  "paper": 2,
+  "difficulty": 5,
+  "skills": [
+   "divisibility",
+   "sufficient conditions",
+   "prime factorisation"
+  ],
+  "stem": "Let $n$ be a positive integer. Which of the following conditions is/are **sufficient** for $n^2$ to be divisible by $72$?\n\nI. $n$ is divisible by $12$.\n\nII. $n^2$ is divisible by $48$.\n\nIII. $n^3$ is divisible by $36$.",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 4,
+  "solution": "$72=2^3\\cdot3^2$. The power of each prime in $n^2$ is even, so $72\\mid n^2\\iff 2^4\\mid n^2$ and $3^2\\mid n^2\\iff 4\\mid n$ and $3\\mid n\\iff12\\mid n$.\n\n**I:** exactly the condition. **Sufficient.**\n\n**II:** $48=2^4\\cdot3$. $2^4\\mid n^2$ gives $2^2\\mid n$, and $3\\mid n^2$ gives $3\\mid n$. So $12\\mid n$. **Sufficient.**\n\n**III:** $36=2^2\\cdot3^2$. $2^2\\mid n^3$ needs only $2\\mid n$, and $3^2\\mid n^3$ needs only $3\\mid n$. Counterexample $n=6$: $6^3=216=6\\times36$ but $6^2=36$ is not divisible by $72$. **Not sufficient.**\n\nSo **I and II only**.",
+  "insight": "Translate each divisibility condition into prime powers of $n$ itself: $p^a\\mid n^k$ means $p^{\\lceil a/k\\rceil}\\mid n$.",
+  "distractors": {
+   "1": "Thinking $3\\mid n^2$ is not enough to give $3^2\\mid n^2$.",
+   "7": "Assuming $36\\mid n^3$ forces $36\\mid n$.",
+   "5": "Accepting III and rejecting II by mixing up which powers carry over from $n^k$ to $n$.",
+   "6": "Thinking I fails because $12^2=144$ looks unrelated to $72$."
+  },
+  "time": 240,
+  "family": "number-16"
  },
  {
   "id": "number-17",
@@ -471,9 +1009,43 @@
   "insight": "Trailing zeros of $n!$ count factors of $5$, so values are skipped exactly when $n$ hits a high power of $5$.",
   "distractors": {
    "2": "Noticing one skipped value at each multiple of $25$ but not that $125$ contributes three factors of $5$ and skips two values.",
-   "1": "Only counting the jumps at $25,50,75,100$ and not checking what happens near $k=30$."
+   "1": "Only counting the jumps at $25,50,75,100$ and not checking what happens near $k=30$.",
+   "4": "Also counting $k=25$ as skipped (it is attained, e.g. $Z(105)=25$).",
+   "0": "Noticing only the skip at $125$ (or only one skip in total)."
   },
-  "time": 270
+  "time": 270,
+  "family": "number-17"
+ },
+ {
+  "id": "number-17b",
+  "topic": "number",
+  "paper": 1,
+  "difficulty": 5,
+  "skills": [
+   "factorials",
+   "prime factorisation",
+   "counting factors"
+  ],
+  "stem": "What is the smallest positive integer $n$ such that $n!$ is divisible by $12^{10}$?",
+  "figure": null,
+  "options": [
+   "$20$",
+   "$24$",
+   "$30$",
+   "$40$",
+   "$120$"
+  ],
+  "answer": 1,
+  "solution": "$12^{10}=2^{20}\\cdot3^{10}$. Count factors of each prime in $n!$:\n$$v_p(n!)=\\left\\lfloor\\tfrac np\\right\\rfloor+\\left\\lfloor\\tfrac n{p^2}\\right\\rfloor+\\cdots$$\n\n* Factors of $3$: $v_3(23!)=7+2=9$, $v_3(24!)=8+2=10$. So we need $n\\ge24$.\n* Factors of $2$: $v_2(24!)=12+6+3+1=22\\ge20$ ✓ (while $v_2(22!)=19$, so $2$ also needs $n\\ge23$ or so).\n\nThe smallest $n$ is $\\mathbf{24}$.",
+  "insight": "Count prime factors in $n!$ with $\\lfloor n/p\\rfloor+\\lfloor n/p^2\\rfloor+\\cdots$; the scarcer prime usually decides.",
+  "distractors": {
+   "0": "Matching exponents naively: thinking $20!$ must contain $2^{20}$ and $3^{10}$ because $20\\ge20$ and $20\\ge10$.",
+   "2": "Needing ten multiples of $3$, forgetting that $9$ and $18$ each contribute two factors of $3$.",
+   "3": "Needing twenty multiples of $2$, forgetting that $4,8,\\ldots$ contribute extra factors (and then ignoring the $3$s).",
+   "4": "Thinking $n$ must be $12\\times10$."
+  },
+  "time": 270,
+  "family": "number-17"
  },
  {
   "id": "number-18",
@@ -490,19 +1062,50 @@
   "options": [
    "$0$",
    "$1$",
-   "$2$",
-   "$3$",
    "$4$",
    "$5$",
    "$6$"
   ],
-  "answer": 5,
+  "answer": 3,
   "solution": "Since $10^6\\equiv1\\pmod7$ (powers of $10$ modulo $7$ cycle $3,2,6,4,5,1$), the six-digit number $111111=\\frac{10^6-1}{9}$ is divisible by $7$ (indeed $111111=7\\times15873$).\n\nSplit $N$ as its first four digits followed by $2022$ ones:\n$$N=1111\\times10^{2022}+\\underbrace{11\\ldots1}_{2022}.$$\n\n$2022=6\\times337$, so the second part is $337$ blocks of $111111$ and is divisible by $7$. Also $10^{2022}=(10^6)^{337}\\equiv1\\pmod 7$.\n\nHence $N\\equiv1111\\pmod7$, and $1111=7\\times158+5$, so the remainder is **5**.",
   "insight": "Find the period of $10$ modulo the divisor, chop the number into full periods and deal with the leftover block.",
   "distractors": {
-   "4": "Reducing $2026\\equiv4\\pmod6$ and giving that $4$ as the remainder, instead of the remainder of the four-digit number $1111$.",
-   "0": "Knowing $111111$ is a multiple of $7$ and assuming every repunit is."
+   "2": "Reducing $2026\\equiv4\\pmod6$ and giving that $4$ as the remainder, instead of the remainder of the four-digit number $1111$.",
+   "0": "Knowing $111111$ is a multiple of $7$ and assuming every repunit is.",
+   "1": "Splitting $N$ into blocks of six and dropping the leftover block, then taking the last digit $1$.",
+   "4": "Taking $1111\\equiv6\\pmod7$ through an arithmetic slip ($7\\times158=1106$, so the remainder is $5$)."
   },
-  "time": 270
+  "time": 270,
+  "family": "number-18"
+ },
+ {
+  "id": "number-18b",
+  "topic": "number",
+  "paper": 1,
+  "difficulty": 5,
+  "skills": [
+   "remainders",
+   "cycles",
+   "powers"
+  ],
+  "stem": "What is the remainder when $2^{2026}+3^{2026}$ is divided by $7$?",
+  "figure": null,
+  "options": [
+   "$0$",
+   "$2$",
+   "$3$",
+   "$5$",
+   "$6$"
+  ],
+  "answer": 4,
+  "solution": "Work modulo $7$.\n\n* Powers of $2$: $2,4,1,\\ldots$, period $3$. $2026=3\\times675+1$, so $2^{2026}\\equiv2$.\n* Powers of $3$: $3,2,6,4,5,1,\\ldots$, period $6$. $2026=6\\times337+4$, so $3^{2026}\\equiv3^4=81\\equiv4$.\n\nSum: $2+4=6$. The remainder is **6**.",
+  "insight": "Find the cycle of each base separately; different bases can have different cycle lengths modulo the same number.",
+  "distractors": {
+   "3": "Using period $3$ for the powers of $3$ as well: $3^{2026}\\equiv3^1=3$, so $2+3=5$.",
+   "1": "Assuming both $2^{2026}$ and $3^{2026}$ are $\\equiv1$ because the powers 'cycle back to $1$'.",
+   "0": "Reducing the exponent modulo $7$ ($2026\\equiv3$) instead of modulo the cycle length: $2^3+3^3=35\\equiv0$."
+  },
+  "time": 240,
+  "family": "number-18"
  }
 ]

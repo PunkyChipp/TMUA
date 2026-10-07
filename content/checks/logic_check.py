@@ -393,7 +393,7 @@ check_std("logic-17b", {k for k, f in c.items() if all(f(w) for w in W17b)})
 
 # ===================================================================== 18 (random finite models of "primes")
 random.seed(1)
-NS_, PS = range(1, 6), range(1, 13)
+NS_, PS = range(2, 7), range(1, 13)
 orig = lambda P: all(any(P[p] and n < p < 2 * n for p in PS) for n in NS_)
 opts = [lambda P: any(all(imp(P[p], p <= n or p >= 2 * n) for p in PS) for n in NS_),
         lambda P: any(all(imp(P[p], p <= n and p >= 2 * n) for p in PS) for n in NS_),
@@ -401,7 +401,7 @@ opts = [lambda P: any(all(imp(P[p], p <= n or p >= 2 * n) for p in PS) for n in 
         lambda P: all(all(imp(P[p], p <= n or p >= 2 * n) for p in PS) for n in NS_),
         lambda P: any(any(P[p] and (p <= n or p >= 2 * n) for p in PS) for n in NS_)]
 models = [{p: random.random() < 0.5 for p in PS} for _ in range(4000)]
-models += [{p: sp.isprime(p) for p in PS}, {p: p in (3, 5, 7, 11) for p in PS}]
+models += [{p: sp.isprime(p) for p in PS}, {p: p in (3, 5, 7, 11) for p in PS}, {p: False for p in PS}]
 exactly([all(o(P) == (not orig(P)) for P in models) for o in opts], "logic-18")
 
 # ===================================================================== 18b (students, heights, friendships)

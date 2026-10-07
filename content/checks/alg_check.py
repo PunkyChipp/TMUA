@@ -130,6 +130,8 @@ check_pred("alg-04", lambda kv: count4(kv) == 2,
 
 # alg-04b: |x^2-4x| = k
 def count4b(kv):
+    if kv < 0:
+        return 0
     s = set()
     for sgn in (1, -1):
         for c in sp.solve(sp.Eq(x**2 - 4 * x, sgn * kv), x):
@@ -168,7 +170,9 @@ def one_to_one(f, lo, hi, n=4001):
     """Strictly monotone on a fine grid of [lo, hi] (exact rationals) <=> one-to-one there."""
     pts = [lo + (hi - lo) * Fr(i, n - 1) for i in range(n)]
     vals = [f(t) for t in pts]
-    return len(set(vals)) == len(vals)
+    d = [b_ - a_ for a_, b_ in zip(vals, vals[1:])]
+    # a continuous function on an interval is one-to-one iff strictly monotone
+    return all(t > 0 for t in d) or all(t < 0 for t in d)
 
 
 f6 = lambda t: t * t - 4 * t
@@ -268,8 +272,8 @@ assert sp.simplify(fx.subs(x, finv) - x) == 0 and sp.simplify(finv.subs(x, fx) -
 sols = [cv for cv in sp.solve(fx - x, x) if cv >= -2 and sp.simplify(fx.subs(x, cv) - finv.subs(x, cv)) == 0]
 assert sorted(sols) == [-2, -1]
 fl = sp.lambdify(x, fx - finv)
-vals = [fl(-2 + i / 1000) for i in range(1, 20000)]
-# sign changes / zeros other than at -1 (and the endpoint -2)
+vals = [fl(-2 + i / 1000 + 0.0005) for i in range(0, 20000)]
+# exactly one root of f - f^{-1} in (-2, 18) besides the endpoint -2 (it is at -1)
 assert sum(1 for s1, s2 in zip(vals, vals[1:]) if s1 * s2 < 0) == 1
 opts = [[], [-2], [-1], [-2, -1], [1, 2]]
 assert [i for i, o in enumerate(opts) if o == sorted(sols)] == [Q["alg-11b"]["answer"]]
