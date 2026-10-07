@@ -3,55 +3,122 @@
   "id": "prob-01",
   "topic": "prob",
   "paper": 1,
-  "difficulty": 1,
+  "difficulty": 2,
   "skills": [
-   "sample space",
-   "two dice"
+   "mean",
+   "adding and removing values"
   ],
-  "stem": "Two fair six-sided dice are rolled. What is the probability that the total score is $8$?",
+  "stem": "A football squad has $10$ players with a mean age of $25$ years. Two players, aged $30$ and $34$, leave the squad and three new players join. The mean age of the squad is now $24$ years.\n\nWhat is the mean age, in years, of the three new players?",
   "figure": null,
   "options": [
-   "$\\frac{1}{12}$",
-   "$\\frac{1}{9}$",
-   "$\\frac{5}{36}$",
-   "$\\frac{1}{6}$",
-   "$\\frac{7}{36}$"
+   "$18$",
+   "$24$",
+   "$26$",
+   "$39$",
+   "$42$"
   ],
   "answer": 2,
-  "solution": "There are $36$ equally likely ordered outcomes. Those with total $8$ are\n$$(2,6),\\ (3,5),\\ (4,4),\\ (5,3),\\ (6,2),$$\nso the probability is $\\frac{5}{36}$.",
-  "insight": "Use the $6\\times6$ grid of ordered outcomes, which are equally likely; unordered pairs are not.",
+  "solution": "Work with totals, not means.\n\n* Original total age: $10\\times25=250$.\n* After the two players leave: $250-30-34=186$, for $8$ players.\n* The new squad has $8+3=11$ players with total $11\\times24=264$.\n\nSo the three new players have total age $264-186=78$, and mean age $\\frac{78}{3}=26$.",
+  "insight": "A mean only changes through its total: convert every mean to a sum, adjust the sum, then divide by the new count.",
   "distractors": {
-   "0": "Listing unordered pairs $\\{2,6\\},\\{3,5\\},\\{4,4\\}$ and dividing by $36$, forgetting that $(2,6)$ and $(6,2)$ are different outcomes.",
-   "3": "Confusing this with the most likely total, $7$, which has probability $\\frac16$."
+   "0": "Using $10$ players for the new squad: $10\\times24-186=54$, and $54\\div3=18$.",
+   "1": "Assuming the new players' mean must equal the new squad mean.",
+   "3": "Finding the correct total $78$ but dividing by $2$ instead of $3$.",
+   "4": "Forgetting that the two leavers reduce the squad size, so using $13$ players: $13\\times24-186=126$, and $126\\div3=42$."
   },
-  "time": 60
+  "time": 100,
+  "family": "prob-01"
+ },
+ {
+  "id": "prob-01b",
+  "topic": "prob",
+  "paper": 1,
+  "difficulty": 2,
+  "skills": [
+   "mean",
+   "adding and removing values"
+  ],
+  "stem": "Over her first $8$ tests, Mia's mean mark is $62$. After two more tests, her mean mark over all $10$ tests is $65$. She scored $70$ in the ninth test.\n\nWhat did she score in the tenth test?",
+  "figure": null,
+  "options": [
+   "$60$",
+   "$84$",
+   "$89$",
+   "$92$",
+   "$154$"
+  ],
+  "answer": 1,
+  "solution": "Totals: the first $8$ tests total $8\\times62=496$ and all $10$ total $10\\times65=650$. So the last two total $650-496=154$, and the tenth mark is $154-70=84$.\n\n*Alternative (balance about the new mean $65$):* each of the first $8$ marks is on average $3$ below $65$, a shortfall of $24$. The ninth mark is $5$ above $65$, so the tenth must be $24-5=19$ above $65$, i.e. $84$.",
+  "insight": "Turn means into totals; the change in total is exactly what the new values must supply.",
+  "distractors": {
+   "0": "Assuming the two new marks must themselves average $65$: $130-70=60$.",
+   "2": "Making up the whole shortfall of $24$ with the tenth test, $65+24=89$, forgetting that the ninth test already contributed $5$.",
+   "3": "Subtracting the old mean $62$ instead of the ninth mark: $154-62=92$.",
+   "4": "Stopping at the total of the last two marks."
+  },
+  "time": 110,
+  "family": "prob-01"
  },
  {
   "id": "prob-02",
   "topic": "prob",
   "paper": 1,
-  "difficulty": 1,
+  "difficulty": 3,
   "skills": [
-   "at least one",
-   "complement"
+   "linear transformation of data",
+   "mean",
+   "range"
   ],
-  "stem": "Three fair coins are tossed. What is the probability of getting at least one head?",
+  "stem": "A teacher scales the marks on a test using\n$$\\text{new mark}=a\\times\\text{old mark}+b,$$\nwhere $a$ and $b$ are positive constants. Before scaling, the marks had mean $12$ and range $8$. After scaling, the mean is $34$ and the range is $20$.\n\nPriya's old mark was $10$. What is her new mark?",
   "figure": null,
   "options": [
-   "$\\frac{1}{8}$",
-   "$\\frac{3}{8}$",
-   "$\\frac{1}{2}$",
-   "$\\frac{3}{4}$",
-   "$\\frac{7}{8}$"
+   "$25$",
+   "$27$",
+   "$29$",
+   "$32$",
+   "$39$"
   ],
-  "answer": 4,
-  "solution": "Use the complement. The only outcome with no heads is TTT, with probability $\\left(\\frac12\\right)^3=\\frac18$.\n\n$$P(\\text{at least one head})=1-\\tfrac18=\\tfrac78.$$",
-  "insight": "'At least one' is almost always fastest as $1-P(\\text{none})$.",
+  "answer": 2,
+  "solution": "Adding $b$ moves every mark by the same amount, so it does not change the range; multiplying by $a>0$ multiplies the range by $a$. Hence $a=\\frac{20}{8}=\\frac52$.\n\nThe mean undergoes the full transformation: $34=12a+b=30+b$, so $b=4$.\n\nPriya's new mark is $\\frac52\\times10+4=29$.\n\n*Quicker:* Priya was $2$ below the old mean. Distances from the mean are multiplied by $a=\\frac52$, so she is $5$ below the new mean: $34-5=29$.",
+  "insight": "Under $y=ax+b$, averages (mean, median, quartiles) get the whole transformation, but spreads (range, IQR) are only multiplied by $|a|$.",
   "distractors": {
-   "0": "Calculating $P(\\text{no heads})$ and forgetting to subtract it from $1$.",
-   "1": "Finding $P(\\text{exactly one head})=\\frac38$ instead of at least one."
+   "0": "Finding $a=\\frac52$ but forgetting to add $b$: $\\frac52\\times10=25$.",
+   "1": "Treating the range like a data value: $8a+b=20$ and $12a+b=34$ give $a=3.5$, $b=-8$ (which contradicts $b>0$), and then $35-8=27$.",
+   "3": "Assuming the scaling only adds a constant: $10+(34-12)=32$.",
+   "4": "Taking $b=34-20=14$ (subtracting the new range rather than $12a=30$), giving $25+14=39$."
   },
-  "time": 45
+  "time": 160,
+  "family": "prob-02"
+ },
+ {
+  "id": "prob-02b",
+  "topic": "prob",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "linear transformation of data",
+   "quartiles"
+  ],
+  "stem": "A data set has $11$ values. Its lower quartile is the $3$rd smallest value, which is $11$; its median is $15$; and its upper quartile is the $9$th smallest value, which is $18$.\n\nEach value $x$ in the data set is replaced by $60-2x$. What is the upper quartile of the new data set, defined in the same way?",
+  "figure": null,
+  "options": [
+   "$22$",
+   "$24$",
+   "$30$",
+   "$38$",
+   "$49$"
+  ],
+  "answer": 3,
+  "solution": "The map $x\\mapsto60-2x$ is **decreasing**, so it reverses the order of the values. The $9$th smallest new value is the image of the $9$th largest old value, which is the $3$rd smallest old value, $11$.\n\nSo the new upper quartile is $60-2\\times11=38$.\n\n*Check:* the new lower quartile is $60-2\\times18=24$, the new median is $30$, and the new IQR is $38-24=14=2\\times(18-11)$, as expected since spreads are multiplied by $|-2|$.",
+  "insight": "A decreasing transformation reverses the order, so the old lower quartile becomes the new upper quartile.",
+  "distractors": {
+   "1": "Mapping the old upper quartile to the new upper quartile: $60-36=24$ (this is the new **lower** quartile).",
+   "0": "Using $2\\times11$ and forgetting the $60-$ part of the transformation.",
+   "2": "Giving the new median instead of the new upper quartile.",
+   "4": "Using $60-11$ and forgetting to multiply by $2$."
+  },
+  "time": 150,
+  "family": "prob-02"
  },
  {
   "id": "prob-03",
@@ -60,25 +127,60 @@
   "difficulty": 2,
   "skills": [
    "without replacement",
-   "tree diagrams"
+   "tree diagrams",
+   "expected outcomes"
   ],
-  "stem": "A bag contains $5$ red and $3$ blue counters. Two counters are taken at random without replacement. What is the probability that they are the same colour?",
+  "stem": "In a fairground game, a player takes two counters at random, without replacement, from a bag containing $5$ red and $3$ blue counters. The player wins if the two counters are the same colour. The counters are then put back in the bag.\n\nThe game is played $224$ times. What is the expected number of wins?",
   "figure": null,
   "options": [
-   "$\\frac{3}{28}$",
-   "$\\frac{5}{14}$",
-   "$\\frac{13}{28}$",
-   "$\\frac{17}{32}$",
-   "$\\frac{15}{28}$"
+   "$80$",
+   "$104$",
+   "$112$",
+   "$119$",
+   "$120$"
   ],
-  "answer": 2,
-  "solution": "$$P(\\text{RR})=\\frac58\\cdot\\frac47=\\frac{20}{56},\\qquad P(\\text{BB})=\\frac38\\cdot\\frac27=\\frac{6}{56}.$$\n\n$$P(\\text{same})=\\frac{26}{56}=\\frac{13}{28}.$$\n\n*Alternative:* $\\dfrac{\\binom52+\\binom32}{\\binom82}=\\dfrac{10+3}{28}=\\dfrac{13}{28}$.",
-  "insight": "Without replacement, the second-stage denominators drop by one; or count with $\\binom{n}{2}$.",
+  "answer": 1,
+  "solution": "$$P(\\text{RR})=\\frac58\\cdot\\frac47=\\frac{20}{56},\\qquad P(\\text{BB})=\\frac38\\cdot\\frac27=\\frac{6}{56},$$\nso $P(\\text{win})=\\frac{26}{56}=\\frac{13}{28}$.\n\n*Alternative:* $\\dfrac{\\binom52+\\binom32}{\\binom82}=\\dfrac{10+3}{28}=\\dfrac{13}{28}$.\n\nExpected number of wins in $224$ games: $224\\times\\frac{13}{28}=8\\times13=104$.",
+  "insight": "Expected number of successes in $n$ repeats is $n\\times P(\\text{success})$; the work is in finding $P$ correctly (here without replacement).",
   "distractors": {
-   "3": "Treating the draws as with replacement: $\\frac{25}{64}+\\frac{9}{64}=\\frac{17}{32}$.",
-   "4": "Finding the probability of different colours, $\\frac{15}{28}$, instead."
+   "0": "Only counting two reds: $224\\times\\frac{20}{56}=80$.",
+   "2": "Assuming 'same colour' and 'different colours' are equally likely, so half the games are won.",
+   "3": "Treating the draws as with replacement: $\\frac{25}{64}+\\frac{9}{64}=\\frac{17}{32}$, and $224\\times\\frac{17}{32}=119$.",
+   "4": "Finding the probability of different colours, $\\frac{15}{28}$, instead: $224\\times\\frac{15}{28}=120$."
   },
-  "time": 90
+  "time": 100,
+  "family": "prob-03"
+ },
+ {
+  "id": "prob-03b",
+  "topic": "prob",
+  "paper": 1,
+  "difficulty": 2,
+  "skills": [
+   "without replacement",
+   "tree diagrams",
+   "expected outcomes"
+  ],
+  "stem": "Each morning Sam takes two socks at random, without replacement, from a drawer containing $4$ black socks and $6$ grey socks. In the evening both socks are returned to the drawer.\n\nOver $75$ mornings, what is the expected number of mornings on which Sam's two socks are different colours?",
+  "figure": null,
+  "options": [
+   "$20$",
+   "$35$",
+   "$36$",
+   "$40$",
+   "$65$"
+  ],
+  "answer": 3,
+  "solution": "Different colours can happen as black-then-grey or grey-then-black:\n$$P(\\text{different})=\\frac4{10}\\cdot\\frac69+\\frac6{10}\\cdot\\frac49=\\frac{48}{90}=\\frac8{15}.$$\n\n*Counting check:* $\\dfrac{4\\times6}{\\binom{10}{2}}=\\dfrac{24}{45}=\\dfrac8{15}$.\n\nExpected number of mornings: $75\\times\\frac8{15}=40$.",
+  "insight": "For 'one of each', remember both orders on the tree, or count unordered pairs directly.",
+  "distractors": {
+   "0": "Only using the order black-then-grey: $\\frac{24}{90}=\\frac4{15}$, giving $20$.",
+   "1": "Finding $P(\\text{same colour})=\\frac7{15}$ instead, giving $35$.",
+   "2": "Treating the draws as with replacement: $2\\times\\frac4{10}\\times\\frac6{10}=\\frac{12}{25}$, giving $36$.",
+   "4": "Finding $P(\\text{not both black})=1-\\frac{12}{90}=\\frac{13}{15}$, giving $65$."
+  },
+  "time": 110,
+  "family": "prob-03"
  },
  {
   "id": "prob-04",
@@ -103,64 +205,170 @@
   "solution": "**Gaps method.** Arrange the other letters L, E, E, R first: $\\frac{4!}{2!}=12$ ways. This creates $5$ gaps (including the ends), and the two identical T's go into $2$ different gaps: $\\binom52=10$ ways.\n\nTotal: $12\\times10=\\mathbf{120}$.\n\n*Alternative:* all arrangements $\\frac{6!}{2!\\,2!}=180$, minus those with TT together (treat TT as one block: $\\frac{5!}{2!}=60$), giving $180-60=120$.",
   "insight": "For 'not adjacent', place the other items first and drop the restricted ones into the gaps.",
   "distractors": {
+   "0": "Counting the arrangements with the T's **together** ($\\frac{5!}{2!}=60$) instead of apart.",
+   "1": "Assuming 'together' and 'apart' are equally likely, so taking half of $180$.",
    "3": "Counting all $180$ arrangements and forgetting the restriction.",
    "4": "Placing the T's into gaps in $5\\times4=20$ ordered ways, treating the two identical T's as different."
   },
-  "time": 150
+  "time": 150,
+  "family": "prob-04"
+ },
+ {
+  "id": "prob-04b",
+  "topic": "prob",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "arrangements",
+   "repeated letters",
+   "gaps method"
+  ],
+  "stem": "How many different arrangements of the letters of the word PEPPER have no two P's next to each other?",
+  "figure": null,
+  "options": [
+   "$12$",
+   "$24$",
+   "$48$",
+   "$60$",
+   "$72$"
+  ],
+  "answer": 0,
+  "solution": "**Gaps method.** Arrange the other letters E, E, R first: $\\frac{3!}{2!}=3$ ways. Each arrangement has $4$ gaps (including the two ends):\n$$\\_\\,E\\,\\_\\,E\\,\\_\\,R\\,\\_$$\nThe three identical P's must go into $3$ different gaps: $\\binom43=4$ ways.\n\nTotal: $3\\times4=12$.\n\n*Check:* there are $\\frac{6!}{3!\\,2!}=60$ arrangements altogether, so $48$ of them have at least two P's adjacent.",
+  "insight": "For 'no two adjacent', place the other items first and drop the restricted ones into distinct gaps.",
+  "distractors": {
+   "1": "Treating the two E's as different: $3!\\times4=24$.",
+   "2": "Only removing the arrangements with all three P's together ($\\frac{4!}{2!}=12$): $60-12=48$. Arrangements such as PPEPER still have two P's adjacent.",
+   "3": "Counting all $60$ arrangements and forgetting the restriction.",
+   "4": "Choosing gaps for the P's in order, $4\\times3\\times2=24$, as if the P's were different: $3\\times24=72$."
+  },
+  "time": 150,
+  "family": "prob-04"
  },
  {
   "id": "prob-05",
   "topic": "prob",
   "paper": 1,
-  "difficulty": 2,
+  "difficulty": 4,
   "skills": [
-   "selections",
-   "combinations",
-   "at least one"
+   "histograms",
+   "frequency density",
+   "unequal class widths"
   ],
-  "stem": "A committee of $3$ people is to be chosen from $5$ men and $4$ women. In how many ways can this be done if the committee must contain at least one woman?",
+  "stem": "A histogram shows the times taken by a group of people to complete a puzzle. The classes and the heights of the bars are:\n\n| Time $t$ (minutes) | $0\\le t<10$ | $10\\le t<15$ | $15\\le t<20$ | $20\\le t<30$ | $30\\le t<50$ |\n|---|---|---|---|---|---|\n| Height of bar (cm) | $1.5$ | $6$ | $8$ | $3$ | $1$ |\n\nThe bar for $10\\le t<15$ represents $24$ people.\n\nUsing the histogram, estimate the number of people who took more than $25$ minutes.",
   "figure": null,
   "options": [
-   "$30$",
-   "$40$",
-   "$74$",
-   "$84$",
-   "$112$"
+   "$10$",
+   "$16$",
+   "$28$",
+   "$35$",
+   "$40$"
   ],
   "answer": 2,
-  "solution": "Count all committees and subtract those with no women:\n$$\\binom93-\\binom53=84-10=\\mathbf{74}.$$\n\n*Check by cases:* one woman $4\\cdot\\binom52=40$, two women $\\binom42\\cdot5=30$, three women $\\binom43=4$; total $74$.",
-  "insight": "For 'at least one', subtract the complement rather than choosing 'one woman, then anyone'.",
+  "solution": "In a histogram, **area** represents frequency.\n\nThe $10\\le t<15$ bar has area $5\\times6=30$ (minutes $\\times$ cm) and represents $24$ people, so each unit of area is $0.8$ people.\n\n* $20\\le t<30$: area $10\\times3=30$, so $24$ people. Assuming they are spread evenly through the class, half of them, $12$, took more than $25$ minutes.\n* $30\\le t<50$: area $20\\times1=20$, so $16$ people.\n\nEstimate: $12+16=28$.",
+  "insight": "Frequency is proportional to the area of a bar, not its height; find the scale from one bar, then work with areas.",
   "distractors": {
-   "4": "Choosing 'one woman, then any two others': $4\\times\\binom82=112$ counts committees with several women more than once.",
-   "1": "Counting only committees with exactly one woman."
+   "0": "Treating heights as proportional to frequency ($6$ cm for $24$ people, so $4$ per cm): $\\frac12\\times12+4=10$.",
+   "1": "Only counting the class lying entirely above $25$ minutes.",
+   "3": "Ignoring the given bar and reading the heights as frequency densities in people per minute: $\\frac12\\times30+20=35$.",
+   "4": "Including the whole of the $20\\le t<30$ class: $24+16=40$."
   },
-  "time": 90
+  "time": 210,
+  "family": "prob-05"
+ },
+ {
+  "id": "prob-05b",
+  "topic": "prob",
+  "paper": 1,
+  "difficulty": 4,
+  "skills": [
+   "histograms",
+   "frequency density",
+   "median from grouped data"
+  ],
+  "stem": "The masses of $200$ apples are summarised in a histogram. The frequency densities (apples per gram) of the bars are:\n\n| Mass $m$ (grams) | $100\\le m<120$ | $120\\le m<130$ | $130\\le m<140$ | $140\\le m<160$ | $160\\le m<200$ |\n|---|---|---|---|---|---|\n| Frequency density | $1.5$ | $4$ | $k$ | $3$ | $0.5$ |\n\nUsing the histogram, estimate the median mass.",
+  "figure": null,
+  "options": [
+   "$130$ g",
+   "$134$ g",
+   "$135$ g",
+   "$136$ g",
+   "$144$ g"
+  ],
+  "answer": 3,
+  "solution": "Frequency $=$ frequency density $\\times$ class width, so the frequencies are\n$$30,\\quad 40,\\quad 10k,\\quad 60,\\quad 20.$$\nThese total $200$, so $150+10k=200$ and $k=5$: the $130\\le m<140$ class has $50$ apples.\n\nThe median is estimated as the $100$th mass. The cumulative frequencies are $30,\\ 70,\\ 120,\\dots$, so it lies in $130\\le m<140$, and is the $30$th of the $50$ apples there. Interpolating:\n$$130+\\frac{30}{50}\\times10=136\\text{ g}.$$",
+  "insight": "Recover frequencies from areas (density times width), then interpolate within the class containing the middle value.",
+  "distractors": {
+   "0": "Giving the lower boundary of the class that contains the median.",
+   "1": "Interpolating down from the top of the class instead of up from the bottom: $140-\\frac{30}{50}\\times10=134$.",
+   "2": "Giving the midpoint of the class that contains the median, without interpolating.",
+   "4": "Only subtracting the first class: $130+\\frac{100-30}{50}\\times10=144$, which is not even inside the class."
+  },
+  "time": 210,
+  "family": "prob-05"
  },
  {
   "id": "prob-06",
   "topic": "prob",
-  "paper": 1,
-  "difficulty": 2,
+  "paper": 2,
+  "difficulty": 4,
   "skills": [
-   "expected value"
+   "cumulative frequency",
+   "quartiles",
+   "comparing distributions"
   ],
-  "stem": "In a game, a fair six-sided die is rolled once. If the score is even, the player wins that many pounds. If the score is odd, the player loses £3. What is the player's expected gain per game?",
+  "stem": "Two groups, A and B, of $80$ students each ran a cross-country course. Every time was more than $15$ minutes and at most $40$ minutes. The table shows the cumulative frequencies.\n\n| Time $t$ (minutes) | $t\\le20$ | $t\\le25$ | $t\\le30$ | $t\\le35$ | $t\\le40$ |\n|---|---|---|---|---|---|\n| Group A | $8$ | $20$ | $60$ | $72$ | $80$ |\n| Group B | $20$ | $30$ | $50$ | $70$ | $80$ |\n\nEstimates are made by linear interpolation, taking the lower quartile, median and upper quartile of each group to be the $20$th, $40$th and $60$th times. Which of the following statements is/are valid?\n\nI. The two groups have the same estimated median.\n\nII. The estimated interquartile range of group B is more than twice that of group A.\n\nIII. The fastest student was in group B.",
   "figure": null,
   "options": [
-   "$-$£1.50",
-   "£0",
-   "£0.50",
-   "£1.50",
-   "£2"
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 4,
+  "solution": "**Group A:** the $20$th time is $25$ and the $60$th is $30$ (both exactly at table values). The $40$th lies in $25<t\\le30$, where the cumulative frequency rises from $20$ to $60$:\n$$\\text{median}_A=25+\\frac{40-20}{40}\\times5=27.5,\\qquad \\text{IQR}_A=30-25=5.$$\n\n**Group B:** the $20$th time is $20$. The $40$th lies in $25<t\\le30$ (from $30$ to $50$): $25+\\frac{10}{20}\\times5=27.5$. The $60$th lies in $30<t\\le35$ (from $50$ to $70$): $30+\\frac{10}{20}\\times5=32.5$. So $\\text{IQR}_B=12.5$.\n\n**I is valid:** both medians are $27.5$.\n\n**II is valid:** $12.5>2\\times5$.\n\n**III is not valid:** both groups have students in the class $15<t\\le20$, and grouped data say nothing about who is fastest within a class. More B students in that class does not mean the single fastest is in B.\n\nSo the answer is **I and II only**.",
+  "insight": "Grouped data support statements about quartiles and proportions, never about individual extreme values inside a class.",
+  "distractors": {
+   "7": "Reading 'more of group B in the fastest class' as 'the fastest student is in group B'.",
+   "1": "Taking group A's upper quartile in the next class ($35$) because the $60$th time falls at a class boundary, giving $\\text{IQR}_A=10$ and making II false.",
+   "5": "Making the same upper-quartile slip for A, and also accepting III."
+  },
+  "time": 240,
+  "family": "prob-06"
+ },
+ {
+  "id": "prob-06b",
+  "topic": "prob",
+  "paper": 1,
+  "difficulty": 4,
+  "skills": [
+   "cumulative frequency",
+   "quartiles",
+   "comparing distributions"
+  ],
+  "stem": "The heights of $100$ plants in field P and $100$ plants in field Q were measured. Every height was more than $0$ cm and at most $50$ cm. The table shows the cumulative frequencies.\n\n| Height $h$ (cm) | $h\\le10$ | $h\\le20$ | $h\\le30$ | $h\\le40$ | $h\\le50$ |\n|---|---|---|---|---|---|\n| Field P | $5$ | $15$ | $30$ | $70$ | $100$ |\n| Field Q | $10$ | $30$ | $60$ | $85$ | $100$ |\n\nUsing linear interpolation, and taking the upper quartile to be the $75$th height, estimate the percentage of plants in field P that are taller than the upper quartile of field Q.",
+  "figure": null,
+  "options": [
+   "$25\\%$",
+   "$30\\%$",
+   "$46\\%$",
+   "$54\\%$",
+   "$70\\%$"
   ],
   "answer": 2,
-  "solution": "$$E=\\frac16(2+4+6)+\\frac12(-3)=2-1.5=0.5.$$\n\nThe expected gain is **£0.50** per game.",
-  "insight": "Expected value is the sum of (value $\\times$ probability) over all outcomes, losses included as negatives.",
+  "solution": "**Upper quartile of Q:** the $75$th height lies in $30<h\\le40$, where Q's cumulative frequency rises from $60$ to $85$:\n$$30+\\frac{75-60}{25}\\times10=36\\text{ cm}.$$\n\n**Field P at $36$ cm:** in $30<h\\le40$, P's cumulative frequency rises from $30$ to $70$, so\n$$30+\\frac{6}{10}\\times40=54$$\nplants are at most $36$ cm tall. So $100-54=46$ plants, i.e. $46\\%$, are taller.",
+  "insight": "To compare two distributions, find a value from one cumulative frequency curve and read it on the other; then check whether the question wants 'below' or 'above'.",
   "distractors": {
-   "4": "Including only the winnings, $\\frac{2+4+6}{6}=2$, and forgetting the losses.",
-   "3": "Subtracting the £3 loss only once rather than for each of the three odd scores: $\\frac{2+4+6-3}{6}$."
+   "0": "Assuming a quarter of any group is above an upper quartile; that is only true for field Q itself.",
+   "1": "Rounding Q's upper quartile up to the class boundary $40$ cm: $100-70=30$.",
+   "3": "Giving the number of P plants **at most** $36$ cm instead of taller.",
+   "4": "Reading P's cumulative frequency at $40$ cm and not subtracting from $100$."
   },
-  "time": 90
+  "time": 210,
+  "family": "prob-06"
  },
  {
   "id": "prob-07",
@@ -169,9 +377,10 @@
   "difficulty": 3,
   "skills": [
    "conditional probability",
-   "tree diagrams"
+   "expected frequencies",
+   "two-way tables"
   ],
-  "stem": "A disease affects $1\\%$ of a population. A test for the disease gives a positive result for $90\\%$ of people who have it and for $10\\%$ of people who do not. A person chosen at random tests positive. What is the probability that they have the disease?",
+  "stem": "A screening test is used in a population in which $1\\%$ of people have a certain condition. The test gives a positive result for $90\\%$ of people who have the condition and for $10\\%$ of people who do not. A person chosen at random tests positive.\n\nWhat is the probability that they have the condition?",
   "figure": null,
   "options": [
    "$\\frac{1}{12}$",
@@ -181,40 +390,108 @@
    "$\\frac{9}{10}$"
   ],
   "answer": 0,
-  "solution": "Imagine $1000$ people.\n\n* $10$ have the disease; $9$ of them test positive.\n* $990$ do not; $99$ of them test positive.\n\nOf the $9+99=108$ positives, $9$ have the disease:\n$$P(\\text{disease}\\mid\\text{positive})=\\frac{9}{108}=\\frac1{12}.$$",
-  "insight": "For 'given' questions, restrict to the branches where the condition holds and divide.",
+  "solution": "Imagine $1000$ people and fill in a two-way table of expected frequencies.\n\n| | Positive | Negative | Total |\n|---|---|---|---|\n| Condition | $9$ | $1$ | $10$ |\n| No condition | $99$ | $891$ | $990$ |\n| Total | $108$ | $892$ | $1000$ |\n\nOf the $108$ positives, $9$ have the condition:\n$$P(\\text{condition}\\mid\\text{positive})=\\frac{9}{108}=\\frac1{12}.$$",
+  "insight": "For 'given' questions, restrict to the row or column where the condition holds and divide; expected frequencies make this a ratio of counts.",
   "distractors": {
    "1": "Dividing true positives by false positives, $\\frac{9}{99}$, instead of by all positives.",
-   "4": "Confusing $P(\\text{positive}\\mid\\text{disease})=\\frac9{10}$ with $P(\\text{disease}\\mid\\text{positive})$."
+   "3": "Assuming a positive result is equally likely to be right or wrong.",
+   "4": "Confusing $P(\\text{positive}\\mid\\text{condition})=\\frac9{10}$ with $P(\\text{condition}\\mid\\text{positive})$."
   },
-  "time": 150
+  "time": 150,
+  "family": "prob-07"
+ },
+ {
+  "id": "prob-07b",
+  "topic": "prob",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "conditional probability",
+   "expected frequencies",
+   "two-way tables"
+  ],
+  "stem": "A factory makes bolts on two machines. Machine P makes $60\\%$ of the bolts, and $5\\%$ of its bolts are faulty. Machine Q makes the rest, and $10\\%$ of its bolts are faulty.\n\nA bolt chosen at random is found to be faulty. What is the probability that it was made by machine Q?",
+  "figure": null,
+  "options": [
+   "$\\frac{1}{10}$",
+   "$\\frac{2}{5}$",
+   "$\\frac{3}{7}$",
+   "$\\frac{4}{7}$",
+   "$\\frac{2}{3}$"
+  ],
+  "answer": 3,
+  "solution": "Imagine $1000$ bolts.\n\n| | Faulty | Not faulty | Total |\n|---|---|---|---|\n| Machine P | $30$ | $570$ | $600$ |\n| Machine Q | $40$ | $360$ | $400$ |\n| Total | $70$ | $930$ | $1000$ |\n\nOf the $70$ faulty bolts, $40$ came from Q:\n$$P(\\text{Q}\\mid\\text{faulty})=\\frac{40}{70}=\\frac47.$$",
+  "insight": "Turn percentages into expected counts for a round total, then read the conditional probability off the relevant column.",
+  "distractors": {
+   "0": "Giving $P(\\text{faulty}\\mid\\text{Q})$ instead of $P(\\text{Q}\\mid\\text{faulty})$.",
+   "1": "Ignoring the information that the bolt is faulty and giving Q's share of production.",
+   "2": "Finding the probability that a faulty bolt came from **P**, $\\frac{30}{70}$.",
+   "4": "Ignoring the production split and comparing the fault rates: $\\frac{10}{5+10}$."
+  },
+  "time": 150,
+  "family": "prob-07"
  },
  {
   "id": "prob-08",
   "topic": "prob",
   "paper": 1,
-  "difficulty": 3,
+  "difficulty": 4,
   "skills": [
+   "turn-taking games",
    "geometric series",
-   "turn-taking games"
+   "independent events"
   ],
-  "stem": "Ann and Ben take turns to roll a fair die, with Ann going first. The first person to roll a six wins. What is the probability that Ann wins?",
+  "stem": "Ann and Ben play a game, taking turns to roll a fair six-sided die, with Ann rolling first. Ann wins if she rolls a $6$ on one of her turns; Ben wins if he rolls a $5$ or a $6$ on one of his turns. The game ends as soon as someone wins.\n\nWhat is the probability that Ann wins?",
   "figure": null,
   "options": [
-   "$\\frac{5}{11}$",
+   "$\\frac{1}{6}$",
+   "$\\frac{1}{3}$",
+   "$\\frac{3}{8}$",
    "$\\frac{1}{2}$",
-   "$\\frac{6}{11}$",
-   "$\\frac{7}{12}$",
-   "$\\frac{2}{3}$"
+   "$\\frac{5}{8}$"
   ],
   "answer": 2,
-  "solution": "Let $p=P(\\text{Ann wins})$. Either Ann rolls a six immediately, or both miss (probability $\\frac{25}{36}$) and the game restarts:\n$$p=\\frac16+\\frac{25}{36}p\\quad\\Rightarrow\\quad\\frac{11}{36}p=\\frac16\\quad\\Rightarrow\\quad p=\\frac6{11}.$$\n\n*Alternative:* a round ends with a winner with probability $\\frac16+\\frac56\\cdot\\frac16=\\frac{11}{36}$, and Ann's share of that is $\\frac{6/36}{11/36}=\\frac6{11}$.",
-  "insight": "In a repeating game, write the probability in terms of itself using 'back to the start'.",
+  "solution": "Let $p=P(\\text{Ann wins})$. Either Ann wins on her first roll, or Ann misses and Ben misses (probability $\\frac56\\cdot\\frac23=\\frac59$) and the game is back where it started:\n$$p=\\frac16+\\frac59p\\quad\\Rightarrow\\quad\\frac49p=\\frac16\\quad\\Rightarrow\\quad p=\\frac38.$$\n\n*Alternative:* in each round (Ann then Ben), Ann wins with probability $\\frac16=\\frac3{18}$ and Ben with $\\frac56\\cdot\\frac13=\\frac5{18}$. Ann's share of the rounds that produce a winner is $\\frac{3}{3+5}=\\frac38$.",
+  "insight": "In a repeating game, write the probability in terms of itself using 'back to the start', or compare the two players' chances within one round.",
   "distractors": {
-   "1": "Assuming the game is fair; going first is an advantage.",
-   "0": "Finding Ben's probability of winning instead."
+   "0": "Only counting a win on Ann's first roll.",
+   "1": "Comparing single-roll chances, $\\frac{1/6}{1/6+1/3}$, which ignores the advantage of going first.",
+   "3": "Assuming going first exactly makes up for Ben's better chance on each roll.",
+   "4": "Finding Ben's probability of winning, $\\frac58$, instead."
   },
-  "time": 150
+  "time": 200,
+  "family": "prob-08"
+ },
+ {
+  "id": "prob-08b",
+  "topic": "prob",
+  "paper": 1,
+  "difficulty": 4,
+  "skills": [
+   "turn-taking games",
+   "geometric series",
+   "independent events"
+  ],
+  "stem": "Three players, X, Y and Z, take turns in that order to roll a fair six-sided die, starting with X. The first player to roll a $6$ wins.\n\nWhat is the probability that Z wins?",
+  "figure": null,
+  "options": [
+   "$\\frac{25}{216}$",
+   "$\\frac{25}{91}$",
+   "$\\frac{30}{91}$",
+   "$\\frac{1}{3}$",
+   "$\\frac{36}{91}$"
+  ],
+  "answer": 1,
+  "solution": "Z wins in the first round if X and Y both miss and Z rolls a $6$: probability $\\left(\\frac56\\right)^2\\frac16=\\frac{25}{216}$. If all three miss (probability $\\frac{125}{216}$) the game restarts. So\n$$q=\\frac{25}{216}+\\frac{125}{216}q\\quad\\Rightarrow\\quad\\frac{91}{216}q=\\frac{25}{216}\\quad\\Rightarrow\\quad q=\\frac{25}{91}.$$\n\n*Check:* within a round the chances of X, Y and Z winning are in the ratio $1:\\frac56:\\frac{25}{36}=36:30:25$, so they win with probabilities $\\frac{36}{91},\\frac{30}{91},\\frac{25}{91}$, which sum to $1$.",
+  "insight": "Each later player's chance is the previous one's times the probability of everyone so far missing; the restart turns an infinite series into a ratio.",
+  "distractors": {
+   "0": "Only counting Z winning in the first round.",
+   "2": "Giving Y's probability, $\\frac{30}{91}$.",
+   "3": "Assuming the game is fair to all three players.",
+   "4": "Giving X's probability, $\\frac{36}{91}$."
+  },
+  "time": 200,
+  "family": "prob-08"
  },
  {
   "id": "prob-09",
@@ -223,54 +500,126 @@
   "difficulty": 3,
   "skills": [
    "counting",
-   "selections",
-   "arrangements"
+   "systematic listing",
+   "selections"
   ],
-  "stem": "A $4$-digit PIN uses the digits $0$–$9$, and digits may be repeated (a PIN may start with $0$). How many PINs use **exactly two** different digits?",
+  "stem": "A $4$-digit PIN uses the digits $0$ to $9$. Digits may be repeated and a PIN may start with $0$.\n\nHow many PINs use **exactly two** different digits?",
   "figure": null,
   "options": [
    "$270$",
-   "$540$",
    "$630$",
+   "$720$",
    "$1260$",
-   "$5040$"
+   "$1440$"
   ],
-  "answer": 2,
-  "solution": "Choose the two digits: $\\binom{10}{2}=45$ ways.\n\nFill the $4$ positions using only those two digits: $2^4=16$ ways, minus the $2$ that use only one of them: $14$.\n\nTotal: $45\\times14=\\mathbf{630}$.",
+  "answer": 1,
+  "solution": "Choose the two digits: $\\binom{10}{2}=45$ ways.\n\nFill the $4$ positions using only those two digits: $2^4=16$ ways, minus the $2$ that use only one of them: $14$.\n\nTotal: $45\\times14=630$.\n\n*Check by patterns:* a $2+2$ split gives $45\\times\\binom42=270$; a $3+1$ split gives $90\\times4=360$ (choose which digit appears three times, then the position of the other); $270+360=630$.",
   "insight": "Choose the set of symbols first, then count the fillings that use every chosen symbol.",
   "distractors": {
-   "0": "Only counting PINs with two of each digit: $45\\times\\binom42=270$, missing the $3+1$ patterns.",
-   "3": "Choosing the two digits in order ($10\\times9=90$), which counts every PIN twice."
+   "0": "Only counting PINs with two of each digit, $45\\times\\binom42=270$, and missing the $3+1$ pattern.",
+   "2": "Forgetting to remove the $2$ fillings that use only one digit: $45\\times16=720$.",
+   "3": "Choosing the two digits in order ($10\\times9=90$), which counts every PIN twice: $90\\times14=1260$.",
+   "4": "Making both slips: $90\\times16=1440$."
   },
-  "time": 150
+  "time": 160,
+  "family": "prob-09"
+ },
+ {
+  "id": "prob-09b",
+  "topic": "prob",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "counting",
+   "systematic listing",
+   "inclusion-exclusion"
+  ],
+  "stem": "A signal is a sequence of $5$ flashes, each of which is red, green or blue.\n\nHow many different signals use all three colours?",
+  "figure": null,
+  "options": [
+   "$60$",
+   "$147$",
+   "$150$",
+   "$240$",
+   "$540$"
+  ],
+  "answer": 2,
+  "solution": "There are $3^5=243$ signals in total. Remove those missing at least one colour.\n\n* Missing a particular colour: $2^5=32$ signals, and there are $3$ colours to miss: $96$.\n* But each single-colour signal (e.g. all red) has been removed twice (it misses both green and blue), and there are $3$ of them, so add them back once.\n\n$$243-96+3=150.$$\n\n*Check by patterns:* a $3,1,1$ split gives $3\\times\\frac{5!}{3!}=60$; a $2,2,1$ split gives $3\\times\\frac{5!}{2!\\,2!}=90$; total $150$.",
+  "insight": "'Uses every colour' is a complement problem: subtract signals missing a colour, then add back what was subtracted twice.",
+  "distractors": {
+   "0": "Only counting the $3,1,1$ pattern of colours.",
+   "1": "Subtracting the $96$ but forgetting to add back the $3$ single-colour signals.",
+   "3": "Only removing the $3$ single-colour signals: $243-3$.",
+   "4": "Choosing a flash for each colour ($5\\times4\\times3$) and then filling the other two freely ($3^2$): this counts most signals several times."
+  },
+  "time": 170,
+  "family": "prob-09"
  },
  {
   "id": "prob-10",
   "topic": "prob",
   "paper": 2,
-  "difficulty": 2,
+  "difficulty": 3,
   "skills": [
-   "at least one",
-   "mutually exclusive",
-   "errors in reasoning"
+   "scatter graphs",
+   "correlation and causation",
+   "extrapolation"
   ],
-  "stem": "A student argues:\n\n> On each roll of a fair die, the probability of a six is $\\frac16$. So in six rolls, the probability of getting at least one six is $6\\times\\frac16=1$.\n\nWhich one of the following best describes the error in the argument?",
+  "stem": "In a study of $30$ students, the number of hours $x$ that each spent revising for a test and their mark $y$ (out of $100$) were recorded. The scatter graph shows strong positive correlation, and the line of best fit is $y=3x+40$. The values of $x$ in the sample range from $2$ to $15$.\n\nWhich of the following conclusions is/are valid?\n\nI. Each extra hour of revision causes a student's mark to rise by $3$.\n\nII. The line of best fit gives a reliable estimate of the mark of a student who revised for $25$ hours.\n\nIII. In this sample, students who revised for longer tended to get higher marks.",
   "figure": null,
   "options": [
-   "The rolls are not independent, so the probabilities cannot be added.",
-   "The events 'six on roll $k$' are not mutually exclusive, so their probabilities cannot simply be added.",
-   "The probabilities should be multiplied, so the answer is $\\left(\\frac16\\right)^6$.",
-   "The probability of a six changes as more rolls are made.",
-   "There is no error: at least one six is certain in six rolls."
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
   ],
-  "answer": 1,
-  "solution": "Adding probabilities, $P(E_1\\cup\\dots\\cup E_6)=P(E_1)+\\dots+P(E_6)$, is valid only when the events are mutually exclusive. Here two rolls can both be sixes, so the outcomes with several sixes are counted more than once.\n\nThe rolls *are* independent, and each has probability $\\frac16$, so the other suggested errors are wrong. The correct value is\n$$1-\\left(\\tfrac56\\right)^6\\approx0.67,$$\nwhich is clearly less than $1$ (six rolls with no six is certainly possible).",
-  "insight": "Probabilities add for 'or' only when the events cannot happen together.",
+  "answer": 3,
+  "solution": "**I is not valid.** Correlation describes a tendency in the data; it does not show cause and effect. Students who revise more may differ in other ways (prior attainment, interest), and the gradient $3$ is an average trend, not a guaranteed effect for each student.\n\n**II is not valid.** $x=25$ is well outside the range $2$ to $15$ of the data, so using the line is extrapolation. Here it would predict $115$, which is impossible for a mark out of $100$.\n\n**III is valid.** This is exactly what positive correlation in the sample means.\n\nSo the answer is **III only**.",
+  "insight": "A scatter graph supports 'tended to' statements about the sample within the range of the data; it does not show causation or justify extrapolation.",
   "distractors": {
-   "0": "The rolls are independent; independence is what justifies multiplying, not adding, so it is not the problem here.",
-   "2": "$\\left(\\frac16\\right)^6$ is the probability that all six rolls are sixes, not at least one."
+   "5": "Reading correlation as causation.",
+   "6": "Trusting the line of best fit outside the range of the data (extrapolation).",
+   "7": "Accepting every statement that agrees with the direction of the trend."
   },
-  "time": 90
+  "time": 150,
+  "family": "prob-10"
+ },
+ {
+  "id": "prob-10b",
+  "topic": "prob",
+  "paper": 2,
+  "difficulty": 3,
+  "skills": [
+   "scatter graphs",
+   "correlation and causation",
+   "confounding"
+  ],
+  "stem": "A researcher collects data for $40$ towns. For each town she records the number of cafés and the number of burglaries reported in a year. The scatter graph shows strong positive correlation.\n\nWhich of the following conclusions is/are valid?\n\nI. In these towns, those with more cafés tended to have more burglaries.\n\nII. If a town opened more cafés, its number of burglaries would be expected to rise.\n\nIII. The correlation could be explained by a third factor, such as the size of the town's population, that tends to increase both quantities.",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 5,
+  "solution": "**I is valid.** It describes the association in the sample, which is what positive correlation means.\n\n**II is not valid.** It is a causal claim. Correlation alone cannot show that cafés cause burglaries.\n\n**III is valid.** It only says the correlation *could* be explained by a lurking variable, which is exactly the reason II cannot be concluded: bigger towns tend to have both more cafés and more burglaries.\n\nSo the answer is **I and III only**.",
+  "insight": "Correlation licenses statements about association, and is compatible with a third variable driving both; it never licenses 'changing $x$ would change $y$'.",
+  "distractors": {
+   "7": "Reading correlation as causation.",
+   "1": "Thinking a third factor cannot be mentioned unless it was measured; III only claims a possible explanation.",
+   "4": "Accepting the causal claim II alongside the description I."
+  },
+  "time": 150,
+  "family": "prob-10"
  },
  {
   "id": "prob-11",
@@ -279,6 +628,7 @@
   "difficulty": 3,
   "skills": [
    "probability laws",
+   "Venn diagrams",
    "independence",
    "mutually exclusive"
   ],
@@ -299,36 +649,104 @@
   "insight": "Mutually exclusive and independent are different ideas; with non-zero probabilities they are incompatible.",
   "distractors": {
    "7": "Mixing up 'mutually exclusive' with 'independent'.",
-   "0": "Thinking the bounds need more information; they follow from $A\\cup B$ containing $A$ and $A\\cap B$ lying inside $B$."
+   "0": "Thinking the bounds need more information; they follow from $A\\cup B$ containing $A$ and $A\\cap B$ lying inside $B$.",
+   "1": "Thinking $P(A\\cap B)$ could be as large as $P(A)=0.5$; the overlap lies inside $B$, so it is at most $0.4$."
   },
-  "time": 150
+  "time": 150,
+  "family": "prob-11"
+ },
+ {
+  "id": "prob-11b",
+  "topic": "prob",
+  "paper": 2,
+  "difficulty": 3,
+  "skills": [
+   "Venn diagrams",
+   "independence",
+   "probability laws"
+  ],
+  "stem": "In a class of $30$ students, $18$ study French and $15$ study Spanish. Some may study both, and some may study neither.\n\nWhich of the following **must** be true?\n\nI. Exactly $3$ students study both languages.\n\nII. If, for a student chosen at random from the class, the events 'studies French' and 'studies Spanish' are independent, then exactly $9$ students study both.\n\nIII. At most $12$ students study neither language.",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 6,
+  "solution": "Let $x$ be the number who study both. The Venn diagram regions are\n\n* French only: $18-x$, Spanish only: $15-x$, both: $x$,\n* neither: $30-(18-x)-(15-x)-x=x-3$.\n\nAll regions must be non-negative, so $3\\le x\\le15$.\n\n**I is not necessarily true:** $3$ is only the *smallest* possible overlap; for example $x=9$ is possible.\n\n**II is true:** independence means $\\frac{x}{30}=\\frac{18}{30}\\cdot\\frac{15}{30}$, so $x=9$.\n\n**III is true:** neither $=x-3\\le15-3=12$.\n\nSo the answer is **II and III only**.",
+  "insight": "Put an unknown in the overlap of the Venn diagram and write every region in terms of it; the constraints come from every region being non-negative.",
+  "distractors": {
+   "7": "Computing $18+15-30=3$ and treating it as the overlap, rather than the least possible overlap.",
+   "3": "Thinking independence cannot be tested from counts; it means $P(F\\cap S)=P(F)P(S)$, which fixes the overlap at $9$.",
+   "2": "Thinking up to $30-18=12$ is the bound only when nobody studies both, and so rejecting III; in fact neither $=x-3$ is largest when the overlap is largest."
+  },
+  "time": 180,
+  "family": "prob-11"
  },
  {
   "id": "prob-12",
   "topic": "prob",
   "paper": 1,
-  "difficulty": 3,
+  "difficulty": 5,
   "skills": [
-   "geometric probability",
-   "area"
+   "mean, median and mode",
+   "extremal reasoning"
   ],
-  "stem": "A point is chosen at random inside a square of side $1$. What is the probability that it is less than $\\frac14$ from the nearest side of the square?",
+  "stem": "Seven positive integers have mean $10$ and median $9$. The integer $12$ occurs more often than any other value in the list.\n\nWhat is the largest possible range of the seven integers?",
   "figure": null,
   "options": [
-   "$\\frac{1}{4}$",
-   "$\\frac{1}{2}$",
-   "$\\frac{9}{16}$",
-   "$\\frac{3}{4}$",
-   "$\\frac{15}{16}$"
+   "$30$",
+   "$31$",
+   "$32$",
+   "$33$",
+   "$34$"
   ],
-  "answer": 3,
-  "solution": "The points at least $\\frac14$ from every side form a central square of side $1-2\\times\\frac14=\\frac12$, with area $\\frac14$.\n\nSo the required probability is $1-\\frac14=\\frac34$.",
-  "insight": "In geometric probability, probability is a ratio of areas, and the complement region is often simpler.",
+  "answer": 0,
+  "solution": "Write the integers in order as $a\\le b\\le c\\le d\\le e\\le f\\le g$. Then $d=9$ and the sum is $70$.\n\nSince $12>9$, the $12$s are among $e,f,g$, and there are at least two of them. If there were three, $g=12$ and the range would be small, so take exactly two: $e=f=12$, leaving $g$ free to be large.\n\nNow every other value may occur **at most once** (twice would tie with $12$). So $a<b<c$, and $c\\ne9$ as well.\n\nThe range is $g-a$ with $g=70-(a+b+c)-9-24=37-(a+b+c)$. To maximise $g-a$, make $a,b,c$ as small as possible: $a=1,\\ b=2,\\ c=3$. Then $g=31$, and the list $1,2,3,9,12,12,31$ works.\n\nLargest range: $31-1=30$.",
+  "insight": "With several average conditions, write the list in order, decide where the forced values sit, then push the free values to extremes while respecting 'unique mode'.",
   "distractors": {
-   "0": "Finding the area of the central square and forgetting to take the complement.",
-   "2": "Shrinking the square by $\\frac14$ only once (side $\\frac34$) and answering its area $\\frac9{16}$."
+   "1": "Giving the largest value $g=31$ rather than the range $g-a$.",
+   "2": "Using $1,1,2$ for the smallest three: then $1$ occurs twice, tying with $12$, so $12$ is not the unique mode.",
+   "3": "Using $1,1,1$: then $1$ occurs three times and becomes the mode.",
+   "4": "Allowing $0$ (as $0,1,2$), although the integers must be positive."
   },
-  "time": 120
+  "time": 270,
+  "family": "prob-12"
+ },
+ {
+  "id": "prob-12b",
+  "topic": "prob",
+  "paper": 1,
+  "difficulty": 5,
+  "skills": [
+   "mean, median and mode",
+   "extremal reasoning"
+  ],
+  "stem": "Six positive integers have mean $9$ and median $8$. The integer $5$ occurs more often than any other value in the list.\n\nWhat is the smallest possible range of the six integers?",
+  "figure": null,
+  "options": [
+   "$3$",
+   "$9$",
+   "$10$",
+   "$12$",
+   "$14$"
+  ],
+  "answer": 1,
+  "solution": "Write the integers in order as $a\\le b\\le c\\le d\\le e\\le f$. Then $c+d=16$ and the sum is $54$. Since $5<8$, the $5$s are among $a,b,c$.\n\n**Two 5s** ($a=b=5$, $c>5$): every other value occurs at most once, so $c<d<e<f$. Then $e+f=54-10-16=28$ with $e<f$, so $f\\ge15$ and the range is at least $10$.\n\n**Three 5s** ($a=b=c=5$): then $d=11$ and $e+f=54-15-11=28$ with $e,f\\ge11$. Now $e$ and $f$ may be equal, since appearing twice does not tie with the three $5$s: $e=f=14$. The list $5,5,5,11,14,14$ has range $14-5=9$.\n\nSince $a=5$ in every case and $f\\ge14$ (because $e+f=28$ with $e\\le f$), the range is never below $9$. Smallest range: $9$.",
+  "insight": "To minimise a range, make the large values as equal as the conditions allow; check whether extra copies of the mode relax the 'unique mode' restriction.",
+  "distractors": {
+   "0": "Ignoring the mode condition: mean $9$ and median $8$ alone allow a range as small as $3$.",
+   "2": "Using only two $5$s, so that no other value may repeat; the best is then $5,5,7,9,13,15$ with range $10$.",
+   "3": "Making $e$ as small as possible ($e=d=11$), which forces $f=17$: the list $5,5,5,11,11,17$ has range $12$.",
+   "4": "Giving the largest value $14$ rather than the range."
+  },
+  "time": 270,
+  "family": "prob-12"
  },
  {
   "id": "prob-13",
@@ -353,37 +771,107 @@
   "insight": "'Given at least one' is not the same as 'given the first one'; restrict to the whole conditioning event.",
   "distractors": {
    "2": "Interpreting the condition as 'the first ball is red', giving $\\frac24$.",
-   "0": "Ignoring the condition and giving the unconditional probability."
+   "0": "Ignoring the condition and giving the unconditional probability.",
+   "3": "Giving $P(\\text{first ball red})=\\frac35$."
   },
-  "time": 180
+  "time": 180,
+  "family": "prob-13"
  },
  {
-  "id": "prob-14",
+  "id": "prob-13b",
   "topic": "prob",
   "paper": 1,
   "difficulty": 4,
   "skills": [
-   "selections",
-   "no two consecutive",
-   "bijection"
+   "conditional probability",
+   "sample space"
   ],
-  "stem": "In how many ways can three different numbers be chosen from $\\{1,2,3,\\ldots,10\\}$ so that no two of the chosen numbers are consecutive?",
+  "stem": "Two fair six-sided dice are rolled. Given that at least one of the dice shows a $6$, what is the probability that the total score is at least $10$?",
   "figure": null,
   "options": [
-   "$48$",
-   "$56$",
-   "$64$",
-   "$84$",
-   "$120$"
+   "$\\frac{5}{36}$",
+   "$\\frac{1}{6}$",
+   "$\\frac{5}{12}$",
+   "$\\frac{5}{11}$",
+   "$\\frac{1}{2}$"
   ],
-  "answer": 1,
-  "solution": "Write the chosen numbers as $a<b<c$ with $b\\ge a+2$ and $c\\ge b+2$. Then $a,\\ b-1,\\ c-2$ are three different numbers from $\\{1,\\dots,8\\}$, and every such triple arises exactly once. So the answer is\n$$\\binom83=\\mathbf{56}.$$\n\n*Alternative (inclusion–exclusion):* $\\binom{10}3=120$ in total. A consecutive pair $(i,i+1)$ can be chosen in $9$ ways and the third number in $8$ ways, giving $72$; but each of the $8$ runs of three consecutive numbers has been counted twice. So $120-(72-8)=56$.",
-  "insight": "Squash the gaps: 'no two consecutive' choices of $k$ from $n$ correspond to ordinary choices of $k$ from $n-k+1$.",
+  "answer": 3,
+  "solution": "Restrict to the outcomes with at least one $6$. Of the $36$ ordered outcomes, $25$ have no $6$, so $11$ have at least one:\n$$(6,1),\\dots,(6,6)\\ \\text{and}\\ (1,6),\\dots,(5,6).$$\n\nOf these, the total is at least $10$ for $(6,4),(6,5),(6,6),(4,6),(5,6)$: $5$ outcomes.\n\n$$P=\\frac{5}{11}.$$",
+  "insight": "Condition by shrinking the sample space to the outcomes where the condition holds, counting each ordered outcome once.",
   "distractors": {
-   "0": "Subtracting $72$ without correcting for the runs $\\{i,i+1,i+2\\}$ counted twice: $120-72=48$.",
-   "4": "Ignoring the restriction: $\\binom{10}{3}$."
+   "0": "Giving $P(\\text{at least one 6 and total}\\ge10)=\\frac5{36}$, without conditioning.",
+   "1": "Ignoring the condition: $P(\\text{total}\\ge10)=\\frac6{36}$.",
+   "2": "Counting the outcomes with a $6$ as $6+6=12$, so $(6,6)$ is counted twice in the denominator.",
+   "4": "Conditioning on 'the first die is a 6' instead: the second die must be at least $4$."
   },
-  "time": 210
+  "time": 180,
+  "family": "prob-13"
+ },
+ {
+  "id": "prob-14",
+  "topic": "prob",
+  "paper": 2,
+  "difficulty": 5,
+  "skills": [
+   "mean and median",
+   "combining groups",
+   "counterexamples"
+  ],
+  "stem": "Class A has $20$ students, whose test marks have mean $60$ and median $58$. Class B has $30$ students, whose marks have mean $70$ and median $72$. All marks are whole numbers from $0$ to $100$.\n\nWhich of the following **must** be true?\n\nI. The mean mark of all $50$ students is $66$.\n\nII. If a student who scored $65$ moves from class B to class A, the mean mark of each class increases.\n\nIII. At least one student in class B scored more than $72$.",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 4,
+  "solution": "**I is true:** totals are $20\\times60=1200$ and $30\\times70=2100$, so the mean is $\\frac{3300}{50}=66$.\n\n**II is true:** $65$ is below B's mean, so removing it raises B's mean ($\\frac{2035}{29}>70$); $65$ is above A's mean, so adding it raises A's mean ($\\frac{1265}{21}>60$).\n\n**III is not necessarily true.** Counterexample for B: $16$ marks of $72$, $12$ marks of $68$ and $2$ marks of $66$. The total is $1152+816+132=2100$ (mean $70$), and the $15$th and $16$th marks are both $72$ (median $72$), yet nobody scored more than $72$.\n\nSo the answer is **I and II only**.",
+  "insight": "Combine groups through totals; moving a value between groups raises both means exactly when it lies between them; to refute 'must', build a small explicit data set.",
+  "distractors": {
+   "2": "Averaging the two means, $\\frac{60+70}{2}=65$, which ignores the different class sizes, and so rejecting I.",
+   "1": "Thinking that moving one student cannot raise both class means.",
+   "7": "Assuming that because the median is above the mean, some marks must lie above the median."
+  },
+  "time": 270,
+  "family": "prob-14"
+ },
+ {
+  "id": "prob-14b",
+  "topic": "prob",
+  "paper": 2,
+  "difficulty": 5,
+  "skills": [
+   "mean and median",
+   "combining groups",
+   "counterexamples"
+  ],
+  "stem": "Data set P has $10$ values, with mean $30$ and median $32$. Data set Q has $15$ values, with mean $20$ and median $18$.\n\nWhich of the following **must** be true?\n\nI. The mean of all $25$ values is $25$.\n\nII. At least one value in P is greater than $32$.\n\nIII. If the largest value in Q is increased by $10$, the mean of Q increases but the median of Q does not change.",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 3,
+  "solution": "**I is false:** the totals are $300$ and $300$, so the combined mean is $\\frac{600}{25}=24$, not $25$.\n\n**II is not necessarily true.** Counterexample: four values of $27$ and six values of $32$. The total is $108+192=300$ (mean $30$) and the $5$th and $6$th values are both $32$ (median $32$), but no value exceeds $32$.\n\n**III is true:** the total of Q rises by $10$, so the mean rises by $\\frac{10}{15}$. The largest value stays the largest, so the order of the values is unchanged and the $8$th value (the median) is the same.\n\nSo the answer is **III only**.",
+  "insight": "Combine means through totals, and remember the median depends only on the middle of the ordered list, not on the extremes.",
+  "distractors": {
+   "5": "Averaging the two means, $\\frac{30+20}{2}=25$, ignoring the different group sizes.",
+   "6": "Assuming a median above the mean forces some values above the median.",
+   "7": "Making both of the slips above."
+  },
+  "time": 240,
+  "family": "prob-14"
  },
  {
   "id": "prob-15",
@@ -411,9 +899,43 @@
   "insight": "Test independence by checking $P(X\\cap Y)=P(X)P(Y)$ exactly; intuition about 'unrelated' events is unreliable.",
   "distractors": {
    "4": "Assuming that because $A$ and $B$ are independent, $A$ and $C$ must be too; for total $7$ every first-die value works, but for total $8$ a first die of $1$ is impossible.",
-   "5": "Thinking mutually exclusive events are independent."
+   "5": "Thinking mutually exclusive events are independent.",
+   "7": "Assuming events that 'seem unrelated' are independent without checking the product rule."
   },
-  "time": 210
+  "time": 210,
+  "family": "prob-15"
+ },
+ {
+  "id": "prob-15b",
+  "topic": "prob",
+  "paper": 2,
+  "difficulty": 4,
+  "skills": [
+   "independence",
+   "equally likely outcomes"
+  ],
+  "stem": "A card is chosen at random from twelve cards numbered $1$ to $12$. Let $A$ be the event 'the number is even', $B$ the event 'the number is a multiple of $3$', and $C$ the event 'the number is at most $8$'.\n\nWhich of the following pairs of events are independent?\n\nI. $A$ and $B$\n\nII. $A$ and $C$\n\nIII. $B$ and $C$",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 4,
+  "solution": "$P(A)=\\frac12$, $P(B)=\\frac4{12}=\\frac13$, $P(C)=\\frac8{12}=\\frac23$.\n\n**I:** $A\\cap B=\\{6,12\\}$, so $P(A\\cap B)=\\frac2{12}=\\frac16=\\frac12\\cdot\\frac13$. Independent.\n\n**II:** $A\\cap C=\\{2,4,6,8\\}$, so $P(A\\cap C)=\\frac4{12}=\\frac13=\\frac12\\cdot\\frac23$. Independent.\n\n**III:** $B\\cap C=\\{3,6\\}$, so $P(B\\cap C)=\\frac2{12}=\\frac16$, but $P(B)P(C)=\\frac29$. Not independent.\n\nSo the answer is **I and II only**.",
+  "insight": "Independence is the exact equation $P(X\\cap Y)=P(X)P(Y)$; check it rather than judging whether events 'seem related'.",
+  "distractors": {
+   "7": "Assuming events about different properties of the number are automatically independent.",
+   "1": "Thinking 'at most 8' must affect whether the number is even, without checking.",
+   "5": "Miscounting $B\\cap C$ as $\\{3,6,9\\}$ or similar, and missing that $9$ is greater than $8$."
+  },
+  "time": 200,
+  "family": "prob-15"
  },
  {
   "id": "prob-16",
@@ -431,18 +953,51 @@
    "$\\{1\\}$",
    "$\\{3\\}$",
    "$\\{6\\}$",
-   "$\\{1,6\\}$",
-   "$\\{2,3\\}$",
-   "$\\{3,6\\}$"
+   "$\\{7\\}$",
+   "$\\{1,6\\}$"
   ],
-  "answer": 3,
+  "answer": 4,
   "solution": "$$\\frac{n(n-1)+3\\cdot2}{(n+3)(n+2)}=\\frac12\\ \\Rightarrow\\ 2n^2-2n+12=n^2+5n+6\\ \\Rightarrow\\ n^2-7n+6=0,$$\nso $(n-1)(n-6)=0$ and $n=1$ or $n=6$.\n\nBoth are valid. For $n=1$: the only way to match is two blues, $\\frac{\\binom32}{\\binom42}=\\frac36=\\frac12$. For $n=6$: $\\frac{\\binom62+\\binom32}{\\binom92}=\\frac{15+3}{36}=\\frac12$.\n\nSo the complete set is $\\{1,6\\}$.",
   "insight": "Set up the equation, solve it, then check each root in context rather than discarding one on instinct.",
   "distractors": {
+   "0": "Only counting two blues: $\\frac{6}{(n+3)(n+2)}=\\frac12$ gives $n=1$.",
+   "1": "Using with-replacement probabilities, $\\frac{n^2+9}{(n+3)^2}=\\frac12$, which gives $(n-3)^2=0$.",
    "2": "Rejecting $n=1$ because two reds cannot be drawn; the balls can still match by both being blue.",
-   "1": "Using with-replacement probabilities, $\\frac{n^2+9}{(n+3)^2}=\\frac12$, which gives $(n-3)^2=0$."
+   "3": "Forgetting to double the $6$ when clearing fractions: $2n^2-2n+6=n^2+5n+6$ gives $n=0$ or $n=7$."
   },
-  "time": 210
+  "time": 210,
+  "family": "prob-16"
+ },
+ {
+  "id": "prob-16b",
+  "topic": "prob",
+  "paper": 1,
+  "difficulty": 4,
+  "skills": [
+   "without replacement",
+   "quadratics",
+   "unknown numbers"
+  ],
+  "stem": "A tin contains $4$ toffees and $n$ mints. Two sweets are taken at random without replacement. The probability that they are of different types is $\\frac{8}{15}$.\n\nWhat is the complete set of possible values of $n$?",
+  "figure": null,
+  "options": [
+   "$\\{2\\}$",
+   "$\\{6\\}$",
+   "$\\{2,6\\}$",
+   "$\\{3,4\\}$",
+   "there are no possible values of $n$"
+  ],
+  "answer": 2,
+  "solution": "Different types can happen in two orders:\n$$2\\cdot\\frac{4}{n+4}\\cdot\\frac{n}{n+3}=\\frac8{15}\\ \\Rightarrow\\ 15n=(n+4)(n+3)\\ \\Rightarrow\\ n^2-8n+12=0,$$\nso $(n-2)(n-6)=0$ and $n=2$ or $n=6$.\n\nBoth are valid: for $n=2$, $\\dfrac{4\\times2}{\\binom62}=\\dfrac8{15}$; for $n=6$, $\\dfrac{4\\times6}{\\binom{10}2}=\\dfrac{24}{45}=\\dfrac8{15}$.\n\nSo the complete set is $\\{2,6\\}$.",
+  "insight": "Set up the equation, solve the quadratic, and check every root in context instead of keeping only the first one found.",
+  "distractors": {
+   "4": "Forgetting the factor $2$ for the two orders (or using with-replacement probabilities), which gives a quadratic with no real roots.",
+   "3": "Mis-rearranging to $n^2+7n+12=0$ and dropping the signs of the roots $-3,-4$.",
+   "1": "Finding $n=6$ by trial and stopping, missing the second root.",
+   "0": "Finding $n=2$ by trial and stopping, missing the second root."
+  },
+  "time": 210,
+  "family": "prob-16"
  },
  {
   "id": "prob-17",
@@ -456,21 +1011,54 @@
   "stem": "Three couples sit at random in a row of six chairs. What is the probability that nobody sits next to their partner?",
   "figure": null,
   "options": [
-   "$\\frac{1}{6}$",
-   "$\\frac{1}{5}$",
-   "$\\frac{1}{4}$",
+   "$0$",
    "$\\frac{8}{27}$",
    "$\\frac{1}{3}$",
-   "$\\frac{2}{5}$"
+   "$\\frac{2}{5}$",
+   "$\\frac{2}{3}$"
   ],
-  "answer": 4,
+  "answer": 2,
   "solution": "There are $6!=720$ seatings. Let $A_i$ be the set of seatings with couple $i$ together. Treating a couple as a block (which can be ordered $2$ ways):\n$$|A_i|=2\\cdot5!=240,\\qquad|A_i\\cap A_j|=2^2\\cdot4!=96,\\qquad|A_1\\cap A_2\\cap A_3|=2^3\\cdot3!=48.$$\n\nBy inclusion–exclusion, the number with at least one couple together is\n$$3(240)-3(96)+48=480.$$\n\nSo $720-480=240$ seatings have no couple together, and the probability is $\\frac{240}{720}=\\frac13$.",
   "insight": "For 'none of these things happen', use inclusion–exclusion with blocks, and do not stop after two terms.",
   "distractors": {
-   "5": "Stopping inclusion–exclusion before the last term: $720-720+288=288$, giving $\\frac25$.",
-   "3": "Treating the three events 'couple $i$ apart' (each of probability $\\frac23$) as independent: $\\left(\\frac23\\right)^3=\\frac8{27}$. They are not independent."
+   "3": "Stopping inclusion–exclusion before the last term: $720-720+288=288$, giving $\\frac25$.",
+   "1": "Treating the three events 'couple $i$ apart' (each of probability $\\frac23$) as independent: $\\left(\\frac23\\right)^3=\\frac8{27}$. They are not independent.",
+   "0": "Subtracting the three single-couple probabilities, $1-3\\times\\frac13=0$, without adding back the overlaps.",
+   "4": "Giving the probability that one particular couple is apart, $\\frac23$."
   },
-  "time": 270
+  "time": 270,
+  "family": "prob-17"
+ },
+ {
+  "id": "prob-17b",
+  "topic": "prob",
+  "paper": 1,
+  "difficulty": 5,
+  "skills": [
+   "arrangements",
+   "inclusion-exclusion",
+   "derangements"
+  ],
+  "stem": "Five friends each write their name on a slip of paper and put it in a hat. The slips are mixed and each friend then takes one slip at random, without replacement.\n\nWhat is the probability that nobody takes the slip with their own name on it?",
+  "figure": null,
+  "options": [
+   "$0$",
+   "$\\frac{1024}{3125}$",
+   "$\\frac{1}{3}$",
+   "$\\frac{11}{30}$",
+   "$\\frac{1}{2}$"
+  ],
+  "answer": 3,
+  "solution": "There are $5!=120$ equally likely ways to hand out the slips. Let $A_i$ be the set of handouts in which friend $i$ gets their own slip. If a given set of $k$ friends get their own slips, the rest can be anything: $(5-k)!$ ways. By inclusion–exclusion, the number with at least one friend getting their own slip is\n$$\\binom51 4!-\\binom52 3!+\\binom53 2!-\\binom54 1!+\\binom55 0!=120-60+20-5+1=76.$$\n\nSo $120-76=44$ handouts give nobody their own slip, and the probability is $\\frac{44}{120}=\\frac{11}{30}$.",
+  "insight": "For 'none of these things happen', use inclusion–exclusion and keep going to the last term.",
+  "distractors": {
+   "0": "Subtracting the single-friend probabilities, $1-5\\times\\frac15=0$, without adding back the overlaps.",
+   "1": "Treating the events 'friend $i$ does not get their own slip' as independent: $\\left(\\frac45\\right)^5$.",
+   "2": "Stopping inclusion–exclusion after three terms: $120-120+60-20=40$, giving $\\frac13$.",
+   "4": "Stopping after two terms: $120-120+60=60$, giving $\\frac12$."
+  },
+  "time": 270,
+  "family": "prob-17"
  },
  {
   "id": "prob-18",
@@ -478,9 +1066,9 @@
   "paper": 2,
   "difficulty": 5,
   "skills": [
-   "geometric probability",
    "counting",
-   "regular polygons"
+   "geometry of polygons",
+   "classifying cases"
   ],
   "stem": "Three of the six vertices of a regular hexagon are chosen at random to form a triangle. Which of the following statements is/are true?\n\nI. The probability that the centre of the hexagon lies inside or on the triangle is $\\frac12$.\n\nII. The probability that the triangle is right-angled is $\\frac35$.\n\nIII. The probability that the triangle is isosceles (counting an equilateral triangle as isosceles) is $\\frac25$.",
   "figure": null,
@@ -499,8 +1087,43 @@
   "insight": "Classify configurations by shape using symmetry, and check the classes add up to the total.",
   "distractors": {
    "2": "Not counting the equilateral triangles as isosceles (despite the stem), giving $\\frac6{20}$ for III.",
-   "7": "Accepting I without counting: the centre lies inside or on $14$ of the $20$ triangles (the $12$ right-angled ones have it on the hypotenuse), so the probability is $\\frac7{10}$, not $\\frac12$."
+   "7": "Accepting I without counting: the centre lies inside or on $14$ of the $20$ triangles (the $12$ right-angled ones have it on the hypotenuse), so the probability is $\\frac7{10}$, not $\\frac12$.",
+   "3": "Missing that every triangle containing two opposite vertices is right-angled (angle in a semicircle), and so rejecting II."
   },
-  "time": 270
+  "time": 270,
+  "family": "prob-18"
+ },
+ {
+  "id": "prob-18b",
+  "topic": "prob",
+  "paper": 2,
+  "difficulty": 5,
+  "skills": [
+   "counting",
+   "3D geometry",
+   "classifying cases"
+  ],
+  "stem": "Three of the eight vertices of a cube are chosen at random to form a triangle. Which of the following statements is/are true?\n\nI. The probability that the triangle is equilateral is $\\frac17$.\n\nII. The probability that the triangle is right-angled is $\\frac67$.\n\nIII. The probability that the triangle is isosceles (counting an equilateral triangle as isosceles) is $\\frac37$.",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 4,
+  "solution": "There are $\\binom83=56$ triangles (no three vertices of a cube are collinear). Take the edge length as $1$; the possible distances between vertices are $1$ (edge), $\\sqrt2$ (face diagonal) and $\\sqrt3$ (space diagonal). Classify:\n\n* **Three vertices of one face:** sides $1,1,\\sqrt2$. Each face gives $\\binom43=4$, so $6\\times4=24$. Right-angled and isosceles.\n* **Equilateral, sides $\\sqrt2,\\sqrt2,\\sqrt2$:** the three neighbours of any vertex, so $8$ triangles.\n* **The rest:** $56-24-8=24$ triangles with sides $1,\\sqrt2,\\sqrt3$. Since $1+2=3$, these are right-angled (and scalene).\n\n**I:** $\\frac8{56}=\\frac17$. True.\n\n**II:** $\\frac{24+24}{56}=\\frac67$. True.\n\n**III:** isosceles $=24+8=32$, so $\\frac{32}{56}=\\frac47$. False.\n\nSo the answer is **I and II only**.",
+  "insight": "Classify configurations by their side lengths, using symmetry, and check the classes add up to the total.",
+  "distractors": {
+   "7": "Forgetting to include the $8$ equilateral triangles as isosceles: $\\frac{24}{56}=\\frac37$.",
+   "1": "Only counting the triangles in a face as right-angled ($\\frac{24}{56}$), missing the $1,\\sqrt2,\\sqrt3$ triangles.",
+   "5": "Making both slips above."
+  },
+  "time": 270,
+  "family": "prob-18"
  }
 ]

@@ -3,56 +3,124 @@
   "id": "alg-01",
   "topic": "alg",
   "paper": 1,
-  "difficulty": 1,
+  "difficulty": 3,
   "skills": [
-   "surds",
-   "rationalising"
+   "polynomial division",
+   "remainder theorem",
+   "division by a quadratic"
   ],
-  "stem": "Which of the following is equal to $\\dfrac{\\sqrt{3}+1}{\\sqrt{3}-1}$?",
+  "stem": "When the polynomial $p(x)$ is divided by $(x-1)$ the remainder is $3$, and when $p(x)$ is divided by $(x+2)$ the remainder is $-3$.\n\nWhat is the remainder when $p(x)$ is divided by $x^2+x-2$?",
   "figure": null,
   "options": [
-   "$2-\\sqrt{3}$",
-   "$\\dfrac{2+\\sqrt{3}}{2}$",
-   "$1+\\sqrt{3}$",
-   "$2+\\sqrt{3}$",
-   "$4+2\\sqrt{3}$"
+   "$-9$",
+   "$0$",
+   "$3$",
+   "$-6x+9$",
+   "$2x+1$"
   ],
-  "answer": 3,
-  "solution": "Multiply top and bottom by the conjugate $\\sqrt3+1$:\n\n$$\\frac{(\\sqrt3+1)^2}{(\\sqrt3)^2-1^2}=\\frac{3+2\\sqrt3+1}{2}=\\frac{4+2\\sqrt3}{2}=2+\\sqrt3.$$\n\n**Check:** $\\sqrt3\\approx1.73$, so the original is $2.73/0.73\\approx3.7$, which matches $2+\\sqrt3$ and rules out every other option.",
-  "insight": "Multiply by the conjugate so the denominator becomes a difference of two squares.",
+  "answer": 4,
+  "solution": "Dividing by a quadratic leaves a remainder of degree at most $1$, so write\n$$p(x)=(x^2+x-2)\\,q(x)+ax+b=(x-1)(x+2)\\,q(x)+ax+b.$$\n\nSubstituting the roots of the divisor kills the first term:\n\n* $x=1$: $p(1)=a+b=3$.\n* $x=-2$: $p(-2)=-2a+b=-3$.\n\nSubtracting, $3a=6$, so $a=2$ and $b=1$. The remainder is $2x+1$.",
+  "insight": "The remainder on division by a quadratic is linear, $ax+b$; find $a$ and $b$ by substituting the two roots of the divisor.",
   "distractors": {
-   "4": "Expanding $(\\sqrt3+1)^2=4+2\\sqrt3$ correctly but forgetting to divide by the new denominator $3-1=2$.",
-   "2": "Dropping the $(\\sqrt3)^2=3$ term when expanding, so the numerator becomes $1+2\\sqrt3+1=2+2\\sqrt3$, then dividing by $2$."
+   "0": "Multiplying the two remainders, $3\\times(-3)$, as if remainders combined like factors.",
+   "1": "Adding the two remainders and assuming the remainder must be a constant.",
+   "2": "Assuming the remainder is a constant, so it must equal $p(1)=3$; but a constant cannot also give $p(-2)=-3$.",
+   "3": "Substituting $x=2$ instead of $x=-2$ for the factor $(x+2)$: $a+b=3$, $2a+b=-3$."
   },
-  "time": 60
+  "time": 180,
+  "family": "alg-01"
+ },
+ {
+  "id": "alg-01b",
+  "topic": "alg",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "polynomial division",
+   "division by a quadratic",
+   "comparing coefficients"
+  ],
+  "stem": "The real constants $p$ and $q$ are such that $x^4+px^2+q$ is exactly divisible by $x^2+x+1$ (that is, the remainder is zero).\n\nWhat are the values of $p$ and $q$?",
+  "figure": null,
+  "options": [
+   "$p=-1,\\ q=1$",
+   "$p=1,\\ q=-1$",
+   "$p=1,\\ q=1$",
+   "$p=3,\\ q=1$",
+   "$p=1,\\ q=0$"
+  ],
+  "answer": 2,
+  "solution": "The divisor $x^2+x+1$ has no real roots, so divide directly. Writing $x^4+0x^3+px^2+0x+q$:\n\n* $x^2(x^2+x+1)=x^4+x^3+x^2$; subtracting leaves $-x^3+(p-1)x^2+0x+q$.\n* $-x(x^2+x+1)=-x^3-x^2-x$; subtracting leaves $px^2+x+q$.\n* $p(x^2+x+1)=px^2+px+p$; subtracting leaves $(1-p)x+(q-p)$.\n\nSo the quotient is $x^2-x+p$ and the remainder is $(1-p)x+(q-p)$. For exact division both coefficients vanish: $p=1$ and $q=1$.\n\n**Check:** $(x^2+x+1)(x^2-x+1)=(x^2+1)^2-x^2=x^4+x^2+1$ ✓.\n\n*Alternative:* $x^3-1=(x-1)(x^2+x+1)$, so modulo $x^2+x+1$ we have $x^3\\equiv1$ and $x^2\\equiv-x-1$. Then $x^4\\equiv x$ and $x^4+px^2+q\\equiv(1-p)x+(q-p)$.",
+  "insight": "Long division by a quadratic leaves a linear remainder $Ax+B$; exact divisibility means both $A=0$ and $B=0$.",
+  "distractors": {
+   "0": "A sign slip in the last step, taking the $x$-coefficient of the remainder as $1+p$.",
+   "1": "A sign slip in the constant term, taking it as $q+p$ instead of $q-p$.",
+   "3": "A subtraction slip in the second step: $(p-1)-1=p-2$ instead of $(p-1)-(-1)=p$, which then forces $p=3$.",
+   "4": "Making only the $x$-coefficient vanish and then assuming the constant $q$ must be $0$."
+  },
+  "time": 180,
+  "family": "alg-01"
  },
  {
   "id": "alg-02",
   "topic": "alg",
   "paper": 1,
-  "difficulty": 1,
+  "difficulty": 2,
   "skills": [
-   "indices"
+   "square roots",
+   "extraneous roots",
+   "squaring both sides"
   ],
-  "stem": "Evaluate $$\\frac{8^{\\frac23}\\times 4^{-\\frac12}}{2^{-3}}.$$",
+  "stem": "Here $\\sqrt{t}$ denotes the non-negative square root of $t$.\n\nWhich of the following gives all the real solutions of the equation\n$$\\sqrt{2x+7}=x+2\\,?$$",
   "figure": null,
   "options": [
-   "$-64$",
-   "$\\frac14$",
-   "$1$",
-   "$4$",
-   "$16$",
-   "$64$"
+   "No real solutions",
+   "$x=1$ only",
+   "$x=-3$ and $x=1$",
+   "$x=-1$ and $x=3$",
+   "$x=3$ only"
   ],
-  "answer": 4,
-  "solution": "Write everything as a power of 2: $8^{2/3}=2^2$, $4^{-1/2}=2^{-1}$, and dividing by $2^{-3}$ multiplies by $2^3$.\n\n$$2^{2-1+3}=2^4=16.$$",
-  "insight": "Convert every term to the same base and just add/subtract exponents.",
+  "answer": 1,
+  "solution": "Squaring gives $2x+7=x^2+4x+4$, so $x^2+2x-3=0$, i.e. $(x+3)(x-1)=0$ and $x=-3$ or $x=1$.\n\nSquaring can create extra solutions, because $a^2=b^2$ only gives $a=\\pm b$. Check each in the original equation:\n\n* $x=1$: $\\sqrt9=3$ and $1+2=3$ ✓.\n* $x=-3$: $\\sqrt1=1$ but $-3+2=-1$ ✗. (It solves $-\\sqrt{2x+7}=x+2$ instead.)\n\nSo $x=1$ only. Quick test: the right-hand side must be $\\ge0$, so any solution needs $x\\ge-2$.",
+  "insight": "Since $\\sqrt{\\ }$ is never negative, squaring can introduce false roots: check that the other side is non-negative.",
   "distractors": {
-   "1": "Treating division by $2^{-3}$ as multiplication by $\\frac18$: $4\\times\\frac12\\times\\frac18=\\frac14$.",
-   "5": "Taking $4^{-1/2}=2$ (ignoring the minus sign): $4\\times2\\times8=64$.",
-   "0": "Thinking a negative index makes the number negative: $4^{-1/2}=-2$."
+   "2": "Squaring correctly but not checking the roots: at $x=-3$ the right-hand side is $-1$, and $\\sqrt1=1$, not $-1$.",
+   "3": "Factorising $x^2+2x-3$ as $(x-3)(x+1)$, a sign slip.",
+   "4": "Making the factorising sign slip and then (correctly) rejecting the negative root.",
+   "0": "Rejecting $x=1$ as well, e.g. by testing it in the squared equation with an arithmetic slip, and concluding nothing works."
   },
-  "time": 60
+  "time": 120,
+  "family": "alg-02"
+ },
+ {
+  "id": "alg-02b",
+  "topic": "alg",
+  "paper": 1,
+  "difficulty": 2,
+  "skills": [
+   "square roots",
+   "hidden quadratic",
+   "positive root"
+  ],
+  "stem": "Here $\\sqrt{x}$ denotes the non-negative square root of $x$.\n\nWhich of the following gives all the real solutions of the equation\n$$x-\\sqrt{x}=6\\,?$$",
+  "figure": null,
+  "options": [
+   "$x=3$ only",
+   "$x=4$ and $x=9$",
+   "$x=9$ only",
+   "$x=-2$ and $x=3$",
+   "No real solutions"
+  ],
+  "answer": 2,
+  "solution": "Let $u=\\sqrt x$, so $u\\ge0$ and $x=u^2$. The equation becomes\n$$u^2-u-6=0\\iff(u-3)(u+2)=0,$$\nso $u=3$ or $u=-2$. But $u=\\sqrt x$ cannot be negative, so only $u=3$, giving $x=9$.\n\n**Check:** $9-\\sqrt9=6$ ✓, whereas $4-\\sqrt4=2\\ne6$.",
+  "insight": "Substitute $u=\\sqrt x$ and remember $u\\ge0$: a negative $u$-root gives no solution.",
+  "distractors": {
+   "1": "Accepting $u=-2$ and squaring it to get $x=4$; but $\\sqrt4=2$, not $-2$.",
+   "3": "Solving for $u=\\sqrt x$ and forgetting to convert back to $x$.",
+   "0": "Solving for $u$ and reporting $u=3$ as the value of $x$, after rejecting $u=-2$."
+  },
+  "time": 120,
+  "family": "alg-02"
  },
  {
   "id": "alg-03",
@@ -63,7 +131,7 @@
    "completing the square",
    "max/min"
   ],
-  "stem": "What is the greatest value of $$\\frac{20}{2x^2-12x+23}$$ as $x$ varies over the real numbers?",
+  "stem": "The strength $S$ of a radio signal received at a point $x$ km along a straight road is modelled by\n$$S=\\frac{20}{2x^2-12x+23},$$\nwhere $x$ can be any real number. What is the greatest value of $S$?",
   "figure": null,
   "options": [
    "$\\frac{20}{23}$",
@@ -78,92 +146,242 @@
   "distractors": {
    "1": "Completing the square as $2(x-3)^2+14$, i.e. subtracting $9$ instead of $2\\times9=18$.",
    "0": "Just substituting $x=0$ rather than finding the minimum of the denominator.",
-   "4": "Assuming the denominator can reach $0$; it can't, because its minimum is $5$."
+   "4": "Assuming the denominator can reach $0$; it can't, because its minimum is $5$.",
+   "3": "Taking the numerator $20$ as the maximum, as if the denominator could fall to $1$."
   },
-  "time": 90
+  "time": 90,
+  "family": "alg-03"
+ },
+ {
+  "id": "alg-03b",
+  "topic": "alg",
+  "paper": 1,
+  "difficulty": 2,
+  "skills": [
+   "completing the square",
+   "max/min",
+   "exponentials"
+  ],
+  "stem": "A sensor's reading at time $t$ is modelled by\n$$R=2^{\\,t^2-4t+1},$$\nwhere $t$ can be any real number. What is the least value of $R$?",
+  "figure": null,
+  "options": [
+   "$\\frac18$",
+   "$\\frac12$",
+   "$1$",
+   "$2$",
+   "It has no least value"
+  ],
+  "answer": 0,
+  "solution": "$2^u$ is increasing in $u$, so $R$ is least when the exponent is least.\n\nComplete the square: $t^2-4t+1=(t-2)^2-4+1=(t-2)^2-3$, which has least value $-3$ at $t=2$.\n\nSo the least value of $R$ is $2^{-3}=\\frac18$.",
+  "insight": "An increasing function of a quadratic is smallest where the quadratic is smallest; complete the square.",
+  "distractors": {
+   "3": "Completing the square as $(t-2)^2+1$, forgetting to subtract $4$.",
+   "2": "Assuming the smallest power of $2$ is $2^0=1$, as if the exponent could not be negative.",
+   "1": "Completing the square as $(t-2)^2-2+1$, i.e. subtracting $2$ (half of $4$) instead of $2^2$.",
+   "4": "Thinking $2^u$ can be made arbitrarily close to $0$ here; it can only if the exponent is unbounded below, which a positive quadratic is not."
+  },
+  "time": 120,
+  "family": "alg-03"
  },
  {
   "id": "alg-04",
   "topic": "alg",
   "paper": 1,
-  "difficulty": 2,
+  "difficulty": 4,
   "skills": [
-   "sum and product of roots",
-   "symmetric functions"
+   "modulus",
+   "graphs",
+   "parameters",
+   "number of solutions"
   ],
-  "stem": "The roots of $x^2-5x+3=0$ are $\\alpha$ and $\\beta$. What is the value of $\\alpha^3+\\beta^3$?",
+  "stem": "What is the complete set of values of the real constant $k$ for which the equation\n$$|x-2|=kx$$\nhas exactly two real solutions?",
   "figure": null,
   "options": [
-   "$80$",
-   "$95$",
-   "$116$",
-   "$125$",
-   "$170$"
+   "$k<-1$ or $0<k<1$",
+   "$-1<k<1$",
+   "$0\\le k<1$",
+   "$0<k<1$",
+   "$k>0$"
   ],
-  "answer": 0,
-  "solution": "$\\alpha+\\beta=5$ and $\\alpha\\beta=3$. Use\n\n$$\\alpha^3+\\beta^3=(\\alpha+\\beta)^3-3\\alpha\\beta(\\alpha+\\beta)=125-3\\cdot3\\cdot5=125-45=80.$$\n\n*Alternative:* $\\alpha^2+\\beta^2=25-6=19$, and $\\alpha^3+\\beta^3=(\\alpha+\\beta)(\\alpha^2-\\alpha\\beta+\\beta^2)=5(19-3)=80$.",
-  "insight": "Express symmetric expressions in the roots using only $\\alpha+\\beta$ and $\\alpha\\beta$ - never solve for the roots.",
+  "answer": 3,
+  "solution": "**Sketch:** $y=|x-2|$ is a V with vertex $(2,0)$ and arms of gradient $\\pm1$; $y=kx$ is a line through the origin. The line must cut both arms.\n\n**Algebra.** For $x\\ge2$: $x-2=kx\\iff x=\\dfrac{2}{1-k}$, valid when $\\dfrac2{1-k}\\ge2$, i.e. $0\\le k<1$.\n\nFor $x<2$: $2-x=kx\\iff x=\\dfrac{2}{1+k}$, valid when $\\dfrac2{1+k}<2$, i.e. $k>0$ or $k<-1$.\n\nTwo solutions need both to be valid: $0<k<1$.\n\nAt $k=0$ there is only $x=2$; for $k\\ge1$ the line is at least as steep as the right arm and meets only the left arm; for $k<0$ the line meets at most the left arm.",
+  "insight": "Draw the V and rotate a line about the origin: count crossings with each arm separately, checking the boundary gradients.",
   "distractors": {
-   "1": "Using $(\\alpha+\\beta)(\\alpha^2+\\beta^2)=5\\times19$, forgetting the $-\\alpha\\beta$ term in the factorisation.",
-   "2": "Writing $(\\alpha+\\beta)^3-3\\alpha\\beta$, dropping the factor $(\\alpha+\\beta)$.",
-   "4": "Adding $3\\alpha\\beta(\\alpha+\\beta)$ instead of subtracting it."
+   "4": "Forgetting that for $k\\ge1$ the line is parallel to or steeper than the right arm, so it never meets it.",
+   "2": "Including $k=0$: the line $y=0$ touches the V only at its vertex, giving one solution.",
+   "1": "Assuming the situation is symmetric in $k$, but the V is not symmetric about the $y$-axis.",
+   "0": "Thinking a steep negative line ($k<-1$) cuts both arms; it only meets the left arm."
   },
-  "time": 120
+  "time": 240,
+  "family": "alg-04"
+ },
+ {
+  "id": "alg-04b",
+  "topic": "alg",
+  "paper": 1,
+  "difficulty": 4,
+  "skills": [
+   "modulus",
+   "graphs",
+   "parameters",
+   "number of solutions"
+  ],
+  "stem": "What is the complete set of values of the real constant $k$ for which the equation\n$$|x^2-4x|=k$$\nhas exactly four real solutions?",
+  "figure": null,
+  "options": [
+   "$k>0$",
+   "$0<k<4$",
+   "$0<k\\le4$",
+   "$k>4$",
+   "$0<k<2$"
+  ],
+  "answer": 1,
+  "solution": "Sketch $y=|x^2-4x|$: the parabola $y=x^2-4x=(x-2)^2-4$ has roots $0$ and $4$ and minimum $-4$ at $x=2$. Reflecting the part below the axis gives a 'W' shape with zeros at $x=0,4$ and a local maximum of $4$ at $x=2$.\n\nA horizontal line $y=k$ meets this graph:\n\n* $k<0$: never; $k=0$: twice;\n* $0<k<4$: four times (twice on the reflected arch, twice on the outer arms);\n* $k=4$: three times (touching the top of the arch);\n* $k>4$: twice.\n\nSo exactly four solutions when $0<k<4$.\n\n*Algebra:* $x^2-4x=k$ always has two roots for $k>0$, and $x^2-4x=-k$ has two distinct roots iff $16-4k>0$, i.e. $k<4$.",
+  "insight": "Reflect the negative part of the curve in the $x$-axis, then slide a horizontal line and count crossings.",
+  "distractors": {
+   "0": "Only considering $x^2-4x=k$ and $x^2-4x=-k$ without checking when the second has real roots.",
+   "2": "Including $k=4$: the line touches the top of the reflected arch, so there are only three solutions.",
+   "4": "Using the $x$-coordinate $2$ of the turning point as the height of the arch.",
+   "3": "Reversing the picture: above the arch the line meets the graph only twice."
+  },
+  "time": 210,
+  "family": "alg-04"
  },
  {
   "id": "alg-05",
   "topic": "alg",
-  "paper": 1,
-  "difficulty": 2,
+  "paper": 2,
+  "difficulty": 3,
   "skills": [
-   "factor theorem",
-   "remainder theorem"
+   "identities vs equations",
+   "expanding brackets"
   ],
-  "stem": "The polynomial $p(x)=x^3+ax^2+bx-6$ has $(x-2)$ as a factor, and leaves remainder $-12$ when divided by $(x+1)$. What is the remainder when $p(x)$ is divided by $(x-1)$?",
+  "stem": "Let $a$ be a real constant, and consider the equation\n$$(x-a)^2=x^2-a^2$$\nin the unknown $x$. Which of the following statements is/are true?\n\n**I** If $a=0$, the equation is satisfied by every real number $x$.\n\n**II** If $a\\ne0$, the equation has exactly one real solution.\n\n**III** There is a value of $a$ for which the equation has no real solutions.",
   "figure": null,
   "options": [
-   "$-12$",
-   "$-6$",
-   "$-4$",
-   "$0$",
-   "$4$",
-   "$6$"
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
   ],
-  "answer": 2,
-  "solution": "Factor theorem: $p(2)=8+4a+2b-6=0\\Rightarrow 2a+b=-1$.\n\nRemainder theorem: $p(-1)=-1+a-b-6=-12\\Rightarrow a-b=-5$.\n\nAdding: $3a=-6$, so $a=-2$, $b=3$. Then the remainder on dividing by $(x-1)$ is\n\n$$p(1)=1-2+3-6=-4.$$",
-  "insight": "Remainder on division by $(x-c)$ is $p(c)$; each piece of information gives one linear equation.",
+  "answer": 4,
+  "solution": "Expand: $x^2-2ax+a^2=x^2-a^2\\iff 2ax=2a^2$.\n\n**I** If $a=0$ this reads $0=0$, true for every $x$: the equation is then an identity. **True.**\n\n**II** If $a\\ne0$, divide by $2a$: $x=a$, exactly one solution. **True.** (Check: both sides are $0$ at $x=a$.)\n\n**III** Every value of $a$ gives at least one solution (all $x$ if $a=0$, and $x=a$ otherwise). **False.**\n\nSo **I and II only**. The point is the difference between \"not an identity\" (it fails for some $x$) and \"has no solutions\" (it fails for every $x$).",
+  "insight": "An equation that is not an identity can still have solutions: reduce it, and treat the case where you would divide by zero separately.",
   "distractors": {
-   "0": "Setting $p(-1)=+12$ (a sign slip): this gives $a=6$, $b=-13$ and $p(1)=-12$.",
-   "3": "Assuming $(x-1)$ is also a factor without checking."
+   "1": "Believing that because $(x-a)^2\\ne x^2-a^2$ in general, the equation has no solution when $a\\ne0$.",
+   "5": "Confusing 'is not an identity' with 'has no solutions', so accepting III and rejecting II.",
+   "2": "Dividing by $2a$ without considering $a=0$, and so rejecting I.",
+   "7": "Accepting III by thinking of a value such as $a<0$ as making $x^2-a^2$ impossible to match."
   },
-  "time": 120
+  "time": 180,
+  "family": "alg-05"
+ },
+ {
+  "id": "alg-05b",
+  "topic": "alg",
+  "paper": 2,
+  "difficulty": 3,
+  "skills": [
+   "identities vs equations",
+   "expanding brackets",
+   "factorising"
+  ],
+  "stem": "Let $b$ be a real constant, and consider the equation\n$$(x+b)^3=x^3+b^3$$\nin the unknown $x$. Which of the following statements is/are true?\n\n**I** If $b\\ne0$, the equation has exactly one real solution.\n\n**II** There is exactly one value of $b$ for which the equation is satisfied by every real number $x$.\n\n**III** If $b\\ne0$, the real solutions of the equation add up to $-b$.",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 6,
+  "solution": "Expand: $x^3+3bx^2+3b^2x+b^3=x^3+b^3\\iff 3bx^2+3b^2x=0\\iff 3bx(x+b)=0.$\n\n**I** If $b\\ne0$, the solutions are $x=0$ and $x=-b$, which are different. Two solutions: **false.**\n\n**II** The equation holds for every $x$ exactly when $3b=0$ and $3b^2=0$, i.e. $b=0$. Exactly one value: **true.**\n\n**III** For $b\\ne0$ the solutions are $0$ and $-b$, with sum $-b$: **true.**\n\nSo **II and III only**.",
+  "insight": "Collect everything on one side: an identity needs every coefficient to vanish, otherwise solve the resulting equation.",
+  "distractors": {
+   "3": "Cancelling a factor of $x$ (or $x+b$) and losing a solution, so rejecting III's pair as well as I.",
+   "4": "Dividing $3bx(x+b)=0$ by $x$ and finding only $x=-b$, so accepting I.",
+   "0": "Thinking $(x+b)^3=x^3+b^3$ is never true, so no statement can hold.",
+   "7": "Accepting I as well, by missing the solution $x=0$."
+  },
+  "time": 180,
+  "family": "alg-05"
  },
  {
   "id": "alg-06",
   "topic": "alg",
-  "paper": 1,
-  "difficulty": 2,
+  "paper": 2,
+  "difficulty": 4,
   "skills": [
-   "composite functions",
-   "quadratics"
+   "one-to-one functions",
+   "modulus",
+   "domains"
   ],
-  "stem": "The functions $f$ and $g$ are defined for all real $x$ by $f(x)=2x+3$ and $g(x)=x^2-1$. What is the sum of the real solutions of $fg(x)=gf(x)$?",
+  "stem": "A function is called *one-to-one* if no two different inputs in its domain give the same output.\n\nWhich of the following functions is/are one-to-one?\n\n**I** $f(x)=x^2-4x$, for $x\\ge1$\n\n**II** $g(x)=x|x|$, for all real $x$\n\n**III** $h(x)=x^3-3x$, for $x\\ge1$",
   "figure": null,
   "options": [
-   "$-12$",
-   "$-6$",
-   "$-\\frac72$",
-   "$\\frac72$",
-   "$6$"
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
   ],
-  "answer": 1,
-  "solution": "$fg(x)=f(x^2-1)=2x^2+1$ and $gf(x)=(2x+3)^2-1=4x^2+12x+8$.\n\nSetting these equal: $2x^2+12x+7=0$. The discriminant $144-56>0$, so there are two real roots, with sum $-\\frac{12}{2}=-6$.",
-  "insight": "$fg$ means do $g$ first; once you have a quadratic, the sum of roots is $-b/a$ (check the discriminant is positive).",
+  "answer": 6,
+  "solution": "**I** $f(x)=(x-2)^2-4$ has its vertex at $x=2$, which lies inside the domain $x\\ge1$. So $f(1)=f(3)=-3$: **not** one-to-one.\n\n**II** $g(x)=x^2$ for $x\\ge0$ and $g(x)=-x^2$ for $x<0$. Both pieces are increasing and the graph passes continuously through the origin, so $g$ is strictly increasing on all of $\\mathbb R$: **one-to-one.** (Non-negative inputs give non-negative outputs and negative inputs give negative outputs, so no clash across the pieces.)\n\n**III** $h'(x)=3x^2-3\\ge0$ for $x\\ge1$, with equality only at $x=1$, so $h$ is strictly increasing on $x\\ge1$: **one-to-one.** (The two turning points of the full cubic are at $x=\\pm1$; the domain starts at one of them.)\n\nSo **II and III only**.",
+  "insight": "A function on an interval is one-to-one exactly when it has no turning point strictly inside the interval: find the vertex or stationary points and compare with the domain.",
   "distractors": {
-   "2": "Confusing sum with product ($\\frac{c}{a}=\\frac72$) and getting the sign wrong.",
-   "0": "Forgetting to divide by the leading coefficient $2$: taking the sum as $-b=-12$."
+   "7": "Assuming restricting a quadratic to $x\\ge1$ makes it one-to-one; the vertex is at $x=2$, inside the domain.",
+   "2": "Thinking every cubic is many-to-one, without noticing the domain starts at the turning point $x=1$.",
+   "3": "Treating $x|x|$ like $x^2$ (an even function) and so rejecting II.",
+   "4": "Making both of the first two errors: accepting I and rejecting III."
   },
-  "time": 120
+  "time": 210,
+  "family": "alg-06"
+ },
+ {
+  "id": "alg-06b",
+  "topic": "alg",
+  "paper": 2,
+  "difficulty": 4,
+  "skills": [
+   "one-to-one functions",
+   "modulus",
+   "square roots",
+   "domains"
+  ],
+  "stem": "A function is called *one-to-one* if no two different inputs in its domain give the same output. Here $\\sqrt t$ denotes the non-negative square root of $t$.\n\nWhich of the following functions is/are one-to-one?\n\n**I** $f(x)=x+|x|$, for all real $x$\n\n**II** $g(x)=\\sqrt{x^2}$, for $x\\le0$\n\n**III** $h(x)=(x-1)(x-3)$, for $x\\ge1$",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 2,
+  "solution": "**I** For $x\\le0$, $f(x)=x-x=0$, so every non-positive input gives $0$ (e.g. $f(-1)=f(-2)$): **not** one-to-one.\n\n**II** $\\sqrt{x^2}=|x|$, and for $x\\le0$ this is $-x$, which is strictly decreasing: **one-to-one.**\n\n**III** $h(1)=h(3)=0$: **not** one-to-one. (The vertex of the parabola is at $x=2$, inside the domain.)\n\nSo **II only**.",
+  "insight": "$\\sqrt{x^2}=|x|$, not $x$; and a function is one-to-one on an interval only if there is no turning point or flat stretch inside it.",
+  "distractors": {
+   "6": "Thinking that starting the domain at the root $x=1$ makes the parabola one-to-one; its vertex is at $x=2$.",
+   "4": "Treating $x+|x|$ as increasing everywhere and missing that it is constantly $0$ for $x\\le0$.",
+   "0": "Believing $\\sqrt{x^2}$ is $\\pm x$, i.e. not a function at all, and so rejecting II.",
+   "3": "Rejecting II (as above) and accepting III."
+  },
+  "time": 210,
+  "family": "alg-06"
  },
  {
   "id": "alg-07",
@@ -182,8 +400,7 @@
    "$-1<k<4$",
    "$-1<k<4$, $k\\neq0$",
    "$-4<k<1$",
-   "$-4<k<1$, $k\\neq0$",
-   "$0<k<4$"
+   "$-4<k<1$, $k\\neq0$"
   ],
   "answer": 2,
   "solution": "For a genuine quadratic we need $b^2-4ac>0$:\n\n$$16-4k(k-3)>0\\iff k^2-3k-4<0\\iff (k-4)(k+1)<0\\iff -1<k<4.$$\n\nBut when $k=0$ the equation is $4x-3=0$, which is linear with only one root. So we must exclude $k=0$: the answer is $-1<k<4$, $k\\ne0$.",
@@ -191,9 +408,42 @@
   "distractors": {
    "1": "Correct discriminant work but forgetting that $k=0$ makes the equation linear.",
    "0": "Solving $(k-4)(k+1)<0$ as if it were $>0$ (choosing the outside region).",
-   "4": "Factorising $k^2-3k-4$ as $(k+4)(k-1)$."
+   "4": "Factorising $k^2-3k-4$ as $(k+4)(k-1)$.",
+   "3": "Factorising $k^2-3k-4$ as $(k+4)(k-1)$ and also forgetting the linear case $k=0$."
   },
-  "time": 150
+  "time": 150,
+  "family": "alg-07"
+ },
+ {
+  "id": "alg-07b",
+  "topic": "alg",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "discriminant",
+   "parameters",
+   "degenerate case"
+  ],
+  "stem": "What is the complete set of values of the real constant $k$ for which the equation\n$$(k-1)x^2-2kx+k+2=0$$\nhas two distinct real roots?",
+  "figure": null,
+  "options": [
+   "$k<2$",
+   "$k<2$, $k\\neq1$",
+   "$k>2$",
+   "$1<k<2$",
+   "$k\\le2$, $k\\neq1$"
+  ],
+  "answer": 1,
+  "solution": "For a genuine quadratic ($k\\ne1$) we need the discriminant to be positive:\n$$(-2k)^2-4(k-1)(k+2)=4k^2-4(k^2+k-2)=4(2-k)>0\\iff k<2.$$\n\nWhen $k=1$ the equation is $-2x+3=0$, which is linear with just one root, so $k=1$ must be excluded.\n\nAnswer: $k<2$, $k\\ne1$.",
+  "insight": "When the leading coefficient contains the parameter, check separately the value that makes the equation linear.",
+  "distractors": {
+   "0": "Correct discriminant but forgetting that $k=1$ makes the equation linear.",
+   "2": "Reversing the inequality, e.g. expanding $(k-1)(k+2)$ as $k^2-k-2$ and getting $4(3k-2)$-type errors, or solving $2-k>0$ as $k>2$.",
+   "4": "Using $\\ge0$ (which allows a repeated root) instead of $>0$.",
+   "3": "Additionally insisting that the leading coefficient is positive, which is not needed."
+  },
+  "time": 150,
+  "family": "alg-07"
  },
  {
   "id": "alg-08",
@@ -222,9 +472,47 @@
   "insight": "A condition that is part of the solution set is sufficient but not necessary; take square roots of $(1+m)^2=16$ with both signs.",
   "distractors": {
    "4": "Only taking the positive square root, $1+m=4$, so missing $m<-5$ and believing $m>3$ is the full answer.",
-   "5": "Forgetting the negative root in III, giving only $m=3$ as the tangent case."
+   "5": "Forgetting the negative root in III, giving only $m=3$ as the tangent case.",
+   "2": "Mixing up sufficient and necessary: reading I as 'two points only if $m>3$'.",
+   "7": "Missing the negative square root throughout, so believing $m>3$ is both necessary and sufficient and $m=3$ is the only tangent."
   },
-  "time": 180
+  "time": 180,
+  "family": "alg-08"
+ },
+ {
+  "id": "alg-08b",
+  "topic": "alg",
+  "paper": 2,
+  "difficulty": 3,
+  "skills": [
+   "simultaneous equations",
+   "discriminant",
+   "parameters",
+   "necessary and sufficient"
+  ],
+  "stem": "A straight path across a park follows the line $y=2x+c$, where $c$ is a constant, and a curved hedge follows the curve $y=x^2+4x+5$.\n\nWhich of the following statements is/are true?\n\n**I** If $c<4$, the path does not meet the hedge.\n\n**II** The path meets the hedge at two distinct points only if $c>4$.\n\n**III** If $c>4$, both points where the path meets the hedge have negative $x$-coordinates.",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 4,
+  "solution": "Equate: $x^2+4x+5=2x+c\\iff x^2+2x+(5-c)=0$, with discriminant $4-4(5-c)=4(c-4)$.\n\n**I** $c<4$ gives a negative discriminant: no intersection. **True.**\n\n**II** Two distinct points $\\iff c>4$, so two points certainly require $c>4$. **True.**\n\n**III** The roots have sum $-2$ and product $5-c$. If $c>5$ the product is negative, so one root is positive. E.g. $c=8$: $x^2+2x-3=0$ gives $x=1$ or $x=-3$. **False.**\n\nSo **I and II only**.",
+  "insight": "Substitute to get one quadratic; its discriminant counts intersections, and the sum and product of its roots give their signs.",
+  "distractors": {
+   "7": "Seeing the sum of roots $-2<0$ and concluding both roots are negative, without checking the product.",
+   "1": "Reading 'only if $c>4$' as 'if $c>4$' and then doubting it, or mixing up necessary and sufficient.",
+   "6": "Forgetting that a negative discriminant means no intersection at all and rejecting I.",
+   "5": "Rejecting II by confusing 'only if' with 'if', while accepting III."
+  },
+  "time": 180,
+  "family": "alg-08"
  },
  {
   "id": "alg-09",
@@ -232,28 +520,61 @@
   "paper": 1,
   "difficulty": 3,
   "skills": [
-   "rational inequalities",
-   "cubic sign diagram"
+   "inequalities",
+   "modulus",
+   "case analysis"
   ],
-  "stem": "What is the complete set of real values of $x$ for which $$\\frac{6}{x}>x-1\\,?$$",
+  "stem": "What is the complete set of real values of $x$ for which\n$$\\frac{6}{x}>|x-1|\\,?$$",
   "figure": null,
   "options": [
+   "$x>0$",
+   "$1\\le x<3$",
    "$0<x<3$",
    "$-2<x<3$",
-   "$x<-2$ or $x>3$",
-   "$-2<x<0$ or $x>3$",
-   "$x<-2$ or $0<x<3$",
-   "$x<-3$ or $0<x<2$"
+   "$x<-2$ or $0<x<3$"
   ],
-  "answer": 4,
-  "solution": "Don't multiply by $x$ (its sign is unknown). Multiply by $x^2>0$ instead ($x\\ne0$):\n\n$$6x>x^3-x^2\\iff x^3-x^2-6x<0\\iff x(x-3)(x+2)<0.$$\n\nSign diagram for the cubic (positive for large $x$): negative for $x<-2$, positive on $(-2,0)$, negative on $(0,3)$, positive for $x>3$.\n\nSo $x<-2$ or $0<x<3$. **Check:** $x=-3$ gives $-2>-4$ ✓; $x=-1$ gives $-6>-2$ ✗.",
-  "insight": "Multiply an inequality by $x^2$, not by $x$, when the sign of $x$ is unknown.",
+  "answer": 2,
+  "solution": "The right-hand side is never negative, so we need $\\frac6x>0$, i.e. $x>0$. Now multiply by $x>0$: $6>x|x-1|$.\n\n* $0<x<1$: $x(1-x)\\le\\frac14<6$, so every such $x$ works.\n* $x\\ge1$: $x(x-1)<6\\iff x^2-x-6<0\\iff(x-3)(x+2)<0\\iff -2<x<3$, so $1\\le x<3$.\n\nTogether: $0<x<3$.",
+  "insight": "A modulus is never negative, which immediately rules out half the number line; then split at the point where the inside changes sign.",
   "distractors": {
-   "1": "Multiplying both sides by $x$ without considering $x<0$, giving $x^2-x-6<0$.",
-   "3": "Correct cubic but reading the sign diagram the wrong way round (where the cubic is positive).",
-   "0": "Tacitly assuming $x>0$ and losing the negative interval."
+   "4": "Dropping the modulus (treating $|x-1|$ as $x-1$), which gives the solution of $\\frac6x>x-1$.",
+   "3": "Multiplying through by $x$ without considering its sign (and dropping the modulus).",
+   "1": "Only treating the case $x\\ge1$ and forgetting $0<x<1$.",
+   "0": "Noting $x>0$ is needed and assuming it is enough."
   },
-  "time": 180
+  "time": 180,
+  "family": "alg-09"
+ },
+ {
+  "id": "alg-09b",
+  "topic": "alg",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "inequalities",
+   "modulus",
+   "squaring"
+  ],
+  "stem": "What is the complete set of real values of $x$ for which\n$$|x-3|>2|x|\\,?$$",
+  "figure": null,
+  "options": [
+   "$-3<x<1$",
+   "$-1<x<3$",
+   "$x<-3$ or $x>1$",
+   "$x<1$",
+   "$-3<x<3$"
+  ],
+  "answer": 0,
+  "solution": "Both sides are non-negative, so squaring preserves the inequality:\n$$(x-3)^2>4x^2\\iff x^2-6x+9>4x^2\\iff 3x^2+6x-9<0\\iff (x+3)(x-1)<0.$$\n\nSo $-3<x<1$.\n\n**Check:** $x=0$: $3>0$ ✓; $x=-4$: $7>8$ ✗; $x=2$: $1>4$ ✗.",
+  "insight": "When both sides of an inequality are non-negative (as with moduli), squaring is safe and removes the modulus signs.",
+  "distractors": {
+   "3": "Replacing $|x-3|$ by $3-x$ and $|x|$ by $x$ (only valid for $0\\le x\\le3$) and solving $3-x>2x$, ignoring $x<0$.",
+   "1": "A sign slip in the factorisation, giving roots $-1$ and $3$.",
+   "2": "Solving $(x+3)(x-1)<0$ as if it were $>0$ (choosing the outside region).",
+   "4": "Solving each modulus separately and combining the intervals carelessly."
+  },
+  "time": 150,
+  "family": "alg-09"
  },
  {
   "id": "alg-10",
@@ -272,8 +593,7 @@
    "$1$",
    "$2$",
    "$3$",
-   "$12$",
-   "$27$"
+   "$12$"
   ],
   "answer": 3,
   "solution": "Let $u=3^x>0$. Then $9^x=u^2$ and $4\\cdot3^{x+1}=12u$, so\n\n$$u^2-12u+27=0\\iff(u-3)(u-9)=0,$$\n\ngiving $u=3$ or $u=9$ (both positive, so both valid). Hence $x=1$ or $x=2$, and the sum is $3$.\n\n*Faster:* the product of the $u$-roots is $27$, so the sum of the $x$-values is $\\log_3 27=3$.",
@@ -281,17 +601,50 @@
   "distractors": {
    "4": "Giving the sum of the $u$-roots ($3+9$) instead of converting back to $x$.",
    "0": "Writing $4\\cdot3^{x+1}$ as $4u$ instead of $12u$: $u^2-4u+27=0$ has no real roots.",
-   "5": "Giving the product of the $u$-roots."
+   "2": "Finding $u=9$, i.e. $x=2$, and overlooking the root $u=3$.",
+   "1": "Finding $u=3$, i.e. $x=1$, and overlooking the root $u=9$."
   },
-  "time": 150
+  "time": 150,
+  "family": "alg-10"
+ },
+ {
+  "id": "alg-10b",
+  "topic": "alg",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "hidden quadratic",
+   "fractional indices"
+  ],
+  "stem": "What is the sum of all real solutions of\n$$x^{2/3}-5x^{1/3}+4=0\\,?$$",
+  "figure": null,
+  "options": [
+   "$4$",
+   "$5$",
+   "$17$",
+   "$63$",
+   "$65$"
+  ],
+  "answer": 4,
+  "solution": "Let $u=x^{1/3}$ (the real cube root, defined for every real $x$), so $x^{2/3}=u^2$:\n$$u^2-5u+4=0\\iff(u-1)(u-4)=0,$$\nso $u=1$ or $u=4$. Then $x=u^3$: $x=1$ or $x=64$. Every real $u$ comes from exactly one real $x$, so both are valid.\n\nThe sum is $1+64=65$.",
+  "insight": "Spot $x^{2/3}=(x^{1/3})^2$, solve the quadratic in $u$, then convert back with $x=u^3$.",
+  "distractors": {
+   "1": "Giving the sum of the $u$-roots, $1+4$, instead of converting back to $x$.",
+   "0": "Giving the product of the $u$-roots.",
+   "2": "Converting back with $x=u^2$ instead of $x=u^3$: $1+16$.",
+   "3": "Subtracting rather than adding the two solutions, $64-1$."
+  },
+  "time": 150,
+  "family": "alg-10"
  },
  {
   "id": "alg-11",
   "topic": "alg",
   "paper": 1,
-  "difficulty": 3,
+  "difficulty": 4,
   "skills": [
    "inverse functions",
+   "one-to-one functions",
    "domain and range"
   ],
   "stem": "The function $f$ is defined by $f(x)=x^2-6x+11$ for $x\\ge3$. Which of the following gives all real solutions of $f(x)=f^{-1}(x)$?",
@@ -308,15 +661,48 @@
   "insight": "An increasing function meets its inverse only on $y=x$ - then respect the restricted domain.",
   "distractors": {
    "3": "Solving $f(x)=x$ correctly but not checking both roots against the domain $x\\ge3$.",
-   "4": "Confusing the domain/range endpoints ($2$ and $3$) with solutions."
+   "4": "Confusing the domain/range endpoints ($2$ and $3$) with solutions.",
+   "0": "Rejecting both roots of $f(x)=x$, e.g. by estimating $\\frac{7+\\sqrt5}{2}$ as less than $3$ as well."
   },
-  "time": 180
+  "time": 180,
+  "family": "alg-11"
+ },
+ {
+  "id": "alg-11b",
+  "topic": "alg",
+  "paper": 1,
+  "difficulty": 4,
+  "skills": [
+   "inverse functions",
+   "one-to-one functions",
+   "domain and range"
+  ],
+  "stem": "The function $f$ is defined by $f(x)=x^2+4x+2$ for $x\\ge-2$.\n\nWhich of the following gives all the real solutions of $f(x)=f^{-1}(x)$?",
+  "figure": null,
+  "options": [
+   "There are no real solutions",
+   "$x=-2$ only",
+   "$x=-1$ only",
+   "$x=-2$ and $x=-1$",
+   "$x=1$ and $x=2$"
+  ],
+  "answer": 3,
+  "solution": "$f(x)=(x+2)^2-2$ is increasing on $x\\ge-2$ (its vertex is at the endpoint), so $f$ is one-to-one and $f^{-1}$ exists, with domain equal to the range of $f$, namely $x\\ge-2$.\n\nFor an increasing function, $f(x)=f^{-1}(x)$ exactly when $f(x)=x$. (If $f(a)=b>a$ then $f^{-1}(a)<a<b$, and similarly if $b<a$.) So solve\n$$x^2+4x+2=x\\iff x^2+3x+2=0\\iff(x+1)(x+2)=0.$$\n\nBoth $x=-1$ and $x=-2$ satisfy $x\\ge-2$, so both are solutions. **Check:** $f(-2)=-2$ and $f(-1)=-1$ ✓.",
+  "insight": "For an increasing function, solve $f(x)=x$, then keep exactly those roots that lie in the domain (endpoints included).",
+  "distractors": {
+   "2": "Rejecting $x=-2$ because it is the endpoint of the domain; $x\\ge-2$ includes it.",
+   "4": "A sign slip in factorising $x^2+3x+2$.",
+   "1": "Keeping only the endpoint, e.g. by thinking the graphs can only touch at the vertex.",
+   "0": "Trying to find $f^{-1}$ explicitly and making an error, rather than using $y=x$."
+  },
+  "time": 180,
+  "family": "alg-11"
  },
  {
   "id": "alg-12",
   "topic": "alg",
   "paper": 2,
-  "difficulty": 3,
+  "difficulty": 4,
   "skills": [
    "inverse functions",
    "range",
@@ -339,9 +725,46 @@
   "insight": "$\\frac{ax+b}{cx-a}$ is always self-inverse; split off the constant to read the range.",
   "distractors": {
    "7": "Assuming a self-inverse function crosses $y=x$ only once; here the quadratic has two roots.",
-   "1": "Missing that $f^{-1}$ has exactly the same formula as $f$."
+   "1": "Missing that $f^{-1}$ has exactly the same formula as $f$.",
+   "5": "Missing that $f$ is self-inverse and miscounting the roots of $x^2-4x-1=0$.",
+   "2": "Thinking the range excludes the value $x=2$ that is excluded from the domain, rather than the horizontal asymptote, and then rejecting I."
   },
-  "time": 180
+  "time": 180,
+  "family": "alg-12"
+ },
+ {
+  "id": "alg-12b",
+  "topic": "alg",
+  "paper": 2,
+  "difficulty": 4,
+  "skills": [
+   "inverse functions",
+   "range",
+   "self-inverse"
+  ],
+  "stem": "The function $f$ is defined by $f(x)=\\dfrac{3x-1}{x+1}$ for all real $x\\ne-1$. Which of the following statements is/are true?\n\n**I** The range of $f$ is all real numbers except $3$.\n\n**II** $f(f(x))=x$ for every real $x\\ne-1$.\n\n**III** The equation $f(x)=x$ has exactly one real solution.",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 5,
+  "solution": "Write $f(x)=\\dfrac{3(x+1)-4}{x+1}=3-\\dfrac{4}{x+1}$. Since $\\frac4{x+1}$ takes every value except $0$, the range is $\\mathbb R\\setminus\\{3\\}$: **I true.**\n\n**II** Test a value: $f(1)=1$ is no help, so try $x=2$: $f(2)=\\frac53$ and $f\\!\\left(\\frac53\\right)=\\dfrac{4}{8/3}=\\frac32\\ne2$. Also $f(0)=-1$, so $f(f(0))$ is not even defined. **False.** ($\\frac{ax+b}{cx+d}$ is self-inverse when $d=-a$; here $a=3$, $d=1$.)\n\n**III** $3x-1=x(x+1)\\iff x^2-2x+1=0\\iff(x-1)^2=0$, so $x=1$ only. **True.**\n\nSo **I and III only**.",
+  "insight": "Split off the constant to read the range; a fraction $\\frac{ax+b}{cx+d}$ is self-inverse only when $d=-a$.",
+  "distractors": {
+   "7": "Assuming every function of the form $\\frac{ax+b}{cx+d}$ is self-inverse.",
+   "1": "Counting a repeated root as no solution, or as two, and so rejecting III.",
+   "6": "Taking the range to exclude $-1$, the value excluded from the domain, and assuming self-inverse.",
+   "3": "Rejecting I by confusing the excluded input $-1$ with the excluded output $3$."
+  },
+  "time": 210,
+  "family": "alg-12"
  },
  {
   "id": "alg-13",
@@ -370,9 +793,45 @@
   "insight": "For a quadratic in $x^2$, count the positive roots in $u$ using the signs of their sum and product.",
   "distractors": {
    "7": "In II, forgetting that $c$ might be zero or negative, so the two $u$-roots need not both be positive.",
-   "3": "In I, thinking a negative constant term means there might be no real roots."
+   "3": "In I, thinking a negative constant term means there might be no real roots.",
+   "1": "Wrongly applying the counterexample idea to III, e.g. thinking $b>0$, $c>0$ could still give a positive $u$-root."
   },
-  "time": 210
+  "time": 210,
+  "family": "alg-13"
+ },
+ {
+  "id": "alg-13b",
+  "topic": "alg",
+  "paper": 2,
+  "difficulty": 4,
+  "skills": [
+   "hidden quadratic",
+   "exponentials",
+   "conditions on roots"
+  ],
+  "stem": "Consider the equation\n$$4^x+p\\cdot2^x+q=0,$$\nwhere $p$ and $q$ are real constants. Which of the following statements is/are true?\n\n**I** If $q<0$, the equation has exactly one real solution.\n\n**II** If $p>0$, the equation has no real solutions.\n\n**III** If $p^2=4q$, the equation has exactly one real solution.",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 1,
+  "solution": "Let $u=2^x$. Each **positive** $u$ gives exactly one $x$; $u\\le0$ gives none. The equation is $u^2+pu+q=0$.\n\n**I** $q<0$: the product of the $u$-roots is negative, so they are real with opposite signs: exactly one positive root, one solution $x$. **True.**\n\n**II** Counterexample $p=1$, $q=-2$: $u^2+u-2=(u+2)(u-1)$, so $u=1$ and $x=0$. **False.**\n\n**III** $p^2=4q$ gives a repeated root $u=-\\frac p2$, which is positive only if $p<0$. Counterexample $p=2$, $q=1$: $u=-1$, no solution. **False.**\n\nSo **I only**.",
+  "insight": "With $u=2^x$, count positive $u$-roots only; a repeated root still has to be positive to count.",
+  "distractors": {
+   "5": "Accepting III by forgetting that the repeated root $u=-\\frac p2$ might be negative.",
+   "4": "Reasoning that a positive $p$ makes all terms positive, forgetting that $q$ may be negative.",
+   "7": "Accepting both II and III without testing a negative $q$ or a negative repeated root.",
+   "0": "Doubting I because the quadratic in $u$ has two roots, forgetting one is negative and gives no $x$."
+  },
+  "time": 210,
+  "family": "alg-13"
  },
  {
   "id": "alg-14",
@@ -388,8 +847,8 @@
   "figure": null,
   "options": [
    "$-19$",
+   "$5$",
    "$6$",
-   "$9$",
    "$11$",
    "$12$"
   ],
@@ -398,66 +857,169 @@
   "insight": "Roots in arithmetic progression means the middle root is the mean, which the sum of roots gives immediately.",
   "distractors": {
    "4": "Using $\\sum\\alpha\\beta=3a^2-d^2$ but ignoring $d$ (i.e. taking $d=0$, which isn't allowed).",
-   "0": "Taking the sum of roots as $-6$, so $a=-2$."
+   "0": "Taking the sum of roots as $-6$, so $a=-2$.",
+   "2": "Setting $k$ equal to the product of the roots, $6$.",
+   "1": "Finding the middle root $2$ correctly but making a sign slip with the constant: $8-24+2k+6=0$."
   },
-  "time": 180
+  "time": 180,
+  "family": "alg-14"
+ },
+ {
+  "id": "alg-14b",
+  "topic": "alg",
+  "paper": 1,
+  "difficulty": 4,
+  "skills": [
+   "cubic roots",
+   "geometric progression",
+   "factor theorem"
+  ],
+  "stem": "The roots of the cubic equation\n$$x^3-7x^2+kx-8=0$$\nare three distinct real numbers in geometric progression. What is the value of $k$?",
+  "figure": null,
+  "options": [
+   "$-22$",
+   "$-14$",
+   "$6$",
+   "$10$",
+   "$14$"
+  ],
+  "answer": 4,
+  "solution": "Let the roots be $\\frac ar,\\ a,\\ ar$. Comparing $(x-\\alpha)(x-\\beta)(x-\\gamma)$ with the cubic, the product of the roots is $8$, so $a^3=8$ and $a=2$ is a root.\n\nFactor theorem: $8-28+2k-8=0\\Rightarrow k=14$.\n\n**Check:** $x^3-7x^2+14x-8=(x-2)(x^2-5x+4)=(x-1)(x-2)(x-4)$, roots $1,2,4$ ✓ (ratio $2$).",
+  "insight": "In a geometric progression the middle term cubed is the product of all three, and the product of the roots comes from the constant term.",
+  "distractors": {
+   "0": "Taking the product of the roots as $-8$, so $a=-2$; then $-8-28-2k-8=0$ gives $k=-22$.",
+   "1": "Getting the sign convention wrong: the coefficient of $x$ is $+\\sum\\alpha\\beta=14$, not $-14$.",
+   "2": "A sign slip with the constant term: $8-28+2k+8=0$.",
+   "3": "Computing $\\sum\\alpha\\beta=\\frac{4}{r}+4+4r$ but dropping the middle $4$."
+  },
+  "time": 180,
+  "family": "alg-14"
  },
  {
   "id": "alg-15",
   "topic": "alg",
   "paper": 1,
-  "difficulty": 4,
+  "difficulty": 5,
   "skills": [
    "simultaneous equations",
-   "number of intersections",
+   "intersections",
+   "parameters",
    "factorising"
   ],
-  "stem": "How many points of intersection are there between the curves $y=x^2-2$ and $x=y^2-2$?",
+  "stem": "The curves $y=x^2-a$ and $x=y^2-a$ are drawn on the same axes, where $a$ is a real constant.\n\nWhat is the complete set of values of $a$ for which the curves meet at exactly four points?",
   "figure": null,
   "options": [
-   "$0$",
-   "$1$",
-   "$2$",
-   "$3$",
-   "$4$"
+   "$a>-\\frac14$",
+   "$-\\frac14<a<\\frac34$",
+   "$a\\ge\\frac34$",
+   "$a>\\frac34$",
+   "$a>0$"
   ],
-  "answer": 4,
-  "solution": "Subtract the equations: $y-x=x^2-y^2=(x-y)(x+y)$, so\n\n$$(x-y)(x+y+1)=0.$$\n\n* $y=x$: $x^2-x-2=0\\Rightarrow x=2$ or $x=-1$: points $(2,2)$, $(-1,-1)$.\n* $y=-x-1$: $x^2+x-1=0$, discriminant $5>0$, two points $x=\\frac{-1\\pm\\sqrt5}{2}$ (not on $y=x$).\n\nTotal: **4** distinct points.",
-  "insight": "For symmetric-looking systems, subtracting the equations often factorises.",
+  "answer": 3,
+  "solution": "Subtract the equations: $y-x=x^2-y^2=(x-y)(x+y)$, so $(x-y)(x+y+1)=0$. Every intersection lies on $y=x$ or on $y=-x-1$.\n\n* $y=x$: $x^2-x-a=0$, two points iff $1+4a>0$, i.e. $a>-\\frac14$.\n* $y=-x-1$: $-x-1=x^2-a\\iff x^2+x+1-a=0$, two points iff $1-4(1-a)>0$, i.e. $a>\\frac34$.\n\nThe two lines cross at $\\left(-\\frac12,-\\frac12\\right)$, which lies on the curves only when $a=\\frac14+\\frac12=\\frac34$. So for $a>\\frac34$ the four points are distinct, and at $a=\\frac34$ the second line is tangent at a point already counted (giving only two points).\n\nAnswer: $a>\\frac34$. (For example $a=2$ gives the four points $(2,2)$, $(-1,-1)$ and $\\left(\\frac{-1\\pm\\sqrt5}{2},\\frac{-1\\mp\\sqrt5}{2}\\right)$.)",
+  "insight": "For a curve and its reflection in $y=x$, subtracting the equations factorises: intersections lie on $y=x$ or on a perpendicular line, which is easy to miss.",
   "distractors": {
-   "2": "Using the symmetry to look only on the line $y=x$ and missing the factor $x+y+1$.",
-   "3": "Counting correctly but assuming one of the second pair coincides with a first-pair point."
+   "0": "Only looking for intersections on the line $y=x$ (by symmetry), missing the second family.",
+   "2": "Including $a=\\frac34$, where the second line touches the curves at $(-\\frac12,-\\frac12)$, a point already on $y=x$.",
+   "1": "Reversing the condition for the second line (requiring its discriminant to be negative).",
+   "4": "Assuming the curves must be shifted below the origin to cross four times, without computing."
   },
-  "time": 210
+  "time": 300,
+  "family": "alg-15"
+ },
+ {
+  "id": "alg-15b",
+  "topic": "alg",
+  "paper": 1,
+  "difficulty": 5,
+  "skills": [
+   "simultaneous equations",
+   "intersections",
+   "parameters",
+   "factorising"
+  ],
+  "stem": "The curves $y=k-x^2$ and $x=k-y^2$ are drawn on the same axes, where $k$ is a real constant.\n\nWhat is the complete set of values of $k$ for which the curves meet at exactly two points?",
+  "figure": null,
+  "options": [
+   "$k>-\\frac14$",
+   "$-\\frac14<k<\\frac34$",
+   "$-\\frac14<k\\le\\frac34$",
+   "$-\\frac14\\le k\\le\\frac34$",
+   "$k>\\frac34$"
+  ],
+  "answer": 2,
+  "solution": "Subtract: $y-x=y^2-x^2=(y-x)(y+x)$, so $(y-x)(x+y-1)=0$. Intersections lie on $y=x$ or on $x+y=1$.\n\n* $y=x$: $x^2+x-k=0$: two points if $k>-\\frac14$, one if $k=-\\frac14$, none if $k<-\\frac14$.\n* $x+y=1$: $1-x=k-x^2\\iff x^2-x+1-k=0$: two points if $k>\\frac34$, one if $k=\\frac34$, none if $k<\\frac34$.\n\nThe lines cross at $\\left(\\frac12,\\frac12\\right)$, which is on the curves only when $k=\\frac34$; then the single point from $x+y=1$ is one already found on $y=x$.\n\nCounting: $k<-\\frac14$: $0$; $k=-\\frac14$: $1$; $-\\frac14<k<\\frac34$: $2$; $k=\\frac34$: $2$ (the tangency point is shared); $k>\\frac34$: $4$.\n\nSo exactly two points when $-\\frac14<k\\le\\frac34$.",
+  "insight": "Factorise the difference of the two equations into two lines, count on each line, and check whether a point is shared at the boundary.",
+  "distractors": {
+   "1": "Treating $k=\\frac34$ as giving three points, not noticing the tangency point $(\\frac12,\\frac12)$ already lies on $y=x$.",
+   "0": "Only looking on $y=x$ and so missing the extra points when $k>\\frac34$.",
+   "3": "Including $k=-\\frac14$, where the line $y=x$ only touches, giving one point.",
+   "4": "Mixing up the two lines: $k>\\frac34$ actually gives four points."
+  },
+  "time": 300,
+  "family": "alg-15"
  },
  {
   "id": "alg-16",
   "topic": "alg",
   "paper": 1,
-  "difficulty": 4,
+  "difficulty": 5,
   "skills": [
    "polynomials",
    "factor theorem",
    "interpolation"
   ],
-  "stem": "A cubic polynomial $p(x)$ satisfies $p(1)=1$, $p(2)=2$, $p(3)=3$ and $p(4)=5$. What is $p(5)$?",
+  "stem": "A cubic polynomial $p(t)$ is used to model a quantity at time $t$. It fits four readings exactly:\n$$p(1)=1,\\quad p(2)=2,\\quad p(3)=3,\\quad p(4)=5.$$\nWhat value does the model predict at $t=5$?",
   "figure": null,
   "options": [
-   "$5$",
    "$6$",
    "$7$",
    "$8$",
    "$9$",
-   "$10$"
+   "$11$"
   ],
-  "answer": 4,
-  "solution": "Let $q(x)=p(x)-x$. Then $q$ is a cubic with roots $1,2,3$, so $q(x)=a(x-1)(x-2)(x-3)$.\n\n$q(4)=5-4=1=6a$, so $a=\\frac16$. Then\n\n$$p(5)=5+\\tfrac16\\cdot4\\cdot3\\cdot2=5+4=9.$$\n\n*Alternative:* finite differences. Values $1,2,3,5$; differences $1,1,2$; second differences $0,1$; third difference $1$ (constant for a cubic). Extend: second difference $2$, difference $4$, so $p(5)=9$.",
+  "answer": 3,
+  "solution": "Let $q(t)=p(t)-x$. Then $q$ is a cubic with roots $1,2,3$, so $q(t)=a(t-1)(t-2)(t-3)$.\n\n$q(4)=5-4=1=6a$, so $a=\\frac16$. Then\n\n$$p(5)=5+\\tfrac16\\cdot4\\cdot3\\cdot2=5+4=9.$$\n\n*Alternative:* finite differences. Values $1,2,3,5$; differences $1,1,2$; second differences $0,1$; third difference $1$ (constant for a cubic). Extend: second difference $2$, difference $4$, so $p(5)=9$.",
   "insight": "Subtract off the simple pattern the data fits, then use the factor theorem on what's left.",
   "distractors": {
-   "3": "Pattern-spotting ($1,2,3,5,8$ like Fibonacci) instead of using that $p$ is a cubic.",
-   "1": "Assuming $p(x)=x$ continues to hold after $x=3$ and adding 1."
+   "0": "Assuming the pattern $p(t)=t$ continues.",
+   "1": "Assuming the last step of $+2$ simply repeats.",
+   "2": "Treating the data as quadratic: using the second difference $1$ as constant, or continuing the Fibonacci-like pattern $1,2,3,5,8$.",
+   "4": "Finding the factor of $(t-1)(t-2)(t-3)$ by dividing by $4$ instead of by $(4-1)(4-2)(4-3)=6$, giving $5+\\frac{24}{4}$."
   },
-  "time": 210
+  "time": 210,
+  "family": "alg-16"
+ },
+ {
+  "id": "alg-16b",
+  "topic": "alg",
+  "paper": 1,
+  "difficulty": 5,
+  "skills": [
+   "polynomials",
+   "factor theorem",
+   "interpolation"
+  ],
+  "stem": "A polynomial $q(x)$ of degree $3$ satisfies\n$$q(k)=\\frac1k\\quad\\text{for } k=1,2,3,4.$$\nWhat is the value of $q(0)$?",
+  "figure": null,
+  "options": [
+   "$-\\frac{25}{12}$",
+   "$\\frac{1}{24}$",
+   "$\\frac{25}{12}$",
+   "$\\frac{25}{6}$",
+   "It cannot be determined"
+  ],
+  "answer": 2,
+  "solution": "Let $r(x)=x\\,q(x)-1$, a polynomial of degree $4$ with roots $1,2,3,4$. So\n$$x\\,q(x)-1=c(x-1)(x-2)(x-3)(x-4).$$\n\nPut $x=0$: $-1=24c$, so $c=-\\frac1{24}$.\n\nNow $q(0)$ is the coefficient of $x$ in $x\\,q(x)$, i.e. the coefficient of $x$ on the right-hand side. In $(x-1)(x-2)(x-3)(x-4)$ that coefficient is $-(2\\cdot3\\cdot4+1\\cdot3\\cdot4+1\\cdot2\\cdot4+1\\cdot2\\cdot3)=-50$.\n\nSo $q(0)=c\\times(-50)=\\frac{50}{24}=\\frac{25}{12}$.\n\n(Neatly, $\\frac{25}{12}=1+\\frac12+\\frac13+\\frac14$.)",
+  "insight": "Multiply through to turn the conditions into roots of a new polynomial, then read off the coefficient you need.",
+  "distractors": {
+   "0": "Sign slip: taking the coefficient of $x$ in the product as $+50$.",
+   "1": "Reporting $-c$ instead of using it to find the coefficient of $x$.",
+   "3": "Taking $1\\cdot2\\cdot3\\cdot4$ as $12$, so $c=-\\frac1{12}$ and the answer doubles.",
+   "4": "Thinking $q(0)$ is undefined because $\\frac10$ is, or that four conditions cannot pin down a value outside them; four points determine a cubic uniquely."
+  },
+  "time": 300,
+  "family": "alg-16"
  },
  {
   "id": "alg-17",
@@ -472,23 +1034,55 @@
   "stem": "What is the complete set of values of the real constant $k$ for which the equation $$4^x-2^{x+1}+k=0$$ has exactly one real solution?",
   "figure": null,
   "options": [
-   "$k=1$",
    "$k<0$",
    "$k\\le0$",
    "$k<0$ or $k=1$",
    "$k\\le0$ or $k=1$",
-   "$k<1$",
-   "$k\\le1$"
+   "$k<1$"
   ],
-  "answer": 4,
+  "answer": 3,
   "solution": "Let $u=2^x$, which takes each **positive** value exactly once. The equation becomes $u^2-2u+k=0$, and we need exactly one **positive** root $u$.\n\nThe roots have sum $2$ and product $k$.\n\n* $k>1$: no real roots. None.\n* $k=1$: double root $u=1$, so $x=0$. **One.**\n* $0<k<1$: two distinct roots, both positive (positive sum and product). Two solutions.\n* $k=0$: $u=0$ (rejected) or $u=2$, so $x=1$. **One.**\n* $k<0$: roots of opposite sign, exactly one positive. **One.**\n\nSo $k\\le0$ or $k=1$.",
   "insight": "Translate to 'how many positive roots in $u$' and check the boundary values $k=0$ and the repeated-root case separately.",
   "distractors": {
-   "3": "Discarding $k=0$ because one root is $u=0$ - but the other root $u=2$ still gives a solution.",
-   "2": "Forgetting the repeated-root case $k=1$.",
-   "6": "Using only the discriminant condition $k\\le1$, ignoring that $u=2^x$ must be positive."
+   "2": "Discarding $k=0$ because one root is $u=0$ - but the other root $u=2$ still gives a solution.",
+   "1": "Forgetting the repeated-root case $k=1$.",
+   "4": "Using only the condition for distinct real roots, $k<1$, and ignoring that $u=2^x$ must be positive.",
+   "0": "Discarding $k=0$ and also forgetting the repeated-root case $k=1$."
   },
-  "time": 270
+  "time": 270,
+  "family": "alg-17"
+ },
+ {
+  "id": "alg-17b",
+  "topic": "alg",
+  "paper": 1,
+  "difficulty": 5,
+  "skills": [
+   "hidden quadratic",
+   "modulus",
+   "conditions on roots",
+   "boundary cases"
+  ],
+  "stem": "What is the complete set of values of the real constant $k$ for which the equation\n$$x^2-2|x|+k=0$$\nhas exactly two real solutions?",
+  "figure": null,
+  "options": [
+   "$k<0$",
+   "$k\\le0$",
+   "$k<0$ or $k=1$",
+   "$k\\le0$ or $k=1$",
+   "$k<1$"
+  ],
+  "answer": 2,
+  "solution": "Let $u=|x|\\ge0$, so $x^2=u^2$ and the equation is $u^2-2u+k=0$ (roots with sum $2$, product $k$).\n\nEach **positive** root $u$ gives two values $x=\\pm u$; the root $u=0$ gives only $x=0$; a negative root gives nothing.\n\n* $k>1$: no real $u$: no solutions.\n* $k=1$: $u=1$ (repeated): $x=\\pm1$. **Two.**\n* $0<k<1$: two distinct positive $u$: four solutions.\n* $k=0$: $u=0$ or $u=2$: $x=0,\\pm2$, three solutions.\n* $k<0$: one positive and one negative $u$: **two** solutions.\n\nSo exactly two when $k<0$ or $k=1$.",
+  "insight": "With $u=|x|$, each positive $u$ gives two values of $x$ but $u=0$ gives only one, so treat the boundary $k=0$ and the repeated root separately.",
+  "distractors": {
+   "3": "Including $k=0$: the roots $u=0$ and $u=2$ give three solutions, $x=0,\\pm2$.",
+   "0": "Forgetting the repeated-root case $k=1$, which gives $x=\\pm1$.",
+   "4": "Treating it like a quadratic in $x$ and using only 'two distinct roots in $u$', which actually gives four solutions for $0<k<1$.",
+   "1": "Including $k=0$ and forgetting $k=1$."
+  },
+  "time": 270,
+  "family": "alg-17"
  },
  {
   "id": "alg-18",
@@ -517,8 +1111,44 @@
   "insight": "An upward parabola has two distinct real roots exactly when it is negative at some point - so look for a value of $x$ where the condition says $f(x)<0$.",
   "distractors": {
    "7": "Accepting I because it looks close to $b^2>4c$. In fact I is *necessary* (two distinct roots force $b^2>4c$, which implies $b^2>3c$) but not sufficient.",
-   "2": "Missing that $b>c+1$ is exactly $f(-1)<0$ in disguise."
+   "2": "Missing that $b>c+1$ is exactly $f(-1)<0$ in disguise.",
+   "3": "Rejecting II by worrying that $b$ could make the discriminant negative; but $c<0$ forces $b^2-4c>0$."
   },
-  "time": 270
+  "time": 270,
+  "family": "alg-18"
+ },
+ {
+  "id": "alg-18b",
+  "topic": "alg",
+  "paper": 2,
+  "difficulty": 5,
+  "skills": [
+   "discriminant",
+   "sufficient conditions",
+   "signs of roots"
+  ],
+  "stem": "Consider the equation $x^2+bx+c=0$, where $b$ and $c$ are real constants. Which of the following conditions is/are **sufficient** to guarantee that the equation has two distinct **positive** real roots?\n\n**I** $b<0$ and $c>0$\n\n**II** $c>0$ and $b<-c-1$\n\n**III** $b<0$ and $c<0$",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 2,
+  "solution": "Two distinct positive roots $\\iff b^2-4c>0$, sum $-b>0$ and product $c>0$.\n\n**I** Counterexample $b=-1$, $c=1$: discriminant $1-4<0$, no real roots. **Not sufficient.**\n\n**II** Here $b<-(c+1)<0$, so $-b>c+1>0$ and $b^2>(c+1)^2$. Then $b^2-4c>(c+1)^2-4c=(c-1)^2\\ge0$, so the roots are real and distinct; their sum $-b>0$ and product $c>0$ make both positive. **Sufficient.**\n\n(Equivalently, $f(x)=x^2+bx+c$ has $f(1)=1+b+c<0$ and $f(0)=c>0$, so a root lies in $(0,1)$; the product $c>0$ makes the other root positive too.)\n\n**III** $c<0$ means the roots have opposite signs: only one is positive. **Not sufficient.**\n\nSo **II only**.",
+  "insight": "Positive sum and positive product are not enough on their own: the roots must also be real, so check the discriminant.",
+  "distractors": {
+   "4": "Accepting I because the sum and product are both positive, forgetting the roots might not be real.",
+   "6": "Accepting III by focusing on $b<0$ (positive sum) and missing that $c<0$ forces a negative root.",
+   "7": "Checking only the sign of the sum, $-b>0$, for each condition.",
+   "0": "Not spotting that $b<-c-1$ is $f(1)<0$, and so being unable to confirm II."
+  },
+  "time": 270,
+  "family": "alg-18"
  }
 ]

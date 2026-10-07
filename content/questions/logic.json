@@ -3,181 +3,198 @@
   "id": "logic-01",
   "topic": "logic",
   "paper": 2,
-  "difficulty": 1,
+  "difficulty": 2,
   "skills": [
    "contrapositive",
    "converse",
-   "inverse"
+   "everyday language"
   ],
-  "stem": "Which of the following is the **contrapositive** of the statement\n\n> If it is raining, then the ground is wet.",
+  "stem": "A delivery company states:\n\n> Every parcel weighing more than 20 kg is sent by van.\n\nAssuming this statement is true, which one of the following **must** also be true?",
   "figure": null,
   "options": [
-   "If the ground is wet, then it is raining.",
-   "If it is not raining, then the ground is not wet.",
-   "If the ground is not wet, then it is not raining.",
-   "It is raining and the ground is not wet.",
-   "If it is not raining, then the ground is wet."
+   "Every parcel sent by van weighs more than 20 kg.",
+   "Every parcel weighing 20 kg or less is not sent by van.",
+   "Every parcel not sent by van weighs 20 kg or less.",
+   "At least one parcel weighs more than 20 kg.",
+   "Some parcel weighing more than 20 kg is not sent by van."
   ],
   "answer": 2,
-  "solution": "The contrapositive of \"if $P$ then $Q$\" is \"if not $Q$ then not $P$\": swap the two parts **and** negate both.\n\nHere $P$ = \"it is raining\", $Q$ = \"the ground is wet\", so the contrapositive is \"If the ground is not wet, then it is not raining\" (C).\n\nThe contrapositive is logically equivalent to the original; the converse (A) and inverse (B) are not.",
-  "insight": "Contrapositive = swap and negate; it is the only rearrangement equivalent to the original.",
+  "solution": "The statement says: if a parcel weighs more than 20 kg, then it is sent by van.\n\nIts **contrapositive** swaps the two parts and negates both: if a parcel is not sent by van, then it does not weigh more than 20 kg, i.e. it weighs 20 kg or less. A statement and its contrapositive are always true together, so C must be true.\n\nCheck the others by imagining a situation where the statement holds but the option fails:\n\n* a 5 kg parcel sent by van kills A and B;\n* if every parcel is light, the statement is true (there is nothing to check) but D is false;\n* E is exactly the situation that would make the statement false.",
+  "insight": "The contrapositive (swap and negate both parts) is the only rearrangement that is guaranteed to keep the truth of the original.",
   "distractors": {
-   "0": "This is the converse (swap only). A wet ground could have been caused by a sprinkler.",
-   "1": "This is the inverse (negate only), which is equivalent to the converse, not the original.",
-   "3": "This is the negation of the statement: the situation that would make it false."
+   "0": "This is the converse (swap only). Light parcels may also go by van.",
+   "1": "This negates both parts without swapping them (the converse in disguise), so a light parcel sent by van breaks it.",
+   "3": "\"Every parcel weighing more than 20 kg ...\" is true even if there are no heavy parcels at all, so it cannot promise one exists.",
+   "4": "This is the negation of the statement: the one situation it rules out."
   },
-  "time": 60
+  "time": 75,
+  "family": "logic-01"
+ },
+ {
+  "id": "logic-01b",
+  "topic": "logic",
+  "paper": 2,
+  "difficulty": 2,
+  "skills": [
+   "contrapositive",
+   "converse",
+   "everyday language"
+  ],
+  "stem": "A weather service claims:\n\n> Whenever the wind speed is above 50 km/h, a warning is issued.\n\nAssuming the claim is true, which one of the following **must** also be true?",
+  "figure": null,
+  "options": [
+   "Whenever no warning is issued, the wind speed is at most 50 km/h.",
+   "Whenever a warning is issued, the wind speed is above 50 km/h.",
+   "Whenever the wind speed is at most 50 km/h, no warning is issued.",
+   "At some time the wind speed is above 50 km/h.",
+   "At some time the wind speed is above 50 km/h and no warning is issued."
+  ],
+  "answer": 0,
+  "solution": "\"Whenever\" means \"at every time when\": if the wind speed is above 50 km/h, then a warning is issued.\n\nThe contrapositive is: if no warning is issued, then the wind speed is not above 50 km/h, i.e. it is at most 50 km/h. This is option A, and it is equivalent to the claim.\n\n* B is the converse: warnings could also be issued for other reasons (heavy rain, say) at low wind speeds.\n* C negates both parts without swapping: again, a warning at low wind speed is allowed.\n* D does not follow: if the wind never exceeds 50 km/h, the claim is true with nothing to check.\n* E is the negation of the claim.",
+  "insight": "To get a statement that must be true, swap the two parts and negate both; swapping alone or negating alone gives something that can fail.",
+  "distractors": {
+   "1": "This is the converse: the claim says nothing about why else a warning might be issued.",
+   "2": "Negating both parts without swapping is equivalent to the converse, not the original.",
+   "3": "A \"whenever\" statement can be true because its condition never happens.",
+   "4": "This is the negation of the claim, so it is certainly false."
+  },
+  "time": 75,
+  "family": "logic-01"
  },
  {
   "id": "logic-02",
   "topic": "logic",
   "paper": 2,
-  "difficulty": 1,
+  "difficulty": 2,
   "skills": [
    "negation",
-   "quantifiers"
+   "for all",
+   "there exists"
   ],
-  "stem": "A box contains at least one card. Which of the following is the **negation** of the statement\n\n> All the cards in the box are red.",
+  "stem": "A teacher has several boxes of cards, and every box contains at least one card. Which one of the following is the **negation** of the statement\n\n> Every box contains at least one red card.",
   "figure": null,
   "options": [
-   "No card in the box is red.",
-   "All the cards in the box are not red.",
-   "At least one card in the box is red.",
-   "At least one card in the box is not red.",
-   "Exactly one card in the box is not red."
+   "No box contains a red card.",
+   "Every box contains at least one card that is not red.",
+   "There is a box in which at least one card is not red.",
+   "There is a box that contains no red card.",
+   "There is a box in which every card is red."
   ],
   "answer": 3,
-  "solution": "The negation must be true in exactly the situations where the original is false.\n\n\"All the cards are red\" is false as soon as **one** card fails to be red. So the negation is \"At least one card in the box is not red\" (D).\n\nIn symbols: $\\neg(\\forall c,\\ R(c)) \\equiv \\exists c,\\ \\neg R(c)$.",
-  "insight": "Negating \"all\" gives \"at least one is not\"; the quantifier flips and the property is negated.",
+  "solution": "The statement is false exactly when it fails for at least one box, i.e. when some box does **not** contain at least one red card. \"Not at least one red card\" means \"no red card\".\n\nSo the negation is: there is a box that contains no red card (D).\n\nMechanically: \"every box\" becomes \"some box\", and the inner \"at least one card is red\" becomes \"no card is red\".",
+  "insight": "Negating \"every ... at least one\" gives \"some ... none\": flip each quantifier and negate the property at the end.",
   "distractors": {
-   "0": "\"None are red\" is the opposite extreme, not the negation: a box with one red and one blue card makes both the original and A false.",
-   "1": "This means the same as A (every card is non-red), so it has the same flaw.",
-   "4": "Too specific: if two cards are not red the original is still false, but E is false too."
+   "0": "Too strong: one box with no red card already makes the original false, while other boxes may still have red cards.",
+   "1": "Negates the inside wrongly: a box with one red and one blue card satisfies both the original and B.",
+   "2": "A box with a red and a blue card satisfies C, yet the original statement can still be true.",
+   "4": "This only negates the outer \"every\"; a box full of red cards is perfectly consistent with the original."
   },
-  "time": 60
+  "time": 90,
+  "family": "logic-02"
+ },
+ {
+  "id": "logic-02b",
+  "topic": "logic",
+  "paper": 2,
+  "difficulty": 2,
+  "skills": [
+   "negation",
+   "for all",
+   "there exists"
+  ],
+  "stem": "A football squad has played at least one match this season. Which one of the following is the **negation** of the statement\n\n> Some player in the squad has scored in every match this season.",
+  "figure": null,
+  "options": [
+   "No player in the squad has scored in any match this season.",
+   "Every player in the squad has failed to score in at least one match this season.",
+   "Some player in the squad has failed to score in every match this season.",
+   "Some player in the squad has failed to score in at least one match this season.",
+   "In every match this season, at least one player in the squad failed to score."
+  ],
+  "answer": 1,
+  "solution": "The statement claims that at least one player has a perfect record. It is false exactly when **no** player has a perfect record, i.e. every player has missed out in at least one match.\n\nSo the negation is: every player in the squad has failed to score in at least one match (B).\n\nMechanically: \"some player\" becomes \"every player\", and \"scored in every match\" becomes \"failed to score in at least one match\".",
+  "insight": "Flip each quantifier in order (some to every, every to at least one) and negate the property itself.",
+  "distractors": {
+   "0": "Far too strong: one goal by a player in one match does not rescue the original if nobody scored in every match.",
+   "2": "Keeps \"some\" and only half-negates the inside.",
+   "3": "Keeps \"some player\": one player can have a gap in their record while a teammate scored in every match.",
+   "4": "Swaps the order of the quantifiers: if player X scored in every match and player Y never scored, both the statement and E are true."
+  },
+  "time": 90,
+  "family": "logic-02"
  },
  {
   "id": "logic-03",
   "topic": "logic",
   "paper": 2,
-  "difficulty": 2,
+  "difficulty": 3,
   "skills": [
    "necessary",
    "sufficient",
    "inequalities"
   ],
-  "stem": "For a real number $x$, which of the following correctly describes the condition $x^2 > 4$?",
+  "stem": "$x$ is a real number. Which one of the following is a **necessary but not sufficient** condition for\n\n$$x^2 - 4x + 3 < 0\\,?$$",
   "figure": null,
   "options": [
-   "It is necessary but not sufficient for $x > 2$.",
-   "It is sufficient but not necessary for $x > 2$.",
-   "It is necessary and sufficient for $x > 2$.",
-   "It is neither necessary nor sufficient for $x > 2$."
+   "$1 < x < 2$",
+   "$2 < x < 4$",
+   "$|x - 2| < 1$",
+   "$x^2 < 4$",
+   "$x > 0$"
   ],
-  "answer": 0,
-  "solution": "\"$A$ is necessary for $B$\" means $B \\Rightarrow A$; \"$A$ is sufficient for $B$\" means $A \\Rightarrow B$.\n\n* If $x > 2$ then $x^2 > 4$. So $x > 2 \\Rightarrow x^2 > 4$: the condition $x^2>4$ is **necessary** for $x>2$.\n* $x = -3$ has $x^2 = 9 > 4$ but $x \\not> 2$. So $x^2 > 4$ is **not sufficient**.\n\nAnswer A.",
-  "insight": "Write both implications out and test each with a quick counterexample; the necessary condition is the one implied.",
+  "answer": 4,
+  "solution": "First find the exact set: $x^2 - 4x + 3 = (x-1)(x-3) < 0$ exactly when $1 < x < 3$.\n\nA condition $C$ is **necessary** if every $x$ in $(1, 3)$ satisfies $C$, and **sufficient** if every $x$ satisfying $C$ lies in $(1, 3)$.\n\n* $x > 0$: every $x$ in $(1,3)$ is positive, so it is necessary; $x = 5$ shows it is not sufficient. **This is the answer.**\n* $1 < x < 2$: sufficient (it lies inside $(1,3)$) but not necessary ($x = 2.5$).\n* $2 < x < 4$: neither ($x = 1.5$ and $x = 3.5$).\n* $|x-2| < 1$ is $1 < x < 3$ exactly: necessary **and** sufficient.\n* $x^2 < 4$ is $-2 < x < 2$: neither ($x = 2.5$ and $x = 0$).",
+  "insight": "Find the exact solution set first; a necessary condition is a set that contains it, a sufficient condition is a set inside it.",
   "distractors": {
-   "1": "The classic swap: $x>2$ is sufficient for $x^2>4$, which is the same as saying $x^2>4$ is necessary for $x>2$.",
-   "2": "Forgets negative values: $x=-3$ satisfies $x^2>4$ without $x>2$."
+   "0": "Swaps the two words: $1 < x < 2$ lies inside the solution set, so it is sufficient, not necessary.",
+   "2": "This is exactly the solution set, so it is both necessary and sufficient.",
+   "3": "Takes $x^2 < 4$ as a rough version of the condition; $x = 2.5$ solves the inequality but has $x^2 > 4$."
   },
-  "time": 90
+  "time": 150,
+  "family": "logic-03"
+ },
+ {
+  "id": "logic-03b",
+  "topic": "logic",
+  "paper": 2,
+  "difficulty": 3,
+  "skills": [
+   "necessary",
+   "sufficient",
+   "inequalities"
+  ],
+  "stem": "$x$ is a real number. Which one of the following is a **sufficient but not necessary** condition for\n\n$$x^3 > 4x\\,?$$",
+  "figure": null,
+  "options": [
+   "$x > 0$",
+   "$x > 3$",
+   "$x^2 > 4$",
+   "$x < 0$",
+   "$x > -2$"
+  ],
+  "answer": 1,
+  "solution": "Find the exact set: $x^3 - 4x = x(x-2)(x+2) > 0$ exactly when $-2 < x < 0$ or $x > 2$ (sketch the cubic through $-2$, $0$, $2$).\n\n* $x > 3$: every such $x$ is in the set, so it is sufficient; $x = -1$ is in the set but not greater than $3$, so it is not necessary. **This is the answer.**\n* $x > 0$: $x = 1$ gives $1 > 4$, false, so not sufficient; $x = -1$ shows it is not necessary.\n* $x^2 > 4$: $x = -3$ gives $-27 > -12$, false, so not sufficient; $x = -1$ shows it is not necessary.\n* $x < 0$: $x = -3$ fails, and $x = 3$ works, so neither.\n* $x > -2$: necessary (the whole set lies to the right of $-2$) but not sufficient ($x = 1$).",
+  "insight": "Never divide an inequality by $x$ without knowing its sign: factorise and sketch, then compare sets.",
+  "distractors": {
+   "0": "Comes from dividing by $x$ to get $x^2 > 4$ and then forgetting the negative part; $x = 1$ fails.",
+   "2": "Dividing by $x$ assumes $x > 0$; for $x = -3$ the inequality is false even though $x^2 > 4$.",
+   "4": "$x > -2$ contains the whole solution set, so it is necessary rather than sufficient."
+  },
+  "time": 150,
+  "family": "logic-03"
  },
  {
   "id": "logic-04",
   "topic": "logic",
   "paper": 2,
-  "difficulty": 2,
+  "difficulty": 3,
   "skills": [
    "only if",
-   "implication"
+   "if",
+   "necessary",
+   "everyday language"
   ],
-  "stem": "Which of the following is logically equivalent to the statement \"$P$ only if $Q$\"?",
-  "figure": null,
-  "options": [
-   "If $Q$ then $P$.",
-   "If $P$ then $Q$.",
-   "If not $P$ then not $Q$.",
-   "$P$ and $Q$ are both true.",
-   "If $P$ is false then $Q$ is true."
-  ],
-  "answer": 1,
-  "solution": "\"$P$ only if $Q$\" says $P$ cannot happen without $Q$: whenever $P$ is true, $Q$ is true. That is exactly $P \\Rightarrow Q$ (B).\n\nCheck with the truth table: \"$P$ only if $Q$\" fails only when $P$ is true and $Q$ is false, which is the single false row of $P \\Rightarrow Q$.",
-  "insight": "\"$P$ only if $Q$\" is $P \\Rightarrow Q$ — the \"only if\" points forwards to the necessary condition.",
-  "distractors": {
-   "0": "\"If $Q$ then $P$\" is \"$P$ if $Q$\", the converse; \"if\" and \"only if\" point in opposite directions.",
-   "2": "This is the inverse, equivalent to the converse $Q \\Rightarrow P$, not to $P \\Rightarrow Q$."
-  },
-  "time": 60
- },
- {
-  "id": "logic-05",
-  "topic": "logic",
-  "paper": 2,
-  "difficulty": 2,
-  "skills": [
-   "counterexample",
-   "implication",
-   "divisibility"
-  ],
-  "stem": "Consider the claim:\n\n> For every positive integer $n$, if $n^2 + 1$ is divisible by $5$, then the last digit of $n$ is $2$ or $3$.\n\nWhich of the following is a counterexample to the claim?",
-  "figure": null,
-  "options": [
-   "$n = 3$",
-   "$n = 5$",
-   "$n = 7$",
-   "$n = 12$",
-   "$n = 13$",
-   "There is no counterexample."
-  ],
-  "answer": 2,
-  "solution": "A counterexample to \"if $P$ then $Q$\" must make $P$ **true** and $Q$ **false**.\n\n* $n=3$: $10$ is divisible by $5$ but the last digit is $3$, so $Q$ holds. Not a counterexample.\n* $n=5$: $26$ is not divisible by $5$, so $P$ fails. Not a counterexample.\n* $n=7$: $50$ is divisible by $5$ and the last digit is $7$. $P$ true, $Q$ false: **counterexample**.\n* $n=12$: $145$ is divisible by $5$, last digit $2$. $Q$ holds.\n* $n=13$: $170$ is divisible by $5$, last digit $3$. $Q$ holds.\n\n(In fact $5 \\mid n^2+1$ exactly when $n$ ends in $2, 3, 7$ or $8$.)",
-  "insight": "A counterexample to an implication satisfies the hypothesis and fails the conclusion — check both.",
-  "distractors": {
-   "1": "$n=5$ fails the conclusion but also fails the hypothesis, so the implication is (vacuously) true for it.",
-   "5": "Only numbers ending in 2 or 3 were tried; $n=7$ was missed."
-  },
-  "time": 90
- },
- {
-  "id": "logic-06",
-  "topic": "logic",
-  "paper": 2,
-  "difficulty": 2,
-  "skills": [
-   "truth tables",
-   "implication"
-  ],
-  "stem": "The statements $P$, $Q$ and $R$ can each be true or false, giving $8$ combinations.\n\nFor how many of these $8$ combinations is the statement\n\n$$(P \\Rightarrow Q) \\Rightarrow R$$\n\nfalse?",
-  "figure": null,
-  "options": [
-   "$1$",
-   "$2$",
-   "$3$",
-   "$4$",
-   "$5$"
-  ],
-  "answer": 2,
-  "solution": "An implication $X \\Rightarrow R$ is false only when $X$ is true and $R$ is false.\n\nSo we need $R$ false and $P \\Rightarrow Q$ true. $P \\Rightarrow Q$ is true in $3$ of the $4$ combinations of $(P, Q)$ (all except $P$ true, $Q$ false). With $R$ fixed as false that gives $3$ combinations.",
-  "insight": "Count the false rows of an implication directly: antecedent true, consequent false.",
-  "distractors": {
-   "0": "$1$ is the count for $P \\Rightarrow (Q \\Rightarrow R)$ — implication is not associative.",
-   "4": "$5$ is the number of combinations that make the statement true."
-  },
-  "time": 90
- },
- {
-  "id": "logic-07",
-  "topic": "logic",
-  "paper": 2,
-  "difficulty": 2,
-  "skills": [
-   "converse",
-   "inverse",
-   "contrapositive",
-   "divisibility"
-  ],
-  "stem": "Let $n$ be an integer. Consider the (true) statement\n\n> If $n$ is divisible by $6$, then $n$ is divisible by $3$.\n\nWhich of the following statements are true for all integers $n$?\n\nI. If $n$ is divisible by $3$, then $n$ is divisible by $6$.\n\nII. If $n$ is not divisible by $6$, then $n$ is not divisible by $3$.\n\nIII. If $n$ is not divisible by $3$, then $n$ is not divisible by $6$.",
+  "stem": "A company's hiring rule is:\n\n> A candidate is offered a job only if they pass the interview.\n\nWhich of the following statements are logically equivalent to the rule?\n\nI. If a candidate passes the interview, then they are offered a job.\n\nII. If a candidate does not pass the interview, then they are not offered a job.\n\nIII. Passing the interview is a necessary condition for being offered a job.",
   "figure": null,
   "options": [
    "none of them",
@@ -189,54 +206,223 @@
    "II and III only",
    "I, II and III"
   ],
-  "answer": 3,
-  "solution": "I is the converse: $n=3$ is divisible by $3$ but not by $6$. **False.**\n\nII is the inverse (equivalent to the converse): $n=3$ again — not divisible by $6$ but divisible by $3$. **False.**\n\nIII is the contrapositive, which is equivalent to the true original statement. **True.**\n\nAnswer: III only.",
-  "insight": "Only the contrapositive inherits the truth of the original; the converse and inverse stand or fall together.",
+  "answer": 6,
+  "solution": "\"A only if B\" means \"if A, then B\": A cannot happen without B. So the rule says: **if a candidate is offered a job, then they passed the interview.**\n\n* **I** is the converse (\"if passed, then offered\"). A candidate could pass and still not be offered a job (perhaps there was only one post). **Not equivalent.**\n* **II** is the contrapositive of the rule: if not passed, then not offered. **Equivalent.**\n* **III**: \"B is necessary for A\" means \"if A then B\", i.e. if offered then passed. **Equivalent.**\n\nAnswer: II and III only.",
+  "insight": "\"A only if B\", \"if A then B\" and \"B is necessary for A\" all say the same thing; \"A if B\" is the reverse.",
   "distractors": {
-   "5": "Treats the converse as automatically true; a single $n=3$ kills it.",
-   "6": "Confuses which of the inverse and contrapositive is the equivalent one. The inverse and converse always have the same truth value."
+   "1": "Reads \"only if\" as \"if\", which reverses the direction of the rule.",
+   "4": "Accepts the converse (I); the rule never promises a job to everyone who passes.",
+   "2": "Misses that \"necessary\" is just another way of writing the \"only if\" direction.",
+   "7": "Treats the rule as two-way (\"if and only if\")."
   },
-  "time": 90
+  "time": 150,
+  "family": "logic-04"
  },
  {
-  "id": "logic-08",
+  "id": "logic-04b",
   "topic": "logic",
   "paper": 2,
   "difficulty": 3,
   "skills": [
-   "unless",
+   "if",
+   "only if",
    "contrapositive",
-   "equivalence"
+   "everyday language"
   ],
-  "stem": "Using the usual logical meaning of \"unless\" (\"$A$ unless $B$\" means \"if not $B$, then $A$\"), which of the following is logically equivalent to\n\n> The machine will overheat unless the fan is working.",
+  "stem": "Rhea says:\n\n> I will go to the party if Sam goes.\n\nWhich of the following statements are logically equivalent to what Rhea says?\n\nI. If I do not go to the party, then Sam does not go.\n\nII. Sam goes to the party only if I go.\n\nIII. I go to the party only if Sam goes.",
   "figure": null,
   "options": [
-   "If the fan is working, the machine will not overheat.",
-   "If the fan is not working, the machine will not overheat.",
-   "If the machine does not overheat, the fan is working.",
-   "The machine will overheat only if the fan is not working.",
-   "The fan is working and the machine will not overheat."
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
   ],
-  "answer": 2,
-  "solution": "Let $O$ = \"the machine overheats\", $F$ = \"the fan is working\". The statement is $\\neg F \\Rightarrow O$.\n\nIts contrapositive is $\\neg O \\Rightarrow F$: \"If the machine does not overheat, the fan is working\" (C).\n\nEquivalently, both say \"$O$ or $F$\" — at least one of them happens.\n\nA is $F \\Rightarrow \\neg O$: the original says nothing about what happens when the fan works (the machine might overheat for another reason). D is $O \\Rightarrow \\neg F$, the same as A.",
-  "insight": "\"$A$ unless $B$\" is \"not $B \\Rightarrow A$\", which is the same as \"$A$ or $B$\".",
+  "answer": 4,
+  "solution": "\"A if B\" means \"if B, then A\". So Rhea's statement is: **if Sam goes, then Rhea goes.**\n\n* **I**: if Rhea does not go, then Sam does not go. This is the contrapositive of \"if Sam goes, Rhea goes\". **Equivalent.**\n* **II**: \"Sam goes only if Rhea goes\" means \"if Sam goes, then Rhea goes\". **Equivalent.**\n* **III**: \"Rhea goes only if Sam goes\" means \"if Rhea goes, then Sam goes\", the converse. Rhea might go on her own. **Not equivalent.**\n\nAnswer: I and II only.",
+  "insight": "\"A if B\" puts B first; \"A only if B\" puts A first. Rewrite each as \"if ..., then ...\" before comparing.",
   "distractors": {
-   "0": "Reads \"unless\" as a two-way promise. The statement only covers what happens when the fan is not working.",
-   "3": "This is $O \\Rightarrow \\neg F$, equivalent to A; it is not implied by the original.",
-   "1": "Contradicts the statement: with the fan not working the machine *will* overheat."
+   "5": "Treats \"I go if Sam goes\" and \"I go only if Sam goes\" as the same; they point in opposite directions.",
+   "1": "Misses that \"Sam goes only if I go\" is just the original with \"only if\" in place of \"if\".",
+   "7": "Reads Rhea's \"if\" as \"if and only if\"; she has not said she will stay at home without Sam.",
+   "6": "Rejects the contrapositive (I), which is always equivalent to the original."
   },
-  "time": 120
+  "time": 150,
+  "family": "logic-04"
  },
  {
-  "id": "logic-09",
+  "id": "logic-05",
   "topic": "logic",
   "paper": 2,
   "difficulty": 3,
   "skills": [
-   "nested quantifiers",
-   "order of quantifiers"
+   "counterexample",
+   "for all",
+   "primes"
   ],
-  "stem": "Which of the following statements are true?\n\nI. For every real number $x$ there exists a real number $y$ such that $y > x^2$.\n\nII. There exists a real number $y$ such that for every real number $x$, $y > x^2$.\n\nIII. There exists a real number $x$ such that for every real number $y$, $y^2 \\ge x$.",
+  "stem": "Consider the claim:\n\n> For every positive integer $n$, if $n$ is prime, then $2^n - 1$ is prime.\n\nWhich one of the following values of $n$ is a **counterexample** to the claim?",
+  "figure": null,
+  "options": [
+   "$n = 2$",
+   "$n = 4$",
+   "$n = 7$",
+   "$n = 9$",
+   "$n = 11$"
+  ],
+  "answer": 4,
+  "solution": "A counterexample to \"for every $n$, if $P(n)$ then $Q(n)$\" must make $P(n)$ **true** and $Q(n)$ **false**: here, $n$ prime **and** $2^n - 1$ not prime.\n\n* $n = 2$: $2^2 - 1 = 3$ is prime. Not a counterexample.\n* $n = 4$ and $n = 9$: $n$ is not prime, so the claim makes no promise about them (even though $15$ and $511 = 7 \\times 73$ are not prime).\n* $n = 7$: $2^7 - 1 = 127$ is prime. Not a counterexample.\n* $n = 11$: $2^{11} - 1 = 2047 = 23 \\times 89$. Prime $n$, composite $2^n - 1$: **a counterexample.**\n\nEven without spotting $23 \\times 89$, the other four options are ruled out, so the answer must be $n = 11$.",
+  "insight": "A counterexample to \"if P then Q\" must satisfy P and fail Q; a value that fails P proves nothing.",
+  "distractors": {
+   "1": "$2^4 - 1 = 15$ is not prime, but $4$ is not prime either, so the claim says nothing about $n = 4$.",
+   "3": "$511 = 7 \\times 73$ is composite, but $9$ is not prime, so the hypothesis fails.",
+   "2": "Assumes $127$ is composite without checking; it is prime (no prime up to $11$ divides it)."
+  },
+  "time": 150,
+  "family": "logic-05"
+ },
+ {
+  "id": "logic-05b",
+  "topic": "logic",
+  "paper": 2,
+  "difficulty": 3,
+  "skills": [
+   "counterexample",
+   "for all",
+   "primes"
+  ],
+  "stem": "Consider the claim:\n\n> For every positive integer $n$, if $n$ is odd, then $n^2 + 4$ is prime.\n\nWhich one of the following values of $n$ is a **counterexample** to the claim?",
+  "figure": null,
+  "options": [
+   "$n = 2$",
+   "$n = 3$",
+   "$n = 6$",
+   "$n = 9$",
+   "$n = 13$"
+  ],
+  "answer": 3,
+  "solution": "A counterexample needs $n$ **odd** and $n^2 + 4$ **not prime**.\n\n* $n = 2$: $8$ is not prime, but $n$ is even, so the claim says nothing about it.\n* $n = 3$: $13$ is prime.\n* $n = 6$: $40$ is not prime, but again $n$ is even.\n* $n = 9$: $81 + 4 = 85 = 5 \\times 17$. Odd $n$, composite value: **a counterexample.**\n* $n = 13$: $169 + 4 = 173$, which is prime (not divisible by $2, 3, 5, 7, 11, 13$).",
+  "insight": "Check the hypothesis first: only values that satisfy it can break an \"if ..., then ...\" claim.",
+  "distractors": {
+   "0": "$8$ is not prime, but $n = 2$ is even, so the hypothesis fails and the claim is not tested.",
+   "2": "$40$ is not prime, but $6$ is even, so it cannot be a counterexample.",
+   "4": "$173$ is prime; it is not divisible by any prime up to $13$, and $13^2 = 169 < 173 < 196 = 14^2$."
+  },
+  "time": 150,
+  "family": "logic-05"
+ },
+ {
+  "id": "logic-06",
+  "topic": "logic",
+  "paper": 2,
+  "difficulty": 3,
+  "skills": [
+   "negation",
+   "and",
+   "or",
+   "everyday language"
+  ],
+  "stem": "A café manager makes the following claim about yesterday's orders:\n\n> Every order that included a sandwich also included a cake or a drink (or both).\n\nWhich one of the following is the **negation** of the manager's claim?",
+  "figure": null,
+  "options": [
+   "No order that included a sandwich included a cake or a drink.",
+   "Some order that included a sandwich included neither a cake nor a drink.",
+   "Some order that included a cake and a drink did not include a sandwich.",
+   "Some order that included a sandwich did not include both a cake and a drink.",
+   "Some order that included a sandwich included a cake but not a drink."
+  ],
+  "answer": 1,
+  "solution": "The claim is: for every order, if it included a sandwich, then it included a cake or a drink.\n\nIt is false exactly when there is **at least one** order that breaks it, i.e. an order that included a sandwich but did **not** include \"a cake or a drink\".\n\n\"Not (a cake or a drink)\" means \"no cake **and** no drink\", i.e. neither. So the negation is: some order that included a sandwich included neither a cake nor a drink (B).\n\n* D is weaker: an order with a sandwich and a cake but no drink satisfies D without contradicting the claim.\n* A describes every sandwich order, which is far more than one failure.\n* E describes an order that obeys the claim (it has a cake), so it cannot show the claim is false.",
+  "insight": "To negate \"every A has B or C\", find one A that has neither B nor C: \"not (B or C)\" is \"not B and not C\".",
+  "distractors": {
+   "3": "\"Not both\" is the negation of \"and\"; the negation of \"or\" is \"neither\".",
+   "0": "Negating \"every\" needs only one failing order, not all of them.",
+   "4": "An order with a sandwich and a cake satisfies the claim; only \"no cake and no drink\" breaks it.",
+   "2": "Reverses the roles of the sandwich and the extras; such an order is irrelevant to the claim."
+  },
+  "time": 150,
+  "family": "logic-06"
+ },
+ {
+  "id": "logic-06b",
+  "topic": "logic",
+  "paper": 2,
+  "difficulty": 3,
+  "skills": [
+   "negation",
+   "and",
+   "or",
+   "everyday language"
+  ],
+  "stem": "An estate agent claims:\n\n> Some flat in this building has both a balcony and a sea view.\n\nWhich one of the following is the **negation** of the agent's claim?",
+  "figure": null,
+  "options": [
+   "Every flat in this building has neither a balcony nor a sea view.",
+   "Some flat in this building has no balcony and no sea view.",
+   "Some flat in this building has no balcony or no sea view.",
+   "Every flat in this building that has a balcony does not have a sea view.",
+   "Every flat in this building that does not have a balcony has a sea view."
+  ],
+  "answer": 3,
+  "solution": "The claim is false exactly when **no** flat has both features, i.e. every flat lacks a balcony or lacks a sea view (or both).\n\n\"Every flat lacks a balcony or lacks a sea view\" can be rewritten as \"for every flat, if it has a balcony, then it does not have a sea view\", which is option D.\n\n* A is too strong: a building where one flat has only a balcony and another only a sea view makes the claim false, but A is false too.\n* B and C keep \"some\", so they cannot describe \"no flat has both\".\n* E describes a different relationship altogether.",
+  "insight": "\"Not (A and B)\" is \"not A or not B\", which can be written as \"if A, then not B\".",
+  "distractors": {
+   "0": "Negates \"and\" to \"neither\"; the negation of \"both\" is only \"not both\".",
+   "1": "Keeps \"some\": one flat with nothing does not stop another flat having both.",
+   "2": "Negates the inside correctly but forgets to turn \"some\" into \"every\".",
+   "4": "Has nothing to do with flats that have both features; it can be true or false either way."
+  },
+  "time": 150,
+  "family": "logic-06"
+ },
+ {
+  "id": "logic-07",
+  "topic": "logic",
+  "paper": 2,
+  "difficulty": 3,
+  "skills": [
+   "converse",
+   "contrapositive",
+   "statement and converse"
+  ],
+  "stem": "$x$ is a real number. Let $S$ be the statement\n\n> If $x^2 > 9$, then $x > 3$.\n\nWhich of the following are true for every real number $x$?\n\nI. The statement $S$.\n\nII. The converse of $S$.\n\nIII. The contrapositive of $S$.",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 2,
+  "solution": "* **I.** $S$ is false: $x = -4$ has $x^2 = 16 > 9$ but $x \\le 3$.\n* **II.** The converse is \"if $x > 3$, then $x^2 > 9$\". True, since squaring preserves order for positive numbers.\n* **III.** The contrapositive is \"if $x \\le 3$, then $x^2 \\le 9$\". A statement and its contrapositive always have the same truth value, so this is false; indeed $x = -4$ again breaks it.\n\nAnswer: II only.",
+  "insight": "A statement and its contrapositive always stand or fall together; the converse can go either way and must be checked separately.",
+  "distractors": {
+   "5": "Forgets the negative values: $x = -4$ breaks both $S$ and its contrapositive.",
+   "3": "Thinks the contrapositive can be true while $S$ is false; they are equivalent.",
+   "6": "Contrapositive and statement must have the same truth value, so \"II and III\" without I is impossible.",
+   "7": "Misses the counterexample $x = -4$."
+  },
+  "time": 150,
+  "family": "logic-07"
+ },
+ {
+  "id": "logic-07b",
+  "topic": "logic",
+  "paper": 2,
+  "difficulty": 3,
+  "skills": [
+   "converse",
+   "contrapositive",
+   "statement and converse",
+   "quadrilaterals"
+  ],
+  "stem": "Let $S$ be the statement about quadrilaterals\n\n> If a quadrilateral is a rectangle, then its diagonals are equal in length.\n\nWhich of the following are true for every quadrilateral?\n\nI. The statement $S$.\n\nII. The converse of $S$.\n\nIII. The contrapositive of $S$.",
   "figure": null,
   "options": [
    "none of them",
@@ -249,81 +435,283 @@
    "I, II and III"
   ],
   "answer": 5,
-  "solution": "**I** — given $x$, choose $y = x^2 + 1$. **True.** Here $y$ may depend on $x$.\n\n**II** — now one $y$ must beat $x^2$ for *every* $x$. But for any $y$, taking $x = |y| + 1$ gives $x^2 > |y| \\ge y$. **False.**\n\n**III** — choose $x = 0$ (or any negative number): $y^2 \\ge 0$ for all real $y$. **True.**\n\nAnswer: I and III only.",
-  "insight": "\"$\\forall x\\,\\exists y$\" lets $y$ depend on $x$; \"$\\exists y\\,\\forall x$\" demands one $y$ that works for all $x$.",
+  "solution": "* **I.** True: the diagonals of a rectangle $ABCD$ are hypotenuses of the congruent right-angled triangles $ABC$ and $BAD$.\n* **II.** The converse is \"if the diagonals are equal, then it is a rectangle\". False: an isosceles trapezium (e.g. vertices $(0,0)$, $(4,0)$, $(3,2)$, $(1,2)$) has equal diagonals but no right angles.\n* **III.** The contrapositive is \"if the diagonals are not equal, then it is not a rectangle\". It is equivalent to $S$, so it is true.\n\nAnswer: I and III only.",
+  "insight": "The contrapositive inherits the truth of the statement for free; only the converse needs its own check.",
   "distractors": {
-   "4": "Treats II as the same as I — swapping the order of the quantifiers changes the meaning.",
-   "1": "Misses the easy witness $x=0$ in III: you only need one $x$ that works."
+   "7": "Accepts the converse: equal diagonals also occur in isosceles trapezia (and in kites with equal diagonals).",
+   "1": "Forgets that the contrapositive is equivalent to the statement.",
+   "4": "Confuses the converse with the contrapositive.",
+   "3": "The contrapositive cannot be true while the statement is false."
   },
-  "time": 150
+  "time": 150,
+  "family": "logic-07"
+ },
+ {
+  "id": "logic-08",
+  "topic": "logic",
+  "paper": 2,
+  "difficulty": 3,
+  "skills": [
+   "unless",
+   "contrapositive",
+   "everyday language"
+  ],
+  "stem": "In this question, \"$A$ unless $B$\" means \"if not $B$, then $A$\".\n\nAn engineer says:\n\n> The machine will overheat unless the fan is working.\n\nWhich one of the following is logically equivalent to the engineer's statement?",
+  "figure": null,
+  "options": [
+   "If the fan is working, then the machine will not overheat.",
+   "If the fan is not working, then the machine will not overheat.",
+   "If the machine does not overheat, then the fan is working.",
+   "The machine will overheat only if the fan is not working.",
+   "The fan is working and the machine will not overheat."
+  ],
+  "answer": 2,
+  "solution": "Using the stated meaning, the statement is: **if the fan is not working, then the machine will overheat.**\n\nIts contrapositive (swap and negate both parts) is: if the machine does not overheat, then the fan is working. That is option C, and a contrapositive is always equivalent.\n\nAnother way to see it: both say \"the machine overheats or the fan is working (or both)\".\n\n* A is the reverse promise: the engineer says nothing about what happens when the fan works.\n* B contradicts the statement.\n* D means \"if the machine overheats, then the fan is not working\", which is equivalent to A.\n* E is a single situation, not a rule.",
+  "insight": "Rewrite \"unless\" as \"if not\", then use the contrapositive.",
+  "distractors": {
+   "0": "Reads \"unless\" as a two-way promise; the machine could still overheat with the fan working.",
+   "1": "Contradicts the statement: with the fan not working the machine will overheat.",
+   "3": "\"Only if\" turns this into \"if the machine overheats, then the fan is not working\", which does not follow."
+  },
+  "time": 150,
+  "family": "logic-08"
+ },
+ {
+  "id": "logic-08b",
+  "topic": "logic",
+  "paper": 2,
+  "difficulty": 3,
+  "skills": [
+   "unless",
+   "only if",
+   "everyday language"
+  ],
+  "stem": "In this question, \"$A$ unless $B$\" means \"if not $B$, then $A$\".\n\nA shop's sign says:\n\n> You will not get a refund unless you have the receipt.\n\nWhich one of the following is logically equivalent to the sign?",
+  "figure": null,
+  "options": [
+   "If you have the receipt, then you will get a refund.",
+   "You will get a refund only if you have the receipt.",
+   "If you do not get a refund, then you did not have the receipt.",
+   "If you have the receipt, then you will not get a refund.",
+   "You will get a refund or you have the receipt (or both)."
+  ],
+  "answer": 1,
+  "solution": "Using the stated meaning, the sign says: **if you do not have the receipt, then you will not get a refund.**\n\nIts contrapositive is: if you get a refund, then you have the receipt. \"A only if B\" means exactly \"if A, then B\", so this is \"you will get a refund only if you have the receipt\" (B).\n\n* A is the converse of that: having the receipt is not promised to be enough.\n* C is equivalent to A (it is A's contrapositive), so it does not follow either.\n* D contradicts nothing in the sign but is not implied by it.\n* E is wrong: the sign is equivalent to \"you do **not** get a refund, or you have the receipt\".",
+  "insight": "\"No X unless Y\" makes Y necessary for X: it is \"X only if Y\".",
+  "distractors": {
+   "0": "Treats the receipt as sufficient for a refund; the sign only makes it necessary.",
+   "2": "This is the contrapositive of A, so it fails for the same reason: a receipt-holder may still be refused.",
+   "4": "Drops the \"not\": the sign is equivalent to \"no refund, or you have the receipt\"."
+  },
+  "time": 150,
+  "family": "logic-08"
+ },
+ {
+  "id": "logic-09",
+  "topic": "logic",
+  "paper": 2,
+  "difficulty": 3,
+  "skills": [
+   "nested quantifiers",
+   "for all",
+   "there exists"
+  ],
+  "stem": "Which of the following statements are true?\n\nI. For every real number $x$ there exists a real number $y$ such that $y > x^2$.\n\nII. There exists a real number $y$ such that, for every real number $x$, $y > x^2$.\n\nIII. There exists a real number $x$ such that, for every real number $y$, $y^2 \\ge x$.",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 5,
+  "solution": "* **I.** Given $x$, choose $y = x^2 + 1$. Here $y$ is allowed to depend on $x$. **True.**\n* **II.** Now one fixed $y$ must exceed $x^2$ for **every** $x$. For any $y$, the choice $x = |y| + 1$ gives $x^2 > |y| \\ge y$. **False.**\n* **III.** Choose $x = 0$: $y^2 \\ge 0$ for every real $y$. **True.**\n\nAnswer: I and III only.",
+  "insight": "\"For every x there is a y\" lets y depend on x; \"there is a y for every x\" demands one y that works for all x.",
+  "distractors": {
+   "4": "Treats II as the same as I: swapping the order of the quantifiers changes the meaning.",
+   "1": "Misses the easy witness $x = 0$ in III: only one value of $x$ is needed.",
+   "7": "Thinks a large enough $y$ beats every $x^2$; but $x^2$ is unbounded."
+  },
+  "time": 150,
+  "family": "logic-09"
+ },
+ {
+  "id": "logic-09b",
+  "topic": "logic",
+  "paper": 2,
+  "difficulty": 3,
+  "skills": [
+   "nested quantifiers",
+   "for all",
+   "there exists"
+  ],
+  "stem": "Which of the following statements are true?\n\nI. For every real number $x$ there exists a real number $y$ such that $xy = 1$.\n\nII. For every real number $x$ there exists a real number $y$ such that $x + y = 1$.\n\nIII. There exists a real number $y$ such that, for every real number $x$, $xy = 0$.",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 6,
+  "solution": "* **I.** For $x = 0$, $xy = 0 \\ne 1$ whatever $y$ is. One failing $x$ makes a \"for every\" statement false. **False.**\n* **II.** Given $x$, choose $y = 1 - x$. **True.**\n* **III.** Choose $y = 0$: then $xy = 0$ for every $x$. One value of $y$ that works for all $x$ is exactly what is needed. **True.**\n\nAnswer: II and III only.",
+  "insight": "To disprove \"for every x there is a y\", find one x for which no y works; to prove \"there is a y for every x\", find one y that works for all x.",
+  "distractors": {
+   "7": "Forgets that $0$ has no reciprocal.",
+   "4": "Thinks III is too strong because the $y$ comes first, but $y = 0$ does the job.",
+   "2": "Same: overlooks the witness $y = 0$ in III."
+  },
+  "time": 150,
+  "family": "logic-09"
  },
  {
   "id": "logic-10",
   "topic": "logic",
   "paper": 2,
-  "difficulty": 3,
+  "difficulty": 4,
   "skills": [
-   "everyday language",
-   "must be true",
-   "contrapositive"
+   "cannot be true",
+   "for all",
+   "for some",
+   "everyday language"
   ],
-  "stem": "In a certain class, the following statement is true:\n\n> Every student who passed the exam attended every lecture.\n\nWhich of the following **must** also be true?",
+  "stem": "The following three facts about the members of a sports club are all true.\n\n* Every member who swims also runs.\n* Some members who cycle do not run.\n* No member who runs is under 16.\n\nWhich one of the following **cannot** be true?",
   "figure": null,
   "options": [
-   "Every student who attended every lecture passed the exam.",
-   "Every student who missed at least one lecture did not pass the exam.",
-   "Every student who did not pass the exam missed at least one lecture.",
-   "Every student attended at least one lecture.",
-   "At least one student passed the exam."
+   "Some member who cycles also swims.",
+   "Every member who runs also swims.",
+   "Every member who is under 16 both cycles and swims.",
+   "Some member who swims is under 16.",
+   "Some member who cycles is under 16."
   ],
-  "answer": 1,
-  "solution": "The statement is: passed $\\Rightarrow$ attended every lecture.\n\nIts contrapositive is: did not attend every lecture $\\Rightarrow$ did not pass. \"Did not attend every lecture\" means \"missed at least one lecture\", so B must be true.\n\n* A is the converse; C is the inverse. Neither follows.\n* D fails if a student who did not pass attended nothing.\n* E fails if nobody passed — then the statement is vacuously true.",
-  "insight": "Rewrite as \"if … then …\" and take the contrapositive; the negation of \"every lecture\" is \"at least one lecture missed\".",
+  "answer": 3,
+  "solution": "**D cannot be true.** A swimmer runs (fact 1), and a runner is not under 16 (fact 3), so no swimmer is under 16.\n\nEach of the others is possible; it is enough to describe one club where all three facts hold.\n\n* **A**: members Ann (cycles, swims, runs, adult) and Ben (cycles, does not run).\n* **B**: a club whose only member is Ben; there are no runners, so \"every runner swims\" is true.\n* **C**: the same club with just Ben (an adult). There are no under-16 members, so \"every under-16 member cycles and swims\" is true with nothing to check.\n* **E**: Ben is under 16 (he does not run, so fact 3 does not apply to him).",
+  "insight": "For \"cannot be true\", chain the facts to find what they forbid; for \"could be true\", build one small example, remembering that \"every\" is true when there is nobody to check.",
   "distractors": {
-   "0": "The converse: a student could attend everything and still fail.",
-   "2": "The inverse: a student could attend every lecture and still fail.",
-   "4": "A universal statement is vacuously true if nobody passed, so it cannot guarantee that anyone did."
+   "2": "If an under-16 member existed, they would swim, so run, so not be under 16; but the statement can still hold with no under-16 members at all.",
+   "4": "A cyclist who does not run is not covered by fact 3, so they may be under 16.",
+   "0": "Fact 2 needs only some cyclists who do not run; other cyclists may swim and run.",
+   "1": "There may be no runners at all, or every runner may happen to swim."
   },
-  "time": 120
+  "time": 200,
+  "family": "logic-10"
+ },
+ {
+  "id": "logic-10b",
+  "topic": "logic",
+  "paper": 2,
+  "difficulty": 4,
+  "skills": [
+   "could be true",
+   "for all",
+   "for some",
+   "everyday language"
+  ],
+  "stem": "A survey of a group of people found that all three of the following are true.\n\n* Nobody who lives in a flat owns a dog.\n* Everyone who owns a dog walks every day.\n* Some people who walk every day live in a flat.\n\nWhich one of the following **could** be true?",
+  "figure": null,
+  "options": [
+   "Some dog owner lives in a flat.",
+   "Nobody who lives in a flat walks every day.",
+   "Everyone who walks every day owns a dog.",
+   "Everyone who walks every day lives in a flat, and at least one person owns a dog.",
+   "Everyone who walks every day lives in a flat."
+  ],
+  "answer": 4,
+  "solution": "* **A** contradicts fact 1 directly.\n* **B** contradicts fact 3.\n* **C**: by fact 3 some walker lives in a flat; C would make that person a dog owner, contradicting fact 1. Impossible.\n* **D**: a dog owner walks every day (fact 2), so would live in a flat, contradicting fact 1. Impossible.\n* **E** is possible: take a group of two people who both live in flats and walk every day, and nobody owns a dog. All three facts hold (fact 2 is true because there are no dog owners), and so does E.\n\nAnswer: E.",
+  "insight": "To show a statement could be true, build one small consistent example; a \"for all\" fact about an empty group is automatically true.",
+  "distractors": {
+   "3": "Adding \"someone owns a dog\" to E forces a dog owner into a flat: impossible.",
+   "2": "Combining C with fact 3 gives a dog owner who lives in a flat.",
+   "1": "Overlooks fact 3, which guarantees a walker in a flat."
+  },
+  "time": 200,
+  "family": "logic-10"
  },
  {
   "id": "logic-11",
   "topic": "logic",
   "paper": 2,
-  "difficulty": 3,
+  "difficulty": 4,
   "skills": [
-   "negation",
-   "at most",
-   "at least"
+   "necessary and sufficient",
+   "quadrilaterals",
+   "geometry"
   ],
-  "stem": "$a$, $b$ and $c$ are real numbers. Which of the following is the negation of the statement\n\n> At most one of $a$, $b$, $c$ is positive.",
+  "stem": "$ABCD$ is a convex quadrilateral. Which of the following conditions are, on their own, **necessary and sufficient** for $ABCD$ to be a square?\n\nI. The diagonals are equal in length and perpendicular.\n\nII. The diagonals are equal in length, perpendicular, and bisect each other.\n\nIII. All four sides are equal in length and one interior angle is a right angle.",
   "figure": null,
   "options": [
-   "None of $a$, $b$, $c$ is positive.",
-   "At least one of $a$, $b$, $c$ is positive.",
-   "Exactly two of $a$, $b$, $c$ are positive.",
-   "At least two of $a$, $b$, $c$ are positive.",
-   "At least two of $a$, $b$, $c$ are not positive.",
-   "All of $a$, $b$, $c$ are positive."
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
   ],
-  "answer": 3,
-  "solution": "\"At most one positive\" means the number of positive values is $0$ or $1$. Its negation says the number is **not** $0$ or $1$, i.e. it is $2$ or $3$: \"at least two of $a, b, c$ are positive\" (D).\n\nIn general, \"at most $k$\" negates to \"at least $k+1$\".",
-  "insight": "Turn \"at most/at least\" into a set of possible counts, then take the complementary set.",
+  "answer": 6,
+  "solution": "All three conditions are true for every square, so each is **necessary**. The question is which are also **sufficient**.\n\n* **I.** Not sufficient. The kite with vertices $(0,1)$, $(2,0)$, $(4,1)$, $(2,4)$ has diagonals of length $4$ and $4$ that are perpendicular, but its sides are not all equal.\n* **II.** Diagonals that bisect each other give a parallelogram; equal diagonals make it a rectangle; perpendicular diagonals make it a rhombus. A rectangle that is a rhombus is a square. **Sufficient.**\n* **III.** Four equal sides give a rhombus, which is a parallelogram; one right angle forces all angles to be right angles (co-interior angles add to $180^\\circ$). **Sufficient.**\n\nAnswer: II and III only.",
+  "insight": "Every property of a square is necessary; the work is checking sufficiency by trying to build a non-square that satisfies the condition.",
   "distractors": {
-   "2": "Forgets the case where all three are positive, which also makes the original false.",
-   "4": "Negates the wrong thing: \"at least two not positive\" means at most one positive — that is the original statement."
+   "7": "Assumes equal perpendicular diagonals force a square; a kite can have them.",
+   "2": "Doubts III, but a rhombus with one right angle has four right angles.",
+   "0": "Confuses \"necessary\" with \"necessary and sufficient\", or thinks the conditions are not even necessary.",
+   "5": "Thinks I and II are the same condition; the bisecting part is essential."
   },
-  "time": 90
+  "time": 210,
+  "family": "logic-11"
+ },
+ {
+  "id": "logic-11b",
+  "topic": "logic",
+  "paper": 2,
+  "difficulty": 4,
+  "skills": [
+   "necessary and sufficient",
+   "triangles",
+   "geometry"
+  ],
+  "stem": "In triangle $ABC$, the side lengths are $BC = a$, $CA = b$ and $AB = c$. Which of the following conditions are, on their own, **necessary and sufficient** for angle $ACB$ to be a right angle?\n\nI. $a^2 + b^2 = c^2$.\n\nII. $C$ lies on the circle with diameter $AB$.\n\nIII. $AB$ is the longest side of the triangle.",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 4,
+  "solution": "* **I.** By Pythagoras' theorem and its converse (from the cosine rule, $c^2 = a^2 + b^2 - 2ab\\cos C$, so $c^2 = a^2 + b^2$ exactly when $\\cos C = 0$). **Necessary and sufficient.**\n* **II.** The angle in a semicircle is a right angle, and conversely if angle $ACB$ is a right angle then the circle through $A$, $B$, $C$ has $AB$ as a diameter. **Necessary and sufficient.**\n* **III.** Necessary (the hypotenuse is the longest side) but not sufficient: the triangle with $a = b = 2$, $c = 3$ has $c$ longest, but $a^2 + b^2 = 8 \\ne 9$, so angle $C$ is obtuse.\n\nAnswer: I and II only.",
+  "insight": "For each condition ask both directions separately: does it follow from the property, and does it force the property?",
+  "distractors": {
+   "7": "III is necessary, but an obtuse triangle also has its longest side opposite the largest angle.",
+   "1": "Forgets that the converse of the angle-in-a-semicircle theorem is also true.",
+   "5": "Same slip as above, plus accepting the merely necessary condition III.",
+   "3": "Swaps necessary and sufficient: III only follows from a right angle, it does not force one."
+  },
+  "time": 210,
+  "family": "logic-11"
  },
  {
   "id": "logic-12",
   "topic": "logic",
   "paper": 2,
-  "difficulty": 3,
+  "difficulty": 4,
   "skills": [
-   "necessary",
-   "sufficient",
-   "divisibility"
+   "necessary and sufficient",
+   "divisibility",
+   "integers"
   ],
   "stem": "$n$ is a positive integer. Which of the following conditions are **necessary and sufficient** for $n$ to be divisible by $12$?\n\nI. $n$ is divisible by $3$ and $n$ is divisible by $4$.\n\nII. $n$ is divisible by $2$ and $n$ is divisible by $6$.\n\nIII. $n^2$ is divisible by $48$.",
   "figure": null,
@@ -338,13 +726,50 @@
    "I, II and III"
   ],
   "answer": 5,
-  "solution": "**I** — $3$ and $4$ are coprime, so $3 \\mid n$ and $4 \\mid n$ together are equivalent to $12 \\mid n$. **Yes.**\n\n**II** — $2 \\mid n$ and $6 \\mid n$ is just $6 \\mid n$ (as $\\operatorname{lcm}(2,6)=6$). $n=6$ satisfies it but $12 \\nmid 6$. Necessary but **not sufficient**.\n\n**III** — $48 = 16 \\times 3$. $16 \\mid n^2$ forces $4 \\mid n$ (if $n$ had at most one factor $2$, $n^2$ would have at most two), and $3 \\mid n^2$ forces $3 \\mid n$ ($3$ is prime). So $48 \\mid n^2 \\Rightarrow 12 \\mid n$. Conversely $12 \\mid n \\Rightarrow 144 \\mid n^2 \\Rightarrow 48 \\mid n^2$. **Yes.**\n\nAnswer: I and III only.",
-  "insight": "Combining divisibility conditions gives the lcm, not the product; and for squares, count prime factors.",
+  "solution": "* **I.** $3$ and $4$ have no common factor, so $n$ is divisible by both exactly when it is divisible by $12$. **Yes.**\n* **II.** Divisible by $2$ and by $6$ is just divisible by $6$ (the lowest common multiple is $6$). $n = 6$ satisfies it but is not a multiple of $12$. Necessary but **not sufficient**.\n* **III.** $48 = 16 \\times 3$. If $12$ divides $n$, then $144$ divides $n^2$, so $48$ does. Conversely, if $16$ divides $n^2$ then $4$ divides $n$ (if $n$ had at most one factor $2$, $n^2$ would have at most two), and if $3$ divides $n^2$ then $3$ divides $n$ (as $3$ is prime). So $12$ divides $n$. **Yes.**\n\nAnswer: I and III only.",
+  "insight": "Two divisibility conditions combine to their lowest common multiple, not their product.",
   "distractors": {
-   "7": "II looks like it combines to $12$, but $\\operatorname{lcm}(2,6)=6$, so $n=6$ is a counterexample.",
-   "1": "III looks too weak, but $16 \\mid n^2$ already forces $4 \\mid n$."
+   "7": "Multiplies $2 \\times 6 = 12$; but divisibility by $2$ and $6$ only gives the lowest common multiple, $6$.",
+   "1": "Thinks III is too weak, but $16$ dividing $n^2$ already forces $4$ to divide $n$.",
+   "4": "Both slips at once: accepts II and rejects III.",
+   "3": "Overlooks that $3$ and $4$ are coprime, so I is exact."
   },
-  "time": 150
+  "time": 180,
+  "family": "logic-12"
+ },
+ {
+  "id": "logic-12b",
+  "topic": "logic",
+  "paper": 2,
+  "difficulty": 4,
+  "skills": [
+   "sufficient",
+   "divisibility",
+   "integers",
+   "primes"
+  ],
+  "stem": "$n$ is a positive integer. Which of the following conditions are **sufficient** for $n^2 - 1$ to be divisible by $24$?\n\nI. $n$ is odd.\n\nII. $n$ is a prime number greater than $3$.\n\nIII. $n$ is divisible by neither $2$ nor $3$.",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 6,
+  "solution": "Write $n^2 - 1 = (n-1)(n+1)$.\n\n* **III.** If $n$ is odd, $n - 1$ and $n + 1$ are consecutive even numbers, so one of them is a multiple of $4$ and the product is a multiple of $8$. If $3$ does not divide $n$, then $3$ divides $n - 1$ or $n + 1$ (one of three consecutive integers is a multiple of $3$). So $24$ divides $n^2 - 1$. **Sufficient.**\n* **II.** A prime greater than $3$ is divisible by neither $2$ nor $3$, so this is a special case of III. **Sufficient.**\n* **I.** $n = 3$: $n^2 - 1 = 8$, not a multiple of $24$. **Not sufficient** (although it is necessary).\n\nAnswer: II and III only.",
+  "insight": "A condition that is a special case of a sufficient condition is itself sufficient.",
+  "distractors": {
+   "7": "Forgets the factor $3$: $n = 3$ is odd but $8$ is not divisible by $24$.",
+   "3": "Thinks II is a different idea; every prime greater than $3$ satisfies III.",
+   "2": "Misses that III is the general reason behind II."
+  },
+  "time": 180,
+  "family": "logic-12"
  },
  {
   "id": "logic-13",
@@ -354,36 +779,141 @@
   "skills": [
    "necessary",
    "sufficient",
+   "quadratics",
    "discriminant"
   ],
-  "stem": "$b$ and $c$ are real numbers. Which of the following correctly describes the condition $c < 0$ in relation to the statement \"the equation $x^2 + bx + c = 0$ has two distinct real roots\"?",
+  "stem": "$b$ and $c$ are real numbers. Which one of the following is a **sufficient but not necessary** condition for the equation\n\n$$x^2 + bx + c = 0$$\n\nto have two distinct real roots?",
   "figure": null,
   "options": [
-   "It is necessary but not sufficient.",
-   "It is sufficient but not necessary.",
-   "It is necessary and sufficient.",
-   "It is neither necessary nor sufficient."
+   "$b^2 > c$",
+   "$b > c$",
+   "$c < 0$",
+   "$b^2 > 4c$",
+   "$c < 1$"
   ],
-  "answer": 1,
-  "solution": "Two distinct real roots $\\iff b^2 - 4c > 0$.\n\n* **Sufficient:** if $c < 0$ then $b^2 - 4c \\ge -4c > 0$. (Or: the parabola is negative at $x=0$, so it must cross the axis twice.)\n* **Not necessary:** $b = 3$, $c = 1$ gives $9 - 4 = 5 > 0$, two distinct roots with $c > 0$.\n\nAnswer B.",
-  "insight": "A sign condition at a single point (here $f(0)<0$) can guarantee roots without being required for them.",
+  "answer": 2,
+  "solution": "The exact condition is $b^2 - 4c > 0$, i.e. $b^2 > 4c$ (option D, which is therefore both necessary and sufficient).\n\n* **$c < 0$:** then $b^2 - 4c \\ge -4c > 0$, so it is sufficient. (Graphically, the parabola is below the axis at $x = 0$, so it must cross twice.) Not necessary: $b = 3$, $c = 1$ gives $9 - 4 > 0$. **This is the answer.**\n* $b^2 > c$: necessary (if $c < 0$ it is automatic; if $c \\ge 0$ then $b^2 > 4c \\ge c$), but not sufficient ($b = 1$, $c = \\tfrac12$).\n* $b > c$: neither ($b = 1$, $c = \\tfrac12$ has no real roots; $b = -5$, $c = 0$ has roots $0$ and $5$).\n* $c < 1$: neither ($b = 0$, $c = \\tfrac12$; and $b = 5$, $c = 2$).",
+  "insight": "A negative constant term means the parabola starts below the axis, which guarantees two crossings; the converse is false.",
   "distractors": {
-   "0": "Swaps the roles: roots do not require $c<0$ (e.g. $x^2+3x+1$).",
-   "2": "Overlooks positive $c$ with large $|b|$."
+   "3": "This is exactly the discriminant condition, so it is necessary as well as sufficient.",
+   "0": "$b^2 > c$ follows from two distinct roots, so it is necessary, but $x^2 + x + \\tfrac12$ has no real roots.",
+   "4": "$x^2 + \\tfrac12$ has $c < 1$ and no real roots."
   },
-  "time": 120
+  "time": 150,
+  "family": "logic-13"
+ },
+ {
+  "id": "logic-13b",
+  "topic": "logic",
+  "paper": 2,
+  "difficulty": 3,
+  "skills": [
+   "necessary",
+   "sufficient",
+   "cubics",
+   "stationary points"
+  ],
+  "stem": "$k$ is a real number. Which one of the following is a **necessary but not sufficient** condition for the equation\n\n$$x^3 - 3x + k = 0$$\n\nto have three distinct real roots?",
+  "figure": null,
+  "options": [
+   "$k = 0$",
+   "$0 < k < 2$",
+   "$-2 < k < 2$",
+   "$|k| < 3$",
+   "$k < 1$"
+  ],
+  "answer": 3,
+  "solution": "The roots are where the horizontal line $y = -k$ meets the curve $y = x^3 - 3x$. This curve has stationary points at $x = \\pm 1$: a local maximum $2$ at $x = -1$ and a local minimum $-2$ at $x = 1$. So there are three distinct roots exactly when $-2 < -k < 2$, i.e. $-2 < k < 2$.\n\n* $|k| < 3$: contains the whole interval $-2 < k < 2$, so it is necessary; $k = 2.5$ gives one real root, so it is not sufficient. **This is the answer.**\n* $k = 0$ and $0 < k < 2$ lie inside the interval: sufficient but not necessary.\n* $-2 < k < 2$ is exactly the condition: necessary and sufficient.\n* $k < 1$: neither ($k = 1.5$ works but fails it; $k = -5$ satisfies it but gives one root).",
+  "insight": "Turn \"how many roots\" into a horizontal line crossing a fixed curve, find the exact interval, then compare sets.",
+  "distractors": {
+   "2": "This is the exact condition, so it is also sufficient.",
+   "0": "$k = 0$ gives roots $0, \\pm\\sqrt3$, so it is sufficient, not necessary.",
+   "1": "A subset of the exact interval is sufficient, not necessary.",
+   "4": "$k = 1.5$ gives three roots but fails $k < 1$, so it is not necessary."
+  },
+  "time": 180,
+  "family": "logic-13"
  },
  {
   "id": "logic-14",
   "topic": "logic",
   "paper": 2,
-  "difficulty": 3,
+  "difficulty": 4,
   "skills": [
+   "necessary",
+   "counting outcomes",
+   "everyday language"
+  ],
+  "stem": "Two ordinary six-sided dice, each numbered $1$ to $6$, are rolled and the two scores are added. Which of the following conditions are **necessary** for the total to be a prime number?\n\nI. At least one of the dice shows an odd number.\n\nII. The two dice show different numbers.\n\nIII. The total is not divisible by $3$.",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 1,
+  "solution": "The possible prime totals are $2, 3, 5, 7, 11$. A condition is necessary if **every** roll with a prime total satisfies it.\n\n* **I.** A total of $2$ comes only from $1 + 1$ (both odd). Every other prime total is odd, and an odd total needs exactly one odd die. So every prime total has an odd die. **Necessary.**\n* **II.** $1 + 1 = 2$ is prime with equal numbers. **Not necessary.**\n* **III.** $1 + 2 = 3$ is prime but divisible by $3$. **Not necessary.**\n\nAnswer: I only.",
+  "insight": "To test \"necessary\", list every way the target can happen and check the condition on each, especially the smallest cases.",
+  "distractors": {
+   "5": "Forgets that $3$ itself is prime and divisible by $3$.",
+   "4": "Forgets the double $1 + 1 = 2$.",
+   "7": "Forgets both small primes $2$ and $3$.",
+   "0": "Thinks a total of $2$ breaks I, but $1$ is odd."
+  },
+  "time": 180,
+  "family": "logic-14"
+ },
+ {
+  "id": "logic-14b",
+  "topic": "logic",
+  "paper": 2,
+  "difficulty": 4,
+  "skills": [
+   "sufficient",
+   "divisibility",
+   "everyday language"
+  ],
+  "stem": "In the Gregorian calendar, a year is a leap year if its number is divisible by $4$, except that a year whose number is divisible by $100$ is a leap year only if it is also divisible by $400$. (So $2000$ was a leap year but $1900$ was not.)\n\nWhich of the following conditions on a year number are **sufficient** for the year to be a leap year?\n\nI. The year number is divisible by $8$.\n\nII. The year number is divisible by $16$.\n\nIII. The year number is divisible by $4$ but not by $100$.",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 6,
+  "solution": "A year is a leap year exactly when it is divisible by $4$, and, if it is divisible by $100$, it is also divisible by $400$.\n\n* **I.** $2200$ is divisible by $8$ ($2200 = 8 \\times 275$) and by $100$, but not by $400$. Not a leap year. **Not sufficient.**\n* **II.** A multiple of $16$ is a multiple of $4$. If it is also a multiple of $100 = 4 \\times 25$, it is a multiple of both $16$ and $25$, hence of $16 \\times 25 = 400$. So the exception never bites. **Sufficient.**\n* **III.** Divisible by $4$ and not by $100$ means the exception does not apply. **Sufficient.**\n\nAnswer: II and III only.",
+  "insight": "Combine the conditions: divisible by 16 and by 100 forces divisible by 400, because the lowest common multiple of 16 and 100 is 400.",
+  "distractors": {
+   "7": "Assumes divisibility by $8$ is enough; $2200$ is a multiple of $8$ but not a leap year.",
+   "3": "Thinks II has the same problem as I; but $16$ and $100$ together force $400$.",
+   "4": "Accepts I and II as similar; only $16$ is large enough to force a multiple of $400$."
+  },
+  "time": 180,
+  "family": "logic-14"
+ },
+ {
+  "id": "logic-15",
+  "topic": "logic",
+  "paper": 2,
+  "difficulty": 4,
+  "skills": [
+   "chains of implication",
    "if",
    "only if",
-   "if and only if"
+   "contrapositive",
+   "everyday language"
   ],
-  "stem": "$x$ is a real number. Which of the following statements are true?\n\nI. $x^2 = 4$ if $x = -2$.\n\nII. $x^2 = 4$ only if $x = -2$.\n\nIII. $x^3 = -8$ if and only if $x = -2$.",
+  "stem": "The following three statements about a security system are all true at every moment.\n\n* The alarm sounds if a door is open.\n* The lights are on only if the alarm sounds.\n* If the alarm sounds, then the guard is called.\n\nWhich of the following **must** be true at every moment?\n\nI. If the guard has not been called, then no door is open.\n\nII. If the lights are on, then a door is open.\n\nIII. If the lights are on, then the guard has been called.",
   "figure": null,
   "options": [
    "none of them",
@@ -396,24 +926,30 @@
    "I, II and III"
   ],
   "answer": 5,
-  "solution": "**I** says $x = -2 \\Rightarrow x^2 = 4$. **True.**\n\n**II** says $x^2 = 4 \\Rightarrow x = -2$. But $x = 2$ gives $x^2 = 4$. **False.**\n\n**III**: $x = -2 \\Rightarrow x^3 = -8$, and $x^3 = -8 \\Rightarrow x = -2$ because $x \\mapsto x^3$ is one-to-one on the reals. **True.**\n\nAnswer: I and III only.",
-  "insight": "\"$A$ if $B$\" is $B \\Rightarrow A$; \"$A$ only if $B$\" is $A \\Rightarrow B$.",
+  "solution": "Rewrite each statement as \"if ..., then ...\":\n\n* \"The alarm sounds if a door is open\": if a door is open, then the alarm sounds.\n* \"The lights are on only if the alarm sounds\": if the lights are on, then the alarm sounds.\n* If the alarm sounds, then the guard is called.\n\n**I.** Door open leads to alarm, which leads to guard called. The contrapositive of \"if a door is open, the guard is called\" is I. **Must be true.**\n\n**II.** Lights on leads to the alarm, but nothing says the alarm needs an open door. Lights on, alarm sounding, guard called, all doors shut satisfies all three statements but not II. **Need not be true.**\n\n**III.** Lights on leads to alarm, which leads to guard called. **Must be true.**\n\nAnswer: I and III only.",
+  "insight": "Turn every \"if\" and \"only if\" into the same direction of arrow, then follow arrows forwards or use the contrapositive; never follow an arrow backwards.",
   "distractors": {
-   "4": "Reads \"only if\" backwards, as $x=-2 \\Rightarrow x^2=4$.",
-   "3": "Reads \"if\" backwards in I, turning it into the false $x^2=4 \\Rightarrow x=-2$."
+   "7": "Follows an arrow backwards: the alarm can sound without an open door.",
+   "3": "Misses that I is the contrapositive of a valid chain.",
+   "1": "Reads \"the lights are on only if the alarm sounds\" backwards.",
+   "4": "Accepts II by reading \"the alarm sounds if a door is open\" as \"only if\"."
   },
-  "time": 120
+  "time": 200,
+  "family": "logic-15"
  },
  {
-  "id": "logic-15",
+  "id": "logic-15b",
   "topic": "logic",
   "paper": 2,
-  "difficulty": 3,
+  "difficulty": 4,
   "skills": [
    "chains of implication",
-   "must be true"
+   "if",
+   "only if",
+   "contrapositive",
+   "everyday language"
   ],
-  "stem": "$A$, $B$ and $C$ are statements. It is known that both of the following are true:\n\n* If $A$ then $B$.\n* If $B$ then not $C$.\n\nWhich of the following must be true?\n\nI. If $A$ then not $C$.\n\nII. If $C$ then not $A$.\n\nIII. If not $A$ then $C$.",
+  "stem": "The following three rules of a board game are always followed.\n\n* A player moves twice only if they rolled a six.\n* Every player who rolls a six draws a card.\n* A player draws a card if they land on a star.\n\nWhich of the following **must** be true?\n\nI. A player who did not draw a card did not move twice.\n\nII. A player who landed on a star rolled a six.\n\nIII. A player who drew a card rolled a six or landed on a star.",
   "figure": null,
   "options": [
    "none of them",
@@ -425,14 +961,17 @@
    "II and III only",
    "I, II and III"
   ],
-  "answer": 4,
-  "solution": "Chain the implications: $A \\Rightarrow B \\Rightarrow \\neg C$, so $A \\Rightarrow \\neg C$. **I must be true.**\n\nII is the contrapositive of I ($C \\Rightarrow \\neg A$). **Must be true.**\n\nIII: take $A$, $B$, $C$ all false. Both given statements hold (their hypotheses are false), but III has a true hypothesis ($\\neg A$) and false conclusion ($C$). **Need not be true.**\n\nAnswer: I and II only.",
-  "insight": "Chain implications, then remember each conclusion comes with its contrapositive for free.",
+  "answer": 1,
+  "solution": "As \"if ..., then ...\" statements:\n\n* if a player moves twice, then they rolled a six;\n* if a player rolls a six, then they draw a card;\n* if a player lands on a star, then they draw a card.\n\n**I.** Moved twice leads to rolled a six, which leads to drew a card. The contrapositive of \"if moved twice, then drew a card\" is I. **Must be true.**\n\n**II.** Landing on a star leads to drawing a card, but drawing a card does not lead back to rolling a six. **Need not be true.**\n\n**III.** This tries to go backwards from \"drew a card\". The rules never say a card can only be drawn for those reasons. **Need not be true.**\n\nAnswer: I only.",
+  "insight": "Two different rules leading to the same result (drawing a card) say nothing about which one caused it.",
   "distractors": {
-   "1": "Misses that II is just the contrapositive of I.",
-   "7": "III is the inverse of I; knowing $A$ is false tells you nothing about $C$."
+   "5": "Assumes the only ways to draw a card are the ones listed; the rules give sufficient conditions, not necessary ones.",
+   "4": "Links the star to the six through the card, following an arrow backwards.",
+   "0": "Misses the chain from moving twice to drawing a card.",
+   "7": "Treats every rule as two-way."
   },
-  "time": 120
+  "time": 200,
+  "family": "logic-15"
  },
  {
   "id": "logic-16",
@@ -441,9 +980,12 @@
   "difficulty": 4,
   "skills": [
    "equivalence",
-   "truth tables"
+   "and",
+   "or",
+   "contrapositive",
+   "everyday language"
   ],
-  "stem": "$P$, $Q$ and $R$ are statements. Which of the following are logically equivalent to\n\n> If $P$ and $Q$, then $R$.\n\nI. If $P$, then (if $Q$ then $R$).\n\nII. (If $P$ then $R$) or (if $Q$ then $R$).\n\nIII. (If $P$ then $R$) and (if $Q$ then $R$).",
+  "stem": "A bank's rule is:\n\n> If a customer is over 18 and has photo ID, then they may open an account.\n\nWhich of the following are logically equivalent to the rule?\n\nI. If a customer is over 18, then they may open an account if they have photo ID.\n\nII. If a customer may not open an account, then they are not over 18 or they do not have photo ID.\n\nIII. If a customer is over 18, then they may open an account; and if a customer has photo ID, then they may open an account.",
   "figure": null,
   "options": [
    "none of them",
@@ -456,25 +998,30 @@
    "I, II and III"
   ],
   "answer": 4,
-  "solution": "Use $X \\Rightarrow Y \\equiv \\neg X \\lor Y$.\n\nOriginal: $\\neg(P \\land Q) \\lor R \\equiv \\neg P \\lor \\neg Q \\lor R$.\n\n* **I:** $\\neg P \\lor (\\neg Q \\lor R)$ — identical. **Equivalent.**\n* **II:** $(\\neg P \\lor R) \\lor (\\neg Q \\lor R) \\equiv \\neg P \\lor \\neg Q \\lor R$. **Equivalent.**\n* **III:** $(\\neg P \\lor R) \\land (\\neg Q \\lor R) \\equiv (\\neg P \\land \\neg Q) \\lor R$, which is $(P \\lor Q) \\Rightarrow R$. Take $P$ true, $Q$ false, $R$ false: the original is true but III is false. **Not equivalent.**\n\nAnswer: I and II only.",
-  "insight": "Convert every implication to \"not … or …\" and compare the resulting OR/AND forms.",
+  "solution": "The rule fails only for a customer who is over 18, has photo ID, and may not open an account. Compare each statement by asking when it fails.\n\n* **I.** Fails only when the customer is over 18 and (has photo ID but may not open an account): exactly the same single situation. **Equivalent.**\n* **II.** The contrapositive. \"Not (over 18 and has ID)\" is \"not over 18 or no ID\". **Equivalent.**\n* **III.** Fails for a customer who is over 18 with no photo ID and may not open an account, a situation the rule allows. **Not equivalent** (III is stronger: it says either condition alone is enough).\n\nAnswer: I and II only.",
+  "insight": "\"If A and B, then C\" is the same as \"if A, then (if B, then C)\", but not the same as \"(if A, then C) and (if B, then C)\".",
   "distractors": {
-   "5": "Intuition says III (\"both lead to $R$\") is a safer restatement, but it demands $R$ whenever just one of $P, Q$ holds.",
-   "1": "II looks too weak because of the \"or\", but an OR of implications is still a single OR of literals."
+   "7": "Thinks III is a safe restatement; it says each condition alone is enough.",
+   "1": "Rejects II because \"or\" looks wrong; but the negation of \"and\" is \"or\".",
+   "2": "Rejects I, but nesting the conditions does not change when the rule fails.",
+   "5": "Applies De Morgan's law wrongly and accepts III."
   },
-  "time": 150
+  "time": 200,
+  "family": "logic-16"
  },
  {
-  "id": "logic-17",
+  "id": "logic-16b",
   "topic": "logic",
   "paper": 2,
   "difficulty": 4,
   "skills": [
-   "everyday language",
-   "quantifiers",
-   "must be true"
+   "equivalence",
+   "and",
+   "or",
+   "contrapositive",
+   "everyday language"
   ],
-  "stem": "The following two statements about the members of a club are both true:\n\n* No left-handed member plays the violin.\n* Some members who play the violin also sing.\n\nWhich of the following must be true?\n\nI. Some members who sing are not left-handed.\n\nII. No left-handed member sings.\n\nIII. Some members who sing play the violin.",
+  "stem": "A train company's rule is:\n\n> If a train is cancelled or is delayed by more than an hour, then passengers receive a refund.\n\nWhich of the following are logically equivalent to the rule?\n\nI. If a train is cancelled, then passengers receive a refund; and if a train is delayed by more than an hour, then passengers receive a refund.\n\nII. If passengers do not receive a refund, then the train was not cancelled or was not delayed by more than an hour.\n\nIII. A train is cancelled or delayed by more than an hour only if passengers receive a refund.",
   "figure": null,
   "options": [
    "none of them",
@@ -487,13 +1034,87 @@
    "I, II and III"
   ],
   "answer": 5,
-  "solution": "From the second statement there is a member $m$ who plays the violin and sings.\n\n* By the first statement $m$ is not left-handed, and $m$ sings. So **I must be true.**\n* **III** is the second statement read the other way round (\"some $V$ are $S$\" $\\equiv$ \"some $S$ are $V$\"). **Must be true.**\n* **II**: a left-handed member who sings but does not play the violin is consistent with both statements. **Need not be true.**\n\nAnswer: I and III only.",
-  "insight": "Name a witness for each \"some\" statement and see what the \"no/every\" statements force about it.",
+  "solution": "The rule fails exactly when a train is cancelled or badly delayed and there is no refund.\n\n* **I.** \"Either cause leads to a refund\" is the same as \"each cause leads to a refund\". **Equivalent.**\n* **II.** The correct contrapositive is \"if no refund, then the train was **neither** cancelled **nor** delayed by more than an hour\". II says \"not cancelled **or** not delayed\", which is much weaker: a train that was cancelled (but not delayed) with no refund satisfies II but breaks the rule. **Not equivalent.**\n* **III.** \"A only if B\" means \"if A, then B\", so III is the rule word for word. **Equivalent.**\n\nAnswer: I and III only.",
+  "insight": "\"If A or B, then C\" splits into two separate rules; and the negation of \"A or B\" is \"not A and not B\".",
   "distractors": {
-   "4": "II over-generalises: the first statement only restricts left-handed *violinists*.",
-   "1": "Misses that \"some violinists sing\" and \"some singers play the violin\" say exactly the same thing."
+   "4": "Uses the wrong form of De Morgan's law: the negation of \"cancelled or delayed\" is \"not cancelled and not delayed\".",
+   "2": "Same De Morgan slip, and misreads \"only if\".",
+   "7": "Accepts the faulty contrapositive II.",
+   "1": "Reads \"only if\" in III backwards, as the converse."
   },
-  "time": 150
+  "time": 200,
+  "family": "logic-16"
+ },
+ {
+  "id": "logic-17",
+  "topic": "logic",
+  "paper": 2,
+  "difficulty": 5,
+  "skills": [
+   "for some",
+   "for all",
+   "must be true",
+   "everyday language"
+  ],
+  "stem": "The following three statements about the members of a club are all true.\n\n* No left-handed member plays the violin.\n* Some members who play the violin also sing.\n* Every member who sings is left-handed or plays the piano (or both).\n\nWhich of the following **must** be true?\n\nI. Some member plays both the piano and the violin.\n\nII. Some member who sings is not left-handed.\n\nIII. No left-handed member sings.",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 4,
+  "solution": "By the second statement there is a member, call her $M$, who plays the violin and sings. Follow $M$ through the other statements.\n\n* $M$ plays the violin, so by the first statement $M$ is not left-handed.\n* $M$ sings, so by the third statement $M$ is left-handed or plays the piano. Not left-handed, so $M$ plays the piano.\n\n**I.** $M$ plays the piano and the violin. **Must be true.**\n\n**II.** $M$ sings and is not left-handed. **Must be true.**\n\n**III.** Need not be true: a left-handed member who sings (and does not play the violin) breaks none of the statements.\n\nAnswer: I and II only.",
+  "insight": "Name the person that a \"some\" statement guarantees, and push that one person through every \"all\" and \"no\" statement.",
+  "distractors": {
+   "7": "Over-generalises the first statement: it restricts left-handed violinists, not left-handed singers.",
+   "2": "Misses the chain: $M$ is not left-handed, so the third statement forces $M$ to play the piano.",
+   "1": "Stops after the first deduction without noticing that $M$ also witnesses II.",
+   "0": "Thinks \"some\" statements cannot combine with \"every\" statements to produce new facts."
+  },
+  "time": 240,
+  "family": "logic-17"
+ },
+ {
+  "id": "logic-17b",
+  "topic": "logic",
+  "paper": 2,
+  "difficulty": 5,
+  "skills": [
+   "for some",
+   "for all",
+   "contrapositive",
+   "must be true",
+   "everyday language"
+  ],
+  "stem": "Every book in a library is either fiction or non-fiction (not both), and either a paperback or a hardback (not both). The following three statements are all true.\n\n* Every fiction book on the top shelf is a paperback.\n* Some hardbacks are on the top shelf.\n* No non-fiction book is more than 50 years old.\n\nWhich of the following **must** be true?\n\nI. Some non-fiction book is on the top shelf.\n\nII. Some book on the top shelf is a hardback that is at most 50 years old.\n\nIII. Every book that is more than 50 years old is fiction.",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 7,
+  "solution": "By the second statement there is a hardback on the top shelf; call it $H$.\n\n* If $H$ were fiction, the first statement would make it a paperback. So $H$ is non-fiction. This proves **I**.\n* $H$ is non-fiction, so by the third statement it is at most 50 years old. $H$ is a hardback on the top shelf, which proves **II**.\n* **III** is the contrapositive of the third statement: if a book is more than 50 years old, it is not non-fiction, i.e. it is fiction. **Must be true.**\n\nAnswer: I, II and III.",
+  "insight": "Use the \"some\" statement to name a witness, use \"either ... or ... (not both)\" to turn \"not fiction\" into \"non-fiction\", and remember the contrapositive is free.",
+  "distractors": {
+   "5": "Misses that the hardback $H$ is non-fiction and therefore not old.",
+   "4": "Doubts III, but it is just the contrapositive of the third statement.",
+   "1": "Stops after the first deduction.",
+   "3": "Thinks I needs extra information; the first statement rules out fiction for $H$."
+  },
+  "time": 240,
+  "family": "logic-17"
  },
  {
   "id": "logic-18",
@@ -502,9 +1123,11 @@
   "difficulty": 4,
   "skills": [
    "negation",
-   "nested quantifiers"
+   "nested quantifiers",
+   "and",
+   "or"
   ],
-  "stem": "Which of the following is the negation of the statement\n\n> For every positive integer $n$, there is a prime $p$ with $n < p < 2n$.",
+  "stem": "Which one of the following is the **negation** of the statement\n\n> For every positive integer $n$, there is a prime $p$ with $n < p < 2n$.",
   "figure": null,
   "options": [
    "There is a positive integer $n$ such that every prime $p$ satisfies $p \\le n$ or $p \\ge 2n$.",
@@ -514,14 +1137,47 @@
    "There is a positive integer $n$ and a prime $p$ with $p \\le n$ or $p \\ge 2n$."
   ],
   "answer": 0,
-  "solution": "Negate step by step, flipping each quantifier and negating the inner condition:\n\n$$\\neg\\big(\\forall n\\ \\exists p:\\ n<p<2n\\big) \\equiv \\exists n\\ \\forall p:\\ \\neg(n<p<2n).$$\n\nNow $n < p < 2n$ means \"$p > n$ **and** $p < 2n$\", whose negation is \"$p \\le n$ **or** $p \\ge 2n$\" (De Morgan).\n\nSo: there is an $n$ such that every prime $p$ satisfies $p \\le n$ or $p \\ge 2n$ — option A.\n\n(The original statement is in fact true — it is Bertrand's postulate — but the question is only about its logical form.)",
-  "insight": "Flip every quantifier left to right, then negate the inner condition with De Morgan's laws.",
+  "solution": "The statement fails exactly when **some** $n$ has **no** prime strictly between $n$ and $2n$, i.e. there is an $n$ such that every prime lies outside that range.\n\n\"$p$ lies strictly between $n$ and $2n$\" means \"$p > n$ **and** $p < 2n$\". Its negation is \"$p \\le n$ **or** $p \\ge 2n$\".\n\nSo the negation is: there is a positive integer $n$ such that every prime $p$ satisfies $p \\le n$ or $p \\ge 2n$ (A).\n\n(For the record, the original is true for $n \\ge 2$ and fails for $n = 1$, so the negation is actually true: there is no prime strictly between $1$ and $2$.)",
+  "insight": "Negate one layer at a time: \"for every\" becomes \"there is\", \"there is\" becomes \"for every\", and \"between\" becomes \"at or below, or at or above\".",
   "distractors": {
-   "1": "Negates the double inequality to \"and\" instead of \"or\"; $p\\le n$ and $p \\ge 2n$ can never both hold.",
+   "1": "Negates \"$n < p$ and $p < 2n$\" to \"and\" instead of \"or\"; no $p$ can satisfy both.",
    "2": "Negates only the inner condition and leaves the quantifiers unchanged.",
-   "3": "Flips only the inner $\\exists$ to $\\forall$ but keeps \"for every $n$\"; this is far stronger than the negation."
+   "3": "Flips only the inner quantifier; this is far stronger than the negation.",
+   "4": "Forgets to change \"there is a prime\" to \"every prime\"."
   },
-  "time": 150
+  "time": 180,
+  "family": "logic-18"
+ },
+ {
+  "id": "logic-18b",
+  "topic": "logic",
+  "paper": 2,
+  "difficulty": 4,
+  "skills": [
+   "negation",
+   "nested quantifiers",
+   "everyday language"
+  ],
+  "stem": "Which one of the following is the **negation** of the statement\n\n> Every student in the class has a friend in the class who is taller than them.",
+  "figure": null,
+  "options": [
+   "No student in the class has a friend in the class who is taller than them.",
+   "Some student in the class has a friend in the class who is not taller than them.",
+   "Some student in the class is at least as tall as each of their friends in the class.",
+   "Every student in the class has a friend in the class who is not taller than them.",
+   "Some student in the class has no friends in the class."
+  ],
+  "answer": 2,
+  "solution": "The statement fails exactly when **some** student has **no** friend in the class who is taller than them. That means every friend of that student (if they have any) is not taller, i.e. the student is at least as tall as each of their friends. This is option C.\n\nNote that C includes the case of a student with no friends at all: then \"at least as tall as each of their friends\" is true because there is nobody to check, and indeed such a student breaks the original statement.\n\n* E is only one way for the original to fail; a student whose friends are all shorter also breaks it.\n* B and D talk about **a** friend who is not taller, which is compatible with also having a taller friend.",
+  "insight": "\"Not (there is a friend who is taller)\" is \"every friend is not taller\": the inner \"there is\" must become \"every\".",
+  "distractors": {
+   "0": "Negates every layer at once; one student without a taller friend is enough.",
+   "1": "Keeps \"a friend\" instead of \"every friend\": a student can have one shorter friend and one taller friend.",
+   "3": "Keeps \"every student\" and does not flip the inner quantifier.",
+   "4": "Only one special case of the negation; a student whose friends are all shorter is missed."
+  },
+  "time": 180,
+  "family": "logic-18"
  },
  {
   "id": "logic-19",
@@ -531,68 +1187,143 @@
   "skills": [
    "necessary",
    "sufficient",
-   "increasing functions"
+   "increasing functions",
+   "differentiation"
   ],
-  "stem": "Let $f(x) = x^3 + ax$, where $a$ is a real constant.\n\nWhich of the following conditions is **necessary but not sufficient** for $f$ to be strictly increasing on the whole real line?",
+  "stem": "Let $f(x) = x^3 + ax$, where $a$ is a real constant.\n\nWhich one of the following conditions is **necessary but not sufficient** for $f$ to be strictly increasing for all real $x$?",
   "figure": null,
   "options": [
    "$a \\ge -1$",
    "$a \\le 0$",
    "$a = 0$",
    "$a \\ge 0$",
-   "$a > 0$",
-   "$a > 1$"
+   "$a > 0$"
   ],
   "answer": 0,
-  "solution": "First find exactly when $f$ is strictly increasing. $f'(x) = 3x^2 + a$.\n\n* If $a \\ge 0$: $f'(x) \\ge 0$ with equality at most at $x = 0$, so $f$ is strictly increasing (for $a=0$, $f=x^3$).\n* If $a < 0$: $f'(0) = a < 0$, so $f$ decreases near $0$.\n\nSo $f$ is strictly increasing $\\iff a \\ge 0$.\n\nA necessary-but-not-sufficient condition must be **implied by** $a \\ge 0$ but strictly weaker. $a \\ge -1$ is implied by $a \\ge 0$, and $a = -\\tfrac12$ satisfies it without $f$ increasing. Answer A.\n\n$a = 0$, $a>0$ and $a>1$ are sufficient but not necessary; $a \\ge 0$ is necessary and sufficient; $a \\le 0$ is neither.",
-  "insight": "Find the exact condition first; necessary conditions are the weaker sets that contain it, sufficient ones are the smaller sets inside it.",
+  "solution": "First find the exact condition. $f'(x) = 3x^2 + a$.\n\n* If $a \\ge 0$: $f'(x) \\ge 0$, with equality at most at the single point $x = 0$, so $f$ is strictly increasing (for $a = 0$, $f(x) = x^3$).\n* If $a < 0$: $f'(0) = a < 0$, so $f$ is decreasing near $0$.\n\nSo $f$ is strictly increasing exactly when $a \\ge 0$.\n\n* $a \\ge -1$: contains every $a \\ge 0$, so necessary; $a = -\\tfrac12$ satisfies it but $f$ is not increasing, so not sufficient. **This is the answer.**\n* $a \\ge 0$ is exact (both); $a = 0$ and $a > 0$ are subsets (sufficient only); $a \\le 0$ is neither ($a = 1$ works, $a = -1$ fails).",
+  "insight": "Find the exact condition first; then a necessary condition is any larger set and a sufficient condition is any smaller set.",
   "distractors": {
    "3": "$a \\ge 0$ is exactly the condition, so it is also sufficient.",
-   "4": "Forgetting that $x^3$ is strictly increasing leads to $a>0$; either way, it is sufficient rather than necessary.",
-   "2": "$a=0$ works, but it is a sufficient condition (a subset), not a necessary one."
+   "4": "$a > 0$ guarantees the property but is not needed ($a = 0$ gives $x^3$).",
+   "2": "$a = 0$ works, but it is a sufficient condition, not a necessary one.",
+   "1": "$a = 1$ gives an increasing function, so $a \\le 0$ is not necessary."
   },
-  "time": 150
+  "time": 180,
+  "family": "logic-19"
+ },
+ {
+  "id": "logic-19b",
+  "topic": "logic",
+  "paper": 2,
+  "difficulty": 4,
+  "skills": [
+   "necessary",
+   "sufficient",
+   "stationary points",
+   "differentiation"
+  ],
+  "stem": "Let $f(x) = x^3 + bx^2 + 3x$, where $b$ is a real constant.\n\nWhich one of the following conditions is **necessary but not sufficient** for the graph of $y = f(x)$ to have two distinct stationary points?",
+  "figure": null,
+  "options": [
+   "$b > 3$",
+   "$|b| > 3$",
+   "$b^2 > 4$",
+   "$b > 4$",
+   "$b < 4$"
+  ],
+  "answer": 2,
+  "solution": "$f'(x) = 3x^2 + 2bx + 3$. Two distinct stationary points means two distinct real roots of $f'(x) = 0$:\n$$(2b)^2 - 4 \\times 3 \\times 3 > 0, \\quad\\text{that is,}\\quad b^2 > 9, \\quad\\text{that is,}\\quad |b| > 3.$$\n\n* $b^2 > 4$: if $|b| > 3$ then $b^2 > 9 > 4$, so it is necessary; $b = 2.5$ satisfies it but $b^2 = 6.25 < 9$, so it is not sufficient. **This is the answer.**\n* $|b| > 3$ is exact: both necessary and sufficient.\n* $b > 3$ and $b > 4$ are smaller sets: sufficient but not necessary ($b = -5$ works).\n* $b < 4$: neither ($b = 5$ works but fails it; $b = 0$ satisfies it but gives no stationary points).",
+  "insight": "Convert the property into an exact condition on the parameter (here a discriminant), then compare sets.",
+  "distractors": {
+   "1": "This is the exact condition, so it is sufficient as well as necessary.",
+   "0": "$b > 3$ forces the property but is not needed: negative values such as $b = -5$ also work.",
+   "3": "A subset of the exact condition is sufficient, not necessary.",
+   "4": "Fails both ways: $b = 5$ works, $b = 0$ does not."
+  },
+  "time": 180,
+  "family": "logic-19"
  },
  {
   "id": "logic-20",
   "topic": "logic",
   "paper": 2,
-  "difficulty": 4,
+  "difficulty": 5,
   "skills": [
-   "quantifiers",
-   "implication",
-   "inequalities"
+   "necessary and sufficient",
+   "quadratics",
+   "for all"
   ],
-  "stem": "$a$ is a real constant. What is the complete set of values of $a$ for which the following statement is true?\n\n> For every real number $x$, if $x > a$ then $x^2 > 4$.",
+  "stem": "$p$ and $q$ are real numbers and $f(x) = x^2 + px + q$. Consider the statement\n\n> $S$: $f(x) \\ge 0$ for every $x \\ge 0$.\n\nWhich of the following conditions are **necessary and sufficient** for $S$?\n\nI. $p \\ge 0$ and $q \\ge 0$.\n\nII. $q \\ge 0$ and $p \\ge -2\\sqrt{q}$.\n\nIII. $p^2 \\le 4q$.",
   "figure": null,
   "options": [
-   "$a \\ge -2$",
-   "$|a| \\ge 2$",
-   "$a > 2$",
-   "$a \\ge 2$",
-   "$a \\ge 4$"
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
   ],
-  "answer": 3,
-  "solution": "The statement says the interval $(a, \\infty)$ lies inside $\\{x : x^2 > 4\\} = (-\\infty, -2) \\cup (2, \\infty)$.\n\nAn unbounded interval $(a, \\infty)$ can only fit inside $(2, \\infty)$, which needs $a \\ge 2$. At $a = 2$ it works exactly: $x > 2 \\Rightarrow x^2 > 4$.\n\nIf $a < 2$ there is a counterexample: pick $x$ strictly between $\\max(a, -2)$ and $2$. Then $x > a$ but $-2 < x < 2$, so $x^2 < 4$.\n\nAnswer: $a \\ge 2$.",
-  "insight": "\"For all $x$, $x \\in A \\Rightarrow x \\in B$\" means $A \\subseteq B$ — think in sets and check the endpoint.",
+  "answer": 2,
+  "solution": "Find exactly when $S$ holds. Completing the square, $f(x) = \\left(x + \\tfrac{p}{2}\\right)^2 + q - \\tfrac{p^2}{4}$, with vertex at $x = -\\tfrac p2$.\n\n* If $p \\ge 0$ the vertex is at or left of $0$, so on $x \\ge 0$ the minimum is $f(0) = q$: $S$ holds exactly when $q \\ge 0$.\n* If $p < 0$ the vertex is at $x = -\\tfrac p2 > 0$, so the minimum is $q - \\tfrac{p^2}{4}$: $S$ holds exactly when $p^2 \\le 4q$, i.e. (as $p < 0$) $p \\ge -2\\sqrt q$ with $q \\ge 0$.\n\nPutting the cases together, $S$ holds exactly when $q \\ge 0$ and $p \\ge -2\\sqrt q$. So **II** is necessary and sufficient.\n\n* **I** is sufficient but not necessary: $p = -1$, $q = 1$ gives $x^2 - x + 1 > 0$ everywhere.\n* **III** is sufficient (the parabola never goes below the axis) but not necessary: $p = 5$, $q = 0$ gives $x^2 + 5x \\ge 0$ for $x \\ge 0$ although $25 > 0$.\n\nAnswer: II only.",
+  "insight": "A condition \"for every x in a range\" depends only on the minimum over that range, so split by where the vertex lies.",
   "distractors": {
-   "2": "Excludes the endpoint: at $a=2$ the hypothesis is $x>2$, which does give $x^2>4$.",
-   "1": "Values $a \\le -2$ fail: with $a=-3$, $x=0$ satisfies $x>a$ but not $x^2>4$.",
-   "4": "$a \\ge 4$ makes the statement true, but it is not the complete set."
+   "6": "Treats III as exact, forgetting that only $x \\ge 0$ matters, not all real $x$.",
+   "1": "Thinks the coefficients must be non-negative; $x^2 - x + 1$ is a counterexample.",
+   "5": "Accepts two merely sufficient conditions as necessary.",
+   "4": "Accepts I, which is sufficient but not necessary."
   },
-  "time": 150
+  "time": 240,
+  "family": "logic-20"
+ },
+ {
+  "id": "logic-20b",
+  "topic": "logic",
+  "paper": 2,
+  "difficulty": 5,
+  "skills": [
+   "sufficient",
+   "quadratics",
+   "roots"
+  ],
+  "stem": "$p$ and $q$ are real numbers. Which of the following conditions are **sufficient** for the equation\n\n$$x^2 + px + q = 0$$\n\nto have two distinct real roots, both positive?\n\nI. $p^2 > 4q$ and $q > 0$.\n\nII. $p < 0 < q$ and $p^2 > 4q$.\n\nIII. $p < -3$ and $0 < q < 2$.",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 6,
+  "solution": "If the roots are $\\alpha$ and $\\beta$, then $\\alpha + \\beta = -p$ and $\\alpha\\beta = q$. Two distinct real roots need $p^2 > 4q$; then both are positive exactly when the product $q > 0$ (same sign) and the sum $-p > 0$ (that sign is positive). So the exact condition is: $p^2 > 4q$, $q > 0$ and $p < 0$.\n\n* **I.** Misses $p < 0$: $p = 3$, $q = 1$ gives $x^2 + 3x + 1 = 0$, whose roots are both negative. **Not sufficient.**\n* **II.** Exactly the condition. **Sufficient.**\n* **III.** $p < -3$ gives $p^2 > 9 > 8 > 4q$, and $p < 0 < q$. So III implies II. **Sufficient** (though not necessary).\n\nAnswer: II and III only.",
+  "insight": "Use the sum and product of the roots: the product fixes \"same sign\", the sum fixes \"which sign\".",
+  "distractors": {
+   "7": "Forgets that a positive product also allows two negative roots.",
+   "2": "Rejects III because it looks unrelated; it is a special case of II.",
+   "3": "Misses that II is the exact condition.",
+   "4": "Accepts I and misses that III implies II."
+  },
+  "time": 240,
+  "family": "logic-20"
  },
  {
   "id": "logic-21",
   "topic": "logic",
   "paper": 2,
-  "difficulty": 4,
+  "difficulty": 5,
   "skills": [
    "unless",
-   "nested implication",
-   "consistency"
+   "only if",
+   "or",
+   "consistency",
+   "everyday language"
   ],
-  "stem": "A teacher says:\n\n> If you do not do the homework, then you will not pass unless you revise.\n\nAssuming the teacher's statement is true, which of the following students are **possible**?\n\nI. A student who did the homework, did not revise, and passed.\n\nII. A student who did not do the homework, did not revise, and passed.\n\nIII. A student who did not do the homework, did not revise, and did not pass.",
+  "stem": "In this question, \"$A$ unless $B$\" means \"if not $B$, then $A$\".\n\nTwo teachers make these statements, and both are true.\n\n* Teacher 1: \"You will pass only if you do the homework or revise.\"\n* Teacher 2: \"If you revise, you will pass unless you are ill.\"\n\nWhich of the following students are **possible**?\n\nI. A student who did the homework, did not revise, was not ill, and failed.\n\nII. A student who did not do the homework, revised, was not ill, and failed.\n\nIII. A student who did not do the homework, did not revise, was ill, and failed.",
   "figure": null,
   "options": [
    "none of them",
@@ -605,13 +1336,52 @@
    "I, II and III"
   ],
   "answer": 5,
-  "solution": "Let $H$ = did the homework, $R$ = revised, $P$ = passed. \"You will not pass unless you revise\" means \"if you do not revise, you will not pass\": $\\neg R \\Rightarrow \\neg P$. The whole statement is\n\n$$\\neg H \\Rightarrow (\\neg R \\Rightarrow \\neg P).$$\n\nIt is false only when $\\neg H$, $\\neg R$ and $P$ all hold.\n\n* **I**: did the homework, so the statement makes no claim. **Possible.**\n* **II**: exactly the one forbidden case. **Impossible.**\n* **III**: not passing is what the statement predicts. **Possible.**\n\nAnswer: I and III only.",
-  "insight": "A nested conditional $X \\Rightarrow (Y \\Rightarrow Z)$ is broken only by $X$ true, $Y$ true, $Z$ false.",
+  "solution": "Translate:\n\n* Teacher 1: if you pass, then you did the homework or revised.\n* Teacher 2: if you revise, then (if you are not ill, you pass). So it is broken only by a student who revised, was not ill, and failed.\n\nTeacher 1 is broken only by a student who passed having done neither homework nor revision.\n\n* **I.** Failed, so Teacher 1 is fine; did not revise, so Teacher 2 is fine. **Possible.**\n* **II.** Revised, not ill, failed: exactly what Teacher 2 rules out. **Impossible.**\n* **III.** Failed, so Teacher 1 is fine; did not revise, so Teacher 2 is fine. **Possible.**\n\nAnswer: I and III only.",
+  "insight": "Find the single situation each conditional rules out; everything else is allowed.",
   "distractors": {
-   "3": "Assumes that skipping revision always means failing, even for students who did the homework.",
-   "7": "Misses that II is exactly the case the teacher rules out."
+   "1": "Thinks a student who did nothing must be ruled out; Teacher 1 only rules out such a student passing.",
+   "4": "Misreads \"unless\" so that Teacher 2 makes no promise to a student who revised and was not ill.",
+   "7": "Thinks failing is always consistent with \"only if\" statements, overlooking Teacher 2's promise.",
+   "3": "Reads Teacher 1 backwards, as \"if you do the homework or revise, you will pass\", which rules out I."
   },
-  "time": 150
+  "time": 240,
+  "family": "logic-21"
+ },
+ {
+  "id": "logic-21b",
+  "topic": "logic",
+  "paper": 2,
+  "difficulty": 5,
+  "skills": [
+   "unless",
+   "only if",
+   "or",
+   "consistency",
+   "everyday language"
+  ],
+  "stem": "In this question, \"$A$ unless $B$\" means \"if not $B$, then $A$\".\n\nAn online shop states two rules, and both are always followed.\n\n* Rule 1: \"An order is delivered the next day only if it is placed before noon or the customer pays for express delivery.\"\n* Rule 2: \"If the customer pays for express delivery, the order is delivered the next day unless the item is out of stock.\"\n\nWhich of the following orders are **possible**?\n\nI. Placed after noon, express paid, item in stock, not delivered the next day.\n\nII. Placed after noon, express not paid, item out of stock, delivered the next day.\n\nIII. Placed before noon, express paid, item out of stock, not delivered the next day.",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 3,
+  "solution": "Translate:\n\n* Rule 1: if delivered the next day, then placed before noon or express paid. Broken only by a next-day delivery that was placed after noon without express.\n* Rule 2: if express is paid, then (if in stock, delivered the next day). Broken only by an express order, in stock, not delivered the next day.\n\n* **I.** Express, in stock, not next day: breaks Rule 2. **Impossible.**\n* **II.** Next day, after noon, no express: breaks Rule 1. **Impossible.**\n* **III.** Not delivered next day, so Rule 1 is fine; out of stock, so Rule 2 makes no promise. **Possible.**\n\nAnswer: III only.",
+  "insight": "Each conditional rules out exactly one combination; list it, then test every case against it.",
+  "distractors": {
+   "5": "Reads Rule 2 as making no promise after noon; the rule applies whenever express is paid.",
+   "6": "Reads \"only if\" in Rule 1 backwards, as \"if before noon or express, then next day\".",
+   "0": "Thinks being out of stock breaks Rule 2; it is the exception the rule allows.",
+   "7": "Treats both rules as mere guidelines that can be broken."
+  },
+  "time": 240,
+  "family": "logic-21"
  },
  {
   "id": "logic-22",
@@ -636,13 +1406,51 @@
    "I, II and III"
   ],
   "answer": 5,
-  "solution": "**I** — take $b = 0$: $a^2 + 0^2 = a^2$ is a perfect square. **True.**\n\n**II** — try $a = 1$. We would need $1 + b^2 = k^2$, i.e. $(k - b)(k + b) = 1$ with $k \\ge 0$. Then $k - b = k + b = \\pm 1$, forcing $b = 0$. So no non-zero $b$ works for $a=1$. **False.**\n\n**III** — take $b = a$: $(c - a)^2 \\ge 0$ for every $c$. **True.**\n\nAnswer: I and III only.",
-  "insight": "When a statement says \"there exists\", try the laziest witness first ($0$, $1$, or the same variable again).",
+  "solution": "* **I.** Take $b = 0$: $a^2 + 0^2 = a^2$ is a perfect square. **True.**\n* **II.** Try $a = 1$. We would need $1 + b^2 = k^2$ with $k \\ge 0$, i.e. $(k - b)(k + b) = 1$. Both factors are integers, so both equal $1$ or both equal $-1$, which forces $b = 0$. So no non-zero $b$ works for $a = 1$. **False.**\n* **III.** Take $b = a$: then $(c - a)(c - b) = (c - a)^2 \\ge 0$ for every $c$. **True.**\n\nAnswer: I and III only.",
+  "insight": "When a statement says \"there exists\", try the laziest witness first: $0$, $1$, or the same variable again.",
   "distractors": {
-   "7": "II feels true because of Pythagorean triples, but $a=1$ (and $a=2$) have none.",
-   "1": "Misses the witness $b=a$ in III, which makes the product a square."
+   "7": "II feels true because of Pythagorean triples, but $a = 1$ (and $a = 2$) have none.",
+   "1": "Misses the witness $b = a$ in III, which turns the product into a square.",
+   "4": "Both slips: trusts II and misses the witness in III.",
+   "3": "Overlooks the trivial witness $b = 0$ in I."
   },
-  "time": 180
+  "time": 240,
+  "family": "logic-22"
+ },
+ {
+  "id": "logic-22b",
+  "topic": "logic",
+  "paper": 2,
+  "difficulty": 5,
+  "skills": [
+   "nested quantifiers",
+   "witnesses",
+   "integers",
+   "squares"
+  ],
+  "stem": "Which of the following statements are true?\n\nI. For every positive integer $n$ there is a positive integer $m$ such that $n + m$ is a perfect square.\n\nII. There is a positive integer $m$ such that, for every positive integer $n$, $n^2 + m$ is not a perfect square.\n\nIII. There is a positive integer $m$ such that, for every positive integer $n$, $n + m$ is not a perfect square.",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 4,
+  "solution": "* **I.** Given $n$, take $m = (n+1)^2 - n = n^2 + n + 1$, which is positive; then $n + m = (n+1)^2$. **True.**\n* **II.** Take $m = 1$: for every positive integer $n$, $n^2 < n^2 + 1 < (n+1)^2$, so $n^2 + 1$ lies strictly between consecutive squares and is not a square. **True.**\n* **III.** Whatever $m$ is chosen, the positive integer $n = (m+1)^2 - m$ makes $n + m = (m+1)^2$ a square. So no single $m$ works. **False.**\n\nAnswer: I and II only.",
+  "insight": "To refute \"there is an m such that for every n ...\", show that every m is defeated by some n, which may depend on m.",
+  "distractors": {
+   "7": "Thinks III follows from II; adding $m$ to $n$ instead of $n^2$ lets every integer above $m$ be reached.",
+   "1": "Misses the witness $m = 1$ in II: squares are never one apart (except $0$ and $1$).",
+   "5": "Confuses II and III, which differ only in $n^2$ versus $n$.",
+   "6": "Thinks I fails for some $n$; $m$ is allowed to depend on $n$."
+  },
+  "time": 240,
+  "family": "logic-22"
  },
  {
   "id": "logic-23",
@@ -654,25 +1462,57 @@
    "nested quantifiers",
    "sequences"
   ],
-  "stem": "A sequence $a_1, a_2, a_3, \\dots$ of real numbers has **property $T$** if:\n\n> for every $\\varepsilon > 0$ there exists a positive integer $N$ such that $|a_n| < \\varepsilon$ for all $n > N$.\n\nWhich of the following is equivalent to \"the sequence does **not** have property $T$\"?",
+  "stem": "A sequence $a_1, a_2, a_3, \\dots$ of real numbers has **property $T$** if:\n\n> for every $\\varepsilon > 0$ there exists a positive integer $N$ such that $|a_n| < \\varepsilon$ for all $n > N$.\n\nWhich one of the following is equivalent to \"the sequence does **not** have property $T$\"?",
   "figure": null,
   "options": [
    "There exists $\\varepsilon > 0$ such that, for every positive integer $N$, $|a_n| \\ge \\varepsilon$ for all $n > N$.",
    "There exist $\\varepsilon > 0$ and a positive integer $N$ such that $|a_n| \\ge \\varepsilon$ for all $n > N$.",
    "There exists $\\varepsilon > 0$ such that, for every positive integer $N$, $|a_n| \\ge \\varepsilon$ for some $n > N$.",
    "There exists a positive integer $N$ such that, for every $\\varepsilon > 0$, $|a_n| \\ge \\varepsilon$ for some $n > N$.",
-   "For every $\\varepsilon > 0$ and every positive integer $N$, $|a_n| \\ge \\varepsilon$ for some $n > N$.",
-   "For every $\\varepsilon > 0$ there exists a positive integer $N$ such that $|a_n| \\ge \\varepsilon$ for all $n > N$."
+   "For every $\\varepsilon > 0$ and every positive integer $N$, $|a_n| \\ge \\varepsilon$ for some $n > N$."
   ],
   "answer": 2,
-  "solution": "Property $T$ has the shape $\\forall \\varepsilon\\ \\exists N\\ \\forall n > N:\\ |a_n| < \\varepsilon$.\n\nNegate by flipping each quantifier in order and negating the inner condition:\n\n$$\\exists \\varepsilon\\ \\forall N\\ \\exists n > N:\\ |a_n| \\ge \\varepsilon.$$\n\nThat is option C.\n\nTest the others on $a_n = 1, 0, 1, 0, \\dots$ (odd terms $1$, even terms $0$), which clearly does not have property $T$: A and B are false for it (every tail contains zeros), so they are too strong. For $a_n = 1$ for all $n$ (also not $T$): D, E and F are false (take $\\varepsilon = 2$).",
-  "insight": "Negating a chain of quantifiers flips each one in turn — the order stays the same.",
+  "solution": "Property $T$ has three layers: for every $\\varepsilon$ / there is an $N$ / for all $n > N$ / $|a_n| < \\varepsilon$.\n\nNegate one layer at a time:\n\n* \"for every $\\varepsilon$\" becomes \"there exists $\\varepsilon$\";\n* \"there exists $N$\" becomes \"for every $N$\";\n* \"for all $n > N$\" becomes \"for some $n > N$\";\n* $|a_n| < \\varepsilon$ becomes $|a_n| \\ge \\varepsilon$.\n\nThis gives C.\n\nTest the others on $a_n = 1, 0, 1, 0, \\dots$, which does not have property $T$ (take $\\varepsilon = \\tfrac12$: every tail contains a $1$).\n\n* A and B are false for it: no tail consists entirely of terms $\\ge \\tfrac12$, because every tail contains a $0$.\n* D and E are false for it: with $\\varepsilon = 2$, no term is ever $\\ge 2$.\n\nSo none of A, B, D, E can be the negation.",
+  "insight": "Negating a chain of quantifiers flips every \"for every\" and \"there exists\" in order and negates only the final condition.",
   "distractors": {
-   "0": "Flips the first two quantifiers but forgets to flip the \"for all $n$\"; this says every tail is entirely large.",
-   "1": "Forgets to flip both $\\exists N$ and $\\forall n$.",
-   "4": "Keeps \"for every $\\varepsilon$\" — this says the sequence is unbounded in every tail, much stronger than not tending to $0$."
+   "0": "Flips the first two quantifiers but forgets to flip \"for all $n > N$\".",
+   "1": "Flips only the first quantifier.",
+   "3": "Swaps the order of $\\varepsilon$ and $N$ as well as flipping them; order must be kept.",
+   "4": "Keeps \"for every $\\varepsilon$\", which would say the sequence is unbounded."
   },
-  "time": 180
+  "time": 240,
+  "family": "logic-23"
+ },
+ {
+  "id": "logic-23b",
+  "topic": "logic",
+  "paper": 2,
+  "difficulty": 5,
+  "skills": [
+   "negation",
+   "nested quantifiers",
+   "functions"
+  ],
+  "stem": "A function $f$, defined for all real numbers, has **property $U$** if:\n\n> for every real number $M$ there exists a real number $x$ such that $f(y) > M$ for all $y > x$.\n\nWhich one of the following is equivalent to \"$f$ does **not** have property $U$\"?",
+  "figure": null,
+  "options": [
+   "There exists a real number $M$ such that, for every real number $x$, $f(y) \\le M$ for all $y > x$.",
+   "There exists a real number $M$ such that, for every real number $x$, $f(y) \\le M$ for some $y > x$.",
+   "For every real number $M$ there exists a real number $x$ such that $f(y) \\le M$ for some $y > x$.",
+   "There exist real numbers $M$ and $x$ such that $f(y) \\le M$ for some $y > x$.",
+   "There exists a real number $x$ such that, for every real number $M$, $f(y) \\le M$ for some $y > x$."
+  ],
+  "answer": 1,
+  "solution": "Property $U$ (which says \"$f(y)$ eventually stays above any level\") has the layers: for every $M$ / there is an $x$ / for all $y > x$ / $f(y) > M$.\n\nNegate one layer at a time, keeping the order:\n\n* \"for every $M$\" becomes \"there exists $M$\";\n* \"there exists $x$\" becomes \"for every $x$\";\n* \"for all $y > x$\" becomes \"for some $y > x$\";\n* $f(y) > M$ becomes $f(y) \\le M$.\n\nThis gives B: there is a level $M$ that $f$ keeps returning to (at or below), however far to the right you go.\n\nTest the others.\n\n* Let $g(y) = 0$ when $y$ is an integer and $g(y) = y^2$ otherwise. Then $g$ lacks property $U$ (take $M = 0$: every interval $y > x$ contains an integer). But A is false for $g$ (no tail stays at or below any $M$) and so is E ($g$ is never below $-1$).\n* $f(y) = y$ has property $U$, yet C and D are true for it (for any $M$, take $y = M - 1$ and any $x < y$).\n\nSo none of A, C, D, E can be the negation.",
+  "insight": "Flip every quantifier in order and negate only the innermost condition; never change the order of the variables.",
+  "distractors": {
+   "0": "Forgets to flip \"for all $y > x$\": that would say $f$ is bounded above everywhere.",
+   "2": "Leaves \"for every $M$\" unflipped.",
+   "3": "Flips only the first quantifier and turns \"for every $x$\" into \"there exists $x$\".",
+   "4": "Swaps the order of $M$ and $x$."
+  },
+  "time": 240,
+  "family": "logic-23"
  },
  {
   "id": "logic-24",
@@ -680,28 +1520,60 @@
   "paper": 2,
   "difficulty": 5,
   "skills": [
-   "self-reference",
+   "true and false",
    "case analysis",
    "consistency"
   ],
-  "stem": "Four statements are written on a card:\n\n1. Exactly one of these four statements is false.\n2. Statement 1 is false or statement 4 is false (or both).\n3. At most two of these four statements are true.\n4. Statement 3 is false.\n\nEach statement is either true or false. Which statements are true?",
+  "stem": "Four statements are written on a card.\n\n1. Exactly one of these four statements is false.\n2. Statement 1 is false or statement 4 is false (or both).\n3. At most two of these four statements are true.\n4. Statement 3 is false.\n\nEach statement is either true or false. Which statements are true?",
   "figure": null,
   "options": [
-   "None of them",
-   "3 only",
    "1 and 4 only",
-   "2 and 3 only",
+   "3 only",
    "1, 2 and 4 only",
-   "No assignment of true/false is consistent"
+   "2 and 3 only",
+   "No assignment of true and false is consistent"
   ],
   "answer": 3,
-  "solution": "Statements 3 and 4 have opposite truth values (4 says 3 is false). Split into two cases.\n\n**Case 3 true, 4 false.** Then 2 is true (because 4 is false). If 1 were true, exactly one statement would be false, so 1, 2, 3 true, making three true and contradicting 3. So 1 is false. Check: true statements are 2 and 3 — exactly two, so 3 holds; two are false, so 1 is indeed false; 2 is true; 4 is false. **Consistent.**\n\n**Case 3 false, 4 true.** Then at least three statements are true, so 1 and 2 are both true. But 2 says 1 or 4 is false — contradiction. **Impossible.**\n\nSo statements 2 and 3 only.",
-  "insight": "Pair up statements that directly contradict each other and split into cases; check the final assignment against every statement.",
+  "solution": "Statement 4 says statement 3 is false, so 3 and 4 have opposite truth values. Split into two cases.\n\n**Case A: 3 true, 4 false.** As 4 is false, statement 2 is true. If 1 were also true, statements 1, 2, 3 would be true (three true), contradicting 3. So 1 is false. Check: the true statements are 2 and 3. Statement 1 (\"exactly one false\") is indeed false (two are false); 2 is true (4 is false); 3 is true (two are true); 4 is false (3 is true). **Consistent.**\n\n**Case B: 4 true, 3 false.** As 3 is false, at least three statements are true, so 1 and 2 must both be true. But 2 says 1 is false or 4 is false, and both are true, so 2 is false. **Contradiction.**\n\nSo the only consistent assignment is: 2 and 3 true.",
+  "insight": "Find a pair of statements that directly control each other, split into cases, and check every statement in the surviving case.",
   "distractors": {
-   "4": "Makes 1 and 4 true without re-checking statement 2, which then refuses to be true.",
-   "2": "Takes only the case 4 true and stops before checking statements 1 and 2.",
-   "5": "One case does survive a careful check; do not give up after the first contradiction."
+   "0": "Makes 1 and 4 true without re-checking statement 2.",
+   "2": "Starts from case B and stops before checking statement 2.",
+   "4": "Abandons the search after the first contradiction; case A survives.",
+   "1": "Forgets that statement 2 is forced to be true once 4 is false."
   },
-  "time": 180
+  "time": 240,
+  "family": "logic-24"
+ },
+ {
+  "id": "logic-24b",
+  "topic": "logic",
+  "paper": 2,
+  "difficulty": 5,
+  "skills": [
+   "true and false",
+   "case analysis",
+   "consistency"
+  ],
+  "stem": "Four statements are written on a card.\n\n1. At least three of these four statements are true.\n2. Statement 1 is false or statement 3 is false (or both).\n3. Statement 4 is false.\n4. Exactly one of statements 1 and 2 is true.\n\nEach statement is either true or false. Which statements are true?",
+  "figure": null,
+  "options": [
+   "3 only",
+   "2 and 4 only",
+   "1, 2 and 4 only",
+   "1, 3 and 4 only",
+   "No assignment of true and false is consistent"
+  ],
+  "answer": 1,
+  "solution": "Statement 3 says statement 4 is false, so 3 and 4 have opposite truth values.\n\n**Case A: 3 true, 4 false.** Since 4 is false, 1 and 2 are both true or both false.\n* Both true: 1, 2, 3 are true. But 2 says 1 or 3 is false, and both are true. Contradiction.\n* Both false: only 3 is true. But 2 false means 1 and 3 are both true, and 1 is false. Contradiction.\n\n**Case B: 4 true, 3 false.** Exactly one of 1 and 2 is true.\n* If 1 is true, at least three are true; with 3 false that needs 1, 2, 4 all true, contradicting \"exactly one of 1 and 2\".\n* So 1 is false and 2 is true. Check: true statements 2 and 4. Statement 1 is false (only two true); 2 is true (3 is false); 3 is false (4 is true); 4 is true (exactly one of 1, 2 is true). **Consistent.**\n\nSo the only consistent assignment is: 2 and 4 true.",
+  "insight": "Split on a pair of statements that contradict each other directly, then test every sub-case to the end.",
+  "distractors": {
+   "2": "Ignores the \"exactly one\" in statement 4, which forbids 1 and 2 being true together.",
+   "3": "Statements 3 and 4 cannot both be true, since 3 says 4 is false.",
+   "4": "Gives up too early: case B has a consistent sub-case.",
+   "0": "Stops in case A without checking statement 2."
+  },
+  "time": 240,
+  "family": "logic-24"
  }
 ]
