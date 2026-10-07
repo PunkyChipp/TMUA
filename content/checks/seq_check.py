@@ -132,7 +132,7 @@ def t8(v):
 
 grid = [F(kk, 97) for kk in range(-1000, 1000)]
 key_pred("seq-08", [lambda v: v > F(5, 4), lambda v: F(5, 4) < v < 2, lambda v: -1 < v < 2,
-                    lambda v: -1 < v < F(5, 4), lambda v: 1 < v < 2], t8, grid)
+                    lambda v: -1 < v < F(5, 4), lambda v: F(1, 2) < v < 2], t8, grid)
 
 
 def t8b(v):
@@ -294,7 +294,7 @@ key_roman("seq-18b", I, II, III)
 assert done == set(QS), sorted(set(QS) - done)
 orig = [q for q in QL if not q["id"].endswith("b")]
 assert sorted(q["id"] for q in orig) == [f"seq-{i:02d}" for i in range(1, 19)]
-assert sorted(Counter(q["difficulty"] for q in orig).items()) == [(2, 2), (3, 6), (4, 6), (5, 4)]
+assert sorted(Counter(q["difficulty"] for q in orig).items()) == [(2, 2), (3, 6), (4, 7), (5, 3)]
 for q in orig:
     t = QS[q["id"] + "b"]
     assert t["difficulty"] == q["difficulty"], q["id"]
