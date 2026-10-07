@@ -1,11 +1,8 @@
 // Session runner: practice (instant feedback) and test (exam conditions) modes.
 import { S, update, srsRecord } from '../lib/store.js';
 import { getQuestion, srsKey, targetMs } from '../engine/bank.js';
-import { genQuestion } from '../gen/index.js';
-import { pickForTopic, seenMap } from '../engine/select.js';
-import { buildModel } from '../engine/model.js';
+import { alternativeTo, seenMap } from '../engine/select.js';
 import { TOPIC, EXAM } from '../data/topics.js';
-import { randomSeed } from '../lib/rng.js';
 import { esc, LETTERS, fmtClock, fmtSecs, uid, dateKey, pct, $ } from '../lib/util.js';
 import { ICON } from './icons.js';
 import { md, mdi, diffDots, topicChip, figureHTML, optionsHTML, solutionHTML, toast } from './common.js';
@@ -78,7 +75,7 @@ function recordAttempt(q, r, mode) {
       qid: q.id, topic: q.topic, d: q.difficulty, ok: r.ok, ms: Math.round(r.ms), at: Date.now(), mode,
       choice: r.choice, guess: r.guess || undefined, hint: r.hint || undefined, target: Math.round(targetMs(q) / 1000), sid: cur.id,
     });
-    srsRecord(srsKey(q), q.topic, r.ok);
+    srsRecord(srsKey(q), q.topic, r.ok, Date.now(), q.id);
   });
 }
 
@@ -312,13 +309,9 @@ function finish() {
 
 function similar() {
   const q = cur.qs[cur.i];
-  let nq = null;
-  if (q.gen) nq = genQuestion(q.gen, q.difficulty, randomSeed());
-  else {
-    const st = S();
-    const exclude = new Set(cur.qs.map(x => x.id));
-    nq = pickForTopic(q.topic, buildModel(st.attempts), { exclude, seen: seenMap(st.attempts), reported: st.reported, level: q.difficulty, preferBank: 0.3 });
-  }
+  const st = S();
+  const exclude = new Set(cur.qs.map(x => x.id));
+  const nq = alternativeTo(q, { seen: seenMap(st.attempts), exclude, reported: st.reported });
   if (!nq) { toast('No similar question available right now.'); return; }
   cur.qs.splice(cur.i + 1, 0, nq);
   cur.resp.splice(cur.i + 1, 0, blankResp());

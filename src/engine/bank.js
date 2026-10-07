@@ -6,6 +6,10 @@ export const BANK = QUESTIONS.filter(q => TOPIC[q.topic]);
 export const BY_ID = Object.fromEntries(BANK.map(q => [q.id, q]));
 export const BY_TOPIC = {};
 for (const q of BANK) (BY_TOPIC[q.topic] ||= []).push(q);
+// Twin families: questions testing the same idea with different numbers and set-up.
+export const FAMILY = {};
+for (const q of BANK) if (q.family) (FAMILY[q.family] ||= []).push(q.id);
+export const familyOf = q => (q?.family ? FAMILY[q.family] || [q.id] : q ? [q.id] : []);
 export { NOTES };
 
 export function getQuestion(id) {
@@ -19,7 +23,7 @@ export function getQuestion(id) {
 export const targetMs = q => 1000 * (q.time || DEFAULT_TIME[q.difficulty] || 200);
 
 // SRS key: bank questions review themselves; generated ones review the skill (fresh variant).
-export const srsKey = q => (q.gen ? `g:${q.gen}:${q.difficulty}` : q.id);
+export const srsKey = q => (q.gen ? `g:${q.gen}:${q.difficulty}` : q.family ? `f:${q.family}` : q.id);
 
 export const bankStats = () => ({
   questions: BANK.length,

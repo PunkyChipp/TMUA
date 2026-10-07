@@ -1,7 +1,7 @@
 // Topic taxonomy. `w1`/`w2` are rough shares of marks on Paper 1 / Paper 2,
 // used for prioritising practice and for the predicted-score estimate.
 export const TOPICS = [
-  { key: 'number', name: 'Number & arithmetic', short: 'Number', paper: 1, w1: 0.06, w2: 0.03 },
+  { key: 'number', name: 'Number, ratio & units', short: 'Number', paper: 1, w1: 0.06, w2: 0.03 },
   { key: 'alg', name: 'Algebra & functions', short: 'Algebra', paper: 1, w1: 0.16, w2: 0.07 },
   { key: 'graphs', name: 'Graphs & transformations', short: 'Graphs', paper: 1, w1: 0.11, w2: 0.06 },
   { key: 'coord', name: 'Coordinate geometry', short: 'Coordinates', paper: 1, w1: 0.08, w2: 0.03 },
@@ -10,8 +10,8 @@ export const TOPICS = [
   { key: 'explog', name: 'Exponentials & logarithms', short: 'Exp & logs', paper: 1, w1: 0.08, w2: 0.03 },
   { key: 'diff', name: 'Differentiation', short: 'Differentiation', paper: 1, w1: 0.10, w2: 0.04 },
   { key: 'integ', name: 'Integration', short: 'Integration', paper: 1, w1: 0.09, w2: 0.04 },
-  { key: 'geom', name: 'Geometry & measures', short: 'Geometry', paper: 1, w1: 0.07, w2: 0.02 },
-  { key: 'prob', name: 'Probability & counting', short: 'Probability', paper: 1, w1: 0.06, w2: 0.02 },
+  { key: 'geom', name: 'Geometry, vectors & measures', short: 'Geometry', paper: 1, w1: 0.07, w2: 0.02 },
+  { key: 'prob', name: 'Probability & statistics', short: 'Prob & stats', paper: 1, w1: 0.06, w2: 0.02 },
   { key: 'logic', name: 'Logic of arguments', short: 'Logic', paper: 2, w1: 0, w2: 0.27 },
   { key: 'proof', name: 'Mathematical proof', short: 'Proof', paper: 2, w1: 0, w2: 0.18 },
   { key: 'errors', name: 'Finding errors in proofs', short: 'Errors in proofs', paper: 2, w1: 0, w2: 0.13 },

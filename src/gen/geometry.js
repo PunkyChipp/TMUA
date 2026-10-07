@@ -67,7 +67,7 @@ const cubicLevel = {
 };
 
 const whichGraph = {
-  id: 'which-graph', topic: 'graphs', paper: 1, levels: [2, 3], skills: ['sketching', 'roots and multiplicity'],
+  id: 'which-graph', speedOnly: true, topic: 'graphs', paper: 1, levels: [2, 3], skills: ['sketching', 'roots and multiplicity'],
   name: 'Which graph is it?',
   make(rng, level) {
     let a, b;
@@ -105,7 +105,7 @@ const whichGraph = {
 };
 
 const circleCentre = {
-  id: 'circle-centre', topic: 'coord', paper: 1, levels: [1, 2], skills: ['circles', 'completing the square'],
+  id: 'circle-centre', speedOnly: true, topic: 'coord', paper: 1, levels: [1, 2], skills: ['circles', 'completing the square'],
   name: 'Centre and radius of a circle',
   make(rng, level) {
     const h = rng.nonzero(-6, 6), k = rng.nonzero(-6, 6), r = rng.int(2, 9);
@@ -132,7 +132,7 @@ const circleCentre = {
 };
 
 const perpIntercept = {
-  id: 'perp-line', topic: 'coord', paper: 1, levels: [1, 2], skills: ['straight lines', 'perpendicular gradients'],
+  id: 'perp-line', speedOnly: true, topic: 'coord', paper: 1, levels: [1, 2], skills: ['straight lines', 'perpendicular gradients'],
   name: 'Perpendicular line',
   make(rng, level) {
     let a, b;
@@ -182,7 +182,7 @@ const tangentCircle = {
 };
 
 const triangleArea = {
-  id: 'triangle-area', topic: 'coord', paper: 1, levels: [2, 3], skills: ['area', 'coordinates'],
+  id: 'triangle-area', speedOnly: true, topic: 'coord', paper: 1, levels: [2, 3], skills: ['area', 'coordinates'],
   name: 'Area of a triangle from coordinates',
   make(rng, level) {
     let A, B, C, twice;

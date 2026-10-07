@@ -14,7 +14,7 @@ const DICE_EVENTS = [
 ];
 
 const dice = {
-  id: 'two-dice', topic: 'prob', paper: 1, levels: [1, 2], skills: ['sample spaces', 'probability'],
+  id: 'two-dice', speedOnly: true, topic: 'prob', paper: 1, levels: [1, 2], skills: ['sample spaces', 'probability'],
   name: 'Two dice',
   make(rng, level) {
     const ev = rng.pick(DICE_EVENTS);
@@ -43,7 +43,7 @@ const dice = {
 };
 
 const bag = {
-  id: 'bag-no-replace', topic: 'prob', paper: 1, levels: [2, 3], skills: ['without replacement', 'tree diagrams'],
+  id: 'bag-no-replace', speedOnly: true, topic: 'prob', paper: 1, levels: [2, 3], skills: ['without replacement', 'tree diagrams'],
   name: 'Drawing without replacement',
   make(rng, level) {
     const r = rng.int(2, 7), b = rng.int(2, 7), n = r + b;
@@ -71,7 +71,7 @@ const bag = {
 const WORDS = ['LEVEL', 'BANANA', 'LETTER', 'COFFEE', 'PEPPER', 'ALGEBRA', 'CALCULUS', 'SEQUENCE', 'TOFFEE', 'MAMMAL'];
 
 const arrange = {
-  id: 'arrangements', topic: 'prob', paper: 1, levels: [2, 3], skills: ['permutations', 'counting'],
+  id: 'arrangements', speedOnly: true, topic: 'prob', paper: 1, levels: [2, 3], skills: ['permutations', 'counting'],
   name: 'Arrangements',
   make(rng, level) {
     if (level >= 3 || rng.chance(0.4)) {

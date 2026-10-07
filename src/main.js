@@ -1,6 +1,6 @@
 import { S, update, subscribe, exportState, replaceState, resetState, dueReviews } from './lib/store.js';
 import { buildModel } from './engine/model.js';
-import { smartSession, topicDrill, reviewSession, mockPaper, timedSet, diagnostic, speedRound } from './engine/select.js';
+import { smartSession, topicDrill, reviewSession, mockPaper, timedSet, diagnostic, speedRound, alternativeTo, seenMap } from './engine/select.js';
 import { buildPlan } from './engine/plan.js';
 import { getQuestion } from './engine/bank.js';
 import { TOPIC, EXAM } from './data/topics.js';
@@ -271,6 +271,13 @@ const actions = {
   'reset-cancel': () => { ui.confirmReset = false; render(); },
   reset: () => { resetState(); ui.confirmReset = false; applyTheme(); ui.route = 'today'; render(true); },
   palette: () => openPalette(),
+  twin: el => {
+    const q = getQuestion(el.dataset.id);
+    const st = S();
+    const alt = alternativeTo(q, { seen: seenMap(st.attempts), reported: st.reported });
+    if (!alt) { toast('No twin available for this one yet.'); return; }
+    if (startSession({ kind: 'review', title: 'Twin question', qs: [alt] })) go('session');
+  },
   'tutor-explain': el => { const t = qViewTarget(); if (t) tutorExplain(t.q, t.r, el.dataset.mode); },
   'tutor-stop': () => { const t = qViewTarget(); if (t) tutorStop(keyOf(t.q)); },
   coach: () => runCoach(coachSummary(model())),

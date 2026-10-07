@@ -1,6 +1,6 @@
 # Exam strategy
 
-The TMUA is two 75-minute papers of 20 multiple-choice questions each, taken on screen with no calculator and no formula sheet. Wrong answers cost nothing. Your raw marks are converted to a scale from 1.0 to 9.0. That leaves three levers: get the doable questions right, don't bleed time, and never leave a blank.
+The TMUA is two 75-minute papers of 20 multiple-choice questions each, taken one after the other on screen at a Pearson VUE centre, with no calculator and no formula sheet. For 2026 it is also the admissions test for Oxford and Imperial maths and computer science, so the field is strong. Wrong answers cost nothing. Your raw marks are converted to a scale from 1.0 to 9.0. That leaves three levers: get the doable questions right, don't bleed time, and never leave a blank.
 
 ## The clock
 
@@ -8,7 +8,7 @@ The TMUA is two 75-minute papers of 20 multiple-choice questions each, taken on 
 
 - **Checkpoints:** aim to be past Q5 at 19 minutes, Q10 at 38, Q15 at 56. The timed modes in this app show the same pace line.
 - **The 90-second rule:** if you have no plan after 90 seconds, pick your best guess, flag it, and move on. Come back only once the rest is done.
-- **Never leave a blank.** With 5–8 options a blind guess is still worth 12–20% of a mark. A guess after eliminating two options is worth far more.
+- **Never leave a blank.** With five options a blind guess is worth a fifth of a mark. Knock out two and it's a third.
 
 > **Exam tip:** Do the whole paper in one pass, answering and flagging as you go. Spend the final 5–10 minutes on flagged questions, most promising first.
 
@@ -22,6 +22,10 @@ The options are information. TMUA answers are designed to come out cleanly, so c
 - **Look at how the options differ.** If two options differ only by a factor of 2, or by $<$ versus $\le$, the question is testing exactly that detail.
 
 > **Tip:** In this app, right-click an option (or press Shift + its letter) to cross it out. Use elimination on every question.
+
+## Translate the wording first
+
+Recent papers are reported to be wordier: the same mathematics wrapped in a short scenario. Before any algebra, write the bare question in one line: the unknown, the condition, and what is being asked ("number of solutions", "largest value", "which must be true"). Underline every *not*, *only*, *exactly*, *at least*, and every interval and endpoint.
 
 ## Sketch first
 
