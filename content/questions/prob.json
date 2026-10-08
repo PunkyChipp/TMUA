@@ -254,7 +254,7 @@
    "frequency density",
    "unequal class widths"
   ],
-  "stem": "A histogram shows the times taken by a group of people to complete a puzzle. The classes and the heights of the bars are:\n\n| Time $t$ (minutes) | $0\\le t<10$ | $10\\le t<15$ | $15\\le t<20$ | $20\\le t<30$ | $30\\le t<50$ |\n|---|---|---|---|---|---|\n| Height of bar (cm) | $1.5$ | $6$ | $8$ | $3$ | $1$ |\n\nThe bar for $10\\le t<15$ represents $24$ people.\n\nUsing the histogram, estimate the number of people who took more than $25$ minutes.",
+  "stem": "A histogram shows the times taken by a group of people to complete a puzzle. The classes and the heights of the bars are:\n\n| Time $t$ (minutes) | $0\\le t<10$ | $10\\le t<15$ | $15\\le t<20$ | $20\\le t<30$ | $30\\le t<50$ |\n|---|---|---|---|---|---|\n| Height of bar (cm) | $1.5$ | $6$ | $8$ | $3$ | $1$ |\n\nThe area of each bar is proportional to the number of people in that class, and the bar for $10\\le t<15$ represents $24$ people.\n\nAssuming the times within each class are spread evenly, estimate the number of people who took more than $25$ minutes.",
   "figure": null,
   "options": [
    "$10$",
@@ -285,7 +285,7 @@
    "frequency density",
    "median from grouped data"
   ],
-  "stem": "The masses of $200$ apples are summarised in a histogram. The frequency densities (apples per gram) of the bars are:\n\n| Mass $m$ (grams) | $100\\le m<120$ | $120\\le m<130$ | $130\\le m<140$ | $140\\le m<160$ | $160\\le m<200$ |\n|---|---|---|---|---|---|\n| Frequency density | $1.5$ | $4$ | $k$ | $3$ | $0.5$ |\n\nUsing the histogram, estimate the median mass.",
+  "stem": "The masses of $200$ apples are summarised in a histogram. The frequency densities (apples per gram) of the bars are:\n\n| Mass $m$ (grams) | $100\\le m<120$ | $120\\le m<130$ | $130\\le m<140$ | $140\\le m<160$ | $160\\le m<200$ |\n|---|---|---|---|---|---|\n| Frequency density | $1.5$ | $4$ | $k$ | $3$ | $0.5$ |\n\nUsing the histogram, and taking the median to be the $100$th mass, estimate the median mass by linear interpolation.",
   "figure": null,
   "options": [
    "$130$ g",
@@ -316,7 +316,7 @@
    "quartiles",
    "comparing distributions"
   ],
-  "stem": "Two groups, A and B, of $80$ students each ran a cross-country course. Every time was more than $15$ minutes and at most $40$ minutes. The table shows the cumulative frequencies.\n\n| Time $t$ (minutes) | $t\\le20$ | $t\\le25$ | $t\\le30$ | $t\\le35$ | $t\\le40$ |\n|---|---|---|---|---|---|\n| Group A | $8$ | $20$ | $60$ | $72$ | $80$ |\n| Group B | $20$ | $30$ | $50$ | $70$ | $80$ |\n\nEstimates are made by linear interpolation, taking the lower quartile, median and upper quartile of each group to be the $20$th, $40$th and $60$th times. Which of the following statements is/are valid?\n\nI. The two groups have the same estimated median.\n\nII. The estimated interquartile range of group B is more than twice that of group A.\n\nIII. The fastest student was in group B.",
+  "stem": "Two groups, A and B, of $80$ students each ran a cross-country course. Every time was more than $15$ minutes and at most $40$ minutes. The table shows the cumulative frequencies.\n\n| Time $t$ (minutes) | $t\\le20$ | $t\\le25$ | $t\\le30$ | $t\\le35$ | $t\\le40$ |\n|---|---|---|---|---|---|\n| Group A | $8$ | $20$ | $60$ | $72$ | $80$ |\n| Group B | $20$ | $30$ | $50$ | $70$ | $80$ |\n\nEstimates are made by linear interpolation, taking the lower quartile, median and upper quartile of each group to be the $20$th, $40$th and $60$th times. Which of the following statements **must** be true?\n\nI. The two groups have the same estimated median.\n\nII. The estimated interquartile range of group B is more than twice that of group A.\n\nIII. The fastest student was in group B.",
   "figure": null,
   "options": [
    "none of them",
@@ -329,7 +329,7 @@
    "I, II and III"
   ],
   "answer": 4,
-  "solution": "**Group A:** the $20$th time is $25$ and the $60$th is $30$ (both exactly at table values). The $40$th lies in $25<t\\le30$, where the cumulative frequency rises from $20$ to $60$:\n$$\\text{median}_A=25+\\frac{40-20}{40}\\times5=27.5,\\qquad \\text{IQR}_A=30-25=5.$$\n\n**Group B:** the $20$th time is $20$. The $40$th lies in $25<t\\le30$ (from $30$ to $50$): $25+\\frac{10}{20}\\times5=27.5$. The $60$th lies in $30<t\\le35$ (from $50$ to $70$): $30+\\frac{10}{20}\\times5=32.5$. So $\\text{IQR}_B=12.5$.\n\n**I is valid:** both medians are $27.5$.\n\n**II is valid:** $12.5>2\\times5$.\n\n**III is not valid:** both groups have students in the class $15<t\\le20$, and grouped data say nothing about who is fastest within a class. More B students in that class does not mean the single fastest is in B.\n\nSo the answer is **I and II only**.",
+  "solution": "**Group A:** the $20$th time is $25$ and the $60$th is $30$ (both exactly at table values). The $40$th lies in $25<t\\le30$, where the cumulative frequency rises from $20$ to $60$:\n$$\\text{median}_A=25+\\frac{40-20}{40}\\times5=27.5,\\qquad \\text{IQR}_A=30-25=5.$$\n\n**Group B:** the $20$th time is $20$. The $40$th lies in $25<t\\le30$ (from $30$ to $50$): $25+\\frac{10}{20}\\times5=27.5$. The $60$th lies in $30<t\\le35$ (from $50$ to $70$): $30+\\frac{10}{20}\\times5=32.5$. So $\\text{IQR}_B=12.5$.\n\n**I is true:** both medians are $27.5$.\n\n**II is true:** $12.5>2\\times5$.\n\n**III is not necessarily true:** both groups have students in the class $15<t\\le20$, and the table says nothing about who is fastest within a class. For example, one A student could have taken $15.5$ minutes while every B student in that class took more than $16$ minutes. More B students in the class does not mean the single fastest is in B.\n\nSo the answer is **I and II only**.",
   "insight": "Grouped data support statements about quartiles and proportions, never about individual extreme values inside a class.",
   "distractors": {
    "7": "Reading 'more of group B in the fastest class' as 'the fastest student is in group B'.",
@@ -559,13 +559,13 @@
   "id": "prob-10",
   "topic": "prob",
   "paper": 2,
-  "difficulty": 3,
+  "difficulty": 2,
   "skills": [
    "scatter graphs",
    "correlation and causation",
    "extrapolation"
   ],
-  "stem": "In a study of $30$ students, the number of hours $x$ that each spent revising for a test and their mark $y$ (out of $100$) were recorded. The scatter graph shows strong positive correlation, and the line of best fit is $y=3x+40$. The values of $x$ in the sample range from $2$ to $15$.\n\nWhich of the following conclusions is/are valid?\n\nI. Each extra hour of revision causes a student's mark to rise by $3$.\n\nII. The line of best fit gives a reliable estimate of the mark of a student who revised for $25$ hours.\n\nIII. In this sample, students who revised for longer tended to get higher marks.",
+  "stem": "In a study of $30$ students, the number of hours $x$ that each spent revising for a test and their mark $y$ (out of $100$) were recorded. The scatter graph shows strong positive correlation, and the line of best fit is $y=3x+40$. The values of $x$ in the sample range from $2$ to $15$.\n\nWhich of the following conclusions can validly be drawn from these data?\n\nI. Each extra hour of revision causes a student's mark to rise by $3$.\n\nII. The line of best fit gives a reliable estimate of the mark of a student who revised for $25$ hours.\n\nIII. In this sample, students who revised for longer tended to get higher marks.",
   "figure": null,
   "options": [
    "none of them",
@@ -592,13 +592,13 @@
   "id": "prob-10b",
   "topic": "prob",
   "paper": 2,
-  "difficulty": 3,
+  "difficulty": 2,
   "skills": [
    "scatter graphs",
    "correlation and causation",
-   "confounding"
+   "interpreting correlation"
   ],
-  "stem": "A researcher collects data for $40$ towns. For each town she records the number of cafés and the number of burglaries reported in a year. The scatter graph shows strong positive correlation.\n\nWhich of the following conclusions is/are valid?\n\nI. In these towns, those with more cafés tended to have more burglaries.\n\nII. If a town opened more cafés, its number of burglaries would be expected to rise.\n\nIII. The correlation could be explained by a third factor, such as the size of the town's population, that tends to increase both quantities.",
+  "stem": "A researcher collects data for $40$ towns. For each town she records the number of cafés and the number of burglaries reported in a year. The scatter graph shows strong positive correlation.\n\nWhich of the following conclusions can validly be drawn from these data?\n\nI. In these towns, those with more cafés tended to have more burglaries.\n\nII. If a town opened more cafés, its number of burglaries would be expected to rise.\n\nIII. Of any two of these towns, the one with more cafés had more burglaries.",
   "figure": null,
   "options": [
    "none of them",
@@ -610,13 +610,14 @@
    "II and III only",
    "I, II and III"
   ],
-  "answer": 5,
-  "solution": "**I is valid.** It describes the association in the sample, which is what positive correlation means.\n\n**II is not valid.** It is a causal claim. Correlation alone cannot show that cafés cause burglaries.\n\n**III is valid.** It only says the correlation *could* be explained by a lurking variable, which is exactly the reason II cannot be concluded: bigger towns tend to have both more cafés and more burglaries.\n\nSo the answer is **I and III only**.",
-  "insight": "Correlation licenses statements about association, and is compatible with a third variable driving both; it never licenses 'changing $x$ would change $y$'.",
+  "answer": 1,
+  "solution": "**I is valid.** It describes the association in the sample, which is what positive correlation means.\n\n**II is not valid.** It is a causal claim, and correlation alone cannot show that cafés cause burglaries. A third factor could drive both: bigger towns tend to have more cafés *and* more burglaries.\n\n**III is not valid.** Correlation describes a general tendency, not a rule for every pair. Even strong positive correlation allows some towns with more cafés than another to have fewer burglaries; the scatter graph's points need not all rise from left to right.\n\nSo the answer is **I only**.",
+  "insight": "Correlation licenses 'tended to' statements about the sample; it is neither a rule for every individual pair nor evidence that changing $x$ would change $y$.",
   "distractors": {
-   "7": "Reading correlation as causation.",
-   "1": "Thinking a third factor cannot be mentioned unless it was measured; III only claims a possible explanation.",
-   "4": "Accepting the causal claim II alongside the description I."
+   "7": "Reading correlation both as causation and as a rule that holds for every pair of towns.",
+   "4": "Accepting the causal claim II alongside the description I.",
+   "5": "Treating strong correlation as if every town with more cafés must have more burglaries.",
+   "0": "Thinking a correlation cannot even describe a tendency in the sample, so rejecting I."
   },
   "time": 150,
   "family": "prob-10"
@@ -752,7 +753,7 @@
   "id": "prob-13",
   "topic": "prob",
   "paper": 1,
-  "difficulty": 4,
+  "difficulty": 3,
   "skills": [
    "conditional probability",
    "without replacement"
@@ -781,7 +782,7 @@
   "id": "prob-13b",
   "topic": "prob",
   "paper": 1,
-  "difficulty": 4,
+  "difficulty": 3,
   "skills": [
    "conditional probability",
    "sample space"
@@ -811,7 +812,7 @@
   "id": "prob-14",
   "topic": "prob",
   "paper": 2,
-  "difficulty": 5,
+  "difficulty": 4,
   "skills": [
    "mean and median",
    "combining groups",
@@ -844,7 +845,7 @@
   "id": "prob-14b",
   "topic": "prob",
   "paper": 2,
-  "difficulty": 5,
+  "difficulty": 4,
   "skills": [
    "mean and median",
    "combining groups",

@@ -218,8 +218,9 @@ check_values("prob-09b", opt_vals("prob-09b"), F(sum(1 for p_ in product("RGB", 
 # 10: I causal claim -> invalid; II x=25 outside [2,15] and predicts 115 > 100 -> invalid; III valid
 assert not (2 <= 25 <= 15) and 3 * 25 + 40 > 100
 check_roman("prob-10", (False, False, True))
-# 10b: I association -> valid; II causal -> invalid; III 'could be' confounder -> valid
-check_roman("prob-10b", (True, False, True))
+# 10b: I association -> valid; II causal -> invalid; III 'every pair follows the trend' -> invalid
+assert "Of any two of these towns" in QS["prob-10b"]["stem"]
+check_roman("prob-10b", (True, False, False))
 
 # ---------------- 11: 10 equally likely outcomes; A any 5-set, B any 4-set
 U = range(10)
@@ -380,7 +381,7 @@ check_roman("prob-18b", (F(eq, n) == F(1, 7), F(rt, n) == F(6, 7), F(iso, n) == 
 
 # ---------------- structure: families, difficulty spread, twins
 originals = [QS[i] for i in IDS]
-assert Counter(q["difficulty"] for q in originals) == Counter({2: 2, 3: 6, 4: 6, 5: 4})
+assert Counter(q["difficulty"] for q in originals) == Counter({2: 3, 3: 6, 4: 6, 5: 3})
 for i in IDS:
     x, y = QS[i], QS[i + "b"]
     assert x["family"] == i and y["family"] == i, i

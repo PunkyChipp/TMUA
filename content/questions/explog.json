@@ -658,8 +658,8 @@
   "distractors": {
    "0": "Only uses the condition $k > 0$ needed for the right-hand side.",
    "2": "Includes the repeated-root case $k = 2^{-1/4}$, which gives only one solution.",
-   "3": "Thinks both roots $t$ must be positive (as if $t$ were $2^x$), or requires $\\log_2 k > 0$.",
-   "4": "Gets the sign wrong in the discriminant: $1 - 4\\log_2 k$."
+   "3": "Requires $\\log_2 k > 0$ as well (thinking the log on the right must be positive), which gives $k > 1$.",
+   "4": "Gets the sign wrong in the discriminant, writing it as $4\\log_2 k - 1$, so needs $\\log_2 k > \\tfrac14$."
   },
   "time": 240,
   "family": "explog-11"
@@ -778,7 +778,7 @@
    "0": "Orders by base alone.",
    "1": "Orders by exponent alone, so puts $2^{60}$ last.",
    "2": "Miscalculates $7^4$ as more than $5^5$.",
-   "4": "Miscalculates $2^{12}$ as $2048$, placing $2^{60}$ below $5^{25}$."
+   "4": "Miscalculates $2^{12}$ (for example as $3\\cdot 2^{10} = 3072$), which puts $2^{60}$ between $7^{20}$ and $5^{25}$."
   },
   "time": 150,
   "family": "explog-13"
