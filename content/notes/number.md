@@ -1,6 +1,6 @@
 # Number, ratio & units
 
-TMUA number questions look easy and are designed to punish careless arithmetic. Expect to: count integers or arrangements with a property, use prime factorisation, convert recurring decimals, work with bounds, standard form and compound units, handle proportion with powers, and follow growth, decay or an iterative process without a calculator. The winning habit is to look for **structure** (factorise, use multipliers, find a fixed point or a cycle) rather than grinding.
+TMUA number questions look easy and are designed to punish careless arithmetic. Expect to: count integers or arrangements with a property, use prime factorisation, convert recurring decimals, work with bounds, standard form and compound units, handle proportion with powers, and follow growth, decay or an iterative process without a calculator. The winning habit is to look for **structure** (factorise, use multipliers, find a fixed point) rather than grinding.
 
 ## Must-know facts
 
@@ -19,7 +19,7 @@ TMUA number questions look easy and are designed to punish careless arithmetic. 
 
 **Work with multipliers.** Successive changes become products: $+20\%$ blade length in $P\propto r^2v^3$ gives $1.2^2$; $-10\%$ wind gives $0.9^3$.
 
-**Iterative processes.** For $u_{n+1}=ru_n-c$ find the fixed point $L=\frac{c}{r-1}$; then $u_n-L=(u_0-L)r^n$, so you only need powers of $r$. Build powers by squaring ($1.2^6=(1.2^3)^2=1.728^2$).
+**Iterative processes.** For $u_{n+1}=ru_n-c$ find the fixed point $L=\frac{c}{r-1}$; then $u_n-L=(u_0-L)r^n$, so you only need powers of $r$. Build powers by squaring ($1.2^8=(1.2^4)^2=2.0736^2\approx4.3$).
 
 **Bounds in a formula.** Ask, for each quantity, whether making it bigger makes the answer bigger or smaller, then pick the corresponding bound. Differences in a denominator are the classic trap.
 
@@ -31,7 +31,7 @@ TMUA number questions look easy and are designed to punish careless arithmetic. 
 
 **Compare sizes by clearing powers.** Compare $a^{1/m}$ with $b^{1/n}$ via the power $mn$; compare $2^{48}$ with $3^{32}$ as $4096^4$ against $6561^4$.
 
-**Remainders.** Find the cycle of powers modulo the divisor and reduce the exponent modulo the cycle length.
+**Count by divisor structure.** The number of divisors depends only on the exponent pattern: exactly $6$ divisors means $p^5$ or $p^2q$; exactly $8$ means $p^7$, $p^3q$ or $pqr$ (distinct primes). List each pattern systematically. Counting $r\times c$ rectangle layouts of $N$ objects is counting divisors of $N$.
 
 > **Tip:** For a counterexample, the value must satisfy the hypothesis and break the conclusion. Look for the value where the expression visibly factorises.
 

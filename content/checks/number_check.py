@@ -181,20 +181,23 @@ check_values("number-12b", opt_num("number-12b"), cnt)
 
 # number-13: exact iteration
 u, n = F(2000), 0
-while u >= 1000:
+while u >= 500:
     u = u * F(6, 5) - 500
     n += 1
 check_values("number-13", opt_num("number-13"), n)
-assert F(6, 5) ** 6 < 3 < F(6, 5) ** 7
+# hand-arithmetic margin: 1.2^7 ~ 3.58 < 4 < 1.2^8 ~ 4.30 (comfortable without a calculator)
+assert F(6, 5) ** 7 < F(37, 10) and F(6, 5) ** 8 > F(42, 10)
 
 # number-13b
 b, n = F(8000), 0
 while b > 0:
     b = b * F(5, 4)
-    pay = min(b, F(2500))
+    pay = min(b, F(2800))
     b -= pay
     n += 1
 check_values("number-13b", opt_num("number-13b"), n)
+# margin: 1.25^5 ~ 3.05 < 3.5 < 1.25^6 ~ 3.81
+assert F(5, 4) ** 5 < F(32, 10) and F(5, 4) ** 6 > F(37, 10)
 
 # number-14
 sols = [(a, b) for a in range(-100, 101) for b in range(-100, 101) if a * a - b * b == 60]
@@ -242,14 +245,20 @@ while math.factorial(m) % 12 ** 10:
     m += 1
 check_values("number-17b", opt_num("number-17b"), m)
 
-# number-18
-check_values("number-18", opt_num("number-18"), int("1" * 2026) % 7)
-check_values("number-18b", opt_num("number-18b"), (2 ** 2026 + 3 ** 2026) % 7)
+# number-18: integers < 200 with exactly 6 divisors; 18b: tile counts < 100 with exactly 8 r x c layouts
+def ndiv(m):
+    return sum(1 for d in range(1, m + 1) if m % d == 0)
+
+
+check_values("number-18", opt_num("number-18"), sum(1 for m in range(1, 200) if ndiv(m) == 6))
+layouts = lambda m: sum(1 for r in range(1, m + 1) for c in range(1, m + 1) if r * c == m)
+check_values("number-18b", opt_num("number-18b"), sum(1 for m in range(1, 100) if layouts(m) == 8))
 
 # ---------------------------------------------------------------- structure
 ids = [f"number-{i:02d}" for i in range(1, 19)]
 assert sorted(QS) == sorted(ids + [i + "b" for i in ids])
-assert Counter(QS[i]["difficulty"] for i in ids) == Counter({2: 2, 3: 6, 4: 6, 5: 4})
+# number-04 family relabelled d4 -> d3 at verification (routine multiplier arithmetic)
+assert Counter(QS[i]["difficulty"] for i in ids) == Counter({2: 2, 3: 7, 4: 5, 5: 4})
 for i in ids:
     a_, b_ = QS[i], QS[i + "b"]
     assert a_["family"] == b_["family"] == i

@@ -62,7 +62,7 @@ Distance from $(5, 0)$ to $kx - y = 0$ is $\dfrac{|5k|}{\sqrt{k^2+1}} = 3$, so $
 
 <details><summary>Show solution</summary>
 
-$\angle AOC$... here the right angle at $A$ between $AB$ and $AC$ means $BC$ is a diameter (angle in a semicircle): centre $(2, 1)$, $r^2 = 5$. On $y = x$: $(t-2)^2 + (t-1)^2 = 5 \Rightarrow 2t^2 - 6t = 0$, so $t = 3$: the point $(3, 3)$.
+$\angle BAC = 90^\circ$ (the axes are perpendicular), so $BC$ is a diameter (angle in a semicircle): centre $(2, 1)$, $r^2 = 5$. On $y = x$: $(t-2)^2 + (t-1)^2 = 5 \Rightarrow 2t^2 - 6t = 0$, so $t = 3$: the point $(3, 3)$.
 
 </details>
 

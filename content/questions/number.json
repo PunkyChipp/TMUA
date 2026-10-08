@@ -1065,17 +1065,17 @@
    "$21$",
    "$26$",
    "$27$",
-   "$30$",
-   "$33$"
+   "$28$",
+   "$30$"
   ],
   "answer": 2,
   "solution": "If $n=p^aq^b\\cdots$ (distinct primes) then $n$ has $(a+1)(b+1)\\cdots$ divisors. Since $6=6$ or $3\\times2$, $n$ is either $p^5$ or $p^2q$ with $p\\ne q$.\n\n* $p^5<200$: only $2^5=32$ ($3^5=243$). **1** number.\n* $p=2$: $4q<200$, so $q<50$, $q\\ne2$: the odd primes up to $47$, **14** numbers.\n* $p=3$: $9q<200$, so $q\\le22$, $q\\ne3$: $q=2,5,7,11,13,17,19$, **7** numbers.\n* $p=5$: $25q<200$, so $q<8$, $q\\ne5$: $q=2,3,7$, **3** numbers.\n* $p=7$: $49q<200$, so $q\\le4$: $q=2,3$, **2** numbers.\n* $p\\ge11$: $121q\\ge242$. None.\n\nTotal: $1+14+7+3+2=\\mathbf{27}$.",
   "insight": "The number of divisors depends only on the exponents in the prime factorisation, so list the possible exponent patterns and count each systematically.",
   "distractors": {
-   "0": "Only treating $p=2$ and $p=3$ in the form $p^2q$ and stopping: $14+7$.",
+   "0": "Only treating $p=2$ and $p=3$ in the form $p^2q$ and stopping: $14+7$ (and missing $32$).",
    "1": "Forgetting the form $p^5$, which gives $32$.",
-   "3": "Allowing $q=p$ (e.g. $8$, $27$, $125$), which are cubes with only $4$ divisors.",
-   "4": "Allowing $q=p$ and also counting both $p^5$ and $243$ carelessly, or counting $q<50$ including $2$ for each $p$."
+   "3": "Also counting $3^5=243$, misjudging it as less than $200$.",
+   "4": "Allowing $q=p$ in $p^2q$ (giving $8$, $27$, $125$), but $p^3$ has only $4$ divisors."
   },
   "time": 270,
   "family": "number-18"

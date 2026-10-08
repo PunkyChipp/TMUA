@@ -465,7 +465,8 @@ check_roman("alg-18b", I_ok, II_ok, III_ok)
 ids = [f"alg-{i:02d}" for i in range(1, 19)]
 assert sorted(Q) == sorted(ids + [i + "b" for i in ids])
 diff = Counter(Q[i]["difficulty"] for i in ids)
-assert diff == Counter({2: 2, 3: 6, 4: 6, 5: 4}), diff
+# alg-14 family relabelled d4 -> d3 at verification (sum of roots + factor theorem is routine)
+assert diff == Counter({2: 2, 3: 7, 4: 5, 5: 4}), diff
 for i in ids:
     a_, b_ = Q[i], Q[i + "b"]
     assert a_["family"] == b_["family"] == i
