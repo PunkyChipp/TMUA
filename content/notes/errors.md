@@ -6,8 +6,6 @@ Paper 2 regularly shows an argument laid out as numbered lines (I), (II), … an
 
 A line is an error if it does **not follow** from the assumptions and earlier lines. It does not matter whether the line happens to be true, and a false-looking line may be fine inside a proof by contradiction.
 
-The classic errors:
-
 The two errors named in the specification:
 
 - **"If $ab=ac$ then $b=c$."** Valid only when $a\ne0$. Cancelling a factor that might be zero is division by zero: from $x(x-2)=3x$ you may not conclude $x-2=3$, which loses $x=0$. Factorise instead: $x(x-5)=0$.

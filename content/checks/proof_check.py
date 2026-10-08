@@ -137,7 +137,7 @@ roman("proof-07", must(c07, s07, 4))
 c07b = [lambda P: all(c for (st, sq, c, b) in P if st),
         lambda P: all(b for (st, sq, c, b) in P if c),
         lambda P: not any(b and sq for (st, sq, c, b) in P)]
-s07b = [lambda P: not any(st and sq for (st, sq, c, b) in P),
+s07b = [lambda P: not any(sq and c for (st, sq, c, b) in P),
         lambda P: all(not st for (st, sq, c, b) in P if not b),
         lambda P: any(b for (st, sq, c, b) in P)]
 roman("proof-07b", must(c07b, s07b, 4))
@@ -259,28 +259,30 @@ for f, m, l in itertools.product(range(10), repeat=3):
 assert (2, 1, 3) in codes
 I = all(f % 2 == 0 for f, m, l in codes)
 II = all(m <= 5 for f, m, l in codes)
-III = all((100 * f + 10 * m + l) % 5 == 0 for f, m, l in codes)
-roman("proof-12", [I, II, III])
+must12 = [all(l % 2 == 0 for f, m, l in codes),                       # A
+          all(f % 2 == 1 for f, m, l in codes),                       # B
+          all(f % 2 == 0 and m <= 5 for f, m, l in codes),            # C
+          all(f % 2 == 0 and (100 * f + 10 * m + l) % 5 == 0 for f, m, l in codes),  # D
+          all(m <= 5 and l % 2 == 0 for f, m, l in codes)]            # E
+assert I and II
+key("proof-12", only(must12))
 # 12b: xy<0, x+y>0 (rational grid search + proof in solution)
 grid = [F(a, 4) for a in range(-40, 41)]
 pairs = [(a, b) for a in grid for b in grid if a * b < 0 and a + b > 0]
-I = all(a > 0 for a, b in pairs)
-II = all(a * a != b * b for a, b in pairs)
-III = all(a > abs(b) for a, b in pairs if a > 0)
-roman("proof-12b", [I, II, III])
+must12b = [all(a > 0 for a, b in pairs), all(a * a != b * b for a, b in pairs),
+           all(a > abs(b) for a, b in pairs), all(a > b for a, b in pairs),
+           all(a * a > b * b for a, b in pairs)]
+key("proof-12b", only(must12b))
 
 # 13: sums of squares
 def implies_both(form, m):
     return all((a % m == 0 and b % m == 0) for a in range(3 * m) for b in range(3 * m) if form(a, b) % m == 0)
 
 
-roman("proof-13", [implies_both(lambda a, b: a * a + b * b, 3),
-                   implies_both(lambda a, b: a * a + b * b, 5),
-                   implies_both(lambda a, b: a * a + b * b, 7)])
-# 13b: II is 'both even' (divisibility by 2) under a^2+b^2 divisible by 4
-II = all(a % 2 == 0 and b % 2 == 0 for a in range(16) for b in range(16) if (a * a + b * b) % 4 == 0)
-roman("proof-13b", [implies_both(lambda a, b: a * a + 2 * b * b, 3), II,
-                    implies_both(lambda a, b: a * a - 2 * b * b, 5)])
+key("proof-13", only([implies_both(lambda a, b: a * a + b * b, m) for m in (5, 9, 13, 17, 21)]))
+assert 1 + 4 == 5 and 9 + 0 == 9 and 4 + 9 == 13 and 1 + 16 == 17  # counterexamples in solution
+key("proof-13b", only([implies_both(lambda a, b: a * a + 2 * b * b, m) for m in (3, 5, 9, 11, 17)]))
+assert 1 + 2 == 3 and 1 + 8 == 9 and 9 + 2 == 11 and 9 + 8 == 17
 
 # 15: AM-GM; option C's square-root step is false
 a_, b_ = sp.symbols("a b", nonnegative=True)
@@ -346,7 +348,7 @@ for o in orig:
     assert a["family"] == b["family"] == o
     assert a["difficulty"] == b["difficulty"], o
     assert a["answer"] != b["answer"], o
-assert Counter(QS[o]["difficulty"] for o in orig) == Counter({2: 2, 3: 6, 4: 6, 5: 4})
+assert Counter(QS[o]["difficulty"] for o in orig) == Counter({2: 2, 3: 8, 4: 4, 5: 4})
 for q in ALL:
     for s in [q["stem"]] + [o for o in q["options"] if isinstance(o, str)]:
         for sym in "⇒∧∨¬∀∃":

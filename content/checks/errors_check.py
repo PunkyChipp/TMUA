@@ -222,7 +222,7 @@ for o in orig:
     assert A_["family"] == B_["family"] == o
     assert A_["difficulty"] == B_["difficulty"], o
     assert A_["answer"] != B_["answer"], o
-assert Counter(QS[o]["difficulty"] for o in orig) == Counter({2: 2, 3: 6, 4: 6, 5: 4})
+assert Counter(QS[o]["difficulty"] for o in orig) == Counter({2: 2, 3: 6, 4: 7, 5: 3})
 correct = [o for o in orig if QS[o]["options"][QS[o]["answer"]].startswith("The proof is correct")]
 assert len(correct) >= 3, correct
 for qq in ALL:

@@ -306,7 +306,7 @@
   "stem": "A student is asked to find all solutions of $\\sin2x=\\sin x$ with $0^\\circ\\le x<360^\\circ$.\n\n(I) $\\;$ Since the two sines are equal, the angles are equal: $2x=x$.\n\n(II) $\\;$ So $x=0^\\circ$.\n\n(III) $\\;$ Hence the only solution in the interval is $x=0^\\circ$.\n\nThe first error is in line (I). What is the complete set of solutions?",
   "figure": null,
   "options": [
-   "$0^\\circ$ only (the working is correct)",
+   "$0^\\circ$ and $60^\\circ$",
    "$0^\\circ$ and $180^\\circ$",
    "$0^\\circ$, $60^\\circ$ and $180^\\circ$",
    "$0^\\circ$, $60^\\circ$, $120^\\circ$ and $180^\\circ$",
@@ -316,7 +316,7 @@
   "solution": "Line (I) uses 'if $\\sin A=\\sin B$ then $A=B$', which is false: $\\sin A=\\sin B$ also holds when $A=180^\\circ-B$, or when the angles differ by multiples of $360^\\circ$.\n\nCorrectly: $2\\sin x\\cos x-\\sin x=\\sin x(2\\cos x-1)=0$.\n\n* $\\sin x=0$: $x=0^\\circ,180^\\circ$.\n* $\\cos x=\\frac12$: $x=60^\\circ,300^\\circ$.\n\nFour solutions: $0^\\circ,60^\\circ,180^\\circ,300^\\circ$.",
   "insight": "$\\sin A=\\sin B$ does not give $A=B$; rewrite with identities and factorise instead.",
   "distractors": {
-   "0": "$x=60^\\circ$ gives $\\sin120^\\circ=\\sin60^\\circ$, so there are more solutions.",
+   "0": "This finds $\\cos x=\\frac12$ at $60^\\circ$ only, missing $180^\\circ$ (from $\\sin x=0$) and $300^\\circ$.",
    "1": "This forgets the factor $2\\cos x-1=0$.",
    "2": "$\\cos x=\\frac12$ also at $x=300^\\circ$.",
    "3": "$\\cos120^\\circ=-\\frac12$, not $\\frac12$."
@@ -784,7 +784,7 @@
   "id": "errors-14",
   "topic": "errors",
   "paper": 2,
-  "difficulty": 5,
+  "difficulty": 4,
   "skills": [
    "irrationality",
    "divisibility",
@@ -815,7 +815,7 @@
   "id": "errors-14b",
   "topic": "errors",
   "paper": 2,
-  "difficulty": 5,
+  "difficulty": 4,
   "skills": [
    "irrationality",
    "divisibility",
