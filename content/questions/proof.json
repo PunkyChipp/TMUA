@@ -411,7 +411,7 @@
    "contrapositive",
    "statements"
   ],
-  "stem": "A box contains at least one card. Each card has a shape on its front, a shape on its back, and a colour. The following facts about the cards in the box are true.\n\n1. Every card with a star on its front has a circle on its back.\n2. Every card with a circle on its back is blue.\n3. No blue card has a square on its front.\n\nWhich of the following **must** be true?\n\nI $\\;$ No card in the box has both a star and a square on its front.\n\nII $\\;$ Every card in the box that is not blue does not have a star on its front.\n\nIII $\\;$ At least one card in the box is blue.",
+  "stem": "A box contains at least one card. Each card has a shape on its front, a shape on its back, and a colour. The following facts about the cards in the box are true.\n\n1. Every card with a star on its front has a circle on its back.\n2. Every card with a circle on its back is blue.\n3. No blue card has a square on its front.\n\nWhich of the following **must** be true?\n\nI $\\;$ No card in the box with a square on its front has a circle on its back.\n\nII $\\;$ Every card in the box that is not blue does not have a star on its front.\n\nIII $\\;$ At least one card in the box is blue.",
   "figure": null,
   "options": [
    "None of them",
@@ -424,7 +424,7 @@
    "I, II and III"
   ],
   "answer": 4,
-  "solution": "**I.** A card with a star on the front has a circle on the back (1), so is blue (2), so has no square on the front (3). Must be true.\n\n**II.** Contrapositives: not blue means no circle on the back (from 2), which means no star on the front (from 1). Must be true.\n\n**III.** Not forced: a box containing a single red card with a triangle on each side satisfies all three facts.\n\nAnswer: I and II only.",
+  "solution": "**I.** A card with a circle on the back is blue (2), so it has no square on the front (3). So a card with a square on the front cannot have a circle on the back. Must be true.\n\n**II.** Contrapositives: not blue means no circle on the back (from 2), which means no star on the front (from 1). Must be true.\n\n**III.** Not forced: a box containing a single red card with a triangle on each side satisfies all three facts.\n\nAnswer: I and II only.",
   "insight": "An 'every' statement gives a chain forwards and, by contrapositive, a chain backwards; neither creates objects.",
   "distractors": {
    "7": "Nothing forces a blue card to exist; 'every' statements are satisfied by a box with no star or circle cards.",
@@ -698,32 +698,29 @@
   "id": "proof-12",
   "topic": "proof",
   "paper": 2,
-  "difficulty": 4,
+  "difficulty": 3,
   "skills": [
    "deduction",
    "only if",
    "contrapositive"
   ],
-  "stem": "A three-digit lock code uses digits $0$–$9$ (the first digit may be $0$). Ada knows that the following are all true.\n\n1. If the first digit is odd, then the last digit is even.\n2. The last digit is even only if the middle digit is $0$.\n3. The middle digit is not $0$.\n4. If the middle digit is greater than $5$, then the first digit is odd.\n\nWhich of the following **must** be true?\n\nI $\\;$ The first digit is even.\n\nII $\\;$ The middle digit is at most $5$.\n\nIII $\\;$ The code, read as a number, is divisible by $5$.",
+  "stem": "A three-digit lock code uses digits $0$–$9$ (the first digit may be $0$). Ada knows that the following are all true.\n\n1. If the first digit is odd, then the last digit is even.\n2. The last digit is even only if the middle digit is $0$.\n3. The middle digit is not $0$.\n4. If the middle digit is greater than $5$, then the first digit is odd.\n\nWhich one of the following **must** be true?",
   "figure": null,
   "options": [
-   "None of them",
-   "I only",
-   "II only",
-   "III only",
-   "I and II only",
-   "I and III only",
-   "II and III only",
-   "I, II and III"
+   "The last digit is even.",
+   "The first digit is odd.",
+   "The first digit is even and the middle digit is at most $5$.",
+   "The first digit is even and the code, read as a number, is divisible by $5$.",
+   "The middle digit is at most $5$ and the last digit is even."
   ],
-  "answer": 4,
-  "solution": "Fact 2 says: if the last digit is even, then the middle digit is $0$. With fact 3, the last digit is **not** even, so it is odd.\n\nFact 1 (contrapositive): last digit not even means first digit not odd. So the first digit is even. **I must be true.**\n\nFact 4 (contrapositive): first digit not odd means middle digit not greater than $5$. **II must be true.**\n\nIII: the last digit is odd, but need not be $5$: e.g. $213$ satisfies all four facts and is not divisible by $5$. Not forced.\n\nAnswer: I and II only.",
+  "answer": 2,
+  "solution": "Start from the one fact known outright, fact 3: the middle digit is not $0$.\n\nFact 2 says: if the last digit is even, then the middle digit is $0$. Its contrapositive, with fact 3, shows the last digit is **not** even, so it is odd.\n\nFact 1 (contrapositive): the last digit is not even, so the first digit is not odd. The first digit is **even**.\n\nFact 4 (contrapositive): the first digit is not odd, so the middle digit is **not greater than $5$**.\n\nSo C must be true. The last digit is odd but need not be $5$: e.g. $213$ satisfies all four facts and is not divisible by $5$, so D is not forced. A, B and E contradict what has been deduced.",
   "insight": "'A only if B' means 'if A then B'; chain the contrapositives from the one fact you know outright.",
   "distractors": {
-   "7": "The last digit is odd but could be $1,3,7,9$; e.g. $213$ fits all the facts.",
-   "1": "II also follows: first digit even, so by fact 4's contrapositive the middle digit is at most $5$.",
-   "5": "III is not forced; II is.",
-   "0": "Reading fact 2 the wrong way round ('if the middle digit is 0 then the last is even') blocks the chain."
+   "0": "Reading fact 2 the wrong way round ('if the middle digit is $0$ then the last is even'). In fact facts 2 and 3 force the last digit to be odd.",
+   "1": "Fact 1's contrapositive gives the opposite: the last digit is odd, so the first digit is even.",
+   "3": "The last digit is odd but could be $1,3,7,9$: $213$ fits all four facts and is not divisible by $5$.",
+   "4": "The middle digit is at most $5$, but the last digit must be odd, not even."
   },
   "time": 210,
   "family": "proof-12"
@@ -732,31 +729,29 @@
   "id": "proof-12b",
   "topic": "proof",
   "paper": 2,
-  "difficulty": 4,
+  "difficulty": 3,
   "skills": [
    "deduction",
    "inequalities",
-   "signs"
+   "counterexample"
   ],
-  "stem": "Real numbers $x$ and $y$ satisfy both $xy<0$ and $x+y>0$.\n\nWhich of the following **must** be true?\n\nI $\\;x>0$\n\nII $\\;x^2\\ne y^2$\n\nIII $\\;$ If $x>0$, then $x>|y|$.",
+  "stem": "Real numbers $x$ and $y$ satisfy both $xy<0$ and $x+y>0$.\n\nWhich one of the following **must** be true?",
   "figure": null,
   "options": [
-   "None of them",
-   "I only",
-   "II only",
-   "III only",
-   "I and II only",
-   "I and III only",
-   "II and III only",
-   "I, II and III"
+   "$x>0$",
+   "$x^2\\ne y^2$",
+   "$x>|y|$",
+   "$x>y$",
+   "$x^2>y^2$"
   ],
-  "answer": 6,
-  "solution": "$xy<0$: $x$ and $y$ are non-zero with opposite signs. $x+y>0$: the positive one is larger in size than the negative one.\n\n**I.** Not forced: $x=-1$, $y=2$ satisfies both conditions.\n\n**II.** If $x^2=y^2$ then $y=\\pm x$; $y=x$ gives $xy=x^2>0$, and $y=-x$ gives $x+y=0$. Both are excluded. Must be true.\n\n**III.** If $x>0$ then $y<0$, so $|y|=-y$, and $x+y>0$ gives $x>-y=|y|$. Must be true.\n\nAnswer: II and III only.",
-  "insight": "Translate each condition into a statement about signs and sizes before testing the options.",
+  "answer": 1,
+  "solution": "$xy<0$: $x$ and $y$ are non-zero with opposite signs. $x+y>0$: the positive one is larger in size than the negative one.\n\n**B must be true.** If $x^2=y^2$ then $y=\\pm x$; $y=x$ gives $xy=x^2>0$, and $y=-x$ gives $x+y=0$. Both are excluded.\n\nThe others all fail for $x=-1$, $y=2$, which satisfies $xy=-2<0$ and $x+y=1>0$: then $x<0$, $x<|y|$, $x<y$ and $x^2<y^2$.\n\n(What is forced is that the **positive** number is larger in size; nothing says which of $x$, $y$ is positive.)",
+  "insight": "Translate each condition into a statement about signs and sizes, and remember that $x$ and $y$ could swap roles.",
   "distractors": {
-   "7": "I fails: $x=-1$, $y=2$ satisfies $xy<0$ and $x+y>0$.",
-   "3": "II is also forced: equal squares would mean $y=x$ or $y=-x$, both excluded.",
-   "5": "I is not forced ($x=-1,y=2$), but II is."
+   "0": "$x=-1$, $y=2$ satisfies both conditions with $x<0$.",
+   "2": "True when $x>0$, but $x$ may be the negative one: $x=-1$, $y=2$.",
+   "3": "$x=-1$, $y=2$ gives $x<y$.",
+   "4": "Only the positive one has the larger square: $x=-1$, $y=2$ gives $x^2<y^2$."
   },
   "time": 210,
   "family": "proof-12"
@@ -769,27 +764,25 @@
   "skills": [
    "proof by cases",
    "remainders",
-   "squares"
+   "counterexample"
   ],
-  "stem": "Which of the following statements is/are true for all integers $a$ and $b$?\n\nI $\\;$ If $a^2+b^2$ is divisible by $3$, then $a$ and $b$ are both divisible by $3$.\n\nII $\\;$ If $a^2+b^2$ is divisible by $5$, then $a$ and $b$ are both divisible by $5$.\n\nIII $\\;$ If $a^2+b^2$ is divisible by $7$, then $a$ and $b$ are both divisible by $7$.",
+  "stem": "Consider the following statement, where $m$ is a fixed positive integer.\n\n*For all integers $a$ and $b$, if $a^2+b^2$ is divisible by $m$, then $a$ and $b$ are both divisible by $m$.*\n\nFor which one of the following values of $m$ is the statement true?",
   "figure": null,
   "options": [
-   "None of them",
-   "I only",
-   "II only",
-   "III only",
-   "I and II only",
-   "I and III only",
-   "II and III only",
-   "I, II and III"
+   "$5$",
+   "$9$",
+   "$13$",
+   "$17$",
+   "$21$"
   ],
-  "answer": 5,
-  "solution": "Work with remainders of squares (proof by cases).\n\n**I.** Squares leave remainder $0$ or $1$ on division by $3$. A sum with remainder $0$ needs both $0$, so $3\\mid a$ and $3\\mid b$. True.\n\n**II.** $1^2+2^2=5$. False.\n\n**III.** Squares leave remainders $0,1,2,4$ on division by $7$. A sum with remainder $0$ using a non-zero square would need pairs $(1,6),(2,5),(4,3)$, but $6,5,3$ are not square remainders. So both remainders are $0$. True.\n\nAnswer: I and III only.",
-  "insight": "Reduce to a finite check: list the possible remainders of squares and see which pairs add to a multiple of the divisor.",
+  "answer": 4,
+  "solution": "Four values fall to a counterexample:\n\n* $m=5$: $1^2+2^2=5$.\n* $m=9$: $a=3$, $b=0$ gives $9$, divisible by $9$, but $9\\nmid3$.\n* $m=13$: $2^2+3^2=13$.\n* $m=17$: $1^2+4^2=17$.\n\n**$m=21$ works.** Squares leave remainder $0$ or $1$ on division by $3$, so $3\\mid a^2+b^2$ needs both remainders $0$: $3\\mid a$ and $3\\mid b$. Squares leave remainders $0,1,2,4$ on division by $7$, and no two non-zero ones add to $7$ ($1+6$, $2+5$, $4+3$ all need a non-square remainder), so $7\\mid a$ and $7\\mid b$. As $3$ and $7$ have no common factor, $21$ divides both $a$ and $b$.\n\nAnswer: $21$.",
+  "insight": "Reduce to a finite check: list the remainders of squares and see which pairs can add to a multiple of the divisor; for a composite divisor, handle each prime factor.",
   "distractors": {
-   "7": "II fails: $1^2+2^2=5$.",
-   "1": "III also works: the non-zero square remainders mod $7$ are $1,2,4$, and no two of them sum to $7$.",
-   "4": "II is false and III is true."
+   "0": "$1^2+2^2=5$ is divisible by $5$, but $1$ and $2$ are not.",
+   "1": "The property for $3$ does not pass to $9$: $3^2+0^2=9$, but $9\\nmid3$.",
+   "2": "$2^2+3^2=13$ is a counterexample.",
+   "3": "$1^2+4^2=17$ is a counterexample."
   },
   "time": 210,
   "family": "proof-13"
@@ -802,27 +795,25 @@
   "skills": [
    "proof by cases",
    "remainders",
-   "squares"
+   "counterexample"
   ],
-  "stem": "Which of the following statements is/are true for all integers $a$ and $b$?\n\nI $\\;$ If $a^2+2b^2$ is divisible by $3$, then $a$ and $b$ are both divisible by $3$.\n\nII $\\;$ If $a^2+b^2$ is divisible by $4$, then $a$ and $b$ are both even.\n\nIII $\\;$ If $a^2-2b^2$ is divisible by $5$, then $a$ and $b$ are both divisible by $5$.",
+  "stem": "Consider the following statement, where $m$ is a fixed positive integer.\n\n*For all integers $a$ and $b$, if $a^2+2b^2$ is divisible by $m$, then $a$ and $b$ are both divisible by $m$.*\n\nFor which one of the following values of $m$ is the statement true?",
   "figure": null,
   "options": [
-   "None of them",
-   "I only",
-   "II only",
-   "III only",
-   "I and II only",
-   "I and III only",
-   "II and III only",
-   "I, II and III"
+   "$3$",
+   "$5$",
+   "$9$",
+   "$11$",
+   "$17$"
   ],
-  "answer": 6,
-  "solution": "**I.** $a=b=1$: $1+2=3$. False.\n\n**II.** Squares leave remainder $0$ (even) or $1$ (odd) on division by $4$. A sum with remainder $0$ needs both $0$, so both even. True.\n\n**III.** Squares leave remainders $0,1,4$ on division by $5$, so $2b^2$ leaves $0,2,3$. For $5\\mid a^2-2b^2$ the remainders must match, and the only common value is $0$. So $5\\mid a$ and $5\\mid b$. True.\n\nAnswer: II and III only.",
-  "insight": "List square remainders for the modulus; a sum or difference can vanish only through matching remainders.",
+  "answer": 1,
+  "solution": "Four values fall to a counterexample:\n\n* $m=3$: $a=b=1$ gives $1+2=3$.\n* $m=9$: $a=1$, $b=2$ gives $1+8=9$.\n* $m=11$: $a=3$, $b=1$ gives $9+2=11$.\n* $m=17$: $a=3$, $b=2$ gives $9+8=17$.\n\n**$m=5$ works.** Squares leave remainder $0,1$ or $4$ on division by $5$, so $2b^2$ leaves $0,2$ or $3$. For the total to be a multiple of $5$ we would need $1+4$ or $4+1$ with a non-zero remainder, i.e. $2b^2$ leaving $4$ or $1$, which never happens. So both remainders are $0$: $5\\mid a$ (as $5$ is prime and $5\\mid a^2$) and similarly $5\\mid b$.\n\nAnswer: $5$.",
+  "insight": "List the possible remainders of each term; a sum can be a multiple of $m$ only through remainders that can actually occur.",
   "distractors": {
-   "7": "I fails at $a=b=1$: $1+2=3$.",
-   "2": "III is also true: $a^2$ has remainder $0,1,4$ and $2b^2$ has $0,2,3$, which only match at $0$.",
-   "5": "I is false and II is true."
+   "0": "$a=b=1$: $1+2=3$.",
+   "2": "$a=1$, $b=2$: $1+8=9$, with neither divisible by $9$ (or even $3$).",
+   "3": "$a=3$, $b=1$: $9+2=11$.",
+   "4": "$a=3$, $b=2$: $9+8=17$."
   },
   "time": 210,
   "family": "proof-13"
@@ -831,7 +822,7 @@
   "id": "proof-14",
   "topic": "proof",
   "paper": 2,
-  "difficulty": 4,
+  "difficulty": 3,
   "skills": [
    "pigeonhole",
    "parity",
@@ -862,7 +853,7 @@
   "id": "proof-14b",
   "topic": "proof",
   "paper": 2,
-  "difficulty": 4,
+  "difficulty": 3,
   "skills": [
    "proof by cases",
    "remainders",
