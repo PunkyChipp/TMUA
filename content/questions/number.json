@@ -185,7 +185,7 @@
   "id": "number-04",
   "topic": "number",
   "paper": 1,
-  "difficulty": 4,
+  "difficulty": 3,
   "skills": [
    "direct proportion",
    "powers",
@@ -216,7 +216,7 @@
   "id": "number-04b",
   "topic": "number",
   "paper": 1,
-  "difficulty": 4,
+  "difficulty": 3,
   "skills": [
    "inverse proportion",
    "powers",
@@ -745,23 +745,23 @@
    "compound growth",
    "estimation"
   ],
-  "stem": "A fish farm starts with $2000$ fish. Each year the number of fish increases by $20\\%$, and then $500$ fish are harvested.\n\nAfter how many harvests does the number of fish first fall below $1000$?",
+  "stem": "A fish farm starts with $2000$ fish. Each year the number of fish increases by $20\\%$, and then $500$ fish are harvested.\n\nAfter how many harvests does the number of fish first fall below $500$?",
   "figure": null,
   "options": [
-   "$5$",
    "$6$",
    "$7$",
    "$8$",
-   "$10$"
+   "$9$",
+   "$15$"
   ],
   "answer": 2,
-  "solution": "Let $u_n$ be the number after $n$ harvests: $u_{n+1}=1.2u_n-500$, $u_0=2000$.\n\nThe fixed point is $u=1.2u-500\\iff u=2500$. Let $v_n=u_n-2500$; then $v_{n+1}=1.2v_n$ and $v_0=-500$, so\n$$u_n=2500-500\\times1.2^n.$$\n\n$u_n<1000\\iff 1.2^n>3$. Now $1.2^3=1.728$ and $1.2^6=1.728^2\\approx2.986<3$, while $1.2^7\\approx3.583>3$.\n\nSo the number first falls below $1000$ after **7** harvests ($u_6\\approx1007$, $u_7\\approx708$).\n\n(Direct iteration also works: $1900,\\ 1780,\\ 1636,\\ 1463.2,\\ 1255.84,\\ 1007.0,\\ 708.4$.)",
+  "solution": "Let $u_n$ be the number after $n$ harvests: $u_{n+1}=1.2u_n-500$, $u_0=2000$.\n\nThe fixed point is $u=1.2u-500\\iff u=2500$. Let $v_n=u_n-2500$; then $v_{n+1}=1.2v_n$ and $v_0=-500$, so\n$$u_n=2500-500\\times1.2^n.$$\n\n$u_n<500\\iff 500\\times1.2^n>2000\\iff 1.2^n>4$.\n\nBuild the powers by squaring: $1.2^2=1.44$, $1.2^4=1.44^2=2.0736$, $1.2^8=2.0736^2\\approx4.30>4$, while $1.2^7=1.2^8\\div1.2\\approx3.58<4$.\n\nSo the number first falls below $500$ after **8** harvests ($u_7\\approx708$, $u_8\\approx350$).\n\n(Direct iteration also works: $1900,\\ 1780,\\ 1636,\\ 1463.2,\\ 1255.84,\\ 1007.0,\\ 708.4,\\ 350.1$.)",
   "insight": "For $u_{n+1}=ru_n-c$, measure distances from the fixed point: they grow geometrically by $r$.",
   "distractors": {
-   "1": "Estimating $1.2^6\\approx3$ and so stopping one harvest early; $u_6\\approx1007$ is still above $1000$.",
-   "3": "Counting the initial year as a harvest, an off-by-one error.",
-   "4": "Assuming the stock falls by a constant $100$ a year (the first year's fall).",
-   "0": "Solving $2500-500\\times1.2^n<1000$ as $1.2^n>2.5$, a slip in $1500\\div500$."
+   "1": "Stopping one harvest early, e.g. by estimating $1.2^7\\approx4$; in fact $u_7\\approx708$ is still above $500$.",
+   "3": "Counting the starting stock as the first harvest, an off-by-one error.",
+   "4": "Assuming the stock falls by a constant $100$ a year (the first year's fall), so $1500\\div100=15$ harvests.",
+   "0": "Building powers carelessly, e.g. taking $1.2^6=(1.2^2)^3$ as $1.44\\times3\\approx4.3$, and so thinking $1.2^6>4$."
   },
   "time": 300,
   "family": "number-13"
@@ -776,23 +776,23 @@
    "compound interest",
    "estimation"
   ],
-  "stem": "A loan of £$8000$ is taken out. At the end of each year, interest of $25\\%$ is added to the amount owed, and then a repayment of £$2500$ is made (the final repayment may be smaller, to clear the debt exactly).\n\nHow many repayments are needed in total?",
+  "stem": "A loan of £$8000$ is taken out. At the end of each year, interest of $25\\%$ is added to the amount owed, and then a repayment of £$2800$ is made (the final repayment may be smaller, to clear the debt exactly).\n\nHow many repayments are needed in total?",
   "figure": null,
   "options": [
+   "$3$",
    "$4$",
+   "$5$",
    "$6$",
-   "$7$",
-   "$8$",
-   "$9$"
+   "$7$"
   ],
   "answer": 3,
-  "solution": "Let $B_n$ be the debt after $n$ repayments: $B_{n+1}=1.25B_n-2500$, $B_0=8000$.\n\nFixed point: $B=1.25B-2500\\iff B=10\\,000$. Then $B_n-10\\,000=(8000-10\\,000)\\times1.25^n$, so\n$$B_n=10\\,000-2000\\times1.25^n.$$\n\nThe debt is cleared once $B_n\\le0$, i.e. $1.25^n\\ge5$.\n\n$1.25^2=1.5625$, $1.25^4\\approx2.441$, $1.25^6\\approx3.815$, $1.25^7\\approx4.768<5$, $1.25^8\\approx5.96>5$.\n\nSo after $7$ full repayments about £$463$ is still owed, and the **8th** (smaller) repayment clears it: $8$ repayments.",
+  "solution": "Let $B_n$ be the debt after $n$ repayments: $B_{n+1}=1.25B_n-2800$, $B_0=8000$.\n\nFixed point: $B=1.25B-2800\\iff B=11\\,200$. Then $B_n-11\\,200=(8000-11\\,200)\\times1.25^n$, so\n$$B_n=11\\,200-3200\\times1.25^n.$$\n\nThe debt would be cleared once $3200\\times1.25^n\\ge11\\,200$, i.e. $1.25^n\\ge3.5$.\n\n$1.25^2=1.5625$, $1.25^4\\approx2.44$, $1.25^5\\approx3.05<3.5$, $1.25^6\\approx3.81>3.5$.\n\nSo after $5$ full repayments about £$1434$ is still owed; with interest that becomes about £$1793$, less than £$2800$, so the **6th** (smaller) repayment clears it: $6$ repayments.\n\n(Direct iteration: $7200,\\ 6200,\\ 4950,\\ 3387.5,\\ 1434.375$, then $1434.375\\times1.25\\approx1793<2800$.)",
   "insight": "Repayment problems are iterations $B_{n+1}=rB_n-c$; shift by the fixed point to get a geometric sequence.",
   "distractors": {
-   "0": "Ignoring interest: $8000\\div2500=3.2$, so $4$ repayments.",
-   "2": "Taking $1.25^7\\approx5$, so believing the debt is cleared after $7$.",
-   "4": "Counting the first year as a repayment year twice, an off-by-one error.",
-   "1": "Solving $1.25^n\\ge\\frac{8000}{2500}=3.2$ instead of using the fixed point."
+   "0": "Ignoring interest: $8000\\div2800\\approx2.9$, so $3$ repayments.",
+   "1": "Adding the $25\\%$ interest only once, to the original loan: $10\\,000\\div2800\\approx3.6$, so $4$ repayments.",
+   "2": "Solving $1.25^n\\ge\\frac{8000}{2800}\\approx2.86$ instead of using the fixed point, giving $n=5$.",
+   "4": "Dividing the fixed point by the repayment instead of by $11\\,200-8000$: solving $1.25^n\\ge4$, giving $n=7$."
   },
   "time": 300,
   "family": "number-13"
@@ -1038,7 +1038,7 @@
    "$120$"
   ],
   "answer": 1,
-  "solution": "$12^{10}=2^{20}\\cdot3^{10}$. Count factors of each prime in $n!$:\n$$v_p(n!)=\\left\\lfloor\\tfrac np\\right\\rfloor+\\left\\lfloor\\tfrac n{p^2}\\right\\rfloor+\\cdots$$\n\n* Factors of $3$: $v_3(23!)=7+2=9$, $v_3(24!)=8+2=10$. So we need $n\\ge24$.\n* Factors of $2$: $v_2(24!)=12+6+3+1=22\\ge20$ ✓ (while $v_2(22!)=19$, so $2$ also needs $n\\ge23$ or so).\n\nThe smallest $n$ is $\\mathbf{24}$.",
+  "solution": "$12^{10}=2^{20}\\cdot3^{10}$. Count factors of each prime in $n!$:\n$$v_p(n!)=\\left\\lfloor\\tfrac np\\right\\rfloor+\\left\\lfloor\\tfrac n{p^2}\\right\\rfloor+\\cdots$$\n\n* Factors of $3$: $v_3(23!)=7+2=9$, $v_3(24!)=8+2=10$. So we need $n\\ge24$.\n* Factors of $2$: $v_2(24!)=12+6+3+1=22\\ge20$ ✓ (while $v_2(23!)=11+5+2+1=19<20$, so the factor $2$ on its own also forces $n\\ge24$).\n\nThe smallest $n$ is $\\mathbf{24}$.",
   "insight": "Count prime factors in $n!$ with $\\lfloor n/p\\rfloor+\\lfloor n/p^2\\rfloor+\\cdots$; the scarcer prime usually decides.",
   "distractors": {
    "0": "Matching exponents naively: thinking $20!$ must contain $2^{20}$ and $3^{10}$ because $20\\ge20$ and $20\\ge10$.",
@@ -1055,27 +1055,27 @@
   "paper": 1,
   "difficulty": 5,
   "skills": [
-   "remainders",
-   "cycles",
-   "repunits"
+   "divisor counting",
+   "prime factorisation",
+   "systematic counting"
   ],
-  "stem": "The number $N$ consists of $2026$ digits, all equal to $1$: $N=111\\ldots1$. What is the remainder when $N$ is divided by $7$?",
+  "stem": "How many positive integers less than $200$ have exactly $6$ positive divisors?",
   "figure": null,
   "options": [
-   "$0$",
-   "$1$",
-   "$4$",
-   "$5$",
-   "$6$"
+   "$21$",
+   "$26$",
+   "$27$",
+   "$30$",
+   "$33$"
   ],
-  "answer": 3,
-  "solution": "Since $10^6\\equiv1\\pmod7$ (powers of $10$ modulo $7$ cycle $3,2,6,4,5,1$), the six-digit number $111111=\\frac{10^6-1}{9}$ is divisible by $7$ (indeed $111111=7\\times15873$).\n\nSplit $N$ as its first four digits followed by $2022$ ones:\n$$N=1111\\times10^{2022}+\\underbrace{11\\ldots1}_{2022}.$$\n\n$2022=6\\times337$, so the second part is $337$ blocks of $111111$ and is divisible by $7$. Also $10^{2022}=(10^6)^{337}\\equiv1\\pmod 7$.\n\nHence $N\\equiv1111\\pmod7$, and $1111=7\\times158+5$, so the remainder is **5**.",
-  "insight": "Find the period of $10$ modulo the divisor, chop the number into full periods and deal with the leftover block.",
+  "answer": 2,
+  "solution": "If $n=p^aq^b\\cdots$ (distinct primes) then $n$ has $(a+1)(b+1)\\cdots$ divisors. Since $6=6$ or $3\\times2$, $n$ is either $p^5$ or $p^2q$ with $p\\ne q$.\n\n* $p^5<200$: only $2^5=32$ ($3^5=243$). **1** number.\n* $p=2$: $4q<200$, so $q<50$, $q\\ne2$: the odd primes up to $47$, **14** numbers.\n* $p=3$: $9q<200$, so $q\\le22$, $q\\ne3$: $q=2,5,7,11,13,17,19$, **7** numbers.\n* $p=5$: $25q<200$, so $q<8$, $q\\ne5$: $q=2,3,7$, **3** numbers.\n* $p=7$: $49q<200$, so $q\\le4$: $q=2,3$, **2** numbers.\n* $p\\ge11$: $121q\\ge242$. None.\n\nTotal: $1+14+7+3+2=\\mathbf{27}$.",
+  "insight": "The number of divisors depends only on the exponents in the prime factorisation, so list the possible exponent patterns and count each systematically.",
   "distractors": {
-   "2": "Reducing $2026\\equiv4\\pmod6$ and giving that $4$ as the remainder, instead of the remainder of the four-digit number $1111$.",
-   "0": "Knowing $111111$ is a multiple of $7$ and assuming every repunit is.",
-   "1": "Splitting $N$ into blocks of six and dropping the leftover block, then taking the last digit $1$.",
-   "4": "Taking $1111\\equiv6\\pmod7$ through an arithmetic slip ($7\\times158=1106$, so the remainder is $5$)."
+   "0": "Only treating $p=2$ and $p=3$ in the form $p^2q$ and stopping: $14+7$.",
+   "1": "Forgetting the form $p^5$, which gives $32$.",
+   "3": "Allowing $q=p$ (e.g. $8$, $27$, $125$), which are cubes with only $4$ divisors.",
+   "4": "Allowing $q=p$ and also counting both $p^5$ and $243$ carelessly, or counting $q<50$ including $2$ for each $p$."
   },
   "time": 270,
   "family": "number-18"
@@ -1086,26 +1086,27 @@
   "paper": 1,
   "difficulty": 5,
   "skills": [
-   "remainders",
-   "cycles",
-   "powers"
+   "divisor counting",
+   "prime factorisation",
+   "systematic counting"
   ],
-  "stem": "What is the remainder when $2^{2026}+3^{2026}$ is divided by $7$?",
+  "stem": "A number of identical square tiles can be laid out as a complete rectangle of $r$ rows and $c$ columns in exactly $8$ different ways, where $r$ and $c$ are positive integers and, for example, $3$ rows of $4$ and $4$ rows of $3$ count as different ways (a single row or column is allowed).\n\nHow many possible numbers of tiles are there that are less than $100$?",
   "figure": null,
   "options": [
-   "$0$",
-   "$2$",
-   "$3$",
+   "$4$",
    "$5$",
-   "$6$"
+   "$9$",
+   "$10$",
+   "$11$"
   ],
-  "answer": 4,
-  "solution": "Work modulo $7$.\n\n* Powers of $2$: $2,4,1,\\ldots$, period $3$. $2026=3\\times675+1$, so $2^{2026}\\equiv2$.\n* Powers of $3$: $3,2,6,4,5,1,\\ldots$, period $6$. $2026=6\\times337+4$, so $3^{2026}\\equiv3^4=81\\equiv4$.\n\nSum: $2+4=6$. The remainder is **6**.",
-  "insight": "Find the cycle of each base separately; different bases can have different cycle lengths modulo the same number.",
+  "answer": 3,
+  "solution": "Each layout corresponds to a choice of $r$ dividing the number of tiles $N$ (then $c=N/r$), so we need $N<100$ with exactly $8$ positive divisors.\n\nWith $N=p^aq^b\\cdots$ the divisor count is $(a+1)(b+1)\\cdots=8$, so $N=p^7$, $p^3q$ or $pqr$ (distinct primes).\n\n* $p^7$: $2^7=128$, too big. None.\n* $p^3q$: $8q<100$ with $q$ odd: $q=3,5,7,11$, giving $24,40,56,88$; $27q$: $q=2$ gives $54$. **5** numbers.\n* $pqr$: $2\\cdot3\\cdot5=30$, $2\\cdot3\\cdot7=42$, $2\\cdot3\\cdot11=66$, $2\\cdot3\\cdot13=78$, $2\\cdot5\\cdot7=70$; anything else is at least $102$. **5** numbers.\n\nTotal: $\\mathbf{10}$.",
+  "insight": "Counting rectangular layouts is counting divisors; a divisor count of $8$ comes from the exponent patterns $p^7$, $p^3q$ and $pqr$.",
   "distractors": {
-   "3": "Using period $3$ for the powers of $3$ as well: $3^{2026}\\equiv3^1=3$, so $2+3=5$.",
-   "1": "Assuming both $2^{2026}$ and $3^{2026}$ are $\\equiv1$ because the powers 'cycle back to $1$'.",
-   "0": "Reducing the exponent modulo $7$ ($2026\\equiv3$) instead of modulo the cycle length: $2^3+3^3=35\\equiv0$."
+   "0": "Only using $8q$ in the form $p^3q$ and forgetting $pqr$ and $54=27\\times2$.",
+   "1": "Only counting products of three distinct primes, $pqr$.",
+   "2": "Missing $54=3^3\\times2$ in the form $p^3q$.",
+   "4": "Also counting $16=2^4$ as $8\\times2$, though it has only $5$ divisors."
   },
   "time": 240,
   "family": "number-18"

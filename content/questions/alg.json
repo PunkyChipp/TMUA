@@ -727,7 +727,7 @@
    "7": "Assuming a self-inverse function crosses $y=x$ only once; here the quadratic has two roots.",
    "1": "Missing that $f^{-1}$ has exactly the same formula as $f$.",
    "5": "Missing that $f$ is self-inverse and miscounting the roots of $x^2-4x-1=0$.",
-   "2": "Thinking the range excludes the value $x=2$ that is excluded from the domain, rather than the horizontal asymptote, and then rejecting I."
+   "2": "Thinking the range is all real numbers (e.g. because the numerator $2x+1$ takes every value), and so rejecting I."
   },
   "time": 180,
   "family": "alg-12"
@@ -837,7 +837,7 @@
   "id": "alg-14",
   "topic": "alg",
   "paper": 1,
-  "difficulty": 4,
+  "difficulty": 3,
   "skills": [
    "cubic roots",
    "arithmetic progression",
@@ -868,7 +868,7 @@
   "id": "alg-14b",
   "topic": "alg",
   "paper": 1,
-  "difficulty": 4,
+  "difficulty": 3,
   "skills": [
    "cubic roots",
    "geometric progression",
@@ -979,7 +979,7 @@
    "$11$"
   ],
   "answer": 3,
-  "solution": "Let $q(t)=p(t)-x$. Then $q$ is a cubic with roots $1,2,3$, so $q(t)=a(t-1)(t-2)(t-3)$.\n\n$q(4)=5-4=1=6a$, so $a=\\frac16$. Then\n\n$$p(5)=5+\\tfrac16\\cdot4\\cdot3\\cdot2=5+4=9.$$\n\n*Alternative:* finite differences. Values $1,2,3,5$; differences $1,1,2$; second differences $0,1$; third difference $1$ (constant for a cubic). Extend: second difference $2$, difference $4$, so $p(5)=9$.",
+  "solution": "Let $q(t)=p(t)-t$. Then $q$ is a cubic with roots $1,2,3$, so $q(t)=a(t-1)(t-2)(t-3)$.\n\n$q(4)=5-4=1=6a$, so $a=\\frac16$. Then\n\n$$p(5)=5+\\tfrac16\\cdot4\\cdot3\\cdot2=5+4=9.$$\n\n*Alternative:* finite differences. Values $1,2,3,5$; differences $1,1,2$; second differences $0,1$; third difference $1$ (constant for a cubic). Extend: second difference $2$, difference $4$, so $p(5)=9$.",
   "insight": "Subtract off the simple pattern the data fits, then use the factor theorem on what's left.",
   "distractors": {
    "0": "Assuming the pattern $p(t)=t$ continues.",
