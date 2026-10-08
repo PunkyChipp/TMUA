@@ -34,7 +34,7 @@ export function practiceView(model) {
       <p class="muted">Every answer updates your topic estimates. Mistakes come back on a spaced schedule until you get them right.</p></div>
     <section class="quick">
       <button class="qa" data-act="start" data-kind="smart"><strong>Smart practice</strong><span>12 mixed questions, weighted towards your weak spots, pitched so you get about two in three right.</span></button>
-      <button class="qa" data-act="start" data-kind="review"><strong>Mistake review ${due ? `<span class="badge">${due}</span>` : ''}</strong><span>${due ? `${due} due. Fresh variants for generated questions.` : 'Nothing due right now.'}</span></button>
+      <button class="qa" data-act="start" data-kind="review"><strong>Mistake review ${due ? `<span class="badge">${due}</span>` : ''}</strong><span>${due ? `${due} due. Each comes back as a different question on the same idea.` : 'Nothing due right now.'}</span></button>
       <button class="qa" data-act="start" data-kind="speed"><strong>Speed round</strong><span>10 quick-fire fluency questions, about a minute each. Builds the speed that frees time for hard questions.</span></button>
       <button class="qa" data-act="start" data-kind="timed"><strong>Timed set</strong><span>10 questions in 37½ minutes. No feedback until the end.</span></button>
       <button class="qa" data-act="start" data-kind="mock" data-paper="1"><strong>Mock Paper 1</strong><span>20 questions, 75 minutes, Mathematical Thinking.</span></button>
@@ -155,7 +155,7 @@ export function reviewView(model, filter = {}) {
   const topicsWithMisses = Array.from(new Set(wrong.map(a => a.topic))).filter(Boolean);
   return `<div class="col wide">
     <div class="stack" style="gap:6px"><span class="eyebrow">Mistakes</span><h1>Your error log</h1>
-      <p class="muted">Wrong answers come back after 1, 3, 7 and 14 days. Generated questions come back as fresh variants, so you relearn the method rather than the answer.</p></div>
+      <p class="muted">Missed ideas come back after 1, 3, 7 and 14 days, and every review is a different question on the same idea: a twin with new numbers and a new set-up, never the one you got wrong. You can't pass a review by remembering an answer.</p></div>
     <section class="sheet pad spread">
       <div class="stack" style="gap:2px"><b class="num" style="font-size:1.5rem">${due.length} due</b><span class="small muted">${Object.keys(st.srs).length} in rotation · ${byQ.size} different questions missed</span></div>
       <button class="btn primary" data-act="start" data-kind="review" ${due.length ? '' : 'disabled'}>Review ${due.length ? 'now' : '(none due)'}</button>
@@ -201,7 +201,7 @@ export function questionView(id, back = 'review') {
       ${figureHTML(q.figure)}
       ${optionsHTML(q, { sel: last?.choice ?? null, reveal: true })}
       <div class="feedback">${solutionHTML(q, last?.choice)}${tutorHTML(q, { choice: last?.choice ?? null, checked: true })}</div>
-      <div class="row"><button class="btn" data-act="start" data-kind="drill" data-topic="${q.topic}">Drill ${esc(TOPIC[q.topic].short)}</button></div>
+      <div class="row"><button class="btn primary" data-act="twin" data-id="${esc(q.id)}">Try its twin</button><button class="btn" data-act="start" data-kind="drill" data-topic="${q.topic}">Drill ${esc(TOPIC[q.topic].short)}</button></div>
     </article>
   </div>`;
 }

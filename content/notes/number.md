@@ -1,51 +1,52 @@
-# Number & arithmetic
+# Number, ratio & units
 
-TMUA number questions look easy and are designed to punish careless arithmetic. Typical questions ask you to count integers with a property, find a remainder or last digit, compare huge numbers without a calculator, or handle percentages and averages. The winning habit is to look for **structure** (factorise, work with totals or multipliers, find a cycle) rather than computing.
+TMUA number questions look easy and are designed to punish careless arithmetic. Expect to: count integers or arrangements with a property, use prime factorisation, convert recurring decimals, work with bounds, standard form and compound units, handle proportion with powers, and follow growth, decay or an iterative process without a calculator. The winning habit is to look for **structure** (factorise, use multipliers, find a fixed point) rather than grinding.
 
 ## Must-know facts
 
-* **Prime factorisation** is the master key. If $n=p^a q^b r^c$ then $n$ has $(a+1)(b+1)(c+1)$ positive divisors.
-* $\text{HCF}(a,b)\times\text{LCM}(a,b)=ab$. For the HCF take the minimum power of each prime; for the LCM take the maximum.
-* Divisible by $m$ and by $n$ means divisible by $\operatorname{lcm}(m,n)$, **not** $mn$ (e.g. divisible by $4$ and $6$ means divisible by $12$, not $24$).
-* A product of $k$ consecutive integers is divisible by $k!$. So $n(n+1)$ is even, and $(n-1)n(n+1)$ is divisible by $6$.
-* Last digits of powers cycle with period dividing $4$: $2\to2,4,8,6$; $3\to3,9,7,1$; $7\to7,9,3,1$; $8\to8,4,2,6$; $4$ and $9$ have period $2$; $0,1,5,6$ are fixed.
-* Divisibility tests: $3$ and $9$ (digit sum), $4$ (last two digits), $8$ (last three), $11$ (alternating digit sum).
-* Trailing zeros of $n!$: $\lfloor n/5\rfloor+\lfloor n/25\rfloor+\lfloor n/125\rfloor+\cdots$.
-* Percentages: an increase of $r\%$ is multiplication by $1+\frac{r}{100}$. Successive changes multiply. To reverse a change, **divide** by the multiplier.
-* Means: total $=$ mean $\times$ count. Adding a value above the mean raises the mean; below lowers it.
+* **Unique prime factorisation** is the master key. If $n=p^a q^b r^c$ then $n$ has $(a+1)(b+1)(c+1)$ positive divisors.
+* $\text{HCF}(a,b)\times\text{LCM}(a,b)=ab$. HCF: minimum power of each prime; LCM: maximum power. Divisible by $m$ and by $n$ means divisible by $\operatorname{lcm}(m,n)$, **not** $mn$.
+* A product of $k$ consecutive integers is divisible by $k!$.
+* **Recurring decimals:** if the repeating block has length $k$, multiply by $10^k$ and subtract. $0.\dot1\dot8=\frac{18}{99}$; $0.1\dot3\dot6=\frac{136-1}{990}=\frac3{22}$.
+* **Bounds:** a value given to the nearest $10$ lies in $[x-5,\,x+5)$. For $a+b$ and $ab$ use like bounds; for $a-b$ and $a/b$ use **opposite** bounds (upper of $a$ with lower of $b$ for the maximum).
+* **Standard form:** $a\times10^n$ with $1\le a<10$. To square-root, make the power even first: $4.9\times10^7=49\times10^6$.
+* **Proportion:** $y\propto x^n$ means $y=kx^n$; $y\propto\frac1{x^n}$ means $y=\frac{k}{x^n}$. Scaling $x$ by $s$ scales $y$ by $s^n$ (or $s^{-n}$).
+* **Percentages and growth:** an increase of $r\%$ multiplies by $1+\frac r{100}$; repeated changes multiply, so after $n$ steps the multiplier is $(1+\frac r{100})^n$. Reverse a change by **dividing**.
+* **Compound units:** speed $=\frac{\text{distance}}{\text{time}}$, density $=\frac{\text{mass}}{\text{volume}}$, pressure $=\frac{\text{force}}{\text{area}}$. $1\text{ m}^2=10^4\text{ cm}^2$, $1\text{ m}^3=10^6\text{ cm}^3=1000$ litres, $1$ m/s $=3.6$ km/h.
+* **Product rule:** if one choice can be made in $m$ ways and then another in $n$ ways, together there are $mn$ ways.
 
 ## Techniques
 
-**Work with totals and multipliers.** Averages questions become subtraction of totals. Percentage chains become products like $1.25\times0.8=1$.
+**Work with multipliers.** Successive changes become products: $+20\%$ blade length in $P\propto r^2v^3$ gives $1.2^2$; $-10\%$ wind gives $0.9^3$.
 
-**Reduce modulo something small.** For last digits work mod $10$; for remainders find when the powers cycle (e.g. $10^6\equiv1\pmod 7$, $2^3\equiv1\pmod7$), then reduce the exponent modulo the cycle length.
+**Iterative processes.** For $u_{n+1}=ru_n-c$ find the fixed point $L=\frac{c}{r-1}$; then $u_n-L=(u_0-L)r^n$, so you only need powers of $r$. Build powers by squaring ($1.2^8=(1.2^4)^2=2.0736^2\approx4.3$).
 
-**Factorise to find integer solutions.** Rearrange into (bracket)(bracket) $=$ constant, then count factor pairs. Two standard forms:
+**Bounds in a formula.** Ask, for each quantity, whether making it bigger makes the answer bigger or smaller, then pick the corresponding bound. Differences in a denominator are the classic trap.
 
-* $x^2-y^2=N$: $(x-y)(x+y)=N$, and the two factors must have the same parity.
-* $\frac1x+\frac1y=\frac1n$: $(x-n)(y-n)=n^2$.
+**Estimation.** Round to one significant figure and handle powers of $10$ separately.
 
-Remember negative factor pairs, and whether the question wants ordered pairs.
+**Factorise to find integer solutions.** $x^2-y^2=N$: $(x-y)(x+y)=N$ with both factors of the same parity. $\frac1x+\frac1y=\frac1n$: $(x-n)(y-n)=n^2$.
 
-**Compare sizes by clearing roots and powers.** To compare $a^{1/m}$ with $b^{1/n}$, raise both to the power $mn$. To compare $2^{100}$ with $3^{60}$, write both as 20th powers: $32^{20}$ vs $27^{20}$. Logs are rarely needed.
+**Count systematically.** Fill the most restricted positions first; split into cases when restrictions interact (e.g. last digit $0$ or not, when the first digit cannot be $0$). For digit-product questions, list digit sets by largest digit, then count arrangements (divide for repeated digits).
 
-**Count with complements and Venn diagrams.** "Divisible by $3$ or $5$" is $\lfloor N/3\rfloor+\lfloor N/5\rfloor-\lfloor N/15\rfloor$.
+**Compare sizes by clearing powers.** Compare $a^{1/m}$ with $b^{1/n}$ via the power $mn$; compare $2^{48}$ with $3^{32}$ as $4096^4$ against $6561^4$.
 
-**Test small values, then prove.** For "must be true" statements about all integers, try $n=1,2,3$ and a negative value first. One failure kills a statement; if nothing fails, look for a factorisation that proves it.
+**Count by divisor structure.** The number of divisors depends only on the exponent pattern: exactly $6$ divisors means $p^5$ or $p^2q$; exactly $8$ means $p^7$, $p^3q$ or $pqr$ (distinct primes). List each pattern systematically. Counting $r\times c$ rectangle layouts of $N$ objects is counting divisors of $N$.
 
-> **Tip:** In a counterexample question, the answer is usually the value where the expression visibly factorises: $n^2+n+41$ at $n=40$ is $41^2$.
+> **Tip:** For a counterexample, the value must satisfy the hypothesis and break the conclusion. Look for the value where the expression visibly factorises.
 
 ## Traps
 
-> **Trap:** Adding percentages. $+25\%$ then $-20\%$ is no change, not $+5\%$.
+> **Trap:** Adding percentages. $+25\%$ then $-20\%$ is no change; $+50\%$ length with $+25\%$ diameter in $R\propto L/d^2$ is $\frac{1.5}{1.5625}=0.96$, a $4\%$ decrease.
 
-> **Trap:** Reverse percentages. If £68 is the price after a $15\%$ cut, the original is $68\div0.85$, not $68\times1.15$.
+> **Trap:** Area conversions. $50\text{ cm}^2=0.005\text{ m}^2$, not $0.5$ or $0.05$.
 
-> **Trap:** Forgetting the conditions in "different", "positive" or "ordered". These change counts by factors of $2$ and cause off-by-one errors.
+> **Trap:** Bounds with a difference: the smallest $t_2-t_1$ uses the **lower** bound of $t_2$ and the **upper** bound of $t_1$.
 
-> **Trap:** Assuming a pattern continues. $n^4-n^2$ is always divisible by $12$ but not by $24$ ($n=2$ gives $12$).
+> **Trap:** Getting the power wrong when passing from $n^k$ to $n$: $p^a\mid n^k$ gives $p^{\lceil a/k\rceil}\mid n$. So $2^3\mid n^2$ gives $4\mid n$, but $2^2\mid n^3$ gives only $2\mid n$.
 
-> **Trap:** Getting the power wrong when passing from $n^k$ back to $n$. Exponents of primes in $n^k$ are multiples of $k$, so $p^a\mid n^k$ gives $p^{\lceil a/k\rceil}\mid n$. For example $2^3\mid n^2$ gives $2^2\mid n$ (not just $2\mid n$), while $2\mid n^3$ gives only $2\mid n$.
+* Off-by-one errors in "after how many years" questions: check the values either side of the crossing.
+* "Different", "positive" and "ordered" change counts by factors of $2$.
 
 ## Worked examples
 
@@ -53,30 +54,30 @@ Remember negative factor pairs, and whether the question wants ordered pairs.
 
 <details><summary>Show solution</summary>
 
-Write them as $4p$, $4q$ with $p,q$ coprime and $pq=240/4=60=2^2\cdot3\cdot5$. Each prime power ($4$, $3$, $5$) goes wholly to $p$ or wholly to $q$: $2^3=8$ ordered splits, so $4$ unordered pairs: $(4,240),(16,60),(12,80),(20,48)$.
+Write them as $4p$, $4q$ with $p,q$ coprime and $pq=60=2^2\cdot3\cdot5$. Each prime power ($4$, $3$, $5$) goes wholly to $p$ or to $q$: $2^3=8$ ordered splits, so $4$ unordered pairs.
 
 </details>
 
-**Example 2.** What is the remainder when $3^{2026}$ is divided by $7$?
+**Example 2.** A length is $8.0$ cm to 1 d.p. and a width is $2.6$ cm to 1 d.p. Find the upper bound of $\frac{\text{length}}{\text{width}}$.
 
 <details><summary>Show solution</summary>
 
-Powers of $3$ mod $7$: $3,2,6,4,5,1$, so $3^6\equiv1$. Since $2026=6\times337+4$, $3^{2026}\equiv3^4=81\equiv4\pmod7$. The remainder is $4$.
+Maximise the numerator and minimise the denominator: $\frac{8.05}{2.55}=\frac{161}{51}\approx3.16$.
 
 </details>
 
-**Example 3.** The mean of $8$ numbers is $15$. Two numbers with mean $9$ are removed. What is the new mean?
+**Example 3.** A savings account adds $10\%$ interest each year, then £$300$ is withdrawn. It starts at £$2000$. Find a formula for the balance after $n$ years.
 
 <details><summary>Show solution</summary>
 
-Totals: $8\times15=120$, removed $2\times9=18$, leaving $102$ over $6$ numbers. The new mean is $17$.
+$u_{n+1}=1.1u_n-300$. Fixed point $L=1.1L-300\Rightarrow L=3000$. Then $u_n-3000=(2000-3000)\times1.1^n$, so $u_n=3000-1000\times1.1^n$. The balance falls, reaching zero when $1.1^n=3$, i.e. during year $12$ ($1.1^{11}\approx2.85$, $1.1^{12}\approx3.14$).
 
 </details>
 
-**Example 4.** Which is larger, $2^{300}$ or $3^{200}$?
+**Example 4.** Write $0.2\dot{7}$ as a fraction.
 
 <details><summary>Show solution</summary>
 
-Write both as $100$th powers: $2^{300}=8^{100}$ and $3^{200}=9^{100}$. So $3^{200}$ is larger.
+$x=0.2777\ldots$: $10x=2.777\ldots$ and $100x=27.777\ldots$, so $90x=25$ and $x=\frac{25}{90}=\frac5{18}$.
 
 </details>

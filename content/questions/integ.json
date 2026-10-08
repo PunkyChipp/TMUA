@@ -3,56 +3,125 @@
   "id": "integ-01",
   "topic": "integ",
   "paper": 1,
-  "difficulty": 1,
+  "difficulty": 3,
   "skills": [
    "definite integrals",
-   "fractional powers"
+   "fractional powers",
+   "simplify first"
   ],
-  "stem": "Evaluate $$\\int_1^4 \\left(3\\sqrt{x} - 2\\right)\\,dx.$$",
+  "stem": "Evaluate\n$$\\int_1^4 \\frac{(2x - 1)^2}{x\\sqrt{x}}\\,dx.$$",
   "figure": null,
   "options": [
-   "$6$",
-   "$8$",
-   "$10$",
-   "$12$",
-   "$14$"
+   "$\\frac{13}{3}$",
+   "$\\frac{29}{3}$",
+   "$\\frac{35}{3}$",
+   "$\\frac{59}{3}$",
+   "$21$"
+  ],
+  "answer": 2,
+  "solution": "Expand and divide by $x^{3/2}$:\n$$\\frac{4x^2 - 4x + 1}{x^{3/2}} = 4x^{1/2} - 4x^{-1/2} + x^{-3/2}.$$\n\nIntegrate term by term:\n$$\\int = \\tfrac83 x^{3/2} - 8x^{1/2} - 2x^{-1/2}.$$\n\nAt $x = 4$: $\\frac{64}{3} - 16 - 1 = \\frac{13}{3}$. At $x = 1$: $\\frac83 - 8 - 2 = -\\frac{22}{3}$.\n\nAnswer: $\\frac{13}{3} + \\frac{22}{3} = \\frac{35}{3}$.",
+  "insight": "Rewrite the integrand as a sum of powers of $x$ before integrating; a negative new power flips the sign.",
+  "distractors": {
+   "0": "Evaluating only at the upper limit.",
+   "1": "Integrating $x^{-3/2}$ as $+2x^{-1/2}$ (dividing by $+\\frac12$ instead of $-\\frac12$).",
+   "3": "Expanding $(2x-1)^2$ as $4x^2 + 1$, losing the cross term.",
+   "4": "Raising the power of the $4x^{1/2}$ term without dividing by the new power: $4x^{1/2} \\to 4x^{3/2}$."
+  },
+  "time": 180,
+  "family": "integ-01"
+ },
+ {
+  "id": "integ-01b",
+  "topic": "integ",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "definite integrals",
+   "fractional powers",
+   "simplify first"
+  ],
+  "stem": "Evaluate\n$$\\int_1^8 \\frac{x + 2}{\\sqrt[3]{x}}\\,dx.$$",
+  "figure": null,
+  "options": [
+   "$18$",
+   "$\\frac{138}{5}$",
+   "$\\frac{156}{5}$",
+   "$\\frac{163}{5}$",
+   "$\\frac{167}{3}$"
   ],
   "answer": 1,
-  "solution": "$\\int 3x^{1/2}\\,dx = 3 \\cdot \\frac{x^{3/2}}{3/2} = 2x^{3/2}$, so\n$$\\Big[2x^{3/2} - 2x\\Big]_1^4 = (16 - 8) - (2 - 2) = 8.$$",
-  "insight": "Raise the power by one and divide by the new power: $x^{1/2} \\to \\frac23 x^{3/2}$.",
+  "solution": "Divide each term by $x^{1/3}$: the integrand is $x^{2/3} + 2x^{-1/3}$.\n\n$$\\int = \\tfrac35 x^{5/3} + 3x^{2/3}.$$\n\nAt $x = 8$ ($8^{1/3} = 2$): $\\frac35 \\cdot 32 + 3 \\cdot 4 = \\frac{96}{5} + 12 = \\frac{156}{5}$.\n\nAt $x = 1$: $\\frac35 + 3 = \\frac{18}{5}$.\n\nAnswer: $\\frac{156}{5} - \\frac{18}{5} = \\frac{138}{5}$.",
+  "insight": "With cube roots, work with $x^{1/3}$: $8^{2/3} = 4$ and $8^{5/3} = 32$.",
   "distractors": {
-   "4": "Forgetting to integrate the constant $-2$ (it contributes $-2 \\times 3 = -6$).",
-   "0": "Evaluating the $-2x$ term only at the upper limit, giving $14 - 8$."
+   "0": "Evaluating $8^{5/3}$ as $16$.",
+   "2": "Forgetting to subtract the value at the lower limit.",
+   "3": "Dividing only the $x$ term by $\\sqrt[3]{x}$ and integrating $x^{2/3} + 2$.",
+   "4": "Multiplying by the new power instead of dividing: $\\frac53 x^{5/3} + \\frac43 x^{2/3}$."
   },
-  "time": 60
+  "time": 180,
+  "family": "integ-01"
  },
  {
   "id": "integ-02",
   "topic": "integ",
   "paper": 1,
-  "difficulty": 1,
+  "difficulty": 2,
   "skills": [
-   "indefinite integrals",
-   "negative powers"
+   "differential equations",
+   "dy/dx = f(x)",
+   "fractional powers",
+   "context"
   ],
-  "stem": "Find $$\\int \\frac{x^2 - 4}{x^2}\\,dx.$$",
+  "stem": "The height $h$ metres of a young tree, $t$ years after planting, is modelled for $t \\ge 1$ by\n$$\\frac{dh}{dt} = \\frac{t + 1}{2\\sqrt{t}}.$$\nWhen $t = 1$ the tree is $2$ metres tall.\n\nAccording to the model, how tall is the tree when $t = 4$?",
   "figure": null,
   "options": [
-   "$x - \\dfrac{4}{x} + c$",
-   "$x + \\dfrac{4}{x} + c$",
-   "$x + \\dfrac{8}{x^3} + c$",
-   "$\\dfrac{x^3 - 12x}{x^3} + c$",
-   "$x - 4\\ln x + c$"
+   "$\\frac{10}{3}$",
+   "$\\frac{14}{3}$",
+   "$\\frac{16}{3}$",
+   "$\\frac{20}{3}$",
+   "$\\frac{15}{2}$"
+  ],
+  "answer": 2,
+  "solution": "$\\dfrac{dh}{dt} = \\tfrac12 t^{1/2} + \\tfrac12 t^{-1/2}$, so\n$$h = \\tfrac13 t^{3/2} + t^{1/2} + c.$$\n\n$h(1) = 2$: $\\frac13 + 1 + c = 2$, so $c = \\frac23$.\n\n$h(4) = \\frac83 + 2 + \\frac23 = \\frac{16}{3}$ metres.",
+  "insight": "Integrate to get the general solution, then use the given condition to fix the constant.",
+  "distractors": {
+   "0": "Giving the growth $h(4) - h(1)$ instead of the height.",
+   "1": "Leaving out the constant of integration.",
+   "3": "Taking $c$ to be the given height $2$ instead of solving for it.",
+   "4": "Multiplying by the new powers instead of dividing: $h = \\frac34 t^{3/2} + \\frac14 t^{1/2} + c$."
+  },
+  "time": 120,
+  "family": "integ-02"
+ },
+ {
+  "id": "integ-02b",
+  "topic": "integ",
+  "paper": 1,
+  "difficulty": 2,
+  "skills": [
+   "differential equations",
+   "dy/dx = f(x)",
+   "negative powers"
+  ],
+  "stem": "A curve passes through the point $(1, 5)$ and satisfies\n$$\\frac{dy}{dx} = \\frac{x^2 - 1}{x^2}, \\qquad x > 0.$$\n\nWhat is the value of $y$ when $x = 2$?",
+  "figure": null,
+  "options": [
+   "$\\frac{5}{2}$",
+   "$\\frac{11}{2}$",
+   "$\\frac{13}{2}$",
+   "$\\frac{15}{2}$",
+   "$\\frac{17}{2}$"
   ],
   "answer": 1,
-  "solution": "Split first: $\\frac{x^2 - 4}{x^2} = 1 - 4x^{-2}$.\n\n$$\\int (1 - 4x^{-2})\\,dx = x - 4\\cdot\\frac{x^{-1}}{-1} + c = x + \\frac4x + c.$$\n\nCheck by differentiating: $\\frac{d}{dx}\\left(x + 4x^{-1}\\right) = 1 - 4x^{-2}$.",
-  "insight": "Divide through to get a sum of powers of $x$ before integrating, and check by differentiating.",
+  "solution": "$\\dfrac{dy}{dx} = 1 - x^{-2}$, so $y = x + x^{-1} + c$.\n\nThrough $(1, 5)$: $1 + 1 + c = 5$, so $c = 3$.\n\nAt $x = 2$: $y = 2 + \\frac12 + 3 = \\frac{11}{2}$.",
+  "insight": "Split the fraction into powers of $x$, integrate, then fix the constant with the given point.",
   "distractors": {
-   "0": "Sign error: dividing by the new power $-1$ flips the sign.",
-   "3": "Integrating numerator and denominator separately, which is never valid.",
-   "2": "Differentiating $-4x^{-2}$ instead of integrating it."
+   "0": "Leaving out the constant of integration.",
+   "2": "Integrating $-x^{-2}$ as $-x^{-1}$ (sign slip), which gives $y = x - \\frac1x + 5$.",
+   "3": "Taking $c = 5$ (the given $y$-value) instead of solving for it."
   },
-  "time": 75
+  "time": 120,
+  "family": "integ-02"
  },
  {
   "id": "integ-03",
@@ -65,102 +134,233 @@
   "stem": "Find the area of the finite region enclosed by the curve $y = x^2 - 2x$ and the line $y = x$.",
   "figure": null,
   "options": [
-   "$\\frac{3}{2}$",
-   "$3$",
+   "$0$",
    "$\\frac{9}{2}$",
    "$\\frac{27}{2}$",
-   "$18$"
+   "$18$",
+   "$\\frac{45}{2}$"
   ],
-  "answer": 2,
-  "solution": "Intersections: $x^2 - 2x = x \\iff x(x - 3) = 0$, so $x = 0, 3$. On $(0, 3)$ the line is above the curve.\n\n$$\\int_0^3 \\big(x - (x^2 - 2x)\\big)\\,dx = \\int_0^3 (3x - x^2)\\,dx = \\frac{27}{2} - 9 = \\frac92.$$\n\nShortcut: the area between a parabola $y = x^2+\\dots$ and a line meeting it at $x=p, q$ is $\\frac{|q-p|^3}{6} = \\frac{27}{6}$.",
+  "answer": 1,
+  "solution": "Intersections: $x^2 - 2x = x \\iff x(x - 3) = 0$, so $x = 0, 3$. On $(0, 3)$ the line is above the curve.\n\n$$\\int_0^3 \\big(x - (x^2 - 2x)\\big)\\,dx = \\int_0^3 (3x - x^2)\\,dx = \\frac{27}{2} - 9 = \\frac92.$$\n\nShortcut: the area between $y = x^2 + \\dots$ and a line meeting it at $x=p, q$ is $\\frac{|q-p|^3}{6} = \\frac{27}{6}$.",
   "insight": "Area between curves is $\\int(\\text{top} - \\text{bottom})$; for a parabola with leading coefficient 1 and a chord it is $\\frac{(q-p)^3}{6}$.",
   "distractors": {
-   "3": "Integrating only $3x$ and forgetting to subtract $\\int x^2$.",
-   "4": "Integrating $3x - x^2$ as $3x^2 - \\frac{x^3}{3}$ (not halving the $x^2$ term)."
+   "0": "Integrating the curve alone: $\\int_0^3 (x^2 - 2x)\\,dx = 0$, because its parts above and below the axis cancel.",
+   "2": "Integrating only $3x$ and forgetting to subtract $\\int x^2$.",
+   "3": "Integrating $3x - x^2$ as $3x^2 - \\frac{x^3}{3}$ (not halving the $x^2$ term).",
+   "4": "Sign slip: integrating $3x + x^2$."
   },
-  "time": 120
+  "time": 120,
+  "family": "integ-03"
+ },
+ {
+  "id": "integ-03b",
+  "topic": "integ",
+  "paper": 1,
+  "difficulty": 2,
+  "skills": [
+   "area between curves"
+  ],
+  "stem": "Find the area of the finite region enclosed by the curve $y = 6 - x^2$ and the line $y = x$.",
+  "figure": null,
+  "options": [
+   "$\\frac{95}{6}$",
+   "$\\frac{55}{3}$",
+   "$\\frac{125}{6}$",
+   "$\\frac{233}{6}$",
+   "$\\frac{125}{3}$"
+  ],
+  "answer": 2,
+  "solution": "Intersections: $6 - x^2 = x \\iff x^2 + x - 6 = 0 \\iff (x + 3)(x - 2) = 0$. The curve is above the line between them.\n\n$$\\int_{-3}^{2} (6 - x - x^2)\\,dx = \\Big[6x - \\tfrac{x^2}{2} - \\tfrac{x^3}{3}\\Big]_{-3}^{2} = \\tfrac{22}{3} - \\left(-\\tfrac{27}{2}\\right) = \\tfrac{125}{6}.$$\n\nShortcut: roots $5$ apart and leading coefficient $-1$, so area $= \\frac{5^3}{6} = \\frac{125}{6}$.",
+  "insight": "Find the crossing points, integrate top minus bottom between them, and check with $\\frac{(q-p)^3}{6}$.",
+  "distractors": {
+   "0": "Sign slip on the $x$ term: integrating $6 + x - x^2$.",
+   "1": "Integrating the curve alone, forgetting to subtract the line.",
+   "3": "Evaluating $(-3)^3$ as $+27$ in the lower limit.",
+   "4": "Doubling the correct area (e.g. using $\\frac{(q-p)^3}{3}$)."
+  },
+  "time": 120,
+  "family": "integ-03"
  },
  {
   "id": "integ-04",
   "topic": "integ",
   "paper": 1,
-  "difficulty": 2,
+  "difficulty": 3,
   "skills": [
+   "integral vs area",
    "signed area",
-   "area under curve"
+   "context"
   ],
-  "stem": "Find the total area between the curve $y = x^2 - 4x + 3$, the $x$-axis and the lines $x = 0$ and $x = 3$.",
+  "stem": "A particle moves along a straight line. Its velocity at time $t$ seconds is\n$$v = t^2 - 6t + 8 \\text{ m s}^{-1}, \\qquad 0 \\le t \\le 5,$$\nwhere a negative velocity means it is moving backwards.\n\nWhat is the total distance travelled by the particle in these $5$ seconds?",
+  "figure": null,
+  "options": [
+   "$\\frac{4}{3}$",
+   "$\\frac{16}{3}$",
+   "$\\frac{20}{3}$",
+   "$8$",
+   "$\\frac{28}{3}$"
+  ],
+  "answer": 4,
+  "solution": "$v = (t-2)(t-4)$: positive on $(0,2)$, negative on $(2,4)$, positive on $(4,5)$.\n\nWith $F(t) = \\frac{t^3}{3} - 3t^2 + 8t$: $F(0) = 0$, $F(2) = \\frac{20}{3}$, $F(4) = \\frac{16}{3}$, $F(5) = \\frac{20}{3}$.\n\n* $\\int_0^2 v\\,dt = \\frac{20}{3}$\n* $\\int_2^4 v\\,dt = -\\frac43$, distance $\\frac43$\n* $\\int_4^5 v\\,dt = \\frac43$\n\nDistance $= \\frac{20}{3} + \\frac43 + \\frac43 = \\frac{28}{3}$ m. (The displacement $\\int_0^5 v\\,dt$ is only $\\frac{20}{3}$.)",
+  "insight": "A definite integral of velocity gives displacement (signed area); distance needs the integral split where the velocity changes sign.",
+  "distractors": {
+   "0": "Finding only the size of the backwards part.",
+   "1": "Subtracting the backwards part instead of adding it: $\\frac{20}{3} - \\frac43$.",
+   "2": "This is $\\int_0^5 v\\,dt$, the displacement: the backward and final forward parts cancel.",
+   "3": "Splitting at $t = 2$ and $t=4$ but forgetting the last second: $\\frac{20}{3} + \\frac43$."
+  },
+  "time": 180,
+  "family": "integ-04"
+ },
+ {
+  "id": "integ-04b",
+  "topic": "integ",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "integral vs area",
+   "signed area"
+  ],
+  "stem": "Let\n$$I = \\int_{-1}^{3} (x^3 - 4x)\\,dx,$$\nand let $A$ be the total area of the regions between the curve $y = x^3 - 4x$, the $x$-axis and the lines $x = -1$ and $x = 3$.\n\nWhat is $A - I$?",
   "figure": null,
   "options": [
    "$0$",
-   "$\\frac{4}{3}$",
-   "$2$",
-   "$\\frac{8}{3}$",
-   "$4$"
+   "$4$",
+   "$8$",
+   "$12$",
+   "$16$"
   ],
-  "answer": 3,
-  "solution": "$y = (x-1)(x-3)$ is positive on $(0,1)$ and negative on $(1,3)$, so split at $x=1$.\n\nWith $F(x) = \\frac{x^3}{3} - 2x^2 + 3x$: $F(0) = 0$, $F(1) = \\frac43$, $F(3) = 0$.\n\n* $\\int_0^1 y\\,dx = \\frac43$.\n* $\\int_1^3 y\\,dx = 0 - \\frac43 = -\\frac43$, contributing area $\\frac43$.\n\nTotal area $= \\frac83$.",
-  "insight": "An integral measures signed area; whenever the curve crosses the axis inside the interval, split there and add the absolute values.",
+  "answer": 2,
+  "solution": "$x^3 - 4x = x(x-2)(x+2)$: on $[-1, 3]$ it is positive on $(-1, 0)$, negative on $(0, 2)$, positive on $(2, 3)$.\n\nWith $F(x) = \\frac{x^4}{4} - 2x^2$: $F(-1) = -\\frac74$, $F(0) = 0$, $F(2) = -4$, $F(3) = \\frac94$.\n\nSigned pieces: $\\frac74$, $-4$, $\\frac{25}{4}$. So $I = 4$ and $A = \\frac74 + 4 + \\frac{25}{4} = 12$.\n\n$A - I = 8$, which is twice the area of the part below the axis.",
+  "insight": "Area minus integral is twice the area of the parts below the axis, since those count $-$ in the integral and $+$ in the area.",
   "distractors": {
-   "0": "This is $\\int_0^3 y\\,dx$: the positive and negative parts cancel exactly.",
-   "1": "Only counting one of the two regions."
+   "0": "Assuming the integral equals the area.",
+   "1": "Giving $I$, or the area below the axis, instead of $A - I$.",
+   "3": "Giving $A$ itself.",
+   "4": "Computing $A + I$."
   },
-  "time": 120
+  "time": 180,
+  "family": "integ-04"
  },
  {
   "id": "integ-05",
   "topic": "integ",
   "paper": 1,
-  "difficulty": 2,
+  "difficulty": 4,
   "skills": [
-   "definite integrals",
-   "unknown limits"
+   "Fundamental Theorem of Calculus",
+   "polynomials"
   ],
-  "stem": "Given that $k > 1$ and $$\\int_1^k (2x + 3)\\,dx = 14,$$ find $k$.",
+  "stem": "A continuous function $f$ and a constant $a$ satisfy\n$$\\int_a^x f(t)\\,dt = x^3 - 3x^2 + 4 \\quad\\text{for all real } x.$$\n\nWhat are the possible values of $a$?",
   "figure": null,
   "options": [
-   "$-6$",
-   "$2$",
-   "$3$",
-   "$4$",
-   "$6$"
+   "$0$ and $2$",
+   "$-1$ only",
+   "$2$ only",
+   "$-1$ and $2$",
+   "$-2$ and $1$"
   ],
-  "answer": 2,
-  "solution": "$\\Big[x^2 + 3x\\Big]_1^k = k^2 + 3k - 4 = 14$, so $k^2 + 3k - 18 = 0$, i.e. $(k + 6)(k - 3) = 0$.\n\nSince $k > 1$, $k = 3$.\n\nCheck: the integral is the area of a trapezium with parallel sides $5$ and $9$ and width $2$: $\\frac{5+9}{2}\\times 2 = 14$.",
-  "insight": "An unknown limit turns a definite integral into an equation; reject roots that violate the given condition.",
+  "answer": 3,
+  "solution": "Put $x = a$: the left-hand side is $\\int_a^a f(t)\\,dt = 0$, so\n$$a^3 - 3a^2 + 4 = 0 \\iff (a + 1)(a - 2)^2 = 0,$$\ngiving $a = -1$ or $a = 2$.\n\nBoth work: by the Fundamental Theorem, $f(x) = \\frac{d}{dx}(x^3 - 3x^2 + 4) = 3x^2 - 6x$, and $\\int_a^x (3t^2 - 6t)\\,dt = x^3 - 3x^2 - (a^3 - 3a^2)$, which equals $x^3 - 3x^2 + 4$ exactly when $a^3 - 3a^2 = -4$.",
+  "insight": "An integral from $a$ to $a$ is zero, so substituting $x = a$ pins down the lower limit; differentiating gives the integrand.",
   "distractors": {
-   "0": "The other root of the quadratic, which fails $k > 1$.",
-   "4": "Factorising $k^2 + 3k - 18$ as $(k-6)(k+3)$ (sign slip)."
+   "0": "Solving $f(a) = 0$ (i.e. $3a^2 - 6a = 0$) instead of setting the right-hand side to $0$ at $x=a$.",
+   "2": "Spotting the repeated root $a=2$ but missing the factor $(a+1)$.",
+   "4": "Sign slip in the factor theorem: testing $a = 1$ and $a = -2$.",
+   "1": "Missing the repeated root $a = 2$."
   },
-  "time": 90
+  "time": 210,
+  "family": "integ-05"
+ },
+ {
+  "id": "integ-05b",
+  "topic": "integ",
+  "paper": 1,
+  "difficulty": 4,
+  "skills": [
+   "Fundamental Theorem of Calculus",
+   "fractional powers"
+  ],
+  "stem": "A continuous function $f$ satisfies\n$$\\int_4^x f(t)\\,dt = 2x\\sqrt{x} + kx \\quad\\text{for all } x > 0,$$\nwhere $k$ is a constant.\n\nWhat is the value of $f(9)$?",
+  "figure": null,
+  "options": [
+   "$\\frac{1}{2}$",
+   "$5$",
+   "$9$",
+   "$13$",
+   "$18$"
+  ],
+  "answer": 1,
+  "solution": "Put $x = 4$: $0 = 2 \\cdot 4 \\cdot 2 + 4k$, so $k = -4$.\n\nDifferentiate both sides (Fundamental Theorem: $\\frac{d}{dx}\\int_4^x f(t)\\,dt = f(x)$):\n$$f(x) = \\frac{d}{dx}\\left(2x^{3/2} - 4x\\right) = 3x^{1/2} - 4.$$\n\n$f(9) = 9 - 4 = 5$.",
+  "insight": "$\\frac{d}{dx}\\int_a^x f(t)\\,dt = f(x)$, and putting $x = a$ makes the integral zero, which fixes any unknown constant.",
+  "distractors": {
+   "0": "Differentiating $2x^{3/2}$ as $\\frac32 x^{1/2}$ (dropping the factor $2$).",
+   "2": "Taking $k = 0$, i.e. not using $x = 4$ to find $k$.",
+   "3": "Sign slip: $k = +4$.",
+   "4": "Evaluating the integral at $x = 9$ ($54 - 36$) instead of differentiating."
+  },
+  "time": 210,
+  "family": "integ-05"
  },
  {
   "id": "integ-06",
   "topic": "integ",
   "paper": 1,
-  "difficulty": 2,
+  "difficulty": 4,
   "skills": [
-   "odd and even functions",
-   "definite integrals"
+   "combining integrals",
+   "limits of integration"
   ],
-  "stem": "Evaluate $$\\int_{-2}^{2} \\left(x^5 - 3x^2 + 4x\\right)dx.$$",
+  "stem": "The functions $f$ and $g$ satisfy\n$$\\int_1^4 f(x)\\,dx = 5, \\qquad \\int_3^4 f(x)\\,dx = 2, \\qquad \\int_1^3 \\big(f(x) + g(x)\\big)\\,dx = 1.$$\n\nWhat is the value of\n$$\\int_3^1 \\big(2g(x) - 1\\big)\\,dx\\,?$$",
   "figure": null,
   "options": [
-   "$-48$",
-   "$-16$",
-   "$-8$",
-   "$0$",
-   "$16$"
+   "$-6$",
+   "$4$",
+   "$5$",
+   "$6$",
+   "$14$"
   ],
-  "answer": 1,
-  "solution": "$x^5$ and $4x$ are odd, so their integrals over $[-2, 2]$ are $0$.\n\n$-3x^2$ is even: $\\int_{-2}^2 -3x^2\\,dx = 2\\int_0^2 -3x^2\\,dx = 2 \\times (-8) = -16$.",
-  "insight": "Over a symmetric interval, odd terms integrate to zero and even terms double their integral over $[0, a]$.",
+  "answer": 3,
+  "solution": "Contiguous ranges: $\\int_1^3 f = \\int_1^4 f - \\int_3^4 f = 5 - 2 = 3$.\n\nEqual ranges: $\\int_1^3 g = \\int_1^3 (f + g) - \\int_1^3 f = 1 - 3 = -2$.\n\n$\\int_1^3 (2g - 1)\\,dx = 2(-2) - 2 = -6$ (the constant $-1$ over a width of $2$ gives $-2$).\n\nReversing the limits changes the sign: $\\int_3^1 (2g - 1)\\,dx = 6$.",
+  "insight": "Integrals over contiguous ranges add, integrals over the same range combine linearly, and swapping the limits changes the sign.",
   "distractors": {
-   "2": "Computing only $\\int_0^2 -3x^2\\,dx$ and forgetting to double.",
-   "0": "Forgetting to divide by the new power: $-3x^2 \\to -3x^3$, giving $2 \\times (-24)$.",
-   "3": "Treating the whole integrand as odd."
+   "0": "Forgetting that the limits are reversed.",
+   "1": "Forgetting to integrate the constant $-1$.",
+   "2": "Integrating the constant $-1$ as $-1$ instead of $-1 \\times \\text{width} = -2$.",
+   "4": "Adding instead of subtracting: $\\int_1^3 f = 5 + 2 = 7$, so $\\int_1^3 g = -6$."
   },
-  "time": 75
+  "time": 210,
+  "family": "integ-06"
+ },
+ {
+  "id": "integ-06b",
+  "topic": "integ",
+  "paper": 1,
+  "difficulty": 4,
+  "skills": [
+   "combining integrals",
+   "limits of integration"
+  ],
+  "stem": "The functions $f$ and $g$ satisfy\n$$\\int_1^3 f(x)\\,dx = 4, \\qquad \\int_1^5 f(x)\\,dx = 9, \\qquad \\int_5^3 g(x)\\,dx = 3.$$\n\nWhat is the value of\n$$\\int_3^5 \\big(f(x) + 2g(x) + x\\big)\\,dx\\,?$$",
+  "figure": null,
+  "options": [
+   "$-1$",
+   "$1$",
+   "$7$",
+   "$15$",
+   "$19$"
+  ],
+  "answer": 2,
+  "solution": "* Contiguous ranges: $\\int_3^5 f = \\int_1^5 f - \\int_1^3 f = 9 - 4 = 5$.\n* Reversed limits: $\\int_3^5 g = -\\int_5^3 g = -3$, so $\\int_3^5 2g = -6$.\n* $\\int_3^5 x\\,dx = \\frac{25 - 9}{2} = 8$.\n\nTotal: $5 - 6 + 8 = 7$.",
+  "insight": "Split and recombine ranges like lengths on a number line, remembering $\\int_b^a = -\\int_a^b$.",
+  "distractors": {
+   "0": "Leaving out the $x$ term.",
+   "1": "Treating $\\int_3^5 x\\,dx$ as the width $2$.",
+   "3": "Adding the two $f$ integrals ($4 + 9 = 13$) instead of subtracting.",
+   "4": "Not reversing the limits for $g$, so using $+6$."
+  },
+  "time": 210,
+  "family": "integ-06"
  },
  {
   "id": "integ-07",
@@ -181,13 +381,46 @@
    "$22$"
   ],
   "answer": 3,
-  "solution": "$y = f(x-1)$ is $y = f(x)$ shifted right by $1$, so $\\int_1^4 f(x-1)\\,dx = \\int_0^3 f(x)\\,dx = 5$ (substitute $u = x - 1$).\n\nStretching vertically by $2$ doubles the area: $10$.\n\n$\\int_1^4 3\\,dx = 3 \\times 3 = 9$.\n\nTotal $= 10 + 9 = 19$.",
+  "solution": "$y = f(x-1)$ is $y = f(x)$ shifted right by $1$, so $\\int_1^4 f(x-1)\\,dx = \\int_0^3 f(x)\\,dx = 5$.\n\nStretching vertically by $2$ doubles the integral: $10$.\n\n$\\int_1^4 3\\,dx = 3 \\times 3 = 9$.\n\nTotal $= 10 + 9 = 19$.",
   "insight": "Translate, stretch and add constants to the area picture: a horizontal shift moves the limits, a vertical stretch scales the integral, and $+c$ adds $c \\times$ width.",
   "distractors": {
+   "0": "Forgetting the $+3$ term entirely.",
    "1": "Adding $3$ instead of $3 \\times$ (width of interval).",
+   "2": "Using width $2$ for the constant, as if the interval were $[1, 3]$.",
    "4": "Integrating the constant as $3 \\times 4$ (using the upper limit, not the width)."
   },
-  "time": 150
+  "time": 150,
+  "family": "integ-07"
+ },
+ {
+  "id": "integ-07b",
+  "topic": "integ",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "transformations",
+   "definite integrals"
+  ],
+  "stem": "Given that $$\\int_{-2}^{4} g(x)\\,dx = 9,$$ find $$\\int_{-1}^{2} \\big(g(2x) + x\\big)\\,dx.$$",
+  "figure": null,
+  "options": [
+   "$\\frac{9}{2}$",
+   "$6$",
+   "$\\frac{15}{2}$",
+   "$\\frac{21}{2}$",
+   "$\\frac{39}{2}$"
+  ],
+  "answer": 1,
+  "solution": "$y = g(2x)$ is $y = g(x)$ squashed horizontally by a factor of $2$: as $x$ runs over $[-1, 2]$, $2x$ runs over $[-2, 4]$, and every area is halved. So\n$$\\int_{-1}^{2} g(2x)\\,dx = \\tfrac12 \\int_{-2}^{4} g(x)\\,dx = \\tfrac92.$$\n\n$\\int_{-1}^{2} x\\,dx = \\frac{4 - 1}{2} = \\frac32$.\n\nTotal $= \\frac92 + \\frac32 = 6$.",
+  "insight": "A horizontal stretch by factor $\\frac1a$ multiplies areas by $\\frac1a$ and maps the limits accordingly.",
+  "distractors": {
+   "0": "Forgetting the $x$ term.",
+   "2": "Integrating $x$ over $[-1, 2]$ as $3$ (the width) instead of $\\frac32$.",
+   "3": "Not halving: assuming $\\int_{-1}^2 g(2x)\\,dx = 9$.",
+   "4": "Doubling instead of halving."
+  },
+  "time": 150,
+  "family": "integ-07"
  },
  {
   "id": "integ-08",
@@ -196,7 +429,7 @@
   "difficulty": 3,
   "skills": [
    "odd functions",
-   "integral and area"
+   "integral vs area"
   ],
   "stem": "The function $f$ satisfies $f(-x) = -f(x)$ for all real $x$, and $$\\int_0^2 f(x)\\,dx = 3.$$\n\nWhich of the following **must** be true?\n\nI. $\\displaystyle\\int_{-2}^{2} f(x)\\,dx = 0$\n\nII. $\\displaystyle\\int_{-2}^{0} f(x)\\,dx = -3$\n\nIII. $\\displaystyle\\int_{-2}^{2} |f(x)|\\,dx = 6$",
   "figure": null,
@@ -214,10 +447,46 @@
   "solution": "The graph of an odd function has half-turn symmetry about the origin, so the signed area on $[-2,0]$ is minus that on $[0,2]$.\n\n**II** True: $\\int_{-2}^0 f = -3$. **I** True: $-3 + 3 = 0$.\n\n**III** Not necessarily: $\\int_0^2 |f| \\ge 3$, with equality only if $f \\ge 0$ on $[0,2]$. Counterexample: $f(x) = x^3 - \\frac12 x$ is odd with $\\int_0^2 f = 4 - 1 = 3$, but $f < 0$ for $0 < x < \\frac{1}{\\sqrt2}$, so $\\int_{-2}^2 |f| > 6$.",
   "insight": "Integrals give signed areas; knowing $\\int f$ tells you nothing exact about $\\int |f|$ unless you know the sign of $f$.",
   "distractors": {
-   "7": "Assuming $f \\ge 0$ on $[0,2]$ so that integral equals area.",
-   "1": "Thinking the area on $[-2,0]$ is $+3$ because area is positive; the integral there is $-3$."
+   "7": "Assuming $f \\ge 0$ on $[0,2]$, so that integral equals area.",
+   "1": "Knowing the symmetric-interval rule in I, but thinking the integral on $[-2,0]$ must be $+3$ because area is positive (not noticing that this would contradict I).",
+   "5": "Accepting III (integral = area) and rejecting II on the grounds that area is positive."
   },
-  "time": 150
+  "time": 150,
+  "family": "integ-08"
+ },
+ {
+  "id": "integ-08b",
+  "topic": "integ",
+  "paper": 2,
+  "difficulty": 3,
+  "skills": [
+   "even functions",
+   "odd functions",
+   "symmetry"
+  ],
+  "stem": "The function $g$ satisfies $g(-x) = g(x)$ for all real $x$, and $$\\int_0^3 g(x)\\,dx = 4.$$\n\nWhich of the following **must** be true?\n\nI. $\\displaystyle\\int_{-3}^{3} g(x)\\,dx = 8$\n\nII. $\\displaystyle\\int_{-3}^{0} g(x)\\,dx = -4$\n\nIII. $\\displaystyle\\int_{-3}^{3} x\\,g(x)\\,dx = 0$",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 5,
+  "solution": "The graph of an even function is symmetric in the $y$-axis, so the signed area on $[-3, 0]$ equals that on $[0, 3]$.\n\n**I** True: $4 + 4 = 8$.\n\n**II** False: $\\int_{-3}^0 g = +4$, not $-4$.\n\n**III** True: $h(x) = x\\,g(x)$ satisfies $h(-x) = -x\\,g(x) = -h(x)$, so $h$ is odd and its integral over $[-3, 3]$ is $0$.",
+  "insight": "Even: the two halves are equal; odd: they cancel; and odd $\\times$ even is odd.",
+  "distractors": {
+   "4": "Treating $g$ as odd on $[-3, 0]$ while still doubling for I, and missing III.",
+   "1": "Missing that $x\\,g(x)$ is odd.",
+   "7": "Confusing the symmetry rules for odd and even functions in II.",
+   "6": "Thinking an even function's integral over $[-3,3]$ is $0$."
+  },
+  "time": 150,
+  "family": "integ-08"
  },
  {
   "id": "integ-09",
@@ -241,13 +510,47 @@
    "I, II and III"
   ],
   "answer": 1,
-  "solution": "The chords of a convex (\"U-shaped\", $g'' > 0$) curve lie above it, giving an overestimate; for concave curves, an underestimate.\n\n**I** $g'' = 2 > 0$: overestimate. True.\n\n**II** $\\sqrt{x}$ is concave: underestimate. False.\n\n**III** $g'' = 6x - 6$ changes sign at $x=1$, so no general rule applies. The cubic has half-turn symmetry about its inflection point $(1, -2)$, and the strips are placed symmetrically about $x=1$, so the errors on $[0,1]$ and $[1,2]$ cancel exactly. Indeed the rule gives $\\frac12\\cdot\\frac12\\big(0 + 2(-\\frac58 - 2 - \\frac{27}{8}) - 4\\big) = -4$, which equals the exact value $4 - 8 = -4$. Not an overestimate. False.",
-  "insight": "Trapezium rule over/underestimates according to whether the curve is convex or concave; if concavity changes, the errors can cancel.",
+  "solution": "The chords of a convex (U-shaped, $g'' > 0$) curve lie above it, giving an overestimate; for a concave curve, an underestimate.\n\n**I** $g'' = 2 > 0$: overestimate. True.\n\n**II** $\\sqrt{x}$ is concave: underestimate. False.\n\n**III** $g'' = 6x - 6$ changes sign at $x=1$, so no general rule applies. The cubic has half-turn symmetry about $(1, -2)$, and the strips are placed symmetrically about $x=1$, so the errors on $[0,1]$ and $[1,2]$ cancel exactly. Indeed the rule gives $\\frac12\\cdot\\frac12\\big(0 + 2(-\\frac58 - 2 - \\frac{27}{8}) - 4\\big) = -4$, the exact value. Not an overestimate. False.",
+  "insight": "Trapezium rule over/underestimates according to whether the curve is convex or concave; if the concavity changes, compute or use symmetry.",
   "distractors": {
    "5": "Seeing $x^3$ and assuming it is convex on $[0,2]$; the $-3x^2$ term makes it concave on $[0,1]$.",
-   "4": "Getting the rule backwards for $\\sqrt x$: a concave curve lies above its chords, so the estimate is too small."
+   "4": "Getting the rule backwards for $\\sqrt x$: a concave curve lies above its chords, so the estimate is too small.",
+   "7": "Believing the trapezium rule always overestimates."
   },
-  "time": 210
+  "time": 210,
+  "family": "integ-09"
+ },
+ {
+  "id": "integ-09b",
+  "topic": "integ",
+  "paper": 2,
+  "difficulty": 4,
+  "skills": [
+   "trapezium rule",
+   "concavity"
+  ],
+  "stem": "The trapezium rule with 2 strips of equal width is used to estimate $\\int_{-1}^{1} g(x)\\,dx$.\n\nFor which of the following functions is the estimate an **underestimate**?\n\nI. $g(x) = 1 - x^2$\n\nII. $g(x) = x^3$\n\nIII. $g(x) = \\sqrt{x + 1}$",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 5,
+  "solution": "A concave curve ($g'' < 0$, n-shaped) lies above its chords, so the trapezium rule underestimates.\n\n**I** Concave ($g'' = -2$): the rule gives $\\frac12(0 + 2 + 0) = 1$, while the exact value is $\\frac43$. Underestimate. True.\n\n**II** $x^3$ is odd and the strips are symmetric about $0$: the rule gives $\\frac12(-1 + 0 + 1) = 0$, which is exact. Not an underestimate. False.\n\n**III** $\\sqrt{x+1}$ is concave: the rule gives $\\frac12(0 + 2 + \\sqrt2) = 1 + \\frac{\\sqrt2}{2} \\approx 1.71$, while the exact value is $\\frac23 \\cdot 2^{3/2} \\approx 1.89$. Underestimate. True.",
+  "insight": "Concave means the chords lie under the curve, so the trapezium rule underestimates; symmetric errors on an odd function cancel.",
+  "distractors": {
+   "1": "Not recognising $\\sqrt{x+1}$ as concave on the interval.",
+   "3": "Getting the concavity rule backwards for $1 - x^2$.",
+   "7": "Assuming $x^3$ is concave on the left half so the whole estimate is too small; the two halves cancel exactly."
+  },
+  "time": 210,
+  "family": "integ-09"
  },
  {
   "id": "integ-10",
@@ -269,13 +572,46 @@
    "$16$"
   ],
   "answer": 3,
-  "solution": "$x^3 = 4x \\iff x(x^2 - 4) = 0$, so they meet at $x = -2, 0, 2$: two regions.\n\nOn $(0, 2)$ the line is above: $\\int_0^2 (4x - x^3)\\,dx = 8 - 4 = 4$.\n\nBy the half-turn symmetry (both are odd functions) the region on $(-2, 0)$ also has area $4$.\n\nTotal $= 8$.",
-  "insight": "Where two curves cross more than twice, the top and bottom swap; exploit symmetry rather than integrating across the crossing.",
+  "solution": "$x^3 = 4x \\iff x(x^2 - 4) = 0$, so they meet at $x = -2, 0, 2$: two regions.\n\nOn $(0, 2)$ the line is above: $\\int_0^2 (4x - x^3)\\,dx = 8 - 4 = 4$.\n\nBy half-turn symmetry (both are odd functions) the region on $(-2, 0)$ also has area $4$.\n\nTotal $= 8$.",
+  "insight": "Where two curves cross more than twice, the top and bottom swap; use symmetry rather than integrating across the crossing.",
   "distractors": {
    "0": "Computing $\\int_{-2}^2 (4x - x^3)\\,dx$ in one go; the two regions cancel.",
-   "2": "Finding only one of the two regions."
+   "2": "Finding only one of the two regions.",
+   "4": "Integrating $x^3$ as $x^4$ (forgetting to divide by $4$): $8 - 16$ gives a region of size $8$, doubled to $16$.",
+   "1": "Finding one region and then halving it, as if the two regions shared the area $4$."
   },
-  "time": 150
+  "time": 150,
+  "family": "integ-10"
+ },
+ {
+  "id": "integ-10b",
+  "topic": "integ",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "area between curves",
+   "signed area"
+  ],
+  "stem": "Find the total area of the regions enclosed between the curves $y = x^3$ and $y = x^2 + 2x$.",
+  "figure": null,
+  "options": [
+   "$\\frac{9}{4}$",
+   "$\\frac{8}{3}$",
+   "$\\frac{37}{12}$",
+   "$\\frac{15}{4}$",
+   "$\\frac{37}{6}$"
+  ],
+  "answer": 2,
+  "solution": "$x^3 = x^2 + 2x \\iff x(x - 2)(x + 1) = 0$: they meet at $x = -1, 0, 2$.\n\nLet $D = x^3 - x^2 - 2x$ and $F(x) = \\frac{x^4}{4} - \\frac{x^3}{3} - x^2$, so $F(-1) = -\\frac{5}{12}$, $F(0) = 0$, $F(2) = -\\frac83$.\n\n* On $(-1, 0)$, $D > 0$ (cubic on top): $\\int_{-1}^0 D = \\frac{5}{12}$.\n* On $(0, 2)$, $D < 0$ (the other curve on top): $\\int_0^2 D = -\\frac83$.\n\nTotal area $= \\frac{5}{12} + \\frac{8}{3} = \\frac{37}{12}$.",
+  "insight": "Split at every crossing point and add the sizes of the pieces; one integral across all of them would subtract one region from the other.",
+  "distractors": {
+   "0": "Integrating across $[-1, 2]$ in one go: $\\left|\\frac{5}{12} - \\frac83\\right| = \\frac94$.",
+   "1": "Finding only the larger region.",
+   "3": "Evaluating $F(-1)$ with a sign slip in the $-\\frac{x^3}{3}$ term, giving $\\frac{13}{12}$ for the left region.",
+   "4": "Doubling the correct total, as if the two regions were mirror images."
+  },
+  "time": 180,
+  "family": "integ-10"
  },
  {
   "id": "integ-11",
@@ -287,7 +623,7 @@
    "negative powers",
    "area"
   ],
-  "stem": "The region bounded by the curve $y = \\dfrac{1}{x^2}$, the $x$-axis and the lines $x = 1$ and $x = k$ has area $\\frac34$, where $k > 0$.\n\nWhat are the possible values of $k$?",
+  "stem": "The region bounded by the curve $y = \\dfrac{1}{x^2}$, the $x$-axis and the lines $x = 1$ and $x = k$, where $k > 0$, has area $\\frac34$.\n\nWhat are the possible values of $k$?",
   "figure": null,
   "options": [
    "$4$ only",
@@ -298,52 +634,337 @@
   ],
   "answer": 3,
   "solution": "$\\int x^{-2}\\,dx = -\\frac1x$.\n\n* If $k > 1$: $\\int_1^k x^{-2}\\,dx = 1 - \\frac1k = \\frac34 \\Rightarrow k = 4$.\n* If $0 < k < 1$: the region runs from $k$ to $1$: $\\int_k^1 x^{-2}\\,dx = \\frac1k - 1 = \\frac34 \\Rightarrow k = \\frac47$.\n\nBoth are valid.",
-  "insight": "\"The region between $x=1$ and $x=k$\" does not say which is larger; always consider the limit on either side.",
+  "insight": "\\\"The region between $x=1$ and $x=k$\\\" does not say which is larger; always consider the limit on either side.",
   "distractors": {
    "0": "Assuming $k > 1$ without checking the case $k < 1$.",
-   "2": "Assuming the other value is $\\frac14$ by symmetry; the curve is not symmetric under $x \\to \\frac1x$."
+   "1": "Considering only $k<1$.",
+   "2": "Assuming the other value is $\\frac14$ by symmetry; the curve is not symmetric under $x \\to \\frac1x$.",
+   "4": "For $k<1$, solving $\\frac1k = \\frac34$ (forgetting the $-1$)."
   },
-  "time": 150
+  "time": 150,
+  "family": "integ-11"
+ },
+ {
+  "id": "integ-11b",
+  "topic": "integ",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "unknown limits",
+   "fractional powers",
+   "area"
+  ],
+  "stem": "The region bounded by the curve $y = \\dfrac{1}{\\sqrt{x}}$, the $x$-axis and the lines $x = 4$ and $x = k$, where $k > 0$, has area $2$.\n\nWhat are the possible values of $k$?",
+  "figure": null,
+  "options": [
+   "$9$ only",
+   "$1$ and $9$",
+   "$\\frac{1}{9}$ and $9$",
+   "$16$ only",
+   "$1$ and $16$"
+  ],
+  "answer": 1,
+  "solution": "$\\int x^{-1/2}\\,dx = 2\\sqrt{x}$.\n\n* If $k > 4$: $2\\sqrt k - 4 = 2 \\Rightarrow \\sqrt k = 3 \\Rightarrow k = 9$.\n* If $0 < k < 4$: $4 - 2\\sqrt k = 2 \\Rightarrow \\sqrt k = 1 \\Rightarrow k = 1$.\n\nBoth are valid.",
+  "insight": "An area between $x = a$ and $x = k$ allows $k$ on either side of $a$; solve both cases.",
+  "distractors": {
+   "0": "Assuming $k > 4$ without checking the case $k < 4$.",
+   "2": "Assuming the other value is the reciprocal of $9$ by symmetry.",
+   "3": "Integrating $x^{-1/2}$ as $\\sqrt x$ (forgetting to divide by $\\frac12$): $\\sqrt k - 2 = 2$, and the case $k<4$ then gives $k = 0$, which is rejected."
+  },
+  "time": 150,
+  "family": "integ-11"
  },
  {
   "id": "integ-12",
   "topic": "integ",
   "paper": 1,
-  "difficulty": 3,
+  "difficulty": 5,
   "skills": [
-   "area between curves",
+   "trapezium rule",
+   "concavity",
    "parameters"
   ],
-  "stem": "The finite region enclosed by the curve $y = x^2$ and the line $y = kx$, where $k > 0$, has area $36$.\n\nFind $k$.",
+  "stem": "The trapezium rule with 2 strips of equal width is used to estimate\n$$\\int_0^2 \\left(x^3 + kx^2\\right)dx,$$\nwhere $k$ is a constant.\n\nWhat is the complete set of values of $k$ for which the estimate is an **overestimate**?",
   "figure": null,
   "options": [
-   "$3$",
-   "$\\sqrt[3]{36}$",
-   "$\\sqrt[3]{72}$",
-   "$\\sqrt[3]{108}$",
-   "$6$"
+   "$k \\ge 0$",
+   "$k > -3$",
+   "$k > -6$",
+   "$k < -3$",
+   "$k > 0$"
   ],
-  "answer": 4,
-  "solution": "They meet at $x = 0$ and $x = k$, with the line above the curve between them.\n$$\\int_0^k (kx - x^2)\\,dx = \\frac{k^3}{2} - \\frac{k^3}{3} = \\frac{k^3}{6}.$$\n$\\frac{k^3}{6} = 36 \\Rightarrow k^3 = 216 \\Rightarrow k = 6$.",
-  "insight": "Parabola-and-chord areas are $\\frac{(\\text{difference of roots})^3}{6}$ times the leading coefficient; worth knowing for speed.",
+  "answer": 1,
+  "solution": "Concavity only gives a sufficient condition here ($g'' = 6x + 2k$ is $\\ge 0$ on $[0,2]$ when $k \\ge 0$, and $\\le 0$ when $k \\le -6$, but for $-6 < k < 0$ it changes sign). So compute.\n\nExact: $\\int_0^2 (x^3 + kx^2)\\,dx = 4 + \\frac{8k}{3}$.\n\nTrapezium rule ($h = 1$): $\\frac12\\big(g(0) + 2g(1) + g(2)\\big) = \\frac12\\big(0 + 2(1 + k) + (8 + 4k)\\big) = 5 + 3k$.\n\nEstimate $-$ exact $= 1 + \\frac{k}{3}$, which is positive exactly when $k > -3$.",
+  "insight": "Convexity guarantees an overestimate but is not necessary; when the concavity changes inside the interval, compute the error.",
   "distractors": {
-   "2": "Using only the area under the line, $\\frac{k^3}{2} = 36$.",
-   "3": "Using only the area under the curve, $\\frac{k^3}{3} = 36$."
+   "0": "Using convexity on the whole interval ($k \\ge 0$), which is sufficient but not necessary.",
+   "2": "Excluding only the fully concave case $k \\le -6$; in between, the answer depends on the actual errors.",
+   "3": "Reversing the inequality (this is where it underestimates).",
+   "4": "Using convexity with a strict inequality, and still missing $-3 < k \\le 0$."
   },
-  "time": 120
+  "time": 270,
+  "family": "integ-12"
+ },
+ {
+  "id": "integ-12b",
+  "topic": "integ",
+  "paper": 1,
+  "difficulty": 5,
+  "skills": [
+   "trapezium rule",
+   "concavity",
+   "parameters"
+  ],
+  "stem": "The trapezium rule with 2 strips of equal width is used to estimate\n$$\\int_{-1}^{1} \\left(x^4 + kx^2\\right)dx,$$\nwhere $k$ is a constant.\n\nWhat is the complete set of values of $k$ for which the estimate is an **underestimate**?",
+  "figure": null,
+  "options": [
+   "$k \\le -6$",
+   "$k < -\\frac{6}{5}$",
+   "$k < -\\frac{9}{5}$",
+   "$k < 0$",
+   "$k > -\\frac{9}{5}$"
+  ],
+  "answer": 2,
+  "solution": "$g'' = 12x^2 + 2k$: the curve is concave throughout only if $k \\le -6$, and convex throughout if $k \\ge 0$. In between the concavity changes, so compute.\n\nExact: $\\int_{-1}^1 (x^4 + kx^2)\\,dx = \\frac25 + \\frac{2k}{3}$.\n\nTrapezium rule ($h = 1$): $\\frac12\\big(g(-1) + 2g(0) + g(1)\\big) = \\frac12\\big((1 + k) + 0 + (1 + k)\\big) = 1 + k$.\n\nEstimate $-$ exact $= \\frac35 + \\frac{k}{3}$, which is negative exactly when $k < -\\frac95$.",
+  "insight": "Concavity on the whole interval is only a sufficient condition; for the exact range, compare the estimate with the true value.",
+  "distractors": {
+   "0": "Using concavity on the whole interval, which is sufficient but not necessary.",
+   "1": "Computing the exact integral over $[0,1]$ only and comparing it with the full estimate.",
+   "3": "Requiring only that the curve is not convex; that is not enough.",
+   "4": "Reversing the inequality (this is where it overestimates)."
+  },
+  "time": 270,
+  "family": "integ-12"
  },
  {
   "id": "integ-13",
   "topic": "integ",
-  "paper": 2,
-  "difficulty": 3,
+  "paper": 1,
+  "difficulty": 4,
   "skills": [
-   "integral and area",
-   "logic",
-   "continuity"
+   "Fundamental Theorem of Calculus",
+   "integral vs area",
+   "graph",
+   "context"
   ],
-  "stem": "Let $f$ be a continuous function on the interval $[0, 4]$.\n\nWhich of the following statements is/are true?\n\nI. If $\\displaystyle\\int_0^4 f(x)\\,dx = 0$, then $f(x) = 0$ for some $x$ in $[0, 4]$.\n\nII. If $\\displaystyle\\int_0^4 f(x)\\,dx \\ge 0$, then $f(x) \\ge 0$ for all $x$ in $[0, 4]$.\n\nIII. If $\\displaystyle\\int_0^4 f(x)\\,dx > 0$, then $f(x) > 0$ for some $x$ in $[0, 4]$.",
-  "figure": null,
+  "stem": "Water flows into and out of a tank. The graph shows the net rate of flow $r(t)$ litres per minute into the tank for $0 \\le t \\le 6$ minutes (negative values mean water is flowing out). The graph is made of straight line segments joining $(0, 0)$, $(1, 3)$, $(2, 0)$, $(3, -2)$, $(4, -2)$, $(5, 0)$ and $(6, 2)$.\n\nLet $V(x) = \\displaystyle\\int_0^x r(t)\\,dt$ be the change in the volume of water in the tank after $x$ minutes.\n\nWhich of the following statements is/are true?\n\nI. $V$ has a local maximum at $x = 2$.\n\nII. $V(x) = 0$ for exactly two values of $x$ with $0 < x \\le 6$.\n\nIII. The total volume of water that flowed **into** the tank during the 6 minutes is $3$ litres.",
+  "figure": {
+   "plot": {
+    "x": [
+     -0.4,
+     6.4
+    ],
+    "y": [
+     -3,
+     3.6
+    ],
+    "curves": [
+     {
+      "fn": "-5 + 2.5*x - 3*abs(x-1) + 0.5*abs(x-2) + abs(x-3) + abs(x-4)",
+      "domain": [
+       0,
+       6
+      ]
+     }
+    ],
+    "points": [
+     [
+      1,
+      3
+     ],
+     [
+      2,
+      0
+     ],
+     [
+      3,
+      -2
+     ],
+     [
+      4,
+      -2
+     ],
+     [
+      5,
+      0
+     ],
+     [
+      6,
+      2
+     ]
+    ],
+    "labels": [
+     {
+      "at": [
+       1,
+       3
+      ],
+      "text": "(1, 3)"
+     },
+     {
+      "at": [
+       1.7,
+       0
+      ],
+      "text": "2"
+     },
+     {
+      "at": [
+       3,
+       -2
+      ],
+      "text": "(3, -2)"
+     },
+     {
+      "at": [
+       4,
+       -2
+      ],
+      "text": "(4, -2)"
+     },
+     {
+      "at": [
+       4.7,
+       0
+      ],
+      "text": "5"
+     },
+     {
+      "at": [
+       5.2,
+       2
+      ],
+      "text": "(6, 2)"
+     }
+    ],
+    "ticks": true
+   }
+  },
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 4,
+  "solution": "Areas of the pieces (triangles and a rectangle): $[0,2]$: $+3$; $[2,5]$: $-(1 + 2 + 1) = -4$; $[5,6]$: $+1$.\n\nBy the Fundamental Theorem, $V'(x) = r(x)$.\n\n**I** True: $r$ changes from positive to negative at $x = 2$, so $V$ changes from increasing to decreasing.\n\n**II** True: $V$ rises from $0$ to $V(2) = 3$, falls to $V(5) = 3 - 4 = -1$ (crossing $0$ once on the way), then rises to $V(6) = -1 + 1 = 0$. So $V = 0$ once in $(2, 5)$ and again at $x = 6$.\n\n**III** False: water flows in during $(0, 2)$ and $(5, 6)$, a total of $3 + 1 = 4$ litres. (The net change over the 6 minutes is $0$.)",
+  "insight": "$V' = r$, so $V$ turns where the graph of $r$ crosses the axis; and the integral is a net amount, so inflow and outflow must be totalled separately.",
+  "distractors": {
+   "1": "Missing that $V$ returns to $0$ exactly at $x = 6$.",
+   "5": "Counting only the first inflow period for III, and missing the zero at $x=6$.",
+   "7": "Counting only the inflow during the first two minutes.",
+   "6": "Thinking $V$ is greatest where $r$ is greatest ($x = 1$), not where $r$ changes sign."
+  },
+  "time": 300,
+  "family": "integ-13"
+ },
+ {
+  "id": "integ-13b",
+  "topic": "integ",
+  "paper": 1,
+  "difficulty": 4,
+  "skills": [
+   "Fundamental Theorem of Calculus",
+   "integral vs area",
+   "graph"
+  ],
+  "stem": "The graph of $y = f(x)$ for $0 \\le x \\le 6$ is made of straight line segments joining $(0, -2)$, $(1, 0)$, $(2, 2)$, $(3, 2)$, $(4, 0)$ and $(6, -2)$.\n\nLet $G(x) = \\displaystyle\\int_2^x f(t)\\,dt$ for $0 \\le x \\le 6$.\n\nWhich of the following statements is/are true?\n\nI. $G$ has a local minimum at $x = 1$.\n\nII. $G(0) < 0$.\n\nIII. $G(6) > 0$.",
+  "figure": {
+   "plot": {
+    "x": [
+     -0.4,
+     6.4
+    ],
+    "y": [
+     -2.6,
+     2.8
+    ],
+    "curves": [
+     {
+      "fn": "1 + 0.5*x - abs(x-2) - abs(x-3) + 0.5*abs(x-4)",
+      "domain": [
+       0,
+       6
+      ]
+     }
+    ],
+    "points": [
+     [
+      0,
+      -2
+     ],
+     [
+      1,
+      0
+     ],
+     [
+      2,
+      2
+     ],
+     [
+      3,
+      2
+     ],
+     [
+      4,
+      0
+     ],
+     [
+      6,
+      -2
+     ]
+    ],
+    "labels": [
+     {
+      "at": [
+       0,
+       -2
+      ],
+      "text": "(0, -2)"
+     },
+     {
+      "at": [
+       0.75,
+       0
+      ],
+      "text": "1"
+     },
+     {
+      "at": [
+       1.3,
+       2
+      ],
+      "text": "(2, 2)"
+     },
+     {
+      "at": [
+       3,
+       2
+      ],
+      "text": "(3, 2)"
+     },
+     {
+      "at": [
+       4,
+       0
+      ],
+      "text": "4"
+     },
+     {
+      "at": [
+       4.9,
+       -2
+      ],
+      "text": "(6, -2)"
+     }
+    ],
+    "ticks": true
+   }
+  },
   "options": [
    "none of them",
    "I only",
@@ -355,13 +976,16 @@
    "I, II and III"
   ],
   "answer": 5,
-  "solution": "**I** True: if $f$ were never $0$, being continuous it would be always positive or always negative, and then the integral would be non-zero.\n\n**II** False: $f(x) = x - 1$ has $\\int_0^4 f = 8 - 4 = 4 \\ge 0$ but $f(0) = -1$.\n\n**III** True: this is the contrapositive of \"if $f(x) \\le 0$ for all $x$ then $\\int_0^4 f \\le 0$\", which is clear since the curve then lies on or below the axis.",
-  "insight": "An integral is a signed total, so it constrains $f$ only in 'at least somewhere' ways, never 'everywhere' ways.",
+  "solution": "Areas: $[0,1]$: $-1$; $[1,2]$: $+1$; $[2,3]$: $+2$; $[3,4]$: $+1$; $[4,6]$: $-2$.\n\nBy the Fundamental Theorem, $G'(x) = f(x)$.\n\n**I** True: $f$ changes from negative to positive at $x = 1$.\n\n**II** False: $G(0) = \\int_2^0 f = -\\int_0^2 f = -(-1 + 1) = 0$.\n\n**III** True: $G(6) = 2 + 1 - 2 = 1 > 0$.",
+  "insight": "$G(x) = \\int_a^x f$ has $G' = f$; for $x < a$ the limits are reversed, so the signs flip.",
   "distractors": {
-   "7": "Confusing II with its converse: $f \\ge 0$ everywhere implies $\\int f \\ge 0$, not the other way round.",
-   "3": "Doubting I; continuity is exactly what forces a sign change to pass through $0$."
+   "4": "Treating $\\int_2^0 f$ as automatically negative because the limits are reversed, without computing $\\int_0^2 f$.",
+   "1": "Looking only at the negative piece on $[4, 6]$ and concluding that $G(6) < 0$.",
+   "7": "Accepting II without noticing that the two triangles on $[0, 2]$ cancel.",
+   "3": "Thinking $G$ has a maximum where $f$ is zero and rising."
   },
-  "time": 150
+  "time": 300,
+  "family": "integ-13"
  },
  {
   "id": "integ-14",
@@ -370,9 +994,10 @@
   "difficulty": 4,
   "skills": [
    "symmetry",
-   "definite integrals"
+   "definite integrals",
+   "context"
   ],
-  "stem": "A function $f$ satisfies $f(4 - x) = f(x)$ for all $x$. Also $$\\int_0^4 f(x)\\,dx = 10 \\quad\\text{and}\\quad \\int_0^1 f(x)\\,dx = 2.$$\n\nFind $\\displaystyle\\int_1^2 f(x)\\,dx$.",
+  "stem": "During a 4-hour storm, rain falls at a rate of $r(t)$ mm per hour, $t$ hours after the start. The rate is symmetric about the middle of the storm: $r(4 - t) = r(t)$ for $0 \\le t \\le 4$.\n\nIn total $10$ mm of rain falls, that is, $\\displaystyle\\int_0^4 r(t)\\,dt = 10$, and $2$ mm falls in the first hour, $\\displaystyle\\int_0^1 r(t)\\,dt = 2$.\n\nHow much rain, in mm, falls in the second hour, $1 \\le t \\le 2$?",
   "figure": null,
   "options": [
    "$1$",
@@ -382,19 +1007,51 @@
    "$8$"
   ],
   "answer": 2,
-  "solution": "$f(4 - x) = f(x)$ means the graph is symmetric in the line $x = 2$, so $\\int_0^2 f = \\int_2^4 f = \\frac{10}{2} = 5$.\n\nThen $\\int_1^2 f = \\int_0^2 f - \\int_0^1 f = 5 - 2 = 3$.",
-  "insight": "Translate a functional equation into a geometric symmetry of the graph, then split the area accordingly.",
+  "solution": "$r(4 - t) = r(t)$ means the graph is symmetric in the line $t = 2$, so $\\int_0^2 r = \\int_2^4 r = \\frac{10}{2} = 5$.\n\nThen $\\int_1^2 r = \\int_0^2 r - \\int_0^1 r = 5 - 2 = 3$ mm.",
+  "insight": "Translate the functional equation into a symmetry of the graph, then split the area accordingly.",
   "distractors": {
-   "4": "Computing $10 - 2$ without using the symmetry (that is $\\int_1^4 f$).",
-   "3": "Stopping at $\\int_0^2 f = 5$."
+   "4": "Computing $10 - 2$, which is the rain in the last three hours, $\\int_1^4 r$.",
+   "3": "Stopping at $\\int_0^2 r = 5$.",
+   "1": "Assuming each hour gets the same amount as the first."
   },
-  "time": 180
+  "time": 180,
+  "family": "integ-14"
+ },
+ {
+  "id": "integ-14b",
+  "topic": "integ",
+  "paper": 1,
+  "difficulty": 4,
+  "skills": [
+   "symmetry",
+   "definite integrals"
+  ],
+  "stem": "A function $f$ satisfies $f(4 - x) = 6 - f(x)$ for all real $x$, and $$\\int_0^1 f(x)\\,dx = 1.$$\n\nWhat is $\\displaystyle\\int_3^4 f(x)\\,dx$?",
+  "figure": null,
+  "options": [
+   "$-1$",
+   "$1$",
+   "$3$",
+   "$5$",
+   "$6$"
+  ],
+  "answer": 3,
+  "solution": "$f(x) + f(4 - x) = 6$ says the graph has half-turn symmetry about the point $(2, 3)$.\n\nThe point $x$ in $[3, 4]$ corresponds to $4 - x$ in $[0, 1]$, so the region under the graph on $[3, 4]$ is the half-turn image of the region between the graph and $y=6$ on $[0, 1]$:\n$$\\int_3^4 f(x)\\,dx = \\int_0^1 \\big(6 - f(u)\\big)\\,du = 6 - 1 = 5.$$",
+  "insight": "$f(a - x) = c - f(x)$ is a half-turn symmetry about $\\left(\\frac a2, \\frac c2\\right)$: an area under the graph on one side matches the area above it, up to $y = c$, on the other.",
+  "distractors": {
+   "0": "Reading the condition as $f(4 - x) = -f(x)$, a half-turn about $(2, 0)$.",
+   "1": "Reading the condition as a reflection in $x = 2$, as if $f(4 - x) = f(x)$.",
+   "2": "Using the average value $3$ times the width $1$, ignoring the given integral.",
+   "4": "Forgetting to subtract $\\int_0^1 f = 1$ from the rectangle $6 \\times 1$."
+  },
+  "time": 210,
+  "family": "integ-14"
  },
  {
   "id": "integ-15",
   "topic": "integ",
   "paper": 1,
-  "difficulty": 4,
+  "difficulty": 3,
   "skills": [
    "odd and even functions",
    "definite integrals"
@@ -410,12 +1067,45 @@
   ],
   "answer": 2,
   "solution": "* $f$ even: $\\int_{-2}^2 f = 2 \\times 4 = 8$.\n* $g$ odd: $\\int_{-2}^2 g = 0$.\n* $fg$ is odd, since $f(-x)g(-x) = f(x)\\cdot(-g(x))$: integral $0$.\n* $\\int_{-2}^2 1\\,dx = 4$.\n\nTotal $= 8 + 0 + 0 + 4 = 12$.",
-  "insight": "even $\\times$ odd is odd, so its integral over a symmetric interval vanishes even though you cannot compute it directly.",
+  "insight": "Even $\\times$ odd is odd, so its integral over a symmetric interval vanishes even though you cannot compute it directly.",
   "distractors": {
-   "4": "Treating $g$ as if it were even ($+6$), getting $18$.",
-   "1": "Forgetting the constant term $+1$, which contributes the width of the interval, $4$."
+   "4": "Treating $g$ as if it were even ($+6$).",
+   "1": "Forgetting the constant term $+1$, which contributes the width of the interval, $4$.",
+   "3": "Treating $g$ as even and forgetting the constant: $8 + 6$.",
+   "0": "Thinking both $f$ and $g$ cancel over a symmetric interval, leaving only the constant."
   },
-  "time": 180
+  "time": 180,
+  "family": "integ-15"
+ },
+ {
+  "id": "integ-15b",
+  "topic": "integ",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "odd and even functions",
+   "definite integrals"
+  ],
+  "stem": "The function $f$ is odd and the function $g$ is even. Given that $$\\int_0^3 f(x)\\,dx = 2 \\quad\\text{and}\\quad \\int_0^3 g(x)\\,dx = 5,$$ find $$\\int_{-3}^{0} \\big(f(x) + 2g(x) + 1\\big)\\,dx.$$",
+  "figure": null,
+  "options": [
+   "$8$",
+   "$11$",
+   "$14$",
+   "$15$",
+   "$21$"
+  ],
+  "answer": 1,
+  "solution": "* $f$ odd: $\\int_{-3}^0 f = -\\int_0^3 f = -2$.\n* $g$ even: $\\int_{-3}^0 g = \\int_0^3 g = 5$, so $\\int_{-3}^0 2g = 10$.\n* $\\int_{-3}^0 1\\,dx = 3$.\n\nTotal $= -2 + 10 + 3 = 11$.",
+  "insight": "On $[-a, 0]$ an even function has the same integral as on $[0, a]$ and an odd function has minus it.",
+  "distractors": {
+   "0": "Forgetting the constant term.",
+   "2": "Using width $6$ for the constant, as if integrating over $[-3, 3]$.",
+   "3": "Taking $\\int_{-3}^0 f = +2$, treating $f$ as even.",
+   "4": "Doubling $g$'s integral as if over $[-3, 3]$: $-2 + 20 + 3$."
+  },
+  "time": 180,
+  "family": "integ-15"
  },
  {
   "id": "integ-16",
@@ -424,10 +1114,11 @@
   "difficulty": 4,
   "skills": [
    "integral as a function",
-   "signed area",
-   "stationary points"
+   "Fundamental Theorem of Calculus",
+   "integral vs area",
+   "context"
   ],
-  "stem": "For $a > 0$, let $$F(a) = \\int_0^a (x^2 - 4x + 3)\\,dx.$$\n\nWhich of the following statements is/are true?\n\nI. $F(a) \\ge 0$ for all $a > 0$.\n\nII. $F$ has a local maximum at $a = 1$.\n\nIII. The area of the region between the curve $y = x^2 - 4x + 3$, the $x$-axis and the lines $x=0$ and $x=3$ is $F(3)$.",
+  "stem": "Water flows into a tank at a net rate of $r(t) = t^2 - 4t + 3$ litres per minute, $t$ minutes after a valve is opened (a negative rate means water drains out). For $a > 0$, let\n$$V(a) = \\int_0^a r(t)\\,dt,$$\nthe change in the volume of water after $a$ minutes.\n\nWhich of the following statements is/are true?\n\nI. $V(a) \\ge 0$ for all $a > 0$.\n\nII. $V$ has a local maximum at $a = 1$.\n\nIII. During $0 \\le t \\le 3$, the total volume of water that flowed in plus the total volume that drained out equals $V(3)$.",
   "figure": null,
   "options": [
    "none of them",
@@ -440,13 +1131,50 @@
    "I, II and III"
   ],
   "answer": 4,
-  "solution": "$F(a) = \\frac{a^3}{3} - 2a^2 + 3a = \\frac{a(a-3)^2}{3}$.\n\n**I** True: $a > 0$ and $(a-3)^2 \\ge 0$.\n\n**II** True: $F'(a) = a^2 - 4a + 3 = (a-1)(a-3)$ changes from positive to negative at $a = 1$.\n\n**III** False: $F(3) = 0$, but the curve is below the axis on $(1, 3)$, so the area is $\\frac43 + \\frac43 = \\frac83$, not $0$.",
-  "insight": "The derivative of $\\int_0^a f(x)\\,dx$ with respect to $a$ is $f(a)$, so $F$ turns exactly where the curve crosses the axis.",
+  "solution": "$V(a) = \\frac{a^3}{3} - 2a^2 + 3a = \\frac{a(a-3)^2}{3}$.\n\n**I** True: $a > 0$ and $(a-3)^2 \\ge 0$.\n\n**II** True: $V'(a) = r(a) = (a-1)(a-3)$ changes from positive to negative at $a = 1$.\n\n**III** False: $V(3) = 0$ is the net change. Water flows in during $(0,1)$ (amount $\\frac43$) and drains out during $(1,3)$ (amount $\\frac43$), so the total in plus out is $\\frac83$.",
+  "insight": "$V'(a) = r(a)$, so $V$ turns where the rate changes sign; and an integral is a net amount, not a total of amounts in and out.",
   "distractors": {
-   "7": "Equating the integral with the area even though the curve dips below the axis.",
-   "0": "Thinking $F$ must go negative once the curve goes below the axis; it decreases, but only back down to $0$."
+   "7": "Equating the integral with the total amount (the area) even though the rate goes negative.",
+   "0": "Thinking $V$ must go negative once water drains out; it decreases, but only back down to $0$.",
+   "1": "Doubting that $V' = r$ gives the turning point at $a=1$.",
+   "6": "Rejecting I because the rate is negative for $1 < t < 3$."
   },
-  "time": 210
+  "time": 210,
+  "family": "integ-16"
+ },
+ {
+  "id": "integ-16b",
+  "topic": "integ",
+  "paper": 2,
+  "difficulty": 4,
+  "skills": [
+   "integral as a function",
+   "Fundamental Theorem of Calculus",
+   "integral vs area"
+  ],
+  "stem": "For $a \\ge -1$, let\n$$F(a) = \\int_{-1}^{a} (x^2 - x - 2)\\,dx.$$\n\nWhich of the following statements is/are true?\n\nI. $F'(0) = -2$.\n\nII. $F$ has a local maximum at $a = 2$.\n\nIII. The area of the region enclosed by the curve $y = x^2 - x - 2$ and the $x$-axis is $-F(2)$.",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 5,
+  "solution": "**I** True: by the Fundamental Theorem, $F'(a) = a^2 - a - 2$, so $F'(0) = -2$.\n\n**II** False: $F'(a) = (a - 2)(a + 1)$ is negative on $(-1, 2)$ and positive after $2$, so $F$ has a local **minimum** at $a = 2$.\n\n**III** True: the curve meets the axis at $x = -1$ and $x = 2$ and is below it in between, so the area is $-\\int_{-1}^2 (x^2 - x - 2)\\,dx = -F(2)$. (Indeed $F(2) = -\\frac92$ and the area is $\\frac{3^3}{6} = \\frac92$.)",
+  "insight": "$F'(a)$ is the integrand evaluated at $a$; and for a region below the axis, the area is minus the integral.",
+  "distractors": {
+   "4": "Reading the turning point as a maximum, and missing that the area is minus the (negative) integral.",
+   "1": "Thinking an area can never equal minus an integral.",
+   "7": "Getting the nature of the turning point wrong: $F'$ goes from negative to positive.",
+   "3": "Not applying the Fundamental Theorem directly in I, e.g. integrating instead of evaluating the integrand."
+  },
+  "time": 210,
+  "family": "integ-16"
  },
  {
   "id": "integ-17",
@@ -471,9 +1199,42 @@
   "insight": "Subtracting a line from a parabola leaves another parabola, so the parabola-and-chord formula $\\frac{(\\text{width})^3}{6}$ does the work.",
   "distractors": {
    "3": "Setting the upper piece equal to $\\frac13$ instead of half of $\\frac43$.",
-   "4": "Guessing that the line through the vertex $(1,1)$ halves the area; it does not."
+   "4": "Guessing that the line through the vertex $(1,1)$ halves the area; it does not.",
+   "1": "Assuming the area scales with the square of the width rather than the cube.",
+   "2": "Setting $k$ equal to the half-area value $\\frac23$."
   },
-  "time": 270
+  "time": 270,
+  "family": "integ-17"
+ },
+ {
+  "id": "integ-17b",
+  "topic": "integ",
+  "paper": 1,
+  "difficulty": 5,
+  "skills": [
+   "area between curves",
+   "parameters"
+  ],
+  "stem": "The horizontal line $y = c$, where $0 < c < 4$, divides the region bounded by the curve $y = 4 - x^2$ and the $x$-axis into two parts of equal area.\n\nFind $c$.",
+  "figure": null,
+  "options": [
+   "$4 - 2\\sqrt[3]{4}$",
+   "$4 - 2\\sqrt{2}$",
+   "$4 - 2\\sqrt[3]{2}$",
+   "$2$",
+   "$4 - \\sqrt[3]{4}$"
+  ],
+  "answer": 2,
+  "solution": "Whole region: the parabola meets the axis at $x = \\pm 2$, so its area is $\\frac{4^3}{6} = \\frac{32}{3}$.\n\nThe line $y = c$ meets the curve at $x = \\pm\\sqrt{4 - c}$, so the cap above the line is a parabola-and-chord region of width $2\\sqrt{4 - c}$:\n$$\\text{cap} = \\frac{\\left(2\\sqrt{4-c}\\right)^3}{6} = \\frac43 (4 - c)^{3/2}.$$\n\nSet this equal to $\\frac{16}{3}$: $(4 - c)^{3/2} = 4$, so $4 - c = 4^{2/3} = 2\\sqrt[3]{2}$ and $c = 4 - 2\\sqrt[3]{2}$.",
+  "insight": "Every cap of a parabola $y = a - x^2$ is a parabola-and-chord region, so its area is $\\frac{(\\text{width})^3}{6}$.",
+  "distractors": {
+   "0": "Taking the cap area to scale with $(4 - c)^3$ instead of $(4 - c)^{3/2}$.",
+   "1": "Taking the cap area to scale with $(4-c)^2$, like similar triangles.",
+   "3": "Halving the height; the cap is much narrower near the top, so it must be deeper.",
+   "4": "Setting the cap equal to a quarter of the whole region."
+  },
+  "time": 270,
+  "family": "integ-17"
  },
  {
   "id": "integ-18",
@@ -499,8 +1260,40 @@
   "insight": "A horizontal shift of the graph moves the interval of integration, so a functional equation relating $f(x+1)$ to $f(x)$ relates neighbouring areas.",
   "distractors": {
    "4": "Writing $f(x) = f(x-1) + 2x$ instead of $f(x-1) + 2(x-1)$, giving $2 + 5 + 10$.",
-   "0": "Adding $1$ to the area each step ($2 + 3 + 4$), forgetting that $\\int 2u$ changes with the interval."
+   "0": "Adding $1$ to the area each step ($2 + 3 + 4$), forgetting that $\\int 2u$ changes with the interval.",
+   "2": "Treating $2x$ as the constant $2$: each interval adds $2$ ($2 + 4 + 6$)."
   },
-  "time": 270
+  "time": 270,
+  "family": "integ-18"
+ },
+ {
+  "id": "integ-18b",
+  "topic": "integ",
+  "paper": 1,
+  "difficulty": 5,
+  "skills": [
+   "functional equations",
+   "transformations",
+   "definite integrals"
+  ],
+  "stem": "A function $f$ satisfies $f(x + 2) = f(x) + x$ for all real $x$, and $$\\int_0^2 f(x)\\,dx = 5.$$\n\nFind $\\displaystyle\\int_0^6 f(x)\\,dx$.",
+  "figure": null,
+  "options": [
+   "$20$",
+   "$21$",
+   "$25$",
+   "$33$",
+   "$37$"
+  ],
+  "answer": 2,
+  "solution": "Shift each interval of length $2$ back by $2$ with $x = u + 2$:\n$$\\int_2^4 f(x)\\,dx = \\int_0^2 f(u+2)\\,du = \\int_0^2 \\big(f(u) + u\\big)\\,du = 5 + 2 = 7,$$\n$$\\int_4^6 f(x)\\,dx = \\int_2^4 f(u+2)\\,du = \\int_2^4 \\big(f(u) + u\\big)\\,du = 7 + 6 = 13.$$\nTotal: $5 + 7 + 13 = 25$.\n\nCheck: $f(x) = \\frac{x^2}{4} - \\frac{x}{2} + \\frac83$ satisfies both conditions and $\\int_0^6 f = 25$.",
+  "insight": "Relate each block of area to the previous one by shifting the graph; the extra term must be integrated over the shifted interval.",
+  "distractors": {
+   "0": "Adding only the two later blocks, $7 + 13$, and leaving out $[0, 2]$.",
+   "1": "Adding the same extra $2$ each time ($5 + 7 + 9$), forgetting that $\\int u$ changes with the interval.",
+   "4": "Writing $f(x) = f(x - 2) + x$ instead of $f(x-2) + (x - 2)$, giving $5 + 11 + 21$."
+  },
+  "time": 270,
+  "family": "integ-18"
  }
 ]

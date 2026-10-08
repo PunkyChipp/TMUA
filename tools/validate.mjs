@@ -35,6 +35,7 @@ function checkPlot(id, where, p) {
 const qdir = path.join(root, 'content/questions');
 const ids = new Set();
 const pos = {};
+const families = {};
 let count = 0;
 for (const f of fs.readdirSync(qdir).filter(f => f.endsWith('.json')).sort()) {
   const topic = f.replace('.json', '');
@@ -68,7 +69,30 @@ for (const f of fs.readdirSync(qdir).filter(f => f.endsWith('.json')).sort()) {
     if (q.figure?.plot) checkPlot(id, 'figure', q.figure.plot);
     if (q.figure?.svg && !/viewBox/.test(q.figure.svg)) warn(id, 'svg figure without viewBox');
     (pos[topic] ||= []).push(q.answer);
+    // 2026 readiness rules.
+    if (q.difficulty < 2) err(id, 'difficulty 1 is below TMUA level');
+    if (!q.family) warn(id, 'no twin family');
+    else (families[q.family] ||= []).push(q);
+    const visible = [q.stem, ...(q.options || []).filter(o => typeof o === 'string')].join(' ');
+    if (['logic', 'proof', 'errors'].includes(q.topic)) {
+      if (/[∧∨¬∀∃]|\\(land|lor|neg|lnot|forall|exists|wedge|vee)\b/.test(visible)) err(id, 'symbolic logic notation in stem/options (spec: words only)');
+      if (q.topic === 'logic' && /⇒|⟹|⇔|\\(Rightarrow|implies|iff|Leftrightarrow)\b/.test(visible)) warn(id, 'implication symbol in a logic stem/options');
+      if (/truth table/i.test(visible)) err(id, 'formal truth tables are not examined');
+    }
+    if (/change of base/i.test(q.stem + q.solution)) err(id, 'uses the change of base formula (not examined)');
+    const walk = (v, where) => {
+      if (typeof v === 'string') { if (/[\u0000-\u0008\u000b-\u001f\u007f]/.test(v)) err(id, `${where}: control character (a LaTeX backslash was probably eaten, e.g. \\tfrac → TAB)`); }
+      else if (v && typeof v === 'object') for (const k of Object.keys(v)) walk(v[k], `${where}.${k}`);
+    };
+    walk(q, 'q');
+    const roman = /\b(I{1,3}|IV)\b|\((i{1,3}|iv)\)/.test(q.stem);
+    if ((q.options || []).length > 5 && !roman && !q.options.some(o => typeof o === 'object')) warn(id, `${q.options.length} options without a statement list (house rule: 5)`);
   }
+}
+for (const [fam, qs] of Object.entries(families)) {
+  if (qs.length < 2) warn(fam, 'family has no twin');
+  if (qs.length >= 2 && new Set(qs.map(q => q.answer)).size === 1) warn(fam, 'twins share the same answer letter');
+  if (new Set(qs.map(q => q.topic)).size > 1) err(fam, 'twins in different topics');
 }
 const ndir = path.join(root, 'content/notes');
 for (const f of fs.readdirSync(ndir).filter(f => f.endsWith('.md'))) {

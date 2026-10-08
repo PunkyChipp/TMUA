@@ -1,7 +1,7 @@
 import { choices, num, nearFill, poly, signed, F, Frac, gcd, fac } from './helpers.js';
 
 const lastDigit = {
-  id: 'last-digit', topic: 'number', paper: 1, levels: [1, 2], skills: ['powers', 'cycles'],
+  id: 'last-digit', speedOnly: true, topic: 'number', paper: 1, levels: [1, 2], skills: ['powers', 'cycles'],
   name: 'Last digit of a power',
   make(rng, level) {
     const a = rng.pick(level === 1 ? [2, 3, 7] : [3, 7, 8, 13, 17, 27]);
@@ -90,7 +90,7 @@ const discriminant = {
 };
 
 const remainder = {
-  id: 'remainder-thm', topic: 'alg', paper: 1, levels: [1, 3], skills: ['remainder theorem', 'polynomials'],
+  id: 'remainder-thm', speedOnly: true, topic: 'alg', paper: 1, levels: [1, 3], skills: ['remainder theorem', 'polynomials'],
   name: 'Remainder theorem',
   make(rng, level) {
     const a = rng.int(-4, 4), b = rng.int(-6, 6), c = rng.int(-9, 9);
@@ -117,7 +117,7 @@ const remainder = {
 };
 
 const factorK = {
-  id: 'factor-k', topic: 'alg', paper: 1, levels: [2, 3], skills: ['factor theorem', 'polynomials'],
+  id: 'factor-k', speedOnly: true, topic: 'alg', paper: 1, levels: [2, 3], skills: ['factor theorem', 'polynomials'],
   name: 'Factor theorem with an unknown',
   make(rng, level) {
     const r = rng.nonzero(-3, 3);
@@ -142,7 +142,7 @@ const factorK = {
 };
 
 const indices = {
-  id: 'indices-eval', topic: 'alg', paper: 1, levels: [1, 3], skills: ['indices', 'fractional powers'],
+  id: 'indices-eval', speedOnly: true, topic: 'alg', paper: 1, levels: [1, 3], skills: ['indices', 'fractional powers'],
   name: 'Evaluating indices',
   make(rng, level) {
     // Base 2 or 3 powers with fractional exponents.
@@ -226,7 +226,7 @@ const rootsSym = {
 };
 
 const quadIneq = {
-  id: 'quad-ineq', topic: 'alg', paper: 1, levels: [1, 3], skills: ['quadratic inequalities'],
+  id: 'quad-ineq', speedOnly: true, topic: 'alg', paper: 1, levels: [1, 3], skills: ['quadratic inequalities'],
   name: 'Quadratic inequalities',
   make(rng, level) {
     let r1 = rng.int(-6, 5), r2 = rng.int(r1 + 1, 8);

@@ -3,164 +3,357 @@
   "id": "errors-01",
   "topic": "errors",
   "paper": 2,
-  "difficulty": 1,
+  "difficulty": 2,
   "skills": [
-   "division by zero"
+   "division by zero",
+   "cancelling"
   ],
-  "stem": "Here is a 'proof' that $2=1$. Let $a$ and $b$ be real numbers with $a=b$.\n\n(I) $\\;a^2=ab$\n\n(II) $\\;a^2-b^2=ab-b^2$\n\n(III) $\\;(a+b)(a-b)=b(a-b)$\n\n(IV) $\\;a+b=b$\n\n(V) $\\;2b=b$\n\n(VI) $\\;2=1$\n\nIn which line does the first error occur?",
+  "stem": "Here is a 'proof' that $2=1$. Let $a$ and $b$ be real numbers with $a=b$ and $b\\ne0$.\n\n(I) $\\;$ Multiplying both sides of $a=b$ by $a$ gives $a^2=ab$, and so $a^2-b^2=ab-b^2$.\n\n(II) $\\;$ Factorising, $(a+b)(a-b)=b(a-b)$.\n\n(III) $\\;$ Cancelling the common factor $a-b$, $\\;a+b=b$.\n\n(IV) $\\;$ Since $a=b$, this gives $2b=b$.\n\n(V) $\\;$ Dividing by $b$, $\\;2=1$.\n\nIn which line does the first error occur?",
   "figure": null,
   "options": [
    "(I)",
    "(II)",
    "(III)",
    "(IV)",
-   "(V)",
-   "(VI)"
+   "(V)"
   ],
-  "answer": 3,
-  "solution": "Lines (I)–(III) are valid: multiply $a=b$ by $a$, subtract $b^2$, factorise.\n\nLine (IV) divides both sides by $a-b$, which is $0$ because $a=b$. Dividing by zero is not allowed, so (IV) does not follow.\n\n(Line (VI) also divides by $b$, which might be $0$, but the first error is in (IV).)",
-  "insight": "Before dividing by an expression, ask whether it could be zero — here it is zero by assumption.",
+  "answer": 2,
+  "solution": "(I) and (II) are correct: subtracting $b^2$ from both sides, then factorising each side.\n\n(III) uses the rule 'if $xy=xz$ then $y=z$' with $x=a-b$. That rule is valid only when $x\\ne0$, and here $a-b=0$. Indeed with $a=b=1$, line (II) reads $2\\times0=1\\times0$ (true) while line (III) reads $2=1$ (false). So (III) is the first error.\n\n(IV) and (V) follow correctly from (III): dividing by $b$ is fine because $b\\ne0$ was given.",
+  "insight": "'If $ab=ac$ then $b=c$' is only valid when $a\\ne0$; cancelling a factor that is zero is division by zero.",
   "distractors": {
-   "5": "(VI) divides by $b$, which is also risky, but an earlier line has already failed.",
-   "2": "The factorisation $a^2-b^2=(a+b)(a-b)$ is correct."
+   "4": "Dividing by $b$ is valid, because $b\\ne0$ was given.",
+   "1": "$(a+b)(a-b)=a^2-b^2$ and $b(a-b)=ab-b^2$: correct factorisations.",
+   "3": "(IV) follows correctly from (III); the error is earlier."
   },
-  "time": 60
+  "time": 120,
+  "family": "errors-01"
+ },
+ {
+  "id": "errors-01b",
+  "topic": "errors",
+  "paper": 2,
+  "difficulty": 2,
+  "skills": [
+   "division by zero",
+   "lost roots"
+  ],
+  "stem": "A student is asked to find all real solutions of $x^3=4x$.\n\n(I) $\\;x^3=4x$\n\n(II) $\\;$ Dividing both sides by $x$, $\\;x^2=4$.\n\n(III) $\\;$ So $x=2$ or $x=-2$.\n\n(IV) $\\;$ Hence the solutions are $x=2$ and $x=-2$.\n\nWhich one of the following best describes the working?",
+  "figure": null,
+  "options": [
+   "The working is correct.",
+   "The first error is in line (II): dividing by $x$ is invalid when $x=0$, and $x=0$ is also a solution.",
+   "The first error is in line (II): dividing by $x$ is invalid when $x=0$, but $x=0$ is not a solution, so the answer is still right.",
+   "The first error is in line (III): $x^2=4$ gives only $x=2$.",
+   "The first error is in line (IV): $x=-2$ does not satisfy the original equation."
+  ],
+  "answer": 1,
+  "solution": "Line (II) divides by $x$, which may be $0$. Correctly: $x^3-4x=x(x-2)(x+2)=0$, so $x=0$, $2$ or $-2$.\n\n$x=0$ satisfies $0=0$, so a solution has been lost. Lines (III) and (IV) are consistent with (II), but (II) is where the reasoning first fails.\n\n$x=-2$ does work: $-8=-8$.",
+  "insight": "Never cancel a factor that might be zero: bring everything to one side and factorise.",
+  "distractors": {
+   "2": "$x=0$ gives $0=0$, so it is a genuine solution.",
+   "3": "$x^2=4$ has two roots, $\\pm2$.",
+   "4": "$(-2)^3=-8=4\\times(-2)$."
+  },
+  "time": 120,
+  "family": "errors-01"
  },
  {
   "id": "errors-02",
   "topic": "errors",
   "paper": 2,
-  "difficulty": 1,
+  "difficulty": 2,
   "skills": [
    "squaring",
    "extraneous roots"
   ],
-  "stem": "A student solves the equation $\\sqrt{x+2}=x$ as follows.\n\n(I) $\\;$ Squaring both sides, $x+2=x^2$.\n\n(II) $\\;$ So $x^2-x-2=0$.\n\n(III) $\\;$ So $(x-2)(x+1)=0$.\n\n(IV) $\\;$ So $x=2$ or $x=-1$.\n\n(V) $\\;$ Therefore the equation has two solutions, $x=2$ and $x=-1$.\n\nIn which line does the first error occur?",
+  "stem": "A student solves the equation $x-1=\\sqrt{x+5}$ as follows.\n\n(I) $\\;$ Squaring both sides, $x^2-2x+1=x+5$.\n\n(II) $\\;$ So $x^2-3x-4=0$.\n\n(III) $\\;$ So $(x-4)(x+1)=0$, giving $x=4$ or $x=-1$.\n\n(IV) $\\;$ Hence the equation $x-1=\\sqrt{x+5}$ has exactly two solutions, $x=4$ and $x=-1$.\n\nIn which line does the first error occur?",
   "figure": null,
   "options": [
    "(I)",
    "(II)",
    "(III)",
    "(IV)",
-   "(V)",
    "There is no error."
   ],
-  "answer": 4,
-  "solution": "Each of (I)–(IV) is a valid consequence: *if* $\\sqrt{x+2}=x$ then $x=2$ or $x=-1$. But squaring is not reversible, so these are only candidates.\n\nCheck: $x=2$ gives $\\sqrt4=2$ ✓; $x=-1$ gives $\\sqrt1=1\\ne-1$ ✗. So line (V), which claims both are solutions, is the first false statement. The only solution is $x=2$.",
-  "insight": "Squaring gives necessary conditions only; candidates must be checked in the original equation.",
+  "answer": 3,
+  "solution": "Squaring is a valid step forwards: any solution of the original equation satisfies (I). Lines (II) and (III) are correct algebra, so the solutions are **among** $4$ and $-1$.\n\nBut squaring cannot be reversed, so the candidates must be checked: $x=4$: $3=\\sqrt9$ ✓. $x=-1$: $-2$ versus $\\sqrt4=2$ ✗. So (IV), which claims both are solutions, is the first error. The only solution is $x=4$.",
+  "insight": "Squaring gives 'if … then …', not 'if and only if': check every candidate in the original equation.",
   "distractors": {
-   "0": "Squaring both sides is a valid implication; the error is in treating it as reversible later.",
-   "5": "$x=-1$ gives $\\sqrt{1}=1\\ne-1$, so it is not a solution."
+   "0": "Squaring both sides is a valid deduction; it just may add extra candidates.",
+   "4": "$x=-1$ gives $-2=\\sqrt4=2$, which is false.",
+   "2": "$(x-4)(x+1)=x^2-3x-4$, so (III) is correct."
   },
-  "time": 75
+  "time": 120,
+  "family": "errors-02"
+ },
+ {
+  "id": "errors-02b",
+  "topic": "errors",
+  "paper": 2,
+  "difficulty": 2,
+  "skills": [
+   "squaring",
+   "extraneous roots"
+  ],
+  "stem": "A student solves the equation $\\sqrt{3x+1}=x-3$ as follows.\n\n(I) $\\;$ Squaring both sides, $3x+1=x^2-6x+9$.\n\n(II) $\\;$ So $x^2-9x+8=0$, that is $(x-1)(x-8)=0$.\n\n(III) $\\;$ Hence the solutions are $x=1$ and $x=8$.\n\nWhich one of the following best describes the working?",
+  "figure": null,
+  "options": [
+   "The working is correct.",
+   "Line (I) is invalid, because squaring both sides of an equation is not allowed; the equation has no solutions.",
+   "Line (II) contains an algebraic error; the solutions are $x=-1$ and $x=-8$.",
+   "Line (III) is wrong: only $x=1$ satisfies the original equation.",
+   "Line (III) is wrong: only $x=8$ satisfies the original equation."
+  ],
+  "answer": 4,
+  "solution": "(I) and (II) are valid deductions: any solution must be $1$ or $8$.\n\nCheck them: $x=1$: $\\sqrt4=2$ but $x-3=-2$ ✗. $x=8$: $\\sqrt{25}=5=8-3$ ✓.\n\nSo (III) wrongly accepts the extraneous root $x=1$, which solves $-\\sqrt{3x+1}=x-3$ instead.",
+  "insight": "A square root is never negative, so any candidate making the other side negative must be rejected.",
+  "distractors": {
+   "0": "$x=1$ gives $2=-2$.",
+   "1": "Squaring is a valid step forwards; it can only add candidates, which you then check.",
+   "3": "At $x=1$ the right side is $-2$, but $\\sqrt4=+2$."
+  },
+  "time": 120,
+  "family": "errors-02"
  },
  {
   "id": "errors-03",
   "topic": "errors",
   "paper": 2,
-  "difficulty": 2,
+  "difficulty": 3,
   "skills": [
    "inequalities",
    "multiplying by a negative"
   ],
-  "stem": "A student solves the inequality $\\frac1x<2$ as follows.\n\n(I) $\\;$ Multiplying both sides by $x$, $1<2x$.\n\n(II) $\\;$ Dividing by $2$, $x>\\frac12$.\n\n(III) $\\;$ So the solution set is $x>\\frac12$.\n\nWhich one of the following best describes the working?",
+  "stem": "A student solves the inequality $\\dfrac{x+3}{x-1}>2$ as follows.\n\n(I) $\\;$ Multiplying both sides by $x-1$, $\\;x+3>2x-2$.\n\n(II) $\\;$ So $x<5$.\n\n(III) $\\;$ So the solution set is $x<5$, $x\\ne1$.\n\nWhich one of the following best describes the working?",
   "figure": null,
   "options": [
    "It is correct.",
-   "It is incorrect: line (I) is invalid because $x$ may be negative; the correct solution set is $x<0$ or $x>\\frac12$.",
-   "It is incorrect: line (I) is invalid because $x$ may be negative; the correct solution set is $0<x<\\frac12$.",
-   "It is incorrect: line (II) should read $x<\\frac12$.",
-   "It is incorrect: line (I) is invalid because $x$ may be negative; the correct solution set is $x<\\frac12$, $x\\neq0$."
+   "Line (I) is invalid because $x-1$ may be negative; the correct solution set is $1<x<5$.",
+   "Line (I) is invalid because $x-1$ may be negative; the correct solution set is $x<1$ or $x>5$.",
+   "Line (II) is wrong: it should read $x>5$.",
+   "Line (I) is invalid because $x-1$ may be negative; the correct solution set is $x>5$."
   ],
   "answer": 1,
-  "solution": "Multiplying an inequality by $x$ keeps its direction only if $x>0$. So (I) is valid only for positive $x$.\n\nCorrect method: $\\frac1x-2<0\\iff\\frac{1-2x}{x}<0$. Critical values $0$ and $\\frac12$: the fraction is negative for $x<0$ and for $x>\\frac12$.\n\nQuick check: $x=-1$ gives $-1<2$, true, so negative $x$ must be in the solution set.",
-  "insight": "Never multiply an inequality by an expression of unknown sign; multiply by $x^2$ or move everything to one side instead.",
+  "solution": "Multiplying by $x-1$ keeps the inequality only if $x-1>0$.\n\n* If $x>1$: $x+3>2x-2$, so $x<5$: this gives $1<x<5$.\n* If $x<1$: the inequality flips: $x+3<2x-2$, so $x>5$, which contradicts $x<1$. No solutions.\n\nSo the solution set is $1<x<5$. (Check $x=0$: $\\frac3{-1}=-3$, not greater than $2$, although the student's answer includes it.)\n\nSafer method: multiply by $(x-1)^2>0$, or rearrange to $\\frac{5-x}{x-1}>0$.",
+  "insight": "Never multiply an inequality by an expression whose sign you do not know; split into cases or multiply by its square.",
   "distractors": {
-   "0": "Test $x=-1$: $\\frac1{-1}=-1<2$, but $-1$ is not in the student's set.",
-   "4": "For $0<x<\\frac12$, $\\frac1x>2$, so these values do not satisfy the inequality."
+   "0": "$x=0$ is in the student's set but gives $-3>2$, which is false.",
+   "2": "The case $x<1$ gives $x>5$, impossible, so $x<1$ contributes nothing.",
+   "3": "From $x+3>2x-2$, line (II) is correct algebra.",
+   "4": "This keeps the impossible case and loses the genuine case $1<x<5$."
   },
-  "time": 120
+  "time": 180,
+  "family": "errors-03"
+ },
+ {
+  "id": "errors-03b",
+  "topic": "errors",
+  "paper": 2,
+  "difficulty": 3,
+  "skills": [
+   "inequalities",
+   "multiplying by a negative"
+  ],
+  "stem": "A student solves the inequality $x-\\dfrac6x>1$ as follows.\n\n(I) $\\;$ Multiplying both sides by $x$, $\\;x^2-6>x$.\n\n(II) $\\;$ So $x^2-x-6>0$.\n\n(III) $\\;$ So $(x-3)(x+2)>0$.\n\n(IV) $\\;$ Hence $x<-2$ or $x>3$.\n\nWhich one of the following best describes the working?",
+  "figure": null,
+  "options": [
+   "It is correct.",
+   "Line (I) is invalid because $x$ may be negative; the correct solution set is $x>3$.",
+   "Line (I) is invalid because $x$ may be negative; the correct solution set is $-2<x<0$ or $x>3$.",
+   "Line (I) is invalid because $x$ may be negative; the correct solution set is $x<-2$ or $0<x<3$.",
+   "The first error is in line (III): the factorisation should be $(x+3)(x-2)$."
+  ],
+  "answer": 2,
+  "solution": "Multiplying by $x$ keeps the direction only for $x>0$.\n\n* $x>0$: $x^2-x-6>0$, so $x>3$ (as $x<-2$ is excluded).\n* $x<0$: the inequality flips: $x^2-x-6<0$, so $-2<x<3$; with $x<0$ this gives $-2<x<0$.\n\nSolution set: $-2<x<0$ or $x>3$. Check $x=-1$: $-1+6=5>1$ ✓ (the student missed it); $x=-3$: $-3+2=-1$, not $>1$ (the student wrongly included it).",
+  "insight": "Split on the sign of the multiplier; the negative case flips the inequality.",
+  "distractors": {
+   "0": "$x=-3$ gives $-1>1$, false, yet the student includes it.",
+   "1": "This drops the negative case, where $-2<x<0$ works (e.g. $x=-1$ gives $5>1$).",
+   "3": "This flips the wrong case.",
+   "4": "$(x-3)(x+2)=x^2-x-6$, so (III) is correct."
+  },
+  "time": 180,
+  "family": "errors-03"
  },
  {
   "id": "errors-04",
   "topic": "errors",
   "paper": 2,
-  "difficulty": 2,
+  "difficulty": 3,
   "skills": [
    "correct proof",
    "divisibility"
   ],
-  "stem": "Claim: for every integer $n$, $n^3-n$ is divisible by $6$.\n\n(I) $\\;n^3-n=(n-1)n(n+1)$.\n\n(II) $\\;$ Among any three consecutive integers, one is divisible by $3$.\n\n(III) $\\;$ Among any two consecutive integers, one is even.\n\n(IV) $\\;$ Hence $(n-1)n(n+1)$ is divisible by $2$ and by $3$.\n\n(V) $\\;$ Since $2$ and $3$ have no common factor, $(n-1)n(n+1)$ is divisible by $6$.\n\nWhich one of the following is true?",
+  "stem": "Claim: for every integer $n$, $n(n+1)(n+2)(n+3)$ is divisible by $24$.\n\n(I) $\\;$ Among $n$, $n+1$, $n+2$, $n+3$ there are exactly two even numbers, and they differ by $2$.\n\n(II) $\\;$ Of two even numbers that differ by $2$, one is a multiple of $4$.\n\n(III) $\\;$ So the product of these two even numbers is divisible by $2\\times4=8$.\n\n(IV) $\\;$ Also one of $n$, $n+1$, $n+2$ is divisible by $3$; since $3$ and $8$ have no common factor, the product is divisible by $24$.\n\nWhich one of the following is true?",
   "figure": null,
   "options": [
-   "The proof is correct.",
    "The first error occurs in line (I).",
    "The first error occurs in line (II).",
    "The first error occurs in line (III).",
    "The first error occurs in line (IV).",
-   "The first error occurs in line (V)."
+   "The proof is correct."
+  ],
+  "answer": 4,
+  "solution": "Check each line.\n\n(I) Four consecutive integers alternate in parity: two even, two apart. ✓\n\n(II) Even numbers $2m$ and $2m+2$: one of $m$, $m+1$ is even, so one of them is a multiple of $4$. ✓\n\n(III) If one is $4s$ and the other is $2t$, their product is $8st$. ✓\n\n(IV) Three consecutive integers contain a multiple of $3$. A number divisible by both $3$ and $8$, which have no common factor, is divisible by $24$. ✓\n\nThe proof is correct.",
+  "insight": "Short proofs can be complete: check each line against the previous ones, and accept the proof if all pass.",
+  "distractors": {
+   "1": "$2m$ and $2m+2=2(m+1)$: one of $m,m+1$ is even, so one is a multiple of $4$.",
+   "2": "$4s\\times2t=8st$; the step is valid.",
+   "3": "Divisible by coprime $3$ and $8$ implies divisible by $24$."
+  },
+  "time": 180,
+  "family": "errors-04"
+ },
+ {
+  "id": "errors-04b",
+  "topic": "errors",
+  "paper": 2,
+  "difficulty": 3,
+  "skills": [
+   "correct proof",
+   "irrationality",
+   "primes"
+  ],
+  "stem": "Claim: $\\sqrt3$ is irrational.\n\n(I) $\\;$ Suppose $\\sqrt3=\\frac pq$, where $p$ and $q$ are positive integers with no common factor.\n\n(II) $\\;$ Then $p^2=3q^2$, so $3$ divides $p^2$.\n\n(III) $\\;$ Since $3$ is prime and $3$ divides $p\\times p$, $3$ divides $p$. Write $p=3r$.\n\n(IV) $\\;$ Then $9r^2=3q^2$, so $q^2=3r^2$; so $3$ divides $q^2$ and hence $q$. This contradicts (I), so $\\sqrt3$ is irrational.\n\nWhich one of the following best describes the proof?",
+  "figure": null,
+  "options": [
+   "The proof is correct.",
+   "The first error is in line (I): we cannot assume that $p$ and $q$ have no common factor.",
+   "The first error is in line (III): $3$ dividing $p^2$ does not imply that $3$ divides $p$.",
+   "The first error is in line (IV): we cannot divide both sides by $3$.",
+   "The first error is in line (IV): $p$ and $q$ having the common factor $3$ is not a contradiction."
   ],
   "answer": 0,
-  "solution": "Every line is valid.\n\n(I) $n^3-n=n(n^2-1)=n(n-1)(n+1)$. (II) and (III) are standard facts about consecutive integers, and $n-1,n,n+1$ contains both three and two consecutive integers. (IV) follows. (V) uses the fact that if coprime $a$ and $b$ both divide $N$ then $ab$ divides $N$.\n\n(Note that (V) would be wrong for non-coprime factors: $4$ and $6$ both divide $12$, but $24$ does not.)",
-  "insight": "A proof can be correct even when the claim looks like it needs checking case by case — look for a structural reason.",
+  "solution": "(I): any positive rational can be written in lowest terms, so this is a legitimate assumption.\n\n(II): squaring $\\sqrt3\\,q=p$. ✓\n\n(III): if a prime divides a product, it divides one of the factors. ✓\n\n(IV): dividing $9r^2=3q^2$ by $3$ is fine; the same prime argument gives $3\\mid q$; then $3$ is a common factor, contradicting (I). ✓\n\nThe proof is correct.",
+  "insight": "'$k$ divides $p^2$ implies $k$ divides $p$' is valid for a prime $k$; that is exactly what makes this proof work.",
   "distractors": {
-   "5": "The coprimality condition is exactly what makes (V) valid.",
-   "2": "$n-1,n,n+1$ are three consecutive integers, so one is a multiple of 3."
+   "1": "Every positive rational can be written in lowest terms, so this assumption is allowed.",
+   "2": "For a prime, dividing $p\\times p$ means dividing $p$; the step is valid.",
+   "4": "(I) said $p$ and $q$ have no common factor, so a common factor $3$ is a contradiction."
   },
-  "time": 120
+  "time": 180,
+  "family": "errors-04"
  },
  {
   "id": "errors-05",
   "topic": "errors",
   "paper": 2,
-  "difficulty": 2,
+  "difficulty": 3,
+  "skills": [
+   "square roots",
+   "lost roots"
+  ],
+  "stem": "A student solves the equation $(2x-1)^2=(x+4)^2$ as follows.\n\n(I) $\\;$ Taking the square root of both sides, $2x-1=x+4$.\n\n(II) $\\;$ So $x=5$.\n\n(III) $\\;$ Hence the equation has exactly one solution, $x=5$.\n\nWhich one of the following best describes the working?",
+  "figure": null,
+  "options": [
+   "It is correct.",
+   "The first error is in line (I): taking square roots of both sides is never valid; the equation has no real solutions.",
+   "The first error is in line (I): only $2x-1=\\pm(x+4)$ follows; the solutions are $x=5$ and $x=1$.",
+   "The first error is in line (I): only $2x-1=\\pm(x+4)$ follows; the solutions are $x=5$ and $x=-1$.",
+   "The first error is in line (III): $x=5$ does not satisfy the original equation, so there are no solutions."
+  ],
+  "answer": 3,
+  "solution": "$A^2=B^2$ means $A=B$ or $A=-B$ (equivalently $|A|=|B|$). Line (I) keeps only one case.\n\nThe other case: $2x-1=-(x+4)$ gives $3x=-3$, so $x=-1$. Check: $(-3)^2=9=3^2$ ✓. And $x=5$: $81=81$ ✓.\n\nSo the solutions are $x=5$ and $x=-1$. (Alternatively, $A^2-B^2=(A-B)(A+B)=(x-5)(3x+3)=0$.)",
+  "insight": "$A^2=B^2$ gives $A=\\pm B$: use difference of two squares so neither root is lost.",
+  "distractors": {
+   "2": "$2x-1=-x-4$ gives $3x=-3$, i.e. $x=-1$, not $1$.",
+   "4": "$x=5$ gives $9^2=9^2$, so it is a solution.",
+   "0": "$x=-1$ also works: $(-3)^2=3^2$.",
+   "1": "Taking square roots is fine as long as both signs are kept."
+  },
+  "time": 180,
+  "family": "errors-05"
+ },
+ {
+  "id": "errors-05b",
+  "topic": "errors",
+  "paper": 2,
+  "difficulty": 3,
   "skills": [
    "square roots",
    "modulus"
   ],
-  "stem": "Claim: for real numbers $x$ and $y$, if $x^2=y^2$ then $x=y$.\n\n(I) $\\;$ Suppose $x^2=y^2$.\n\n(II) $\\;$ Taking the non-negative square root of each side, $\\sqrt{x^2}=\\sqrt{y^2}$.\n\n(III) $\\;$ Since $\\sqrt{x^2}=x$, this gives $x=y$.\n\nWhich one of the following best describes the proof?",
+  "stem": "Claim: for every real number $x$, $\\sqrt{x^2-2x+1}=x-1$.\n\n(I) $\\;x^2-2x+1=(x-1)^2$.\n\n(II) $\\;$ So $\\sqrt{x^2-2x+1}=\\sqrt{(x-1)^2}$.\n\n(III) $\\;$ Since taking a square root undoes squaring, $\\sqrt{(x-1)^2}=x-1$.\n\n(IV) $\\;$ Hence the claim is true for every real $x$.\n\nWhich one of the following best describes the proof?",
   "figure": null,
   "options": [
    "The proof is correct.",
-   "The proof is incorrect: in line (II) it is not valid to take square roots of both sides of an equation.",
-   "The proof is incorrect: in line (III), $\\sqrt{x^2}=|x|$, so only $|x|=|y|$ follows; the claim is false.",
-   "The proof is incorrect: in line (III), $\\sqrt{x^2}=|x|$, so only $|x|=|y|$ follows; the claim is nevertheless true.",
-   "The proof is incorrect: line (I) should assume $x\\ne y$."
+   "The first error is in line (II): it is not valid to take square roots of both sides.",
+   "The first error is in line (III): $\\sqrt{(x-1)^2}=|x-1|$, and the claim is false.",
+   "The first error is in line (III): $\\sqrt{(x-1)^2}=|x-1|$, but the claim is still true.",
+   "The first error is in line (I): the factorisation is wrong."
   ],
   "answer": 2,
-  "solution": "(II) is valid: equal non-negative numbers have equal square roots.\n\n(III) is false: $\\sqrt{x^2}=|x|$, not $x$ (e.g. $\\sqrt{(-3)^2}=3$). So the argument only gives $|x|=|y|$.\n\nThe claim itself is false: $x=1$, $y=-1$ gives $x^2=y^2$ but $x\\ne y$.",
-  "insight": "$\\sqrt{x^2}=|x|$: taking square roots loses the sign.",
+  "solution": "(I) is correct, and (II) just substitutes it.\n\n(III) is wrong: $\\sqrt{\\ }$ means the **non-negative** root, so $\\sqrt{t^2}=|t|$. Here $\\sqrt{(x-1)^2}=|x-1|$, which equals $x-1$ only when $x\\ge1$.\n\nThe claim is false: $x=0$ gives $\\sqrt1=1$ but $x-1=-1$.",
+  "insight": "$\\sqrt{t^2}=|t|$, not $t$; the root symbol always means the non-negative root.",
   "distractors": {
-   "3": "$x=1,y=-1$ is a counterexample, so the claim is false.",
-   "1": "Applying the same function to equal quantities is always valid."
+   "3": "$x=0$: left side $1$, right side $-1$, so the claim fails.",
+   "1": "Applying $\\sqrt{\\ }$ to equal non-negative quantities is valid.",
+   "0": "Test $x=0$: $1\\ne-1$.",
+   "4": "$(x-1)^2=x^2-2x+1$ is correct."
   },
-  "time": 120
+  "time": 180,
+  "family": "errors-05"
  },
  {
   "id": "errors-06",
   "topic": "errors",
   "paper": 2,
-  "difficulty": 2,
+  "difficulty": 3,
   "skills": [
-   "logarithm laws"
+   "trig equations",
+   "sin A = sin B"
   ],
-  "stem": "A student solves $\\log_2x+\\log_2(x-2)=3$ as follows.\n\n(I) $\\;\\log_2\\big(x+(x-2)\\big)=3$\n\n(II) $\\;2x-2=2^3$\n\n(III) $\\;2x=10$\n\n(IV) $\\;x=5$\n\nIn which line does the first error occur?",
+  "stem": "A student is asked to find all solutions of $\\sin2x=\\sin x$ with $0^\\circ\\le x<360^\\circ$.\n\n(I) $\\;$ Since the two sines are equal, the angles are equal: $2x=x$.\n\n(II) $\\;$ So $x=0^\\circ$.\n\n(III) $\\;$ Hence the only solution in the interval is $x=0^\\circ$.\n\nThe first error is in line (I). What is the complete set of solutions?",
   "figure": null,
   "options": [
-   "(I)",
-   "(II)",
-   "(III)",
-   "(IV)",
-   "There is no error."
+   "$0^\\circ$ and $60^\\circ$",
+   "$0^\\circ$ and $180^\\circ$",
+   "$0^\\circ$, $60^\\circ$ and $180^\\circ$",
+   "$0^\\circ$, $60^\\circ$, $120^\\circ$ and $180^\\circ$",
+   "$0^\\circ$, $60^\\circ$, $180^\\circ$ and $300^\\circ$"
   ],
-  "answer": 0,
-  "solution": "The law is $\\log a+\\log b=\\log(ab)$, not $\\log(a+b)$. So (I) is wrong.\n\nCorrectly: $x(x-2)=8\\Rightarrow x^2-2x-8=0\\Rightarrow(x-4)(x+2)=0$. Since $x>2$ is needed for the logs, $x=4$.\n\nCheck the student's answer: $\\log_25+\\log_23=\\log_215\\ne3$.",
-  "insight": "Adding logs multiplies their arguments; there is no rule for the log of a sum.",
+  "answer": 4,
+  "solution": "Line (I) uses 'if $\\sin A=\\sin B$ then $A=B$', which is false: $\\sin A=\\sin B$ also holds when $A=180^\\circ-B$, or when the angles differ by multiples of $360^\\circ$.\n\nCorrectly: $2\\sin x\\cos x-\\sin x=\\sin x(2\\cos x-1)=0$.\n\n* $\\sin x=0$: $x=0^\\circ,180^\\circ$.\n* $\\cos x=\\frac12$: $x=60^\\circ,300^\\circ$.\n\nFour solutions: $0^\\circ,60^\\circ,180^\\circ,300^\\circ$.",
+  "insight": "$\\sin A=\\sin B$ does not give $A=B$; rewrite with identities and factorise instead.",
   "distractors": {
-   "4": "$x=5$ gives $\\log_2 15\\ne3$, so something has gone wrong.",
-   "1": "Given (I), line (II) is a correct step; the error is earlier."
+   "0": "This finds $\\cos x=\\frac12$ at $60^\\circ$ only, missing $180^\\circ$ (from $\\sin x=0$) and $300^\\circ$.",
+   "1": "This forgets the factor $2\\cos x-1=0$.",
+   "2": "$\\cos x=\\frac12$ also at $x=300^\\circ$.",
+   "3": "$\\cos120^\\circ=-\\frac12$, not $\\frac12$."
   },
-  "time": 120
+  "time": 180,
+  "family": "errors-06"
+ },
+ {
+  "id": "errors-06b",
+  "topic": "errors",
+  "paper": 2,
+  "difficulty": 3,
+  "skills": [
+   "sine rule",
+   "ambiguous case",
+   "sin A = sin B"
+  ],
+  "stem": "A surveyor records a triangular plot $ABC$ with angle $A=30^\\circ$, $BC=6$ m and $AC=6\\sqrt3$ m. Her assistant argues as follows.\n\n(I) $\\;$ By the sine rule, $\\dfrac{\\sin B}{AC}=\\dfrac{\\sin A}{BC}$, so $\\sin B=\\dfrac{6\\sqrt3\\times\\frac12}{6}=\\dfrac{\\sqrt3}2$.\n\n(II) $\\;$ Since $\\sin B=\\sin60^\\circ$, $\\;B=60^\\circ$.\n\n(III) $\\;$ Hence $C=180^\\circ-30^\\circ-60^\\circ=90^\\circ$, so the plot must be right-angled.\n\nWhich one of the following best describes the argument?",
+  "figure": null,
+  "options": [
+   "It is correct.",
+   "The first error is in line (I): the sine rule has been used upside down.",
+   "The first error is in line (II): $B$ could also be $120^\\circ$, which gives a second possible triangle, with $C=30^\\circ$; so the plot need not be right-angled.",
+   "The first error is in line (II): $B$ could also be $120^\\circ$, but that gives no valid triangle, so the conclusion is correct.",
+   "The first error is in line (III): the angles give $C=60^\\circ$."
+  ],
+  "answer": 2,
+  "solution": "(I) is correct: $\\frac{\\sin B}{b}=\\frac{\\sin A}{a}$ with $b=AC$ and $a=BC$.\n\n(II) assumes 'if $\\sin B=\\sin60^\\circ$ then $B=60^\\circ$'. But $\\sin120^\\circ=\\frac{\\sqrt3}2$ as well, and $30^\\circ+120^\\circ<180^\\circ$, so $B=120^\\circ$, $C=30^\\circ$ is also possible. That triangle is isosceles with $AB=BC=6$, and it fits the data: $\\frac{6\\sqrt3}{\\sin120^\\circ}=12=\\frac6{\\sin30^\\circ}$.\n\nSo the data do not force a right angle. (This is the ambiguous case of the sine rule.)",
+  "insight": "Whenever you solve $\\sin B=k$ in a triangle, test the obtuse angle $180^\\circ-B$ too.",
+  "distractors": {
+   "3": "$A+B=150^\\circ<180^\\circ$, so $B=120^\\circ$ gives a valid triangle.",
+   "1": "$\\frac{\\sin B}{b}=\\frac{\\sin A}{a}$ is the sine rule; line (I) is fine.",
+   "4": "$180-30-60=90$; line (III) follows from (II).",
+   "0": "$B=120^\\circ$ also fits the measurements."
+  },
+  "time": 180,
+  "family": "errors-06"
  },
  {
   "id": "errors-07",
@@ -181,23 +374,54 @@
    "There is an algebraic error in line (II)."
   ],
   "answer": 2,
-  "solution": "The claim is 'odd $n^2+2n$ $\\Rightarrow$ odd $n$'. The proof assumes $n$ odd and deduces $n^2+2n$ odd: that is the **converse**.\n\nThe claim is nonetheless true: its contrapositive is 'if $n$ is even then $n^2+2n$ is even', and $n=2k$ gives $n^2+2n=4k^2+4k$, even. So the correct proof is different.\n\nThe algebra in (II) and (III) is fine.",
-  "insight": "Check which statement is actually assumed: assuming the conclusion proves the converse.",
+  "solution": "The claim is 'if $n^2+2n$ is odd then $n$ is odd'. The proof assumes $n$ odd and deduces $n^2+2n$ odd: that is the **converse**.\n\nThe claim is nonetheless true: its contrapositive is 'if $n$ is even then $n^2+2n$ is even', and $n=2k$ gives $n^2+2n=4k^2+4k$, which is even. So a correct proof exists, but it is a different one.\n\nThe algebra in (II) and (III) is fine.",
+  "insight": "Check which statement is actually assumed: assuming the conclusion and deducing the hypothesis proves the converse.",
   "distractors": {
    "3": "The contrapositive would assume $n$ even and deduce $n^2+2n$ even.",
-   "1": "The claim is true: even $n$ always makes $n^2+2n=n(n+2)$ even."
+   "1": "The claim is true: even $n$ always makes $n^2+2n=n(n+2)$ even.",
+   "0": "It proves 'if $n$ odd then $n^2+2n$ odd', which is a different statement."
   },
-  "time": 150
+  "time": 180,
+  "family": "errors-07"
+ },
+ {
+  "id": "errors-07b",
+  "topic": "errors",
+  "paper": 2,
+  "difficulty": 3,
+  "skills": [
+   "converse",
+   "counterexample"
+  ],
+  "stem": "Claim: for every integer $n$, if $4$ divides $n^2$ then $4$ divides $n$.\n\n(I) $\\;$ Suppose $4$ divides $n$, so $n=4k$ for some integer $k$.\n\n(II) $\\;$ Then $n^2=16k^2=4(4k^2)$.\n\n(III) $\\;$ So $4$ divides $n^2$.\n\n(IV) $\\;$ Hence the claim is true.\n\nWhich one of the following best describes the proof?",
+  "figure": null,
+  "options": [
+   "The proof is correct.",
+   "The proof establishes the converse of the claim; the claim itself is false.",
+   "The proof establishes the converse of the claim; the claim is true, but this argument does not prove it.",
+   "The proof establishes the contrapositive of the claim, so it is correct.",
+   "There is an algebraic error in line (II)."
+  ],
+  "answer": 1,
+  "solution": "The proof assumes '$4$ divides $n$' and deduces '$4$ divides $n^2$': the **converse** of the claim.\n\nThe claim itself is false: $n=2$ gives $n^2=4$, divisible by $4$, but $4$ does not divide $2$. (The claim is true with the prime $2$ in place of $4$.)",
+  "insight": "Identify the hypothesis and conclusion before reading the proof; then look for a counterexample to the claim itself.",
+  "distractors": {
+   "2": "$n=2$: $4\\mid4$ but $4\\nmid2$, so the claim is false.",
+   "3": "The contrapositive would assume '$4$ does not divide $n$'.",
+   "4": "$(4k)^2=16k^2=4(4k^2)$ is correct."
+  },
+  "time": 180,
+  "family": "errors-07"
  },
  {
   "id": "errors-08",
   "topic": "errors",
   "paper": 2,
-  "difficulty": 3,
+  "difficulty": 4,
   "skills": [
-   "working backwards",
    "circular reasoning",
-   "inequalities"
+   "inequalities",
+   "multiplying by a negative"
   ],
   "stem": "Claim: for every non-zero real number $x$, $x+\\frac1x\\ge2$.\n\n(I) $\\;$ Suppose $x+\\frac1x\\ge2$.\n\n(II) $\\;$ Multiplying by $x$, $x^2+1\\ge2x$.\n\n(III) $\\;$ So $x^2-2x+1\\ge0$.\n\n(IV) $\\;$ That is, $(x-1)^2\\ge0$, which is true.\n\n(V) $\\;$ Hence $x+\\frac1x\\ge2$.\n\nWhich one of the following best describes the proof?",
   "figure": null,
@@ -209,42 +433,108 @@
    "The proof is incorrect because $(x-1)^2\\ge0$ is not true for all $x$."
   ],
   "answer": 3,
-  "solution": "Deducing a true statement from the claim proves nothing: the proof assumes what it is meant to prove.\n\nCould it be repaired by reversing? Going from $x^2+1\\ge2x$ back to $x+\\frac1x\\ge2$ means dividing by $x$, which keeps the direction only if $x>0$.\n\nAnd the claim really fails for negative $x$: $x=-1$ gives $-2<2$. (For $x>0$ the reversed argument is a valid proof.)",
-  "insight": "Working backwards is only a proof if every step reverses, and multiplying an inequality by a variable often doesn't.",
+  "solution": "Deducing a true statement from the claim proves nothing: the argument assumes what it is meant to prove.\n\nCould it be repaired by reversing? Going from $x^2+1\\ge2x$ back to $x+\\frac1x\\ge2$ means dividing by $x$, which keeps the direction only if $x>0$.\n\nAnd the claim really fails for negative $x$: $x=-1$ gives $-2<2$. (For $x>0$ the reversed argument is a valid proof.)",
+  "insight": "Working backwards is only a proof if every step reverses, and multiplying an inequality by a variable often does not.",
   "distractors": {
    "1": "Reversing requires dividing by $x$; for $x<0$ this flips the inequality.",
-   "0": "Test $x=-1$: $-1+\\frac1{-1}=-2<2$."
+   "0": "Test $x=-1$: $-1+\\frac1{-1}=-2<2$.",
+   "2": "$x^2+1\\ge2x$ rearranges correctly to $x^2-2x+1\\ge0$.",
+   "4": "A square is never negative, so (IV) is true."
   },
-  "time": 150
+  "time": 210,
+  "family": "errors-08"
+ },
+ {
+  "id": "errors-08b",
+  "topic": "errors",
+  "paper": 2,
+  "difficulty": 4,
+  "skills": [
+   "circular reasoning",
+   "reversible steps"
+  ],
+  "stem": "Claim: for every real number $x$, $x^4+1\\ge2x^2$.\n\n(I) $\\;$ Suppose $x^4+1\\ge2x^2$.\n\n(II) $\\;$ Then $x^4-2x^2+1\\ge0$.\n\n(III) $\\;$ That is, $(x^2-1)^2\\ge0$, which is true.\n\n(IV) $\\;$ Hence $x^4+1\\ge2x^2$.\n\nWhich one of the following best describes the proof?",
+  "figure": null,
+  "options": [
+   "The proof is correct as written.",
+   "The proof starts from what is to be proved, so as written it is not a proof; but every step is reversible, so reversing them gives a valid proof.",
+   "The proof starts from what is to be proved, and the steps cannot be reversed; the claim is false for $-1<x<1$.",
+   "The algebra in line (III) is wrong: it should be $(x^2+1)^2\\ge0$.",
+   "The proof is incorrect because $(x^2-1)^2\\ge0$ fails for $-1<x<1$."
+  ],
+  "answer": 1,
+  "solution": "As written, the argument assumes the claim and deduces a truth; that proves nothing.\n\nBut each step is reversible: from $(x^2-1)^2\\ge0$, expand to $x^4-2x^2+1\\ge0$, and add $2x^2$ to both sides. Adding the same quantity to both sides is reversible (unlike multiplying by something of unknown sign). So the reversed argument is a valid direct proof, and the claim is true.",
+  "insight": "Assuming the result is not a proof, but if every step is an 'if and only if' the argument can be run forwards.",
+  "distractors": {
+   "0": "Starting from the claim and reaching a truth is not, as written, a proof.",
+   "2": "Every step only adds or subtracts terms, so all steps reverse; e.g. $x=\\frac12$: $\\frac{17}{16}\\ge\\frac12$.",
+   "3": "$(x^2-1)^2=x^4-2x^2+1$, so (III) is correct.",
+   "4": "A square is never negative."
+  },
+  "time": 210,
+  "family": "errors-08"
  },
  {
   "id": "errors-09",
   "topic": "errors",
   "paper": 2,
-  "difficulty": 3,
+  "difficulty": 5,
   "skills": [
-   "index laws",
-   "negative base"
+   "sin A = sin B",
+   "sine rule",
+   "counterexample"
   ],
-  "stem": "Here is a 'proof' that $-2=2$. Throughout, $\\sqrt[3]{x}$ denotes the real cube root of $x$ and, for $x\\ge0$, $\\sqrt[6]{x}$ denotes the non-negative real sixth root of $x$.\n\n(I) $\\;-2=\\sqrt[3]{-8}$\n\n(II) $\\;\\phantom{-2}=\\sqrt[6]{(-8)^2}$\n\n(III) $\\;\\phantom{-2}=\\sqrt[6]{64}$\n\n(IV) $\\;\\phantom{-2}=\\sqrt[6]{2^6}$\n\n(V) $\\;\\phantom{-2}=2$\n\nIn which line does the first error occur?",
+  "stem": "Claim: if the sides and angles of triangle $ABC$ satisfy $a\\cos A=b\\cos B$ (where $a=BC$ and $b=CA$), then the triangle is isosceles.\n\n(I) $\\;$ By the sine rule, $a=k\\sin A$ and $b=k\\sin B$ for some $k>0$.\n\n(II) $\\;$ Substituting, $k\\sin A\\cos A=k\\sin B\\cos B$, so $\\sin A\\cos A=\\sin B\\cos B$.\n\n(III) $\\;$ So $\\sin2A=\\sin2B$.\n\n(IV) $\\;$ So $2A=2B$.\n\n(V) $\\;$ So $A=B$, and the triangle is isosceles.\n\nWhich one of the following best describes the proof?",
   "figure": null,
   "options": [
-   "(I)",
-   "(II)",
-   "(III)",
-   "(IV)",
-   "(V)",
-   "There is no error."
+   "The proof is correct.",
+   "The first error is in line (II): $k$ cannot be cancelled.",
+   "The first error is in line (IV): $2A=180^\\circ-2B$ is also possible, and the claim is false, as the triangle with sides $3$, $4$, $5$ shows.",
+   "The first error is in line (IV): $2A=180^\\circ-2B$ is also possible, but this cannot happen in a triangle, so the claim is true.",
+   "The first error is in line (V): $2A=2B$ gives $A=B$ or $A=180^\\circ-B$."
+  ],
+  "answer": 2,
+  "solution": "(I)–(III) are correct ($k\\ne0$, and $2\\sin\\theta\\cos\\theta=\\sin2\\theta$).\n\n(IV) uses 'if $\\sin X=\\sin Y$ then $X=Y$'. With $0^\\circ<2A,2B<360^\\circ$, $\\sin2A=\\sin2B$ also allows $2A=180^\\circ-2B$, i.e. $A+B=90^\\circ$, $C=90^\\circ$.\n\nThat case really happens: in the $3,4,5$ triangle with $a=3$, $b=4$, $\\cos A=\\frac45$ and $\\cos B=\\frac35$, so $a\\cos A=\\frac{12}5=b\\cos B$, but the triangle is not isosceles. The claim is false: it is 'isosceles **or** right-angled at $C$'.",
+  "insight": "$\\sin X=\\sin Y$ allows $X=180^\\circ-Y$; in a triangle that second branch often gives a genuine extra case.",
+  "distractors": {
+   "3": "$2A+2B=180^\\circ$ just means $C=90^\\circ$, which is perfectly possible (the $3,4,5$ triangle).",
+   "1": "$k>0$, so dividing by $k$ is valid.",
+   "4": "$2A=2B$ does give $A=B$; the error is the step before.",
+   "0": "$a=3,b=4$ (sides $3,4,5$) satisfies $a\\cos A=b\\cos B$ and is not isosceles."
+  },
+  "time": 270,
+  "family": "errors-09"
+ },
+ {
+  "id": "errors-09b",
+  "topic": "errors",
+  "paper": 2,
+  "difficulty": 5,
+  "skills": [
+   "lost roots",
+   "trig identities",
+   "counterexample"
+  ],
+  "stem": "Claim: if the angles of triangle $ABC$ satisfy $\\sin^2A+\\sin^2B=1$, then $C=90^\\circ$.\n\n(I) $\\;\\sin^2A=1-\\sin^2B=\\cos^2B$.\n\n(II) $\\;$ Taking square roots, $\\sin A=\\cos B$.\n\n(III) $\\;$ So $\\sin A=\\sin(90^\\circ-B)$.\n\n(IV) $\\;$ So $A=90^\\circ-B$, and hence $C=90^\\circ$.\n\nWhich one of the following best describes the proof?",
+  "figure": null,
+  "options": [
+   "The proof is correct.",
+   "The first error is in line (II): only $\\sin A=\\cos B$ or $\\sin A=-\\cos B$ follows; the claim is false, for example $A=30^\\circ$, $B=120^\\circ$.",
+   "The first error is in line (II): only $\\sin A=\\cos B$ or $\\sin A=-\\cos B$ follows; but the claim is still true.",
+   "The first error is in line (IV): $A=90^\\circ+B$ is also possible; line (II) is fine because $\\sin A>0$.",
+   "The first error is in line (I): $\\sin^2A+\\sin^2B=1$ does not give $\\sin^2A=\\cos^2B$."
   ],
   "answer": 1,
-  "solution": "(I) is true: $(-2)^3=-8$, so the real cube root of $-8$ is $-2$.\n\n(II) uses the rule $\\sqrt[3]{a}=\\sqrt[6]{a^2}$, which holds only for $a\\ge0$. In general $\\sqrt[6]{a^2}=\\sqrt[3]{|a|}$, because the sixth root is non-negative: squaring first destroys the sign. Here $\\sqrt[3]{-8}=-2$ but $\\sqrt[6]{(-8)^2}=2$, so (II) is false.\n\n(III)–(V) are correct arithmetic: $(-8)^2=64=2^6$, and the non-negative sixth root of $2^6$ is $2$.\n\nThe same trap in index notation is writing $(-8)^{1/3}=\\big((-8)^2\\big)^{1/6}$, i.e. using $(a^m)^n=a^{mn}$ with fractional exponents and a negative base.",
-  "insight": "Rules such as $\\sqrt[n]{a}=\\sqrt[2n]{a^2}$ and $(a^m)^n=a^{mn}$ with fractional exponents need $a\\ge0$: squaring a negative base destroys its sign.",
+  "solution": "(I) is correct, using $\\sin^2B+\\cos^2B=1$.\n\n(II): $\\sin^2A=\\cos^2B$ gives $\\sin A=\\pm\\cos B$. Knowing $\\sin A>0$ does not help, because $\\cos B$ is negative when $B$ is obtuse. So (II) is the first invalid step.\n\nThe claim is false: $A=30^\\circ$, $B=120^\\circ$, $C=30^\\circ$ gives $\\sin^2A+\\sin^2B=\\frac14+\\frac34=1$ with $C\\ne90^\\circ$. (Here $\\sin A=\\frac12=-\\cos B$.)\n\n(IV) is also flawed ($A=90^\\circ+B$ is another branch), but it is not the first error.",
+  "insight": "Square-rooting loses the negative branch; in a triangle, cosines of obtuse angles are negative, so the branch matters.",
   "distractors": {
-   "2": "$(-8)^2=64$, so $\\sqrt[6]{(-8)^2}=\\sqrt[6]{64}$ is correct; the sign was already lost in (II).",
-   "0": "$(-2)^3=-8$, so $-2$ is indeed the real cube root of $-8$.",
-   "4": "$2^6=64$ and $2\\ge0$, so $\\sqrt[6]{2^6}=2$ is correct."
+   "3": "(II) already fails: with $B=120^\\circ$, $\\cos B=-\\frac12$ while $\\sin A>0$.",
+   "2": "$A=30^\\circ,B=120^\\circ$ satisfies the condition with $C=30^\\circ$.",
+   "4": "$1-\\sin^2B=\\cos^2B$, so (I) is correct.",
+   "0": "The counterexample $A=30^\\circ$, $B=120^\\circ$ shows the claim is false."
   },
-  "time": 150
+  "time": 270,
+  "family": "errors-09"
  },
  {
   "id": "errors-10",
@@ -266,48 +556,114 @@
    "The proof is incorrect because the claim is false: take $a=\\sqrt2$, $b=-\\sqrt2$."
   ],
   "answer": 0,
-  "solution": "The claim is $P\\Rightarrow Q$ with $P$: '$a+b$ irrational', $Q$: 'at least one irrational'. The contrapositive is not-$Q\\Rightarrow$ not-$P$: 'both rational $\\Rightarrow$ $a+b$ rational'. That is line (I).\n\n(II)–(IV) are correct algebra, so the proof is correct.\n\nOption E is not a counterexample: $\\sqrt2+(-\\sqrt2)=0$ is rational, so the hypothesis fails.",
-  "insight": "The contrapositive of $P\\Rightarrow Q$ is not-$Q\\Rightarrow$ not-$P$, and proving it proves the original.",
+  "solution": "The claim is 'if $a+b$ is irrational, then $a$ or $b$ is irrational'. Its contrapositive is 'if neither $a$ nor $b$ is irrational (both rational), then $a+b$ is not irrational (rational)'. That is line (I).\n\n(II)–(IV) are correct algebra, so the proof is correct.\n\nOption E is not a counterexample: $\\sqrt2+(-\\sqrt2)=0$ is rational, so the hypothesis fails.",
+  "insight": "The contrapositive of 'if P then Q' is 'if not Q then not P', and proving it proves the original.",
   "distractors": {
    "4": "$a+b=0$ is rational, so the hypothesis '$a+b$ irrational' is not satisfied.",
-   "2": "That statement is the converse, and it is false ($\\sqrt2+(-\\sqrt2)=0$)."
+   "2": "That statement is the converse, and it is false ($\\sqrt2+(-\\sqrt2)=0$).",
+   "1": "The converse would be 'if $a$ or $b$ is irrational then $a+b$ is irrational'.",
+   "3": "$\\frac pq+\\frac rs=\\frac{ps+qr}{qs}$ is correct."
   },
-  "time": 150
+  "time": 180,
+  "family": "errors-10"
+ },
+ {
+  "id": "errors-10b",
+  "topic": "errors",
+  "paper": 2,
+  "difficulty": 3,
+  "skills": [
+   "contrapositive",
+   "correct proof",
+   "parity"
+  ],
+  "stem": "Claim: for all integers $a$ and $b$, if $ab$ is even then $a$ is even or $b$ is even.\n\n(I) $\\;$ We prove the contrapositive: if $a$ and $b$ are both odd, then $ab$ is odd.\n\n(II) $\\;$ Let $a=2m+1$ and $b=2n+1$, where $m$ and $n$ are integers.\n\n(III) $\\;$ Then $ab=4mn+2m+2n+1=2(2mn+m+n)+1$.\n\n(IV) $\\;$ So $ab$ is odd, which proves the claim.\n\nWhich one of the following best describes the proof?",
+  "figure": null,
+  "options": [
+   "The proof is incorrect: line (I) states the converse of the claim, not the contrapositive.",
+   "The proof is incorrect: the contrapositive should be 'if $a$ is odd or $b$ is odd, then $ab$ is odd'.",
+   "The proof is incorrect: the algebra in line (III) is wrong.",
+   "The proof is incorrect because the claim is false: take $a=b=2$.",
+   "The proof is correct."
+  ],
+  "answer": 4,
+  "solution": "The negation of '$a$ is even or $b$ is even' is '$a$ is odd **and** $b$ is odd'; the negation of '$ab$ is even' is '$ab$ is odd'. So the contrapositive is exactly line (I).\n\n(II), (III): $(2m+1)(2n+1)=4mn+2m+2n+1$, which is one more than an even number. ✓\n\nThe proof is correct. ($a=b=2$ is not a counterexample: $a$ is even, so the conclusion holds.)",
+  "insight": "Negating 'A or B' gives 'not A and not B'; with that, the contrapositive is often the easiest route.",
+  "distractors": {
+   "1": "Not ('$a$ even or $b$ even') is '$a$ odd and $b$ odd', not 'or'; and '$a$ odd or $b$ odd implies $ab$ odd' is false.",
+   "3": "With $a=b=2$ the conclusion '$a$ even or $b$ even' is true, so this is no counterexample.",
+   "0": "The converse would be 'if $a$ or $b$ is even then $ab$ is even'.",
+   "2": "$(2m+1)(2n+1)=4mn+2m+2n+1$ is correct."
+  },
+  "time": 180,
+  "family": "errors-10"
  },
  {
   "id": "errors-11",
   "topic": "errors",
   "paper": 2,
-  "difficulty": 3,
+  "difficulty": 4,
   "skills": [
    "correct proof",
    "factorising",
    "inequalities"
   ],
-  "stem": "Claim: $x^4-4x+3\\ge0$ for every real number $x$.\n\n(I) $\\;x^4-4x+3=(x-1)(x^3+x^2+x-3)$.\n\n(II) $\\;\\phantom{x^4-4x+3}=(x-1)^2(x^2+2x+3)$.\n\n(III) $\\;x^2+2x+3=(x+1)^2+2>0$ for every real $x$.\n\n(IV) $\\;(x-1)^2\\ge0$ for every real $x$.\n\n(V) $\\;$ Hence $x^4-4x+3\\ge0$ for every real $x$.\n\nWhich one of the following is true?",
+  "stem": "Claim: $x^4-4x+3\\ge0$ for every real number $x$.\n\n(I) $\\;x^4-4x+3=(x-1)(x^3+x^2+x-3)$.\n\n(II) $\\;x^3+x^2+x-3=(x-1)(x^2+2x+3)$, so $x^4-4x+3=(x-1)^2(x^2+2x+3)$.\n\n(III) $\\;x^2+2x+3=(x+1)^2+2>0$ for every real $x$.\n\n(IV) $\\;$ Since $(x-1)^2\\ge0$ for every real $x$, it follows from (II) and (III) that $x^4-4x+3\\ge0$ for every real $x$.\n\nWhich one of the following is true?",
   "figure": null,
   "options": [
-   "The proof is correct.",
    "The first error occurs in line (I).",
    "The first error occurs in line (II).",
    "The first error occurs in line (III).",
    "The first error occurs in line (IV).",
-   "The first error occurs in line (V)."
+   "The proof is correct."
   ],
-  "answer": 0,
-  "solution": "Check each line.\n\n(I): $x=1$ is a root of $x^4-4x+3$, and $(x-1)(x^3+x^2+x-3)=x^4-4x+3$ on expanding.\n\n(II): $x=1$ is also a root of $x^3+x^2+x-3$, and $(x-1)(x^2+2x+3)=x^3+x^2+x-3$.\n\n(III): completing the square is correct. (IV) is true. (V): a non-negative number times a positive number is non-negative.\n\nSo the proof is correct.",
-  "insight": "Factorising into a square times something always positive is a clean way to prove a polynomial inequality.",
+  "answer": 4,
+  "solution": "(I): $x=1$ is a root of $x^4-4x+3$, and $(x-1)(x^3+x^2+x-3)=x^4+x^3+x^2-3x-x^3-x^2-x+3=x^4-4x+3$. ✓\n\n(II): $x=1$ is a root of the cubic, and $(x-1)(x^2+2x+3)=x^3+x^2+x-3$. ✓\n\n(III): completing the square, $(x+1)^2+2\\ge2>0$. ✓\n\n(IV): a product of a non-negative and a positive number is non-negative. ✓\n\nThe proof is correct (with equality only at $x=1$).",
+  "insight": "When every line survives checking, accept the proof: 'correct' is a common right answer.",
   "distractors": {
-   "2": "Expand $(x-1)(x^2+2x+3)$: it does give $x^3+x^2+x-3$.",
-   "3": "$(x+1)^2+2=x^2+2x+3$, which is at least $2$."
+   "1": "Expanding $(x-1)(x^2+2x+3)$ gives $x^3+x^2+x-3$, as claimed.",
+   "2": "$(x+1)^2+2=x^2+2x+3$ and is at least $2$.",
+   "3": "Non-negative times positive is non-negative."
   },
-  "time": 150
+  "time": 210,
+  "family": "errors-11"
+ },
+ {
+  "id": "errors-11b",
+  "topic": "errors",
+  "paper": 2,
+  "difficulty": 4,
+  "skills": [
+   "factorising",
+   "inequalities",
+   "sign of a factor"
+  ],
+  "stem": "Claim: $x^3-3x+2\\ge0$ for every real number $x$.\n\n(I) $\\;x^3-3x+2=(x-1)(x^2+x-2)$.\n\n(II) $\\;\\phantom{x^3-3x+2}=(x-1)^2(x+2)$.\n\n(III) $\\;(x-1)^2\\ge0$ for every real $x$.\n\n(IV) $\\;$ Hence $x^3-3x+2\\ge0$ for every real $x$.\n\nWhich one of the following is true?",
+  "figure": null,
+  "options": [
+   "The first error occurs in line (I).",
+   "The first error occurs in line (II).",
+   "The first error occurs in line (III).",
+   "The first error occurs in line (IV).",
+   "The proof is correct."
+  ],
+  "answer": 3,
+  "solution": "(I): $(x-1)(x^2+x-2)=x^3+x^2-2x-x^2-x+2=x^3-3x+2$. ✓\n\n(II): $x^2+x-2=(x-1)(x+2)$. ✓\n\n(III) is true.\n\n(IV) needs $x+2\\ge0$ as well, which is not justified. Indeed the claim is false: $x=-3$ gives $-27+9+2=-16<0$. The correct statement is $x^3-3x+2\\ge0$ exactly when $x\\ge-2$.",
+  "insight": "A product is non-negative only if you control the sign of every factor, not just the squared one.",
+  "distractors": {
+   "4": "$x=-3$ gives $-16$, so the claim is false.",
+   "1": "$(x-1)(x+2)=x^2+x-2$, so (II) is correct.",
+   "0": "Expanding gives $x^3-3x+2$, so (I) is correct.",
+   "2": "A square is never negative."
+  },
+  "time": 210,
+  "family": "errors-11"
  },
  {
   "id": "errors-12",
   "topic": "errors",
   "paper": 2,
-  "difficulty": 3,
+  "difficulty": 4,
   "skills": [
    "proof by cases",
    "missing cases",
@@ -323,13 +679,46 @@
    "The proof is incorrect: it only works for positive $n$."
   ],
   "answer": 3,
-  "solution": "(I) is correct: $n^5-n=n(n^4-1)=n(n^2-1)(n^2+1)$.\n\nBut (II)–(IV) cover only three of the five residues mod 5, so (V) is unjustified.\n\nThe missing cases do work, via the factor $n^2+1$: $n=5k+2$ gives $n^2+1=25k^2+20k+5$, and $n=5k+3$ gives $n^2+1=25k^2+30k+10$, both multiples of $5$. So the claim is true, but this proof is incomplete.",
+  "solution": "(I) is correct: $n^5-n=n(n^4-1)=n(n^2-1)(n^2+1)$.\n\nBut (II)–(IV) cover only three of the five possible remainders on division by $5$, so (V) is unjustified.\n\nThe missing cases do work, via the factor $n^2+1$: $n=5k+2$ gives $n^2+1=25k^2+20k+5$, and $n=5k+3$ gives $n^2+1=25k^2+30k+10$, both multiples of $5$. So the claim is true, but this proof is incomplete.",
   "insight": "A proof by cases must cover every case; a true conclusion does not rescue a missing case.",
   "distractors": {
-   "2": "For $n=2$: $32-2=30$, divisible by 5. The missing cases are true, just not proved.",
-   "0": "Residues $2$ and $3$ mod $5$ are never considered."
+   "2": "For $n=2$: $32-2=30$, divisible by $5$. The missing cases are true, just not proved.",
+   "0": "Remainders $2$ and $3$ are never considered.",
+   "1": "$(n-1)n(n+1)(n^2+1)=n(n^2-1)(n^2+1)=n^5-n$.",
+   "4": "Every integer, negative or not, is of one of the forms $5k,\\dots,5k+4$."
   },
-  "time": 150
+  "time": 210,
+  "family": "errors-12"
+ },
+ {
+  "id": "errors-12b",
+  "topic": "errors",
+  "paper": 2,
+  "difficulty": 4,
+  "skills": [
+   "proof by cases",
+   "missing cases",
+   "counterexample"
+  ],
+  "stem": "Claim: for every integer $n$, $n^2+n+1$ is not divisible by $3$.\n\n(I) $\\;$ Every integer $n$ is of the form $3k$, $3k+1$ or $3k+2$ for some integer $k$.\n\n(II) $\\;$ If $n=3k$, then $n^2+n+1=9k^2+3k+1$, which leaves remainder $1$ on division by $3$.\n\n(III) $\\;$ If $n=3k+2$, then $n^2+n+1=9k^2+15k+7$, which leaves remainder $1$ on division by $3$.\n\n(IV) $\\;$ Hence $n^2+n+1$ is never divisible by $3$.\n\nWhich one of the following best describes the proof?",
+  "figure": null,
+  "options": [
+   "The proof is correct.",
+   "The proof is incorrect: the case $n=3k+1$ is missing, and for such $n$, $n^2+n+1$ is divisible by $3$, so the claim is false.",
+   "The proof is incorrect: the case $n=3k+1$ is missing, but the claim is nevertheless true.",
+   "The proof is incorrect: the algebra in line (III) is wrong.",
+   "The proof is incorrect: it only works for positive $n$."
+  ],
+  "answer": 1,
+  "solution": "(I) lists three cases, but only two are dealt with; (IV) does not follow.\n\nThe missing case $n=3k+1$: $n^2+n+1=9k^2+6k+1+3k+1+1=9k^2+9k+3=3(3k^2+3k+1)$, which **is** divisible by $3$. For example $n=1$ gives $3$, and $n=4$ gives $21$.\n\nSo the claim is false. (Lines (II) and (III) are correct: $9k^2+15k+7=3(3k^2+5k+2)+1$.)",
+  "insight": "Check the case that was left out: it may be exactly where the claim fails.",
+  "distractors": {
+   "2": "$n=1$ gives $1+1+1=3$, divisible by $3$.",
+   "3": "$(3k+2)^2+(3k+2)+1=9k^2+15k+7$, which is $3(3k^2+5k+2)+1$.",
+   "0": "The case $n=3k+1$ is never treated, and it is a counterexample."
+  },
+  "time": 210,
+  "family": "errors-12"
  },
  {
   "id": "errors-13",
@@ -350,13 +739,46 @@
    "The first error is in line (VI): $x=3$ is a spurious root, so the equation has no solutions."
   ],
   "answer": 2,
-  "solution": "(I)–(III) are fine. (IV) divides by $\\sqrt{x+1}$, which is $0$ when $x=-1$.\n\nInstead write $u=\\sqrt{x+1}\\ge0$: $u^2=2u\\Rightarrow u(u-2)=0\\Rightarrow u=0$ or $u=2$, so $x=-1$ or $x=3$.\n\nCheck both: $x=-1$: $\\sqrt1-\\sqrt0=1$ ✓. $x=3$: $\\sqrt9-\\sqrt4=1$ ✓. So there are two solutions and (VI) is wrong because of the lost root at (IV).",
+  "solution": "(I)–(III) are fine. (IV) divides by $\\sqrt{x+1}$, which is $0$ when $x=-1$.\n\nInstead write $u=\\sqrt{x+1}\\ge0$: $u^2=2u$ gives $u(u-2)=0$, so $u=0$ or $u=2$, i.e. $x=-1$ or $x=3$.\n\nCheck both: $x=-1$: $\\sqrt1-\\sqrt0=1$ ✓. $x=3$: $\\sqrt9-\\sqrt4=1$ ✓. So there are two solutions, and (VI) is wrong because of the root lost at (IV).",
   "insight": "Factorise rather than divide: $u^2=2u$ has the root $u=0$ as well as $u=2$.",
   "distractors": {
    "1": "$x=3$ does satisfy the equation: $3-2=1$.",
-   "3": "$x=0$ gives $\\sqrt3-1\\ne1$; the lost root is where $\\sqrt{x+1}=0$."
+   "3": "$x=0$ gives $\\sqrt3-1\\ne1$; the lost root is where $\\sqrt{x+1}=0$.",
+   "4": "$x=3$ is a genuine solution.",
+   "0": "$x=-1$ is also a solution: $1-0=1$."
   },
-  "time": 200
+  "time": 210,
+  "family": "errors-13"
+ },
+ {
+  "id": "errors-13b",
+  "topic": "errors",
+  "paper": 2,
+  "difficulty": 4,
+  "skills": [
+   "division by zero",
+   "surd equations"
+  ],
+  "stem": "A student solves $x^2\\sqrt{x+4}=9\\sqrt{x+4}$ as follows.\n\n(I) $\\;$ Dividing both sides by $\\sqrt{x+4}$, $\\;x^2=9$.\n\n(II) $\\;$ So $x=3$ or $x=-3$.\n\n(III) $\\;$ Both values make $x+4$ positive, so both are valid.\n\n(IV) $\\;$ Hence the equation has exactly two solutions.\n\nWhich one of the following best describes the working?",
+  "figure": null,
+  "options": [
+   "It is correct.",
+   "The first error is in line (I): dividing by $\\sqrt{x+4}$ loses the solution $x=-4$, so there are three solutions.",
+   "The first error is in line (II): $x^2=9$ gives only $x=3$.",
+   "The first error is in line (I): dividing by $\\sqrt{x+4}$ loses the solution $x=4$, so there are three solutions.",
+   "The first error is in line (III): $x=-3$ is a spurious root, so there is only one solution."
+  ],
+  "answer": 1,
+  "solution": "(I) divides by $\\sqrt{x+4}$, which is $0$ at $x=-4$. Correctly: $(x^2-9)\\sqrt{x+4}=0$, so $x^2=9$ or $\\sqrt{x+4}=0$.\n\nSolutions: $x=3$, $x=-3$ (where $x+4=1>0$, $9\\times1=9\\times1$ ✓) and $x=-4$ ($0=0$ ✓). Three solutions.",
+  "insight": "Bring everything to one side and factorise; a factor that can be zero gives a solution of its own.",
+  "distractors": {
+   "3": "At $x=4$, $16\\sqrt8\\ne9\\sqrt8$; the lost root is where $\\sqrt{x+4}=0$.",
+   "4": "$x=-3$: $9\\sqrt1=9\\sqrt1$ ✓, a genuine solution.",
+   "2": "$(-3)^2=9$ too.",
+   "0": "$x=-4$ also works: both sides are $0$."
+  },
+  "time": 210,
+  "family": "errors-13"
  },
  {
   "id": "errors-14",
@@ -372,19 +794,53 @@
   "figure": null,
   "options": [
    "The proof is correct.",
-   "The proof is incorrect: line (III) fails, since $12\\mid p^2$ does not imply $12\\mid p$; and in fact $\\sqrt{12}$ is rational.",
-   "The proof is incorrect: line (III) fails, since $12\\mid p^2$ does not imply $12\\mid p$; the claim is true, but this argument does not prove it.",
+   "The proof is incorrect: line (III) fails, since $12$ dividing $p^2$ does not imply $12$ divides $p$; and in fact $\\sqrt{12}$ is rational.",
+   "The proof is incorrect: line (III) fails, since $12$ dividing $p^2$ does not imply $12$ divides $p$; the claim is true, but this argument does not prove it.",
    "The proof is incorrect: line (IV) fails, since you cannot divide both sides by $12$.",
    "The proof is incorrect: line (VI) fails, since having a common factor of $12$ is not a contradiction."
   ],
   "answer": 2,
-  "solution": "'$k\\mid p^2\\Rightarrow k\\mid p$' holds when $k$ is prime (or square-free), but not for $k=12$: $p=6$ gives $12\\mid36$ while $12\\nmid6$. So (III) is invalid, and (V) repeats the error.\n\nThe claim is true: $\\sqrt{12}=2\\sqrt3$, and a valid proof runs the same argument with the prime $3$ (or notes $\\sqrt3$ irrational).\n\n(IV) and (VI) would be fine if (III) were.",
-  "insight": "'$k\\mid p^2\\Rightarrow k\\mid p$' needs $k$ square-free; it fails for $k=12$ because $12=2^2\\cdot3$.",
+  "solution": "'$k$ divides $p^2$, so $k$ divides $p$' holds when $k$ is prime (or more generally has no repeated prime factor), but not for $k=12$: $p=6$ gives $12\\mid36$ while $12\\nmid6$. So (III) is invalid, and (V) repeats the error.\n\nThe claim is true: $\\sqrt{12}=2\\sqrt3$, and a valid proof runs the same argument with the prime $3$ (or notes $\\sqrt3$ is irrational).\n\n(IV) and (VI) would be fine if (III) were.",
+  "insight": "'$k$ divides $p^2$ implies $k$ divides $p$' needs $k$ square-free; it fails for $k=12=2^2\\times3$.",
   "distractors": {
    "0": "$p=6$: $12\\mid36$ but $12\\nmid6$, so line (III) is not a valid step.",
-   "1": "$\\sqrt{12}=2\\sqrt3$ is irrational; the claim is true, just not proved here."
+   "1": "$\\sqrt{12}=2\\sqrt3$ is irrational; the claim is true, just not proved here.",
+   "3": "Dividing $144r^2=12q^2$ by $12$ is a valid step.",
+   "4": "A common factor contradicts the assumption in (I)."
   },
-  "time": 200
+  "time": 270,
+  "family": "errors-14"
+ },
+ {
+  "id": "errors-14b",
+  "topic": "errors",
+  "paper": 2,
+  "difficulty": 4,
+  "skills": [
+   "irrationality",
+   "divisibility",
+   "true conclusion, invalid proof"
+  ],
+  "stem": "Claim: $\\sqrt[3]4$ is irrational.\n\n(I) $\\;$ Suppose $\\sqrt[3]4=\\frac pq$, where $p$ and $q$ are positive integers with no common factor.\n\n(II) $\\;$ Then $p^3=4q^3$, so $4$ divides $p^3$.\n\n(III) $\\;$ Hence $4$ divides $p$.\n\n(IV) $\\;$ Write $p=4r$. Then $64r^3=4q^3$, so $q^3=16r^3$; so $4$ divides $q^3$, and hence $4$ divides $q$.\n\n(V) $\\;$ So $4$ is a common factor of $p$ and $q$: a contradiction.\n\nWhich one of the following best describes the proof?",
+  "figure": null,
+  "options": [
+   "The proof is correct.",
+   "The first error is in line (III), since $4$ dividing $p^3$ does not imply $4$ divides $p$; and in fact $\\sqrt[3]4$ is rational.",
+   "The first error is in line (IV), since you cannot divide both sides by $4$.",
+   "The first error is in line (III), since $4$ dividing $p^3$ does not imply $4$ divides $p$; the claim is true, but this argument does not prove it.",
+   "The first error is in line (V): a common factor of $4$ is not a contradiction, because $4$ is not prime."
+  ],
+  "answer": 3,
+  "solution": "(III) is invalid: $p=2$ gives $p^3=8$, divisible by $4$, but $4\\nmid2$. (IV) repeats the same faulty step.\n\nThe claim is true. A correct proof uses the prime $2$: $p^3=4q^3$ is even, so $p$ is even; $p=2r$ gives $8r^3=4q^3$, so $q^3=2r^3$ is even and $q$ is even; then $2$ is a common factor, a contradiction.",
+  "insight": "Divisibility of a power passes to the base only for primes (or square-free divisors); use the prime $2$ instead of $4$.",
+  "distractors": {
+   "1": "$\\sqrt[3]4$ is irrational (the repaired proof with the prime $2$ shows it); the argument is invalid, not the claim.",
+   "2": "Dividing $64r^3=4q^3$ by $4$ is valid.",
+   "4": "Any common factor greater than $1$ contradicts (I).",
+   "0": "$p=2$: $4\\mid8$ but $4\\nmid2$, so (III) does not follow."
+  },
+  "time": 270,
+  "family": "errors-14"
  },
  {
   "id": "errors-15",
@@ -406,13 +862,47 @@
    "The proof is incorrect: in line (III), $a+b$ need not be non-negative, but the claim is still true."
   ],
   "answer": 3,
-  "solution": "(I) is legitimate: swapping $a$ and $b$ leaves the inequality unchanged.\n\n(II) is correct: $a^3+b^3-ab(a+b)=(a+b)(a^2-ab+b^2-ab)=(a+b)(a-b)^2$.\n\n(III) asserts $a+b\\ge0$ with no justification, and $a\\ge b$ does not imply it. The claim is false: $a=0$, $b=-1$ gives $-1\\ge0$, false. The proof is valid only for $a+b\\ge0$ (e.g. $a,b\\ge0$).",
+  "solution": "(I) is legitimate: swapping $a$ and $b$ leaves the inequality unchanged.\n\n(II) is correct: $a^3+b^3-ab(a+b)=(a+b)(a^2-ab+b^2-ab)=(a+b)(a-b)^2$.\n\n(III) asserts $a+b\\ge0$ with no justification, and $a\\ge b$ does not imply it. The claim is false: $a=0$, $b=-1$ gives $-1\\ge0$, false. The proof is valid only when $a+b\\ge0$ (e.g. $a,b\\ge0$).",
   "insight": "Watch for a step that silently restricts to a special case, such as assuming a quantity is non-negative.",
   "distractors": {
-   "4": "$a=0,b=-1$: LHS $=-1$, RHS $=0$, so the claim fails.",
-   "1": "The expression is symmetric, so assuming $a\\ge b$ is harmless (and not even used)."
+   "4": "$a=0,b=-1$: left side $-1$, right side $0$, so the claim fails.",
+   "1": "The expression is symmetric, so assuming $a\\ge b$ is harmless (and not even used).",
+   "2": "Expanding $(a+b)(a-b)^2$ gives $a^3-a^2b-ab^2+b^3$.",
+   "0": "$a=0$, $b=-1$ is a counterexample."
   },
-  "time": 200
+  "time": 210,
+  "family": "errors-15"
+ },
+ {
+  "id": "errors-15b",
+  "topic": "errors",
+  "paper": 2,
+  "difficulty": 4,
+  "skills": [
+   "without loss of generality",
+   "AM-GM",
+   "counterexample"
+  ],
+  "stem": "Claim: for all real numbers $a$ and $b$ with $ab\\ge0$, $\\dfrac{a+b}2\\ge\\sqrt{ab}$.\n\n(I) $\\;$ Since $ab\\ge0$, $a$ and $b$ are both $\\ge0$ or both $\\le0$. Replacing $a$ and $b$ by $-a$ and $-b$ does not change $ab$, so we may assume $a\\ge0$ and $b\\ge0$.\n\n(II) $\\;$ Then $(\\sqrt a-\\sqrt b)^2\\ge0$, so $a+b-2\\sqrt{ab}\\ge0$.\n\n(III) $\\;$ Hence $\\dfrac{a+b}2\\ge\\sqrt{ab}$.\n\nWhich one of the following best describes the proof?",
+  "figure": null,
+  "options": [
+   "The proof is correct.",
+   "The first error is in line (I): replacing $a,b$ by $-a,-b$ changes $\\frac{a+b}2$, so the assumption loses generality; the claim is false.",
+   "The first error is in line (I): replacing $a,b$ by $-a,-b$ changes $\\frac{a+b}2$, so the assumption loses generality; but the claim is still true.",
+   "The first error is in line (II): $(\\sqrt a-\\sqrt b)^2$ can be negative.",
+   "The first error is in line (II): the expansion of $(\\sqrt a-\\sqrt b)^2$ is wrong."
+  ],
+  "answer": 1,
+  "solution": "'Without loss of generality' is valid only if the change leaves the **whole statement** unchanged. Replacing $a,b$ by $-a,-b$ keeps $\\sqrt{ab}$ but turns $\\frac{a+b}2$ into $-\\frac{a+b}2$. So (I) is invalid.\n\n(II) and (III) are correct for $a,b\\ge0$.\n\nThe claim is false: $a=b=-1$ gives $ab=1\\ge0$ and $\\frac{a+b}2=-1<1=\\sqrt{ab}$.",
+  "insight": "A symmetry may be used only if it maps the whole statement to itself; check every expression, not just the hypothesis.",
+  "distractors": {
+   "2": "$a=b=-1$: $-1<1$, so the claim is false.",
+   "3": "For $a,b\\ge0$ the square of a real number is non-negative.",
+   "4": "$(\\sqrt a-\\sqrt b)^2=a-2\\sqrt{ab}+b$ for $a,b\\ge0$.",
+   "0": "Negative $a,b$ break the claim: $a=b=-1$."
+  },
+  "time": 210,
+  "family": "errors-15"
  },
  {
   "id": "errors-16",
@@ -420,26 +910,65 @@
   "paper": 2,
   "difficulty": 4,
   "skills": [
-   "infinite series",
-   "convergence"
+   "checking examples",
+   "proof by cases",
+   "existence"
   ],
-  "stem": "Here is a 'proof' that $1+2+4+8+\\cdots=-1$.\n\n(I) $\\;$ Let $S=1+2+4+8+\\cdots$.\n\n(II) $\\;$ Then $2S=2+4+8+16+\\cdots$.\n\n(III) $\\;$ So $2S=S-1$.\n\n(IV) $\\;$ Hence $S=-1$.\n\nWhich one of the following best describes the argument?",
+  "stem": "A teacher asks three students each to prove a statement. Their arguments are below.\n\nI $\\;$ Ana, to prove *for every integer $n$, $n^2-n$ is even*: \"For $n=1,2,3,4,5$ we get $0,2,6,12,20$, which are all even. So the statement is true.\"\n\nII $\\;$ Ben, to prove *for every integer $n$, $n^3-n$ is divisible by $3$*: \"$n^3-n=(n-1)n(n+1)$. Every integer is $3k$, $3k+1$ or $3k+2$. If $n=3k$, then $3$ divides $n$; if $n=3k+1$, then $3$ divides $n-1$; if $n=3k+2$, then $3$ divides $n+1=3k+3$. So in every case $3$ divides $n^3-n$.\"\n\nIII $\\;$ Cara, to prove *there is a prime $p$ such that $p+2$ and $p+4$ are also prime*: \"Take $p=3$: then $3$, $5$ and $7$ are all prime.\"\n\nWhich of the students has given a valid proof of their statement?",
   "figure": null,
   "options": [
-   "It is correct, surprising though the result is.",
-   "The first error is in line (I): the series has no finite sum, so $S$ is not a real number and cannot be manipulated with algebra.",
-   "The first error is in line (II): an infinite series cannot be multiplied by $2$.",
-   "The first error is in line (III): it should be $2S=S+1$.",
-   "The first error is in line (IV): $2S=S-1$ does not imply $S=-1$."
+   "None of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
   ],
-  "answer": 1,
-  "solution": "The partial sums are $2^n-1$, which grow without bound, so the series diverges: there is no real number $S$. Line (I) introduces $S$ as if it were a number.\n\nGiven a genuine real $S$, lines (II)–(IV) would all be valid algebra (indeed for $1+\\frac12+\\frac14+\\cdots$ the same method correctly gives $2$).\n\nA sum of positive terms cannot be negative, which is a quick sign that something is wrong.",
-  "insight": "Algebra on an infinite sum is only valid once you know the sum exists.",
+  "answer": 6,
+  "solution": "**I.** Ana's statement is true ($n^2-n=n(n-1)$, a product of consecutive integers), but checking five values does not prove it for **every** integer. Not a valid proof.\n\n**II.** Ben's three cases cover every integer, and each case is correct. Valid.\n\n**III.** Cara's statement says 'there is'; a single example proves an existence statement. Valid.\n\nAnswer: II and III only.",
+  "insight": "Examples cannot prove a 'for every' statement, but one example does prove a 'there exists' statement.",
   "distractors": {
-   "2": "Multiplying a convergent series by 2 is fine; the problem is that this one does not converge.",
-   "4": "If $S$ were a real number, $2S=S-1$ would force $S=-1$."
+   "7": "Ana's examples do not prove a statement about every integer, even though it is true.",
+   "1": "Ana only checks examples; Ben and Cara give valid proofs.",
+   "2": "Cara's single example is enough for an existence statement."
   },
-  "time": 180
+  "time": 210,
+  "family": "errors-16"
+ },
+ {
+  "id": "errors-16b",
+  "topic": "errors",
+  "paper": 2,
+  "difficulty": 4,
+  "skills": [
+   "checking examples",
+   "exhaustion",
+   "counterexample"
+  ],
+  "stem": "Three students each write an argument for a statement.\n\nI $\\;$ Dev, to prove *for every integer $n$ with $1\\le n\\le5$, $2^n\\ge n+1$*: \"$2\\ge2$, $4\\ge3$, $8\\ge4$, $16\\ge5$ and $32\\ge6$. So the statement is true.\"\n\nII $\\;$ Eve, to prove *for every integer $n\\ge5$, $2^n>n^2$*: \"$32>25$, $64>36$, $128>49$, $256>64$, $512>81$ and $1024>100$; the gap keeps growing, so the statement is true.\"\n\nIII $\\;$ Finn, to prove *not every odd integer greater than $1$ is prime*: \"$9$ is odd and greater than $1$, and $9=3\\times3$ is not prime.\"\n\nWhich of the students has given a valid proof of their statement?",
+  "figure": null,
+  "options": [
+   "None of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 5,
+  "solution": "**I.** The statement concerns only five values, and Dev checks all of them: a valid proof by exhaustion.\n\n**II.** Eve's statement is true, but checking $n=5,\\dots,10$ and saying 'the gap keeps growing' does not cover every $n\\ge5$. Not a valid proof (a general argument is needed, e.g. showing $2^{n+1}>(n+1)^2$ follows from $2^n>n^2$ for $n\\ge5$).\n\n**III.** 'Not every … is prime' needs only one counterexample, which Finn gives. Valid.\n\nAnswer: I and III only.",
+  "insight": "Checking every case is a proof when there are finitely many cases; otherwise examples only illustrate.",
+  "distractors": {
+   "7": "Eve's examples do not cover every $n\\ge5$; 'the gap keeps growing' is unproved.",
+   "3": "Dev checks every case of a finite statement, which is a complete proof.",
+   "1": "Finn's single counterexample proves a 'not every' statement."
+  },
+  "time": 210,
+  "family": "errors-16"
  },
  {
   "id": "errors-17",
@@ -455,19 +984,52 @@
   "figure": null,
   "options": [
    "The proof is correct.",
-   "The proof is incorrect: the deduction in line (IV) is invalid, since for example $2\\cdot3\\cdot5\\cdot7\\cdot11\\cdot13+1=30031=59\\times509$ is not prime.",
+   "The proof is incorrect: the deduction in line (IV) is invalid, since for example $2\\times3\\times5\\times7\\times11\\times13+1=30031=59\\times509$ is not prime.",
    "The proof is incorrect: line (III) does not follow, as some $p_i$ might divide $N$.",
    "The proof is incorrect: in line (V), $N$ might equal one of the $p_i$.",
    "The proof is incorrect: it only shows that $N$ is prime for the first few values of $n$."
   ],
   "answer": 0,
-  "solution": "Each line follows from the assumption (I) and earlier lines.\n\n(III): $N\\equiv1\\pmod{p_i}$. (IV): under assumption (I) the $p_i$ are *all* the primes, so by (III) no prime less than $N$ divides $N$; an integer greater than $1$ with no smaller prime divisor is prime. (V): $N>p_i$ for every $i$, so $N$ is not in the list, contradicting (I).\n\nThe example $30031=59\\times509$ does not contradict (IV): there $2,\\dots,13$ are *not* all the primes, so the premise of (IV) does not hold. Inside a proof by contradiction, (IV) is deduced from (I), and that is legitimate.",
+  "solution": "Each line follows from the assumption (I) and earlier lines.\n\n(III): $p_i$ divides $N-1$, so the remainder is $1$. (IV): under assumption (I) the $p_i$ are **all** the primes, so by (III) no prime less than $N$ divides $N$; an integer greater than $1$ with no smaller prime divisor is prime. (V): $N>p_i$ for every $i$, so $N$ is not in the list, contradicting (I).\n\nThe example $30031=59\\times509$ does not contradict (IV): there $2,\\dots,13$ are **not** all the primes, so the premise of (IV) does not hold. Inside a proof by contradiction, (IV) is deduced from (I), and that is legitimate.",
   "insight": "In a proof by contradiction, judge each line by whether it follows from the assumption, not by whether it is true in reality.",
   "distractors": {
    "1": "$30031$ is composite, but (IV) relies on the assumption that $p_1,\\dots,p_n$ are all the primes, which does not hold for $2,\\dots,13$.",
-   "3": "$N=p_1\\cdots p_n+1$ exceeds each $p_i$, so it cannot be one of them."
+   "3": "$N=p_1\\cdots p_n+1$ exceeds each $p_i$, so it cannot be one of them.",
+   "2": "Each $p_i$ divides $N-1$, so it leaves remainder $1$ when dividing $N$."
   },
-  "time": 240
+  "time": 270,
+  "family": "errors-17"
+ },
+ {
+  "id": "errors-17b",
+  "topic": "errors",
+  "paper": 2,
+  "difficulty": 5,
+  "skills": [
+   "correct proof",
+   "irrationality",
+   "contradiction"
+  ],
+  "stem": "Claim: $\\sqrt2+\\sqrt3$ is irrational.\n\n(I) $\\;$ Suppose $\\sqrt2+\\sqrt3=r$, where $r$ is rational.\n\n(II) $\\;$ Squaring, $5+2\\sqrt6=r^2$, so $\\sqrt6=\\dfrac{r^2-5}2$.\n\n(III) $\\;$ Since $r$ is rational, $\\dfrac{r^2-5}2$ is rational, so $\\sqrt6$ is rational.\n\n(IV) $\\;$ But if $\\sqrt6=\\frac pq$ with $p,q$ positive integers with no common factor, then $p^2=6q^2$, so $p$ is even; writing $p=2s$ gives $2s^2=3q^2$, so $3q^2$ is even, so $q$ is even. This contradicts $p,q$ having no common factor.\n\n(V) $\\;$ Hence $\\sqrt2+\\sqrt3$ is irrational.\n\nWhich one of the following best describes the proof?",
+  "figure": null,
+  "options": [
+   "The first error is in line (II): squaring is not a reversible step, so it cannot be used here.",
+   "The first error is in line (III): $\\frac{r^2-5}2$ need not be rational.",
+   "The first error is in line (IV): $2s^2=3q^2$ does not imply that $q$ is even.",
+   "The proof is correct.",
+   "The first error is in line (V): the argument only shows that $\\sqrt6$ is irrational, not $\\sqrt2+\\sqrt3$."
+  ],
+  "answer": 3,
+  "solution": "(II): squaring is a valid deduction forwards; nothing needs reversing, since we only need consequences of (I). ✓\n\n(III): rationals are closed under squaring, subtracting and halving. ✓\n\n(IV): $p^2$ even gives $p$ even; $3q^2=2s^2$ is even and $3$ is odd, so $q^2$ is even and $q$ is even. Contradiction with lowest terms. ✓\n\n(V): the contradiction came from assumption (I), so (I) is false. ✓\n\nThe proof is correct.",
+  "insight": "In a proof by contradiction, forward steps such as squaring need not be reversible; you only need consequences of the assumption.",
+  "distractors": {
+   "0": "We only deduce consequences of (I); a one-way step is fine.",
+   "1": "Sums, products and quotients of rationals are rational.",
+   "2": "$3q^2$ even with $3$ odd forces $q^2$, hence $q$, to be even.",
+   "4": "$\\sqrt6$ being irrational contradicts (III), which followed from (I); so (I) is false."
+  },
+  "time": 270,
+  "family": "errors-17"
  },
  {
   "id": "errors-18",
@@ -489,11 +1051,45 @@
   ],
   "answer": 1,
   "solution": "If $2x<0$ the inequality $|x-1|>2x$ may hold while $(x-1)^2>4x^2$ fails (e.g. $x=-2$: $3>-4$ but $9<16$). So (I) is not a valid step.\n\nSplit: if $x<0$, the right side is negative and $|x-1|>0$, so every $x<0$ works. If $x\\ge0$, both sides are non-negative, squaring is valid, and lines (II)–(IV) give $-1<x<\\frac13$, i.e. $0\\le x<\\frac13$.\n\nUnion: $x<\\frac13$. (Lines (II)–(IV) are correct algebra.)",
-  "insight": "You may square an inequality only when both sides are known to be non-negative — split into cases on the sign first.",
+  "insight": "You may square an inequality only when both sides are known to be non-negative: split into cases on the sign first.",
   "distractors": {
    "2": "This forgets the case $x<0$, where the inequality holds automatically.",
-   "4": "Every $x$ in $-1\\le x<0$ also works, e.g. $x=-\\frac12$: $\\frac32>-1$."
+   "4": "Every $x$ in $-1\\le x<0$ also works, e.g. $x=-\\frac12$: $\\frac32>-1$.",
+   "3": "A product of two factors is negative between the roots, so (IV) follows from (III).",
+   "0": "$x=-2$ satisfies $|x-1|>2x$ but is excluded by the student."
   },
-  "time": 240
+  "time": 270,
+  "family": "errors-18"
+ },
+ {
+  "id": "errors-18b",
+  "topic": "errors",
+  "paper": 2,
+  "difficulty": 5,
+  "skills": [
+   "squaring inequalities",
+   "surds",
+   "domain"
+  ],
+  "stem": "A student solves the inequality $\\sqrt{x+5}>x-1$ as follows.\n\n(I) $\\;$ Squaring both sides, $x+5>x^2-2x+1$.\n\n(II) $\\;$ So $x^2-3x-4<0$.\n\n(III) $\\;$ So $(x-4)(x+1)<0$.\n\n(IV) $\\;$ Hence $-1<x<4$.\n\nWhich one of the following best describes the working?",
+  "figure": null,
+  "options": [
+   "It is correct.",
+   "The first error is in line (I): squaring an inequality is valid only when both sides are non-negative; the correct solution set is $1\\le x<4$.",
+   "The first error is in line (I): squaring an inequality is valid only when both sides are non-negative; the correct solution set is $x<4$.",
+   "The first error is in line (IV): from line (III) it follows that $x<-1$ or $x>4$.",
+   "The first error is in line (I): squaring an inequality is valid only when both sides are non-negative; the correct solution set is $-5\\le x<4$."
+  ],
+  "answer": 4,
+  "solution": "$\\sqrt{x+5}$ is defined for $x\\ge-5$. Squaring is valid only when $x-1\\ge0$.\n\n* $-5\\le x<1$: the right side is negative and the left side is $\\ge0$, so the inequality holds.\n* $x\\ge1$: both sides non-negative; squaring gives (II)–(IV), $-1<x<4$, so $1\\le x<4$.\n\nUnion: $-5\\le x<4$. For example $x=-3$: $\\sqrt2>-4$ ✓, which the student excluded.",
+  "insight": "Before squaring an inequality, deal separately with the case where one side is negative, and respect the domain of any square root.",
+  "distractors": {
+   "1": "This forgets $-5\\le x<1$, where the right side is negative and the inequality holds.",
+   "2": "For $x<-5$ the square root is not defined.",
+   "3": "$(x-4)(x+1)<0$ holds between the roots, so (IV) follows from (III).",
+   "0": "$x=-3$ satisfies the inequality but is excluded."
+  },
+  "time": 270,
+  "family": "errors-18"
  }
 ]

@@ -79,15 +79,17 @@ export function storageWorks() {
 // Spaced repetition (Leitner boxes). Intervals in days per box.
 const INTERVALS = [0, 1, 3, 7, 14];
 
-export function srsRecord(key, topic, ok, now = Date.now()) {
+export function srsRecord(key, topic, ok, now = Date.now(), qid = null) {
   const today = dateKey(now);
   const cur = state.srs[key];
   if (!ok) {
-    state.srs[key] = { box: 1, due: addDays(today, 1), lapses: (cur?.lapses || 0) + 1, last: now, topic };
+    // `seen` lists the questions already used for this item, so reviews never repeat one.
+    const seen = Array.from(new Set([...(cur?.seen || []), ...(qid ? [qid] : [])])).slice(-12);
+    state.srs[key] = { box: 1, due: addDays(today, 1), lapses: (cur?.lapses || 0) + 1, last: now, topic, qid, seen };
   } else if (cur) {
     const box = Math.min(cur.box + 1, INTERVALS.length - 1);
     if (box >= INTERVALS.length - 1 && cur.box >= 3) delete state.srs[key]; // graduated
-    else state.srs[key] = { ...cur, box, due: addDays(today, INTERVALS[box]), last: now };
+    else state.srs[key] = { ...cur, box, due: addDays(today, INTERVALS[box]), last: now, qid: qid || cur.qid, seen: Array.from(new Set([...(cur.seen || []), ...(qid ? [qid] : [])])).slice(-12) };
   }
 }
 

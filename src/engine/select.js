@@ -1,5 +1,5 @@
 // Adaptive question selection.
-import { BANK, BY_TOPIC, getQuestion, srsKey } from './bank.js';
+import { BANK, BY_TOPIC, FAMILY, familyOf, getQuestion, srsKey } from './bank.js';
 import { GENERATORS, genQuestion } from '../gen/index.js';
 import { TOPICS, TOPIC } from '../data/topics.js';
 import { pCorrect, priorities } from './model.js';
@@ -23,53 +23,100 @@ export function seenMap(attempts) {
   return m;
 }
 
-// Level where predicted success is closest to the sweet spot (~65%).
-export function targetLevel(model, topic, sweet = 0.65) {
+// TMUA questions start at about level 3; easier levels only appear in speed rounds.
+export const FLOOR = 3;
+
+// Level where predicted success is closest to the sweet spot (~65%), never below the floor.
+export function targetLevel(model, topic, sweet = 0.65, floor = FLOOR) {
   let best = 3, bd = 9;
-  for (let lv = 1; lv <= 5; lv++) {
+  for (let lv = floor; lv <= 5; lv++) {
     const d = Math.abs(pCorrect(model, topic, lv) - sweet);
     if (d < bd) { bd = d; best = lv; }
   }
   // Gentle jitter so sessions are not monotonous.
   const j = rand();
-  if (j < 0.18 && best > 1) best--;
+  if (j < 0.18 && best > floor) best--;
   else if (j > 0.82 && best < 5) best++;
   return best;
 }
 
-function genFor(topic, level) {
-  const gens = GENERATORS.filter(g => g.topic === topic);
+// Generators that reach TMUA level, at a level they support (>= floor).
+function genFor(topic, level, floor = FLOOR) {
+  const gens = GENERATORS.filter(g => g.topic === topic && !g.speedOnly && g.levels[1] >= floor);
   if (!gens.length) return null;
   const fits = gens.filter(g => level >= g.levels[0] && level <= g.levels[1]);
-  const g = (fits.length ? fits : gens)[Math.floor(rand() * (fits.length ? fits.length : gens.length))];
-  return genQuestion(g.id, level, randomSeed());
+  const list = fits.length ? fits : gens;
+  const g = list[Math.floor(rand() * list.length)];
+  const lv = Math.max(floor, Math.min(g.levels[1], level));
+  return genQuestion(g.id, lv, randomSeed());
 }
+
+// Mark a question and its whole twin family as used for this session.
+export function excludeFamily(exclude, q) {
+  for (const id of familyOf(q)) exclude.add(id);
+  exclude.add(q.id);
+}
+
+const familySeen = (q, seen) => familyOf(q).some(id => seen[id]);
 
 export function pickForTopic(topic, model, ctx) {
   const { exclude, seen, reported, paper, level: forced, preferBank = 0.7 } = ctx;
-  const level = forced ?? targetLevel(model, topic);
-  const pool = (BY_TOPIC[topic] || []).filter(q => !exclude.has(q.id) && !reported[q.id] && (!paper || q.paper === paper || rand() < 0.35));
-  const unseen = pool.filter(q => !seen[q.id]);
-  const useBank = unseen.length && (rand() < preferBank || !GENERATORS.some(g => g.topic === topic));
+  const level = Math.max(FLOOR, forced ?? targetLevel(model, topic));
+  const pool = (BY_TOPIC[topic] || []).filter(q => q.difficulty >= FLOOR - 1 && !exclude.has(q.id) && !reported[q.id] && (!paper || q.paper === paper || rand() < 0.35));
+  // Prefer questions whose whole family is new, so twins stay fresh for reviews.
+  const fresh = pool.filter(q => !familySeen(q, seen));
+  const unseen = fresh.length ? fresh : pool.filter(q => !seen[q.id]);
+  const useBank = unseen.length && (rand() < preferBank || !GENERATORS.some(g => g.topic === topic && !g.speedOnly && g.levels[1] >= FLOOR));
   if (useBank) {
     const scored = unseen.map(q => [q, 1 / (1 + 2.2 * Math.abs(q.difficulty - level))]);
     return pickW(scored);
   }
   const gq = genFor(topic, level);
   if (gq) return gq;
-  // No generators (e.g. errors in proofs): reuse the least recently seen bank question.
+  // Nothing new left: reuse the least recently seen bank question.
   const old = pool.filter(q => seen[q.id]).sort((a, b) => seen[a.id].last - seen[b.id].last);
   return old[0] || null;
 }
 
-function reviewItem(r, seen, exclude) {
+// A different question that tests the same thing as `q` (never q itself).
+// Order: unseen twin > least-recently-seen twin > same-skill bank question > generator > same topic.
+export function alternativeTo(q, { seen = {}, exclude = new Set(), reported = {}, avoid = [] } = {}) {
+  if (!q) return null;
+  const banned = new Set([q.id, ...avoid, ...exclude]);
+  if (q.gen) {
+    const v = genQuestion(q.gen, q.difficulty, randomSeed());
+    return v && v.id !== q.id ? v : null;
+  }
+  const ok = c => c && !banned.has(c.id) && !reported[c.id];
+  const twins = familyOf(q).map(getQuestion).filter(ok);
+  const byRecency = arr => arr.sort((x, y) => (seen[x.id]?.last || 0) - (seen[y.id]?.last || 0));
+  const unseenTwin = twins.find(t => !seen[t.id]);
+  if (unseenTwin) return { ...unseenTwin };
+  const skills = new Set(q.skills || []);
+  const related = (BY_TOPIC[q.topic] || []).filter(c => ok(c) && !familyOf(q).includes(c.id) && Math.abs(c.difficulty - q.difficulty) <= 1 && (c.skills || []).some(s => skills.has(s)));
+  const relatedUnseen = related.filter(c => !seen[c.id]);
+  if (relatedUnseen.length) return { ...relatedUnseen[Math.floor(rand() * relatedUnseen.length)] };
+  const gq = genFor(q.topic, Math.max(FLOOR, q.difficulty));
+  if (gq) return gq;
+  if (twins.length) return { ...byRecency(twins)[0] };
+  if (related.length) return { ...byRecency(related)[0] };
+  const any = (BY_TOPIC[q.topic] || []).filter(ok);
+  return any.length ? { ...byRecency(any)[0] } : null;
+}
+
+// Review: always a different question from the one(s) already used for this item.
+function reviewItem(r, seen, exclude, reported = {}) {
   if (r.key.startsWith('g:')) {
     const [, genId, lv] = r.key.split(':');
     return genQuestion(genId, +lv, randomSeed()) || null;
   }
-  const q = getQuestion(r.key);
-  if (!q || exclude.has(q.id)) return null;
-  return { ...q };
+  // Family key "f:<family>" or a legacy single-question key.
+  const anchorId = r.key.startsWith('f:') ? (r.qid || FAMILY[r.key.slice(2)]?.[0]) : r.key;
+  const anchor = getQuestion(anchorId);
+  if (!anchor) return null;
+  const avoid = Array.from(new Set([...(r.seen || []), ...(r.qid ? [r.qid] : []), anchor.id]));
+  const alt = alternativeTo(anchor, { seen, exclude, reported, avoid });
+  return alt && !avoid.includes(alt.id) ? alt : null;
 }
 
 // Spread topics so the same topic never appears twice in a row where avoidable.
@@ -91,8 +138,8 @@ export function smartSession(state, model, n = 12) {
   const out = [];
   const reviews = dueReviews().slice(0, Math.ceil(n * 0.3));
   for (const r of reviews) {
-    const q = reviewItem(r, seen, exclude);
-    if (q) { q._review = true; out.push(q); exclude.add(q.id); }
+    const q = reviewItem(r, seen, exclude, state.reported);
+    if (q) { q._review = true; out.push(q); excludeFamily(exclude, q); }
   }
   const pri = priorities(model);
   const perTopic = {};
@@ -103,7 +150,7 @@ export function smartSession(state, model, n = 12) {
     const q = pickForTopic(k, model, { exclude, seen, reported: state.reported });
     if (!q) continue;
     perTopic[k] = (perTopic[k] || 0) + 1;
-    exclude.add(q.id); out.push(q);
+    excludeFamily(exclude, q); out.push(q);
   }
   return interleave(out);
 }
@@ -117,7 +164,7 @@ export function topicDrill(state, model, topic, n = 10) {
     const q = pickForTopic(topic, model, { exclude, seen, reported: state.reported, preferBank: 0.6 });
     if (!q) break;
     if (exclude.has(q.id)) continue;
-    exclude.add(q.id); out.push(q);
+    excludeFamily(exclude, q); out.push(q);
   }
   return out;
 }
@@ -128,8 +175,8 @@ export function reviewSession(state, n = 15) {
   const out = [];
   for (const r of dueReviews()) {
     if (out.length >= n) break;
-    const q = reviewItem(r, seen, exclude);
-    if (q) { q._review = true; out.push(q); exclude.add(q.id); }
+    const q = reviewItem(r, seen, exclude, state.reported);
+    if (q) { q._review = true; out.push(q); excludeFamily(exclude, q); }
   }
   return interleave(out);
 }
@@ -145,7 +192,7 @@ export function mockPaper(state, model, paper, n = 20) {
   alloc.forEach(a => { a.c = Math.floor(a.exact); a.r = a.exact - a.c; });
   let left = n - alloc.reduce((s, a) => s + a.c, 0);
   alloc.sort((a, b) => b.r - a.r).forEach(a => { if (left > 0) { a.c++; left--; } });
-  const levels = [2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 5, 5, 5];
+  const levels = [2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5];
   const shuffledLv = levels.sort(() => rand() - 0.5);
   let li = 0;
   const out = [];
@@ -153,7 +200,7 @@ export function mockPaper(state, model, paper, n = 20) {
     for (let i = 0; i < a.c; i++) {
       const lv = shuffledLv[li++ % shuffledLv.length];
       const q = pickForTopic(a.k, model, { exclude, seen, reported: state.reported, paper, level: lv, preferBank: 0.85 });
-      if (q) { exclude.add(q.id); out.push(q); }
+      if (q) { excludeFamily(exclude, q); out.push(q); }
     }
   }
   return out.sort((a, b) => a.difficulty - b.difficulty + (rand() - 0.5) * 1.2);
@@ -171,7 +218,7 @@ export function diagnostic(state, model) {
   const plan = TOPICS.map(t => [t.key, 3]).concat([['logic', 2], ['alg', 4]]);
   for (const [k, lv] of plan) {
     const q = pickForTopic(k, model, { exclude, seen, reported: state.reported, level: lv, preferBank: 1 });
-    if (q) { exclude.add(q.id); out.push(q); }
+    if (q) { excludeFamily(exclude, q); out.push(q); }
   }
   return out.sort((a, b) => (TOPIC[a.topic].paper - TOPIC[b.topic].paper) || (a.difficulty - b.difficulty));
 }

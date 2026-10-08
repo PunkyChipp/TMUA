@@ -1,7 +1,7 @@
 import { choices, num, nearFill, poly, signed, binom, F, Frac, fac } from './helpers.js';
 
 const apSum = {
-  id: 'ap-sum', topic: 'seq', paper: 1, levels: [1, 3], skills: ['arithmetic series'],
+  id: 'ap-sum', speedOnly: true, topic: 'seq', paper: 1, levels: [1, 3], skills: ['arithmetic series'],
   name: 'Arithmetic series from two terms',
   make(rng, level) {
     const a = rng.int(-10, 15), d = rng.nonzero(-4, 6);
@@ -31,7 +31,7 @@ function ord(n) {
 }
 
 const gpInfinity = {
-  id: 'gp-infinity', topic: 'seq', paper: 1, levels: [2, 3], skills: ['geometric series', 'sum to infinity'],
+  id: 'gp-infinity', speedOnly: true, topic: 'seq', paper: 1, levels: [2, 3], skills: ['geometric series', 'sum to infinity'],
   name: 'Sum to infinity',
   make(rng, level) {
     let r;
@@ -137,7 +137,7 @@ const periodic = {
 };
 
 const sigma = {
-  id: 'sigma-linear', topic: 'seq', paper: 1, levels: [1, 2], skills: ['sigma notation'],
+  id: 'sigma-linear', speedOnly: true, topic: 'seq', paper: 1, levels: [1, 2], skills: ['sigma notation'],
   name: 'Sigma notation',
   make(rng, level) {
     const a = rng.nonzero(-5, 6), b = rng.int(-9, 9);
@@ -163,7 +163,7 @@ const sigma = {
 };
 
 const logSimplify = {
-  id: 'log-simplify', topic: 'explog', paper: 1, levels: [1, 2], skills: ['laws of logarithms'],
+  id: 'log-simplify', speedOnly: true, topic: 'explog', paper: 1, levels: [1, 2], skills: ['laws of logarithms'],
   name: 'Simplifying logarithms',
   make(rng, level) {
     const base = rng.pick([2, 3, 5]);
@@ -246,4 +246,6 @@ const hiddenQuad = {
   },
 };
 
-export default [apSum, gpInfinity, binomCoef, periodic, sigma, logSimplify, logEquation, hiddenQuad];
+// logEquation needs the change of base formula, which the 2026 specification excludes.
+void logEquation;
+export default [apSum, gpInfinity, binomCoef, periodic, sigma, logSimplify, hiddenQuad];

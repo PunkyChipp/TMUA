@@ -22,7 +22,7 @@ const ptex = p => {
 };
 
 const gradientAt = {
-  id: 'gradient-at', topic: 'diff', paper: 1, levels: [1, 3], skills: ['differentiation', 'negative powers'],
+  id: 'gradient-at', speedOnly: true, topic: 'diff', paper: 1, levels: [1, 3], skills: ['differentiation', 'negative powers'],
   name: 'Gradient at a point',
   make(rng, level) {
     const p = [[rng.nonzero(-3, 4), rng.int(2, 3)], [rng.int(-6, 6), 1]];
@@ -51,7 +51,7 @@ const gradientAt = {
 };
 
 const tangentIntercept = {
-  id: 'tangent-intercept', topic: 'diff', paper: 1, levels: [2, 3], skills: ['tangents', 'normals'],
+  id: 'tangent-intercept', speedOnly: true, topic: 'diff', paper: 1, levels: [2, 3], skills: ['tangents', 'normals'],
   name: 'Tangent or normal meets the axis',
   make(rng, level) {
     const p = [[rng.nonzero(-2, 2), 3], [rng.int(-4, 4), 2], [rng.int(-5, 5), 1], [rng.int(-6, 6), 0]];
@@ -148,7 +148,7 @@ const noStationary = {
 };
 
 const defInt = {
-  id: 'definite-integral', topic: 'integ', paper: 1, levels: [1, 2], skills: ['definite integrals'],
+  id: 'definite-integral', speedOnly: true, topic: 'integ', paper: 1, levels: [1, 2], skills: ['definite integrals'],
   name: 'Definite integral of a polynomial',
   make(rng, level) {
     const p = [[rng.nonzero(-3, 3) * 3, 2], [rng.int(-4, 4) * 2, 1], [rng.int(-5, 5), 0]];
@@ -231,7 +231,7 @@ const signedArea = {
 };
 
 const findLimit = {
-  id: 'integral-find-k', topic: 'integ', paper: 1, levels: [2, 3], skills: ['definite integrals', 'solving for a limit'],
+  id: 'integral-find-k', speedOnly: true, topic: 'integ', paper: 1, levels: [2, 3], skills: ['definite integrals', 'solving for a limit'],
   name: 'Find the limit of integration',
   make(rng, level) {
     const a = rng.int(1, 5), k = rng.int(a + 1, a + 6);

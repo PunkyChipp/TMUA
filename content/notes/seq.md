@@ -19,15 +19,24 @@ $$(a + b)^n = \sum_{r=0}^{n}\binom nr a^{n-r}b^r, \qquad \binom nr = \binom n{n-
 
 **Recurrences** $u_{n+1} = f(u_n)$: a fixed point solves $f(L) = L$; if the sequence converges, it converges to a fixed point (the converse is false).
 
+**Quadratic sequences:** if the second differences are constant and equal to $s$, then $u_n = \tfrac s2 n^2 + bn + c$. Subtract $\tfrac s2 n^2$ from each term and the rest is linear.
+
+**Factorials and $\binom nr$:** $\binom nr = \dfrac{n!}{r!\,(n-r)!}$, e.g. $\binom63 = \dfrac{6\cdot5\cdot4}{3!} = 20$. Useful identity: $r\binom nr = n\binom{n-1}{r-1}$.
+
 ## Techniques
 
 * **General term first.** For a coefficient or constant term, write the general term as a single power of $x$, e.g. $\binom6r(-2)^r x^{12-3r}$, then choose $r$. Put the sign inside the bracket: $(2 - x)^7$ has terms $\binom7r2^{7-r}(-x)^r$.
 * **Pair up products.** $(1+x)^6(1-x)^4 = (1-x^2)^4(1+x)^2$ is far quicker than two full expansions. More generally, you only need the terms up to the power you want.
 * **Substitute special values.** With $f(x) = \sum a_k x^k$: $f(1)$ is the sum of the coefficients, $f(-1)$ is the alternating sum, and $\tfrac12\big(f(1) + f(-1)\big)$ is the sum of the even-power coefficients.
 * **Centre an arithmetic sequence.** If you know a middle term $m$, write the terms around it as $m \pm kd$. Then $S_{2k+1} = (2k+1)m$ and products of symmetric terms are differences of squares.
+* **Quadratic $n$th term.** Halve the second difference for the $n^2$ coefficient, subtract, and fit the linear part. To find the first term above a bound, complete the square: $n^2 + 2n - 1 = (n+1)^2 - 2$.
+* **Inclusion–exclusion with sums.** The sum of the multiples of $m$ up to $N$ is $m\cdot\tfrac12 k(k+1)$ with $k = \lfloor N/m\rfloor$. For 'multiples of $2$ or $3$', add the two and subtract the multiples of $6$.
+* **$(a + f(x))^n$ with $f$ not a single term.** For $(1 + x + x^2)^5$, write $f = x(1 + x)$ and expand $\sum\binom5k x^k(1+x)^k$; only a few values of $k$ reach the power you want.
 * **Generate terms of a recurrence.** Write down four or five terms before doing any algebra. Many TMUA recurrences are periodic, e.g. $u_{n+1} = \frac{1}{1-u_n}$ has period $3$.
 * **Convergence is a condition, not an afterthought.** For a series with a variable ratio, first solve $|r| < 1$, then work inside that interval.
 * **Symmetry for sums of binomial coefficients.** $\sum r\binom nr = n2^{n-1}$: pair $r$ with $n-r$ so each pair averages to $n/2$.
+* **Recurrence behaviour depends on $u_1$.** Compare $f(x)$ with $x$: where $f(x) > x$ the sequence steps up. Test claims with special starting values (fixed points, values that map to a fixed point, 2-cycles). An identity can make it transparent: for $u_{n+1} = 2u_n - u_n^2$, $1 - u_{n+1} = (1 - u_n)^2$.
+* **Finite geometric sums in models.** Repeated 'multiply then add' (interest, fish stocks, drug doses) gives $u_n = p^n u_0 + q(1 + p + \cdots + p^{n-1})$; the sum to infinity $\frac{q}{1-p}$ (when $|p| < 1$) is the long-term level.
 * **Linear recurrences** $u_{n+1} = pu_n + q$: the fixed point is $L = \frac{q}{1-p}$, and $u_n - L$ is geometric with ratio $p$.
 
 > **Tip:** When options are numbers, eliminate with a rough size or sign check before computing. The sign of a binomial coefficient is fixed by $(-1)^r$, which often removes half the options.

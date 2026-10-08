@@ -80,3 +80,48 @@ test('plan: one entry per day up to the exam, phases in order', () => {
   assert.ok(papers.length >= 5, `official papers scheduled: ${papers.length}`);
   assert.equal(new Set(papers.map(t => t.id)).size, papers.length);
 });
+
+import { alternativeTo, excludeFamily, FLOOR } from '../src/engine/select.js';
+import { BANK, familyOf } from '../src/engine/bank.js';
+
+test('a review alternative is never the question itself', () => {
+  for (const q of BANK) {
+    for (let k = 0; k < 3; k++) {
+      const alt = alternativeTo(q, { seen: { [q.id]: { n: 1, ok: 0, last: 1 } } });
+      assert.ok(alt, `${q.id}: no alternative`);
+      assert.notEqual(alt.id, q.id, `${q.id}: alternative repeated the question`);
+    }
+  }
+});
+
+test('an unseen twin is preferred for reviews', () => {
+  const withTwin = BANK.filter(q => familyOf(q).length > 1);
+  for (const q of withTwin) {
+    const alt = alternativeTo(q, { seen: { [q.id]: { n: 1, ok: 0, last: 1 } } });
+    assert.ok(familyOf(q).includes(alt.id), `${q.id}: expected a twin, got ${alt.id}`);
+  }
+});
+
+test('sessions never contain both twins of a family', () => {
+  const st = defaultState();
+  const m = buildModel([]);
+  for (let r = 0; r < 10; r++) {
+    for (const qs of [smartSession(st, m, 12), mockPaper(st, m, 1), mockPaper(st, m, 2)]) {
+      const fams = qs.filter(q => q.family).map(q => q.family);
+      assert.equal(new Set(fams).size, fams.length, 'twins in one session');
+    }
+  }
+});
+
+test('practice never serves below TMUA level', () => {
+  const st = defaultState();
+  const m = buildModel(att('alg', false, 3, 40)); // a weak student
+  for (let r = 0; r < 10; r++) for (const q of smartSession(st, m, 12)) assert.ok(q.difficulty >= FLOOR - 1, `${q.id} level ${q.difficulty}`);
+});
+
+test('excludeFamily blocks every member', () => {
+  const q = BANK.find(x => familyOf(x).length > 1) || BANK[0];
+  const ex = new Set();
+  excludeFamily(ex, q);
+  for (const id of familyOf(q)) assert.ok(ex.has(id));
+});

@@ -3,58 +3,259 @@
   "id": "graphs-01",
   "topic": "graphs",
   "paper": 1,
-  "difficulty": 1,
+  "difficulty": 2,
   "skills": [
-   "transformations",
-   "mapping points"
+   "square-root graphs",
+   "reflections",
+   "transformations"
   ],
-  "stem": "The point $(2, 3)$ lies on the curve $y = f(x)$. Which one of the following points must lie on the curve $y = f(x-1) + 2$?",
+  "stem": "Which one of the following is the graph of $y = 2 - \\sqrt{4 - x}$?",
   "figure": null,
   "options": [
-   "$(1, 1)$",
-   "$(1, 5)$",
-   "$(2, 5)$",
-   "$(3, 1)$",
-   "$(3, 5)$"
+   {
+    "plot": {
+     "x": [
+      -6,
+      6
+     ],
+     "y": [
+      -4,
+      5
+     ],
+     "curves": [
+      {
+       "fn": "2+sqrt(4-x)"
+      }
+     ],
+     "ticks": true
+    }
+   },
+   {
+    "plot": {
+     "x": [
+      -6,
+      6
+     ],
+     "y": [
+      -4,
+      5
+     ],
+     "curves": [
+      {
+       "fn": "sqrt(4-x)-2"
+      }
+     ],
+     "ticks": true
+    }
+   },
+   {
+    "plot": {
+     "x": [
+      -6,
+      6
+     ],
+     "y": [
+      -4,
+      5
+     ],
+     "curves": [
+      {
+       "fn": "2-sqrt(4-x)"
+      }
+     ],
+     "ticks": true
+    }
+   },
+   {
+    "plot": {
+     "x": [
+      -6,
+      6
+     ],
+     "y": [
+      -4,
+      5
+     ],
+     "curves": [
+      {
+       "fn": "2-sqrt(x+4)"
+      }
+     ],
+     "ticks": true
+    }
+   },
+   {
+    "plot": {
+     "x": [
+      -6,
+      6
+     ],
+     "y": [
+      -4,
+      5
+     ],
+     "curves": [
+      {
+       "fn": "2-sqrt(x-4)"
+      }
+     ],
+     "ticks": true
+    }
+   }
+  ],
+  "answer": 2,
+  "solution": "Build it from $y = \\sqrt{x}$. Since $\\sqrt{4-x} = \\sqrt{-(x-4)}$, the curve $y=\\sqrt{4-x}$ is $y = \\sqrt{x}$ reflected in the $y$-axis and moved right 4: it **starts at $x = 4$ and exists only for $x \\le 4$**. The minus sign in front reflects it in the $x$-axis and the $+2$ lifts it up 2.\n\nQuick checks:\n\n* endpoint: $x = 4$ gives $y = 2$, so the curve ends at $(4, 2)$;\n* $x = 0$ gives $y = 2 - 2 = 0$, so it passes through the origin;\n* as $x$ decreases, $\\sqrt{4-x}$ grows, so $y$ decreases without bound.\n\nSo the curve rises from the bottom left and stops at $(4, 2)$: graph C.",
+  "insight": "For a square-root graph, find the endpoint and the side on which the curve exists (where the inside is $\\ge 0$) first; one more point then fixes it.",
+  "distractors": {
+   "0": "This is $y = 2 + \\sqrt{4-x}$: the minus sign in front of the root has been ignored, so the curve goes up from $(4,2)$ instead of down.",
+   "1": "This is $y = \\sqrt{4-x} - 2$: the whole right-hand side has been negated, which puts the endpoint at $(4,-2)$.",
+   "3": "This is $y = 2 - \\sqrt{x+4}$: the reflection in the $y$-axis has been lost and the 4 read as a shift left; this curve exists for $x \\ge -4$.",
+   "4": "This is $y = 2 - \\sqrt{x-4}$: right endpoint, but without the reflection in the $y$-axis the curve would exist only for $x \\ge 4$."
+  },
+  "time": 100,
+  "family": "graphs-01"
+ },
+ {
+  "id": "graphs-01b",
+  "topic": "graphs",
+  "paper": 1,
+  "difficulty": 2,
+  "skills": [
+   "square-root graphs",
+   "transformations"
+  ],
+  "stem": "Which one of the following is the graph of $y = 3 - 2\\sqrt{x + 1}$?",
+  "figure": null,
+  "options": [
+   {
+    "plot": {
+     "x": [
+      -5,
+      5
+     ],
+     "y": [
+      -4,
+      6
+     ],
+     "curves": [
+      {
+       "fn": "3+2*sqrt(x+1)"
+      }
+     ],
+     "ticks": true
+    }
+   },
+   {
+    "plot": {
+     "x": [
+      -5,
+      5
+     ],
+     "y": [
+      -4,
+      6
+     ],
+     "curves": [
+      {
+       "fn": "2*sqrt(x+1)-3"
+      }
+     ],
+     "ticks": true
+    }
+   },
+   {
+    "plot": {
+     "x": [
+      -5,
+      5
+     ],
+     "y": [
+      -4,
+      6
+     ],
+     "curves": [
+      {
+       "fn": "3-2*sqrt(x-1)"
+      }
+     ],
+     "ticks": true
+    }
+   },
+   {
+    "plot": {
+     "x": [
+      -5,
+      5
+     ],
+     "y": [
+      -4,
+      6
+     ],
+     "curves": [
+      {
+       "fn": "3-2*sqrt(-x-1)"
+      }
+     ],
+     "ticks": true
+    }
+   },
+   {
+    "plot": {
+     "x": [
+      -5,
+      5
+     ],
+     "y": [
+      -4,
+      6
+     ],
+     "curves": [
+      {
+       "fn": "3-2*sqrt(x+1)"
+      }
+     ],
+     "ticks": true
+    }
+   }
   ],
   "answer": 4,
-  "solution": "$y = f(x-1)+2$ is $y=f(x)$ translated by $\\begin{pmatrix}1\\\\2\\end{pmatrix}$: right 1, up 2.\n\nSo $(2,3) \\mapsto (3,5)$.\n\nCheck directly: at $x=3$, $f(3-1)+2 = f(2)+2 = 3+2 = 5$.",
-  "insight": "Inside the bracket acts on $x$ the 'opposite' way ($x-1$ moves right); outside acts on $y$ the obvious way.",
+  "solution": "Start from $y = \\sqrt{x}$: replacing $x$ by $x + 1$ moves it left 1, so the curve **starts at $x=-1$ and exists for $x \\ge -1$**. Multiplying by $-2$ stretches it and turns it upside down; $+3$ lifts it.\n\n* endpoint: $x=-1$ gives $y = 3$, so the curve starts at $(-1, 3)$;\n* $x = 0$ gives $y = 3 - 2 = 1$;\n* it crosses the $x$-axis where $\\sqrt{x+1} = \\tfrac32$, i.e. $x = \\tfrac54$, and then keeps falling.\n\nSo: a decreasing curve starting at $(-1, 3)$ and passing through $(0, 1)$: graph E.",
+  "insight": "Locate the endpoint of a square-root graph from where the inside is zero, then use the sign in front of the root to decide whether it rises or falls.",
   "distractors": {
-   "1": "Moving left for $x-1$: the bracket shift is the reverse of the sign you see.",
-   "3": "Subtracting 2 from the $y$-coordinate: the $+2$ outside the function really does move the graph up."
+   "0": "This is $y = 3 + 2\\sqrt{x+1}$: the minus sign has been ignored, so the curve rises from $(-1,3)$.",
+   "1": "This is $y = 2\\sqrt{x+1} - 3$: the whole expression has been negated, putting the endpoint at $(-1,-3)$.",
+   "2": "This is $y = 3 - 2\\sqrt{x-1}$: $x+1$ read as a shift to the right, so the endpoint is wrongly at $(1,3)$.",
+   "3": "This is $y = 3 - 2\\sqrt{-x-1}$: an extra reflection in the $y$-axis, so the curve exists for $x \\le -1$."
   },
-  "time": 60
+  "time": 100,
+  "family": "graphs-01"
  },
  {
   "id": "graphs-02",
   "topic": "graphs",
   "paper": 1,
-  "difficulty": 1,
+  "difficulty": 2,
   "skills": [
-   "sketching polynomials",
-   "repeated roots"
+   "exponential graphs",
+   "asymptotes",
+   "modelling"
   ],
-  "stem": "Which one of the following is the graph of $y = (x-1)^2(x+2)$?",
+  "stem": "The number of fish in a lake, $N$ thousand, $t$ years after the lake is restocked is modelled by\n$$N = 5 - 4\\times 2^{-t}, \\qquad t \\ge 0.$$\nWhich one of the following graphs could show $N$ against $t$?",
   "figure": null,
   "options": [
    {
     "plot": {
      "x": [
-      -3,
-      3
+      -0.5,
+      6
      ],
      "y": [
-      -6,
+      -0.5,
       6
      ],
      "curves": [
       {
-       "fn": "(x+1)^2*(x-2)",
-       "domain": [
-        -2.611,
-        2.822
-       ]
+       "fn": "2^x"
       }
      ],
      "ticks": true
@@ -63,20 +264,16 @@
    {
     "plot": {
      "x": [
-      -3,
-      3
+      -0.5,
+      6
      ],
      "y": [
-      -6,
+      -0.5,
       6
      ],
      "curves": [
       {
-       "fn": "(x-1)^2*(x+2)",
-       "domain": [
-        -2.821,
-        2.612
-       ]
+       "fn": "5-5*2^(-x)"
       }
      ],
      "ticks": true
@@ -85,20 +282,16 @@
    {
     "plot": {
      "x": [
-      -3,
-      3
+      -0.5,
+      6
      ],
      "y": [
-      -6,
+      -0.5,
       6
      ],
      "curves": [
       {
-       "fn": "(x-1)*(x+2)^2",
-       "domain": [
-        -3.0,
-        1.821
-       ]
+       "fn": "1+4*2^(-x)"
       }
      ],
      "ticks": true
@@ -107,20 +300,150 @@
    {
     "plot": {
      "x": [
-      -3,
-      3
+      -0.5,
+      6
      ],
      "y": [
-      -6,
+      -0.5,
       6
      ],
      "curves": [
       {
-       "fn": "(-1)*(x-1)^2*(x+2)",
-       "domain": [
-        -2.821,
-        2.612
-       ]
+       "fn": "5-4*2^(-x)"
+      }
+     ],
+     "ticks": true
+    }
+   },
+   {
+    "plot": {
+     "x": [
+      -0.5,
+      6
+     ],
+     "y": [
+      -0.5,
+      6
+     ],
+     "curves": [
+      {
+       "fn": "5-4*2^x"
+      }
+     ],
+     "ticks": true
+    }
+   }
+  ],
+  "answer": 3,
+  "solution": "Read off three features.\n\n* **Start:** at $t = 0$, $2^0 = 1$, so $N = 5 - 4 = 1$.\n* **Direction:** $2^{-t} = \\left(\\tfrac12\\right)^t$ decreases as $t$ increases, so the amount subtracted from 5 shrinks and $N$ **increases**.\n* **Long term:** $2^{-t} \\to 0$, so $N \\to 5$ from below; the line $N = 5$ is an asymptote, and the growth slows (the gap to 5 halves every year).\n\nSo the graph starts at $(0, 1)$, rises and levels off below $N = 5$: graph D.",
+  "insight": "For $y = A - B\\,a^{-t}$ (with $a > 1$, $B > 0$): start value $A - B$, rising towards the asymptote $y = A$.",
+  "distractors": {
+   "0": "This is $N = 2^t$: treating the model as unlimited exponential growth, but the $2^{-t}$ term dies away so $N$ levels off at 5.",
+   "1": "This is $N = 5 - 5\\times2^{-t}$, starting at 0: at $t = 0$ the model gives $5 - 4 = 1$, not 0.",
+   "2": "This is $N = 1 + 4\\times2^{-t}$: the roles of 1 and 5 are swapped, giving a population falling from 5 to 1.",
+   "4": "This is $N = 5 - 4\\times2^{t}$: reading $2^{-t}$ as $2^t$, so the subtracted term grows and $N$ plunges."
+  },
+  "time": 120,
+  "family": "graphs-02"
+ },
+ {
+  "id": "graphs-02b",
+  "topic": "graphs",
+  "paper": 1,
+  "difficulty": 2,
+  "skills": [
+   "exponential graphs",
+   "modelling",
+   "concavity"
+  ],
+  "stem": "The depth of water, $h$ metres, in a tank $t$ hours after a valve is opened is modelled by\n$$h = 9 - 3^{t}, \\qquad 0 \\le t \\le 2.$$\nWhich one of the following graphs could show $h$ against $t$ for $0 \\le t \\le 2$?",
+  "figure": null,
+  "options": [
+   {
+    "plot": {
+     "x": [
+      -0.3,
+      2.5
+     ],
+     "y": [
+      -1,
+      10
+     ],
+     "curves": [
+      {
+       "fn": "9*3^(-x)-1"
+      }
+     ],
+     "ticks": true
+    }
+   },
+   {
+    "plot": {
+     "x": [
+      -0.3,
+      2.5
+     ],
+     "y": [
+      -1,
+      10
+     ],
+     "curves": [
+      {
+       "fn": "9-3^x"
+      }
+     ],
+     "ticks": true
+    }
+   },
+   {
+    "plot": {
+     "x": [
+      -0.3,
+      2.5
+     ],
+     "y": [
+      -1,
+      10
+     ],
+     "curves": [
+      {
+       "fn": "8-4*x"
+      }
+     ],
+     "ticks": true
+    }
+   },
+   {
+    "plot": {
+     "x": [
+      -0.3,
+      2.5
+     ],
+     "y": [
+      -1,
+      10
+     ],
+     "curves": [
+      {
+       "fn": "9-3^(-x)"
+      }
+     ],
+     "ticks": true
+    }
+   },
+   {
+    "plot": {
+     "x": [
+      -0.3,
+      2.5
+     ],
+     "y": [
+      -1,
+      10
+     ],
+     "curves": [
+      {
+       "fn": "3^x-1"
       }
      ],
      "ticks": true
@@ -128,23 +451,26 @@
    }
   ],
   "answer": 1,
-  "solution": "Read off three features:\n\n* **Roots:** a repeated root at $x=1$ (the curve *touches* the axis) and a single root at $x=-2$ (it *crosses*).\n* **$y$-intercept:** $x=0$ gives $(1)(2) = 2$.\n* **End behaviour:** positive cubic, so $y\\to+\\infty$ as $x\\to+\\infty$.\n\nOnly B touches at $x=1$, crosses at $x=-2$ and passes through $(0,2)$.",
-  "insight": "For a factorised polynomial, each factor's power tells you touch (even) or cross (odd), and the leading coefficient fixes the ends.",
+  "solution": "* **Endpoints:** $t = 0$ gives $h = 9 - 1 = 8$; $t = 2$ gives $h = 9 - 9 = 0$.\n* **Direction:** $3^t$ increases, so $h$ decreases throughout.\n* **Shape:** $3^t$ grows faster and faster, so $h$ falls more and more steeply: the graph bends downwards. Check the middle: $t = 1$ gives $h = 6$, well above the value 4 on the straight line joining $(0,8)$ and $(2,0)$.\n\nOnly graph B starts at 8, ends at 0 and passes through $(1, 6)$.",
+  "insight": "Check the ends, then one middle value: it tells you which way an exponential-type curve bends.",
   "distractors": {
-   "0": "This is $(x+1)^2(x-2)$: the signs inside the brackets have been read as the roots, not their negatives.",
-   "2": "This is $(x-1)(x+2)^2$: the squared factor has been attached to the wrong root.",
-   "3": "This is the reflection $-(x-1)^2(x+2)$: right roots, but a negative cubic."
+   "0": "This is $h = 9\\times3^{-t} - 1$: same endpoints, but it bends the other way (at $t = 1$ it gives 2, not 6). Not every falling exponential-type curve flattens out.",
+   "2": "A straight line: only the endpoints were checked. At $t = 1$ the model gives $6$, not $4$.",
+   "3": "This is $h = 9 - 3^{-t}$: a sign slip in the exponent, which would make the depth rise.",
+   "4": "This is $h = 3^t - 1$, a tank filling up: the minus sign in front of $3^t$ has been ignored."
   },
-  "time": 75
+  "time": 120,
+  "family": "graphs-02"
  },
  {
   "id": "graphs-03",
   "topic": "graphs",
   "paper": 1,
-  "difficulty": 2,
+  "difficulty": 3,
   "skills": [
    "intersections",
-   "reciprocal graphs"
+   "reciprocal graphs",
+   "cubic equations"
   ],
   "stem": "How many points of intersection do the curves $y = x^2 - 4$ and $y = \\dfrac{3}{x}$ have?",
   "figure": null,
@@ -157,79 +483,166 @@
   ],
   "answer": 3,
   "solution": "**Sketch first.** $y=3/x$ lives in the first and third quadrants. The parabola $y = x^2-4$ clearly crosses the first-quadrant branch once. In the third quadrant both curves are negative for $-2<x<0$ and a sketch cannot decide how many times they meet — so use algebra.\n\n**Algebra:** $x^3 - 4x - 3 = 0$. Try $x=-1$: $-1+4-3 = 0$, so\n$$(x+1)(x^2 - x - 3) = 0,$$\ngiving $x=-1$ and $x = \\tfrac{1\\pm\\sqrt{13}}{2}$. None is $0$, so there are **3** intersections.",
-  "insight": "Turn 'how many intersections' into 'how many real roots', but let a sketch tell you what to expect.",
+  "insight": "Count intersections by sketching, but when two curves are close together let the algebra settle it.",
   "distractors": {
    "1": "Only spotting the obvious first-quadrant crossing and forgetting the third quadrant.",
-   "2": "Finding $x=-1$ and one root of the quadratic, or assuming a cubic gives at most two meeting points with a hyperbola."
+   "2": "Finding $x=-1$ and only one root of the quadratic factor, or assuming the two third-quadrant crossings are a single touch.",
+   "4": "Assuming a quartic-like count of four; the equation $x^3 - 4x - 3 = 0$ is a cubic, so there are at most three intersections."
   },
-  "time": 120
+  "time": 180,
+  "family": "graphs-03"
+ },
+ {
+  "id": "graphs-03b",
+  "topic": "graphs",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "intersections",
+   "reciprocal graphs",
+   "repeated roots"
+  ],
+  "stem": "How many points of intersection do the curves $y = 3 - x^2$ and $y = \\dfrac{2}{x}$ have?",
+  "figure": null,
+  "options": [
+   "$0$",
+   "$1$",
+   "$2$",
+   "$3$",
+   "$4$"
+  ],
+  "answer": 2,
+  "solution": "**Sketch first.** $y = 2/x$ lies in the first and third quadrants; the parabola has its maximum at $(0, 3)$. In the first quadrant the curves come very close near $(1, 2)$, so use algebra.\n\n**Algebra:** $x(3 - x^2) = 2 \\iff x^3 - 3x + 2 = 0$. Try $x = 1$: $1 - 3 + 2 = 0$, and\n$$x^3 - 3x + 2 = (x-1)^2(x+2).$$\n\n* $x = 1$ is a **repeated** root: the curves *touch* at $(1, 2)$ — one point.\n* $x = -2$ gives the crossing $(-2, -1)$ in the third quadrant.\n\nSo there are **2** points of intersection.",
+  "insight": "A repeated root of the intersection equation means the curves touch: it is one point, not two.",
+  "distractors": {
+   "3": "Counting the repeated root $x = 1$ twice: the curves touch at $(1,2)$, which is a single point.",
+   "1": "Missing the third-quadrant crossing at $(-2,-1)$: for $x < -\\sqrt3$ the parabola is negative and meets the lower branch.",
+   "4": "Assuming two crossings in each quadrant; the equation is a cubic, so there are at most three distinct points, and here only two."
+  },
+  "time": 180,
+  "family": "graphs-03"
  },
  {
   "id": "graphs-04",
   "topic": "graphs",
   "paper": 1,
-  "difficulty": 2,
+  "difficulty": 3,
   "skills": [
    "transformations",
-   "order of transformations"
+   "order of transformations",
+   "reflections"
   ],
-  "stem": "Which one of the following sequences of transformations maps the graph of $y = f(x)$ onto the graph of $y = f(2x+6)$?",
+  "stem": "A graphics program can translate a curve, stretch it parallel to an axis, or reflect it in an axis. Which one of the following sequences, applied in the order given, maps the graph of $y = f(x)$ onto the graph of $y = f(6 - 2x)$?",
   "figure": null,
   "options": [
-   "A translation by $\\begin{pmatrix}-3\\\\0\\end{pmatrix}$ followed by a stretch parallel to the $x$-axis with scale factor $\\tfrac12$",
-   "A translation by $\\begin{pmatrix}-6\\\\0\\end{pmatrix}$ followed by a stretch parallel to the $x$-axis with scale factor $\\tfrac12$",
-   "A stretch parallel to the $x$-axis with scale factor $\\tfrac12$ followed by a translation by $\\begin{pmatrix}-6\\\\0\\end{pmatrix}$",
-   "A stretch parallel to the $x$-axis with scale factor $2$ followed by a translation by $\\begin{pmatrix}-3\\\\0\\end{pmatrix}$",
-   "A translation by $\\begin{pmatrix}3\\\\0\\end{pmatrix}$ followed by a stretch parallel to the $x$-axis with scale factor $\\tfrac12$"
+   "Stretch parallel to the $x$-axis with scale factor $\\tfrac12$; then reflect in the $y$-axis; then translate by $\\begin{pmatrix}-3\\\\0\\end{pmatrix}$",
+   "Stretch parallel to the $x$-axis with scale factor $\\tfrac12$; then reflect in the $y$-axis; then translate by $\\begin{pmatrix}3\\\\0\\end{pmatrix}$",
+   "Stretch parallel to the $x$-axis with scale factor $\\tfrac12$; then translate by $\\begin{pmatrix}-6\\\\0\\end{pmatrix}$; then reflect in the $y$-axis",
+   "Stretch parallel to the $x$-axis with scale factor $2$; then reflect in the $y$-axis; then translate by $\\begin{pmatrix}3\\\\0\\end{pmatrix}$",
+   "Translate by $\\begin{pmatrix}6\\\\0\\end{pmatrix}$; then reflect in the $y$-axis; then stretch parallel to the $x$-axis with scale factor $\\tfrac12$"
   ],
   "answer": 1,
-  "solution": "Track what each step does to the equation — every horizontal transformation *replaces* $x$.\n\n* Translate by $\\begin{pmatrix}-6\\\\0\\end{pmatrix}$: $x \\to x+6$, giving $y = f(x+6)$.\n* Then stretch with factor $\\tfrac12$: $x \\to 2x$, giving $y = f(2x+6)$. ✓\n\nCompare C: stretch first gives $f(2x)$, then translating gives $f(2(x+6)) = f(2x+12)$. ✗\n\n(The other correct route is: stretch factor $\\tfrac12$, then translate by $\\begin{pmatrix}-3\\\\0\\end{pmatrix}$, since $f(2x+6) = f(2(x+3))$ — but that is not an option.)",
-  "insight": "Each horizontal step substitutes for $x$ in the current equation, so the later step acts on the $x$ inside the earlier one.",
+  "solution": "Each horizontal transformation **replaces $x$** in the current equation:\n\n* translate by $\\begin{pmatrix}a\\\\0\\end{pmatrix}$: $x \\to x - a$; stretch with scale factor $s$: $x \\to \\tfrac{x}{s}$; reflect in the $y$-axis: $x \\to -x$.\n\nOption B, step by step:\n\n* stretch, factor $\\tfrac12$: $y = f(2x)$;\n* reflect in the $y$-axis: $y = f(-2x)$;\n* translate by $\\begin{pmatrix}3\\\\0\\end{pmatrix}$: $y = f(-2(x-3)) = f(6 - 2x)$. ✓\n\nThe others give $f(-2x-6)$ (A), $f(12 - 2x)$ (C), $f\\!\\left(\\tfrac{3 - x}{2}\\right)$ (D) and $f(-2x - 6)$ (E).\n\nFast way to see it: $f(6 - 2x) = f\\big(-2(x - 3)\\big)$, so after the stretch and reflection, the translation must be **right** 3.",
+  "insight": "Factorise the inside as $b(x - p)$: stretch and reflect according to $b$, then translate by $p$ last.",
   "distractors": {
-   "0": "Factorising $2x+6 = 2(x+3)$ is right, but that '$-3$' translation must come *after* the stretch, not before: this gives $f(2x+3)$.",
-   "2": "Applying the translation by 6 after the stretch replaces $x$ by $x+6$ inside $2x$, giving $f(2x+12)$."
+   "0": "Reading $6 - 2x = -2(x+3)$: a sign slip when factorising. This sequence gives $f(-2x-6)$.",
+   "2": "Translating by 6 after the stretch acts on $x$, not on $2x$: this gives $f(2(x+6))$ and then $f(12-2x)$.",
+   "3": "A stretch with scale factor 2 replaces $x$ by $\\tfrac{x}{2}$, not $2x$: this sequence gives $f\\!\\left(-\\tfrac{x-3}{2}\\right) = f\\!\\left(\\tfrac{3 - x}{2}\\right)$.",
+   "4": "Following the bracket as you read it ('6, minus, times 2') instead of replacing $x$ each time: this gives $f(-2x-6)$."
   },
-  "time": 120
+  "time": 180,
+  "family": "graphs-04"
+ },
+ {
+  "id": "graphs-04b",
+  "topic": "graphs",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "transformations",
+   "order of transformations",
+   "reflections"
+  ],
+  "stem": "Which one of the following sequences, applied in the order given, maps the graph of $y = f(x)$ onto the graph of $y = 3 - f\\!\\left(\\tfrac{x}{2}\\right)$?",
+  "figure": null,
+  "options": [
+   "Stretch parallel to the $x$-axis with scale factor $2$; then translate by $\\begin{pmatrix}0\\\\3\\end{pmatrix}$; then reflect in the $x$-axis",
+   "Stretch parallel to the $x$-axis with scale factor $\\tfrac12$; then reflect in the $x$-axis; then translate by $\\begin{pmatrix}0\\\\3\\end{pmatrix}$",
+   "Translate by $\\begin{pmatrix}0\\\\3\\end{pmatrix}$; then reflect in the $y$-axis; then stretch parallel to the $x$-axis with scale factor $2$",
+   "Translate by $\\begin{pmatrix}0\\\\-3\\end{pmatrix}$; then reflect in the $x$-axis; then stretch parallel to the $x$-axis with scale factor $2$",
+   "Reflect in the $x$-axis; then translate by $\\begin{pmatrix}0\\\\-3\\end{pmatrix}$; then stretch parallel to the $x$-axis with scale factor $2$"
+  ],
+  "answer": 3,
+  "solution": "Vertical transformations act on the **whole right-hand side** ($y \\to y + b$, $y \\to -y$); horizontal ones replace $x$.\n\nOption D, step by step:\n\n* translate by $\\begin{pmatrix}0\\\\-3\\end{pmatrix}$: $y = f(x) - 3$;\n* reflect in the $x$-axis: $y = -(f(x) - 3) = 3 - f(x)$;\n* stretch parallel to the $x$-axis, factor 2: $y = 3 - f\\!\\left(\\tfrac{x}{2}\\right)$. ✓\n\nThe others give $-f(\\tfrac x2) - 3$ (A), $3 - f(2x)$ (B), $f(-\\tfrac x2) + 3$ (C) and $-f(\\tfrac x2) - 3$ (E).\n\nThe point: a reflection in the $x$-axis also flips any translation already done, so 'down 3 then reflect' ends up **up** 3.",
+  "insight": "Vertical steps act on the whole expression in order, so a reflection after a translation reverses the translation.",
+  "distractors": {
+   "0": "Translating up 3 and then reflecting turns $f + 3$ into $-f - 3$: the reflection flips the earlier translation too.",
+   "1": "Scale factor $\\tfrac12$ replaces $x$ by $2x$, giving $3 - f(2x)$; to get $f(\\tfrac x2)$ the scale factor must be 2.",
+   "2": "Reflecting in the $y$-axis changes $x$ to $-x$; the minus sign in $3 - f(\\ldots)$ is outside $f$, so it needs a reflection in the $x$-axis.",
+   "4": "Reflecting first and then moving down 3 gives $-f - 3$: the order matters for vertical steps too."
+  },
+  "time": 180,
+  "family": "graphs-04"
  },
  {
   "id": "graphs-05",
   "topic": "graphs",
   "paper": 1,
-  "difficulty": 2,
+  "difficulty": 3,
   "skills": [
-   "transformations",
-   "mapping points"
+   "quadratic graphs",
+   "completed square",
+   "parameters"
   ],
-  "stem": "The point $(4, -2)$ lies on the curve $y = f(x)$. Which point must lie on the curve $y = 3f(2x-2) + 1$?",
-  "figure": null,
-  "options": [
-   "$(1, -5)$",
-   "$(3, -7)$",
-   "$(3, -5)$",
-   "$(3, -3)$",
-   "$(10, -5)$"
-  ],
-  "answer": 2,
-  "solution": "We need the input to $f$ to be $4$: $2x - 2 = 4 \\Rightarrow x = 3$.\n\nThen $y = 3f(4) + 1 = 3(-2) + 1 = -5$.\n\nSo the point is $(3, -5)$.",
-  "insight": "To find where a point goes, solve 'inside bracket = old $x$' rather than trying to apply the transformations one by one.",
-  "distractors": {
-   "0": "Computing $(4-2)/2$ instead of solving $2x-2=4$ (i.e. applying the operations in the wrong order).",
-   "3": "Computing $3(-2+1)$: adding the $1$ before multiplying by $3$.",
-   "4": "Applying $x\\mapsto 2x+2$ forwards to the old $x$-coordinate; horizontal changes act inversely."
+  "stem": "The diagram shows the curve $y = a(x+b)^2 + c$, where $a$, $b$ and $c$ are non-zero constants. Which one of the following must be true?",
+  "figure": {
+   "plot": {
+    "x": [
+     -1,
+     5
+    ],
+    "y": [
+     -3,
+     4
+    ],
+    "curves": [
+     {
+      "fn": "-(x-2)^2+3"
+     }
+    ],
+    "ticks": false
+   }
   },
-  "time": 90
+  "options": [
+   "$b < 0$ and $ab^2 + c < 0$",
+   "$a > 0$ and $c > 0$",
+   "$a < 0$ and $b > 0$",
+   "$b < 0$ and $c < 0$",
+   "$c > 0$ and $ab^2 + c > 0$"
+  ],
+  "answer": 0,
+  "solution": "Read each parameter from the vertex form.\n\n* The curve opens **downwards**, so $a < 0$.\n* The vertex of $y = a(x+b)^2 + c$ is at $(-b, c)$. In the diagram it is in the first quadrant, so $-b > 0$, i.e. $b < 0$, and $c > 0$.\n* Putting $x = 0$, the $y$-intercept is $ab^2 + c$. The curve crosses the $y$-axis **below** the origin, so $ab^2 + c < 0$.\n\nOnly A is consistent with all of these.",
+  "insight": "In $y = a(x+b)^2 + c$: $a$ fixes which way up, the vertex is $(-b, c)$, and the $y$-intercept is $ab^2 + c$.",
+  "distractors": {
+   "1": "$a > 0$ would make the curve open upwards; this one has a maximum.",
+   "2": "The vertex is at $x = -b$, not $x = b$: a vertex to the right of the $y$-axis means $b < 0$.",
+   "3": "Confusing $c$ with the $y$-intercept: $c$ is the height of the vertex, which is above the $x$-axis.",
+   "4": "$c > 0$ is right, but the $y$-intercept $ab^2 + c$ is negative here: the curve crosses the $y$-axis below the origin."
+  },
+  "time": 150,
+  "family": "graphs-05"
  },
  {
-  "id": "graphs-06",
+  "id": "graphs-05b",
   "topic": "graphs",
   "paper": 1,
-  "difficulty": 2,
+  "difficulty": 3,
   "skills": [
-   "reciprocal graphs",
-   "asymptotes",
-   "transformations"
+   "quadratic graphs",
+   "completed square",
+   "parameters"
   ],
-  "stem": "Which one of the following is the graph of $y = \\dfrac{1}{x-1} + 2$?",
+  "stem": "The constants $a$, $b$ and $c$ satisfy $a > 0$, $b > 0$, $c < 0$ and $ab^2 + c > 0$. Which one of the following could be the graph of $y = a(x+b)^2 + c$?",
   "figure": null,
   "options": [
    {
@@ -240,22 +653,11 @@
      ],
      "y": [
       -4,
-      6
+      5
      ],
      "curves": [
       {
-       "fn": "1/(x+1)+2",
-       "domain": [
-        -4.0,
-        -1.092
-       ]
-      },
-      {
-       "fn": "1/(x+1)+2",
-       "domain": [
-        -0.888,
-        4.0
-       ]
+       "fn": "(x+1)^2-2"
       }
      ],
      "ticks": true
@@ -269,22 +671,11 @@
      ],
      "y": [
       -4,
-      6
+      5
      ],
      "curves": [
       {
-       "fn": "1/(x-1)-2",
-       "domain": [
-        -4.0,
-        0.856
-       ]
-      },
-      {
-       "fn": "1/(x-1)-2",
-       "domain": [
-        1.078,
-        4.0
-       ]
+       "fn": "2*(x-1.5)^2-2"
       }
      ],
      "ticks": true
@@ -298,22 +689,11 @@
      ],
      "y": [
       -4,
-      6
+      5
      ],
      "curves": [
       {
-       "fn": "1/(x-1)+2",
-       "domain": [
-        -4.0,
-        0.908
-       ]
-      },
-      {
-       "fn": "1/(x-1)+2",
-       "domain": [
-        1.112,
-        4.0
-       ]
+       "fn": "2*(x+1.5)^2-2"
       }
      ],
      "ticks": true
@@ -327,22 +707,29 @@
      ],
      "y": [
       -4,
-      6
+      5
      ],
      "curves": [
       {
-       "fn": "(-1)/(x-1)+2",
-       "domain": [
-        -4.0,
-        0.888
-       ]
-      },
+       "fn": "-(x+1.5)^2-1"
+      }
+     ],
+     "ticks": true
+    }
+   },
+   {
+    "plot": {
+     "x": [
+      -4,
+      4
+     ],
+     "y": [
+      -4,
+      5
+     ],
+     "curves": [
       {
-       "fn": "(-1)/(x-1)+2",
-       "domain": [
-        1.092,
-        4.0
-       ]
+       "fn": "(x+1.5)^2+1"
       }
      ],
      "ticks": true
@@ -350,13 +737,246 @@
    }
   ],
   "answer": 2,
-  "solution": "This is $y = 1/x$ translated right 1 and up 2.\n\n* Vertical asymptote $x=1$, horizontal asymptote $y=2$.\n* Same orientation as $1/x$: top-right and bottom-left branches.\n* Quick check: at $x=0$, $y = -1 + 2 = 1$; the curve crosses the $x$-axis where $\\frac{1}{x-1} = -2$, i.e. $x = \\tfrac12$.\n\nOnly C has all these features.",
-  "insight": "Locate the asymptotes, then fix the branches with one easy point such as the $y$-intercept.",
+  "solution": "Translate each condition into a feature of the graph.\n\n* $a > 0$: the parabola opens **upwards**.\n* The vertex is $(-b, c)$: with $b > 0$ and $c < 0$ it lies in the **third quadrant** (left of the $y$-axis, below the $x$-axis).\n* $x = 0$ gives $y = ab^2 + c > 0$: the curve crosses the $y$-axis **above** the origin.\n\nGraph C (vertex $(-1.5, -2)$, $y$-intercept $2.5$) is the only one with all three features.",
+  "insight": "In $y = a(x+b)^2 + c$: $a$ fixes which way up, the vertex is $(-b, c)$, and the $y$-intercept is $ab^2 + c$.",
   "distractors": {
-   "0": "$x+1$ in the denominator puts the asymptote at $x=-1$, not $x=1$.",
-   "3": "This is $-\\frac{1}{x-1}+2$: right asymptotes but the branches are in the other two quadrants (e.g. $y$-intercept $3$, not $1$)."
+   "0": "Right vertex position, but this curve crosses the $y$-axis below the origin, so $ab^2 + c < 0$.",
+   "1": "The vertex is at $x = 1.5 = -b$, so $b < 0$: the sign of $b$ has been read the wrong way round.",
+   "3": "This parabola opens downwards, so $a < 0$.",
+   "4": "The vertex is above the $x$-axis, so $c > 0$."
   },
-  "time": 75
+  "time": 150,
+  "family": "graphs-05"
+ },
+ {
+  "id": "graphs-06",
+  "topic": "graphs",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "composite functions",
+   "modulus graphs"
+  ],
+  "stem": "The functions $f$ and $g$ are defined for all real $x$ by $f(x) = |x - 1|$ and $g(x) = x^2 - 2x$. Which one of the following is the graph of $y = f(g(x))$?",
+  "figure": null,
+  "options": [
+   {
+    "plot": {
+     "x": [
+      -2,
+      4
+     ],
+     "y": [
+      -3,
+      4
+     ],
+     "curves": [
+      {
+       "fn": "abs(x^2-2*x)-1"
+      }
+     ],
+     "ticks": true
+    }
+   },
+   {
+    "plot": {
+     "x": [
+      -2,
+      4
+     ],
+     "y": [
+      -3,
+      4
+     ],
+     "curves": [
+      {
+       "fn": "x^2-2*x-1"
+      }
+     ],
+     "ticks": true
+    }
+   },
+   {
+    "plot": {
+     "x": [
+      -2,
+      4
+     ],
+     "y": [
+      -3,
+      4
+     ],
+     "curves": [
+      {
+       "fn": "(x-1)^2-2*abs(x-1)"
+      }
+     ],
+     "ticks": true
+    }
+   },
+   {
+    "plot": {
+     "x": [
+      -2,
+      4
+     ],
+     "y": [
+      -3,
+      4
+     ],
+     "curves": [
+      {
+       "fn": "(x-1)^2-2*(x-1)"
+      }
+     ],
+     "ticks": true
+    }
+   },
+   {
+    "plot": {
+     "x": [
+      -2,
+      4
+     ],
+     "y": [
+      -3,
+      4
+     ],
+     "curves": [
+      {
+       "fn": "abs(x^2-2*x-1)"
+      }
+     ],
+     "ticks": true
+    }
+   }
+  ],
+  "answer": 4,
+  "solution": "$f(g(x))$ means: apply $g$ first, then $f$. So\n$$f(g(x)) = |g(x) - 1| = |x^2 - 2x - 1| = \\left|(x-1)^2 - 2\\right|.$$\n\nSketch $y = (x-1)^2 - 2$ (vertex $(1, -2)$, roots $1 \\pm \\sqrt2$) and reflect the part below the $x$-axis upwards. The result is a W shape: zero at $x = 1 \\pm\\sqrt2 \\approx -0.41, 2.41$, a hump with top $(1, 2)$, and never negative.\n\nOnly graph E has this shape.",
+  "insight": "In $f(g(x))$ the inner function acts first; write out the composite before sketching.",
+  "distractors": {
+   "0": "This is $|g(x)| - 1$: the modulus applied before subtracting 1, but $f$ subtracts 1 *inside* the modulus.",
+   "1": "This is $g(x) - 1$: the modulus has been forgotten, so the graph goes below the $x$-axis.",
+   "2": "This is $g(f(x)) = |x-1|^2 - 2|x-1|$: the functions have been composed in the wrong order.",
+   "3": "This is $g(x-1)$: $f$ treated as $x - 1$ without the modulus and substituted the wrong way round."
+  },
+  "time": 150,
+  "family": "graphs-06"
+ },
+ {
+  "id": "graphs-06b",
+  "topic": "graphs",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "composite functions",
+   "modulus graphs"
+  ],
+  "stem": "The functions $f$ and $g$ are defined for all real $x$ by $f(x) = x^2 - 4$ and $g(x) = |x - 1|$. Which one of the following is the graph of $y = f(g(x))$?",
+  "figure": null,
+  "options": [
+   {
+    "plot": {
+     "x": [
+      -4,
+      5
+     ],
+     "y": [
+      -5,
+      6
+     ],
+     "curves": [
+      {
+       "fn": "(abs(x)-1)^2-4"
+      }
+     ],
+     "ticks": true
+    }
+   },
+   {
+    "plot": {
+     "x": [
+      -4,
+      5
+     ],
+     "y": [
+      -5,
+      6
+     ],
+     "curves": [
+      {
+       "fn": "(x-1)^2-4"
+      }
+     ],
+     "ticks": true
+    }
+   },
+   {
+    "plot": {
+     "x": [
+      -4,
+      5
+     ],
+     "y": [
+      -5,
+      6
+     ],
+     "curves": [
+      {
+       "fn": "abs(x^2-5)"
+      }
+     ],
+     "ticks": true
+    }
+   },
+   {
+    "plot": {
+     "x": [
+      -4,
+      5
+     ],
+     "y": [
+      -5,
+      6
+     ],
+     "curves": [
+      {
+       "fn": "abs((x-1)^2-4)"
+      }
+     ],
+     "ticks": true
+    }
+   },
+   {
+    "plot": {
+     "x": [
+      -4,
+      5
+     ],
+     "y": [
+      -5,
+      6
+     ],
+     "curves": [
+      {
+       "fn": "(x+1)^2-4"
+      }
+     ],
+     "ticks": true
+    }
+   }
+  ],
+  "answer": 1,
+  "solution": "Apply $g$ first, then $f$:\n$$f(g(x)) = \\big(g(x)\\big)^2 - 4 = |x-1|^2 - 4 = (x-1)^2 - 4,$$\nbecause squaring removes the modulus: $|u|^2 = u^2$.\n\nSo the graph is an ordinary parabola with vertex $(1, -4)$ and roots $x = -1$ and $x = 3$: graph B.",
+  "insight": "Simplify the composite before sketching: here $|u|^2 = u^2$ makes the modulus disappear.",
+  "distractors": {
+   "0": "This is $f(|x| - 1)$: the modulus has been put round $x$ alone instead of round $x - 1$.",
+   "2": "This is $g(f(x)) = |x^2 - 5|$: the composition has been done in the wrong order.",
+   "3": "Keeping a modulus round the whole answer: the modulus is applied before squaring, and squaring makes it irrelevant.",
+   "4": "A shift in the wrong direction: $(x+1)^2 - 4$ has its vertex at $x = -1$."
+  },
+  "time": 150,
+  "family": "graphs-06"
  },
  {
   "id": "graphs-07",
@@ -365,33 +985,34 @@
   "difficulty": 3,
   "skills": [
    "gradient function",
-   "stationary points"
+   "stationary points",
+   "rates of change"
   ],
-  "stem": "The graph of $y = f(x)$ is shown. It has turning points at $x = -1$ and $x = 2$ and no others. Which one of the following could be the graph of $y = f'(x)$?",
+  "stem": "The volume of water in a reservoir, $V$, $t$ months after the start of a year is modelled by $V = f(t)$ for $0 \\le t \\le 5.5$. The graph of $V = f(t)$ is shown; its only turning points are at $t = 1$ and $t = 4$. Which one of the following could be the graph of the rate of change $\\dfrac{dV}{dt} = f'(t)$?",
   "figure": {
    "plot": {
     "x": [
-     -3,
-     4
+     0,
+     5.5
     ],
     "y": [
-     -5,
-     4
+     0,
+     7
     ],
     "curves": [
      {
-      "fn": "x^3/3-x^2/2-2*x"
+      "fn": "x^3/3-5*x^2/2+4*x+3"
      }
     ],
     "ticks": true,
     "points": [
      [
-      -1,
-      1.167
+      1,
+      4.833
      ],
      [
-      2,
-      -3.333
+      4,
+      0.333
      ]
     ]
    }
@@ -400,20 +1021,16 @@
    {
     "plot": {
      "x": [
-      -3,
-      4
+      0,
+      5.5
      ],
      "y": [
-      -4,
+      -5,
       6
      ],
      "curves": [
       {
-       "fn": "(x-1)*(x+2)",
-       "domain": [
-        -3.0,
-        3.139
-       ]
+       "fn": "-(x-1)*(x-4)"
       }
      ],
      "ticks": true
@@ -422,12 +1039,140 @@
    {
     "plot": {
      "x": [
-      -3,
-      4
+      0,
+      5.5
      ],
      "y": [
-      -4,
+      -5,
       6
+     ],
+     "curves": [
+      {
+       "fn": "(x-1)*(x-4)"
+      }
+     ],
+     "ticks": true
+    }
+   },
+   {
+    "plot": {
+     "x": [
+      0,
+      5.5
+     ],
+     "y": [
+      -5,
+      6
+     ],
+     "curves": [
+      {
+       "fn": "2*x-5"
+      }
+     ],
+     "ticks": true
+    }
+   },
+   {
+    "plot": {
+     "x": [
+      0,
+      5.5
+     ],
+     "y": [
+      -5,
+      6
+     ],
+     "curves": [
+      {
+       "fn": "(x-1)^2*(x-4)"
+      }
+     ],
+     "ticks": true
+    }
+   },
+   {
+    "plot": {
+     "x": [
+      0,
+      5.5
+     ],
+     "y": [
+      -5,
+      6
+     ],
+     "curves": [
+      {
+       "fn": "x^3/3-5*x^2/2+4*x"
+      }
+     ],
+     "ticks": true
+    }
+   }
+  ],
+  "answer": 1,
+  "solution": "Read the **gradient** of the graph of $V$ in each interval:\n\n* $0 < t < 1$: $V$ increasing, so $f'(t) > 0$;\n* $1 < t < 4$: $V$ decreasing, so $f'(t) < 0$;\n* $t > 4$: $V$ increasing, so $f'(t) > 0$;\n* $f'(t) = 0$ at $t = 1$ and $t = 4$, changing sign at each.\n\nSo $f'$ is positive, crosses down through $t = 1$, is negative, then crosses up through $t = 4$: a positive quadratic shape with roots 1 and 4. Graph B.\n\n(Here $f(t) = \\tfrac13 t^3 - \\tfrac52 t^2 + 4t + 3$ and $f'(t) = (t-1)(t-4)$.)",
+  "insight": "The graph of $f'$ is read from the slope of $f$, not its height: increasing means $f' > 0$, and turning points are where $f'$ crosses zero.",
+  "distractors": {
+   "0": "Right roots, but the sign is reversed: this $f'$ would make $V$ decrease, then increase, then decrease.",
+   "2": "This is $f''$, the gradient of $f'$, which is zero where $V$ is falling fastest ($t = 2.5$), not at the turning points.",
+   "3": "This has zeros at $t = 1$ and $t = 4$, but it does not change sign at $t = 1$, so $V$ would not turn there.",
+   "4": "This copies the shape of $V$ itself: the heights of the $V$ graph are not its gradients."
+  },
+  "time": 150,
+  "family": "graphs-07"
+ },
+ {
+  "id": "graphs-07b",
+  "topic": "graphs",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "gradient function",
+   "stationary points"
+  ],
+  "stem": "The graph of $y = f(x)$ is shown. It has turning points at $x = -1$, $x = 0$ and $x = 2$, and no others. Which one of the following could be the graph of $y = f'(x)$?",
+  "figure": {
+   "plot": {
+    "x": [
+     -2,
+     3
+    ],
+    "y": [
+     -3.5,
+     3
+    ],
+    "curves": [
+     {
+      "fn": "x^4/4-x^3/3-x^2"
+     }
+    ],
+    "ticks": true,
+    "points": [
+     [
+      -1,
+      -0.417
+     ],
+     [
+      0,
+      0
+     ],
+     [
+      2,
+      -2.667
+     ]
+    ]
+   }
+  },
+  "options": [
+   {
+    "plot": {
+     "x": [
+      -2,
+      3
+     ],
+     "y": [
+      -5,
+      5
      ],
      "curves": [
       {
@@ -440,20 +1185,16 @@
    {
     "plot": {
      "x": [
-      -3,
-      4
+      -2,
+      3
      ],
      "y": [
-      -4,
-      6
+      -5,
+      5
      ],
      "curves": [
       {
-       "fn": "(-1)*(x+1)*(x-2)",
-       "domain": [
-        -2.853,
-        3.853
-       ]
+       "fn": "-x*(x+1)*(x-2)"
       }
      ],
      "ticks": true
@@ -462,43 +1203,82 @@
    {
     "plot": {
      "x": [
-      -3,
-      4
+      -2,
+      3
      ],
      "y": [
-      -4,
-      6
+      -5,
+      5
      ],
      "curves": [
       {
-       "fn": "2*x-1"
+       "fn": "x*(x-1)*(x+2)"
+      }
+     ],
+     "ticks": true
+    }
+   },
+   {
+    "plot": {
+     "x": [
+      -2,
+      3
+     ],
+     "y": [
+      -5,
+      5
+     ],
+     "curves": [
+      {
+       "fn": "x*(x+1)*(x-2)"
+      }
+     ],
+     "ticks": true
+    }
+   },
+   {
+    "plot": {
+     "x": [
+      -2,
+      3
+     ],
+     "y": [
+      -5,
+      5
+     ],
+     "curves": [
+      {
+       "fn": "3*x^2-2*x-2"
       }
      ],
      "ticks": true
     }
    }
   ],
-  "answer": 1,
-  "solution": "Read the *gradient* of $f$ in each region:\n\n* $x<-1$: $f$ is increasing, so $f'>0$.\n* $-1<x<2$: $f$ is decreasing, so $f'<0$.\n* $x>2$: $f$ is increasing, so $f'>0$.\n* $f'=0$ exactly at $x=-1$ and $x=2$.\n\nSo $f'$ is a positive quadratic-shaped curve with roots at $-1$ and $2$: graph B.\n\n(Here $f(x) = \\tfrac13x^3 - \\tfrac12x^2 - 2x$, so $f'(x) = (x+1)(x-2)$.)",
-  "insight": "The zeros of $f'$ are the $x$-coordinates of the turning points of $f$, and the sign of $f'$ is whether $f$ is going up or down.",
+  "answer": 3,
+  "solution": "Read the sign of the gradient between the turning points:\n\n* $x < -1$: $f$ decreasing, $f' < 0$;\n* $-1 < x < 0$: $f$ increasing, $f' > 0$;\n* $0 < x < 2$: $f$ decreasing, $f' < 0$;\n* $x > 2$: $f$ increasing, $f' > 0$.\n\nSo $f'$ has three roots, $-1, 0, 2$, with sign pattern $-, +, -, +$: a positive cubic shape. Graph D.\n\n(Here $f(x) = \\tfrac14x^4 - \\tfrac13x^3 - x^2$ and $f'(x) = x(x+1)(x-2)$.)",
+  "insight": "Each turning point of $f$ is a root of $f'$ where $f'$ changes sign; the sign of $f'$ in between is whether $f$ goes up or down.",
   "distractors": {
-   "0": "Right shape, but the roots are at $1$ and $-2$: the signs of the turning points have been swapped.",
-   "2": "Right roots, but the sign is reversed: this $f'$ would make $f$ decrease, then increase, then decrease.",
-   "3": "This is $f''$ (the gradient of $f'$), which is zero at the point of inflection, not at the turning points."
+   "0": "This ignores the turning point at $x = 0$: with only two roots, $f$ would have only two turning points.",
+   "1": "Right roots but reversed signs: this would make $f$ increase for large negative $x$.",
+   "2": "The roots are at $0, 1, -2$: the signs of the turning points' $x$-coordinates have been swapped.",
+   "4": "This is $f''(x)$, the derivative of $f'$, not $f'$ itself."
   },
-  "time": 120
+  "time": 150,
+  "family": "graphs-07"
  },
  {
   "id": "graphs-08",
   "topic": "graphs",
   "paper": 2,
-  "difficulty": 3,
+  "difficulty": 4,
   "skills": [
    "modulus graphs",
    "f(|x|)",
+   "|f(x)|",
    "number of roots"
   ],
-  "stem": "Let $f(x) = x^2 - 4x + 3$. Consider the following statements about the equation $f(|x|) = k$.\n\n**I** When $k = 3$ it has exactly three real solutions.\n\n**II** When $k = -1$ it has exactly two real solutions.\n\n**III** When $k = 0$ it has exactly two real solutions.\n\nWhich of the statements are true?",
+  "stem": "Let $f(x) = x^2 - 4x + 3$. Consider the following statements about the equation $\\big|f(|x|)\\big| = k$.\n\n**I** When $k = 3$, the equation has exactly three real solutions.\n\n**II** When $k = 1$, the equation has exactly four real solutions.\n\n**III** There is a value of $k$ for which the equation has exactly eight real solutions.\n\nWhich of these statements is/are true?",
   "figure": null,
   "options": [
    "none of them",
@@ -510,14 +1290,50 @@
    "II and III only",
    "I, II and III"
   ],
-  "answer": 4,
-  "solution": "The graph of $y = f(|x|)$ is the part of $y=f(x)$ with $x\\ge0$ together with its reflection in the $y$-axis. For $x \\ge 0$, $f(x) = (x-2)^2 - 1$ has minimum $-1$ at $x=2$ and $f(0)=3$.\n\nSo each solution with $x > 0$ gives two solutions $\\pm x$, while a solution at $x=0$ gives just one.\n\n* **I:** $x^2 - 4x = 0$ gives $x = 0$ or $4$, so $f(|x|)=3$ has $x = 0, \\pm4$: **three** solutions. True.\n* **II:** $x = 2$ only, so $x = \\pm 2$: **two** solutions. True.\n* **III:** $x = 1$ or $3$, so $x = \\pm1, \\pm3$: **four** solutions. False.\n\nAnswer: I and II only.",
-  "insight": "$y=f(|x|)$ is the right-hand half of $y=f(x)$ mirrored in the $y$-axis, so solutions come in $\\pm$ pairs except at $x=0$.",
+  "answer": 5,
+  "solution": "Build the graph in two steps.\n\n* $y = f(|x|)$: take $y = f(x) = (x-2)^2 - 1$ for $x \\ge 0$ (starting at $(0, 3)$, minimum $(2, -1)$, roots $1$ and $3$) and reflect it in the $y$-axis.\n* $y = |f(|x|)|$: reflect the parts below the $x$-axis upwards. On $x \\ge 0$ this gives a small hump between $x = 1$ and $x = 3$ with top $(2, 1)$.\n\nEach solution $t > 0$ on the right half gives two solutions $\\pm t$; $t = 0$ gives one.\n\n* **I:** $f(t) = 3$ gives $t = 0$ or $4$; $f(t) = -3$ has no roots. Solutions $x = 0, \\pm4$: **three**. True.\n* **II:** $f(t) = 1$ gives $t = 2 \\pm \\sqrt2$ (both positive), and $f(t) = -1$ gives $t = 2$. Three positive $t$-values, so **six** solutions. False.\n* **III:** for $0 < k < 1$ the line $y = k$ cuts the right half four times (twice on the hump, once on each side), giving **eight** solutions. True.\n\nAnswer: I and III only.",
+  "insight": "For $f(|x|)$ count solutions with $x \\ge 0$ and double them (except $x = 0$); for $|g|$ solve $g = k$ and $g = -k$.",
   "distractors": {
-   "7": "Forgetting to mirror in III: $x=1,3$ are only the non-negative solutions.",
-   "1": "II is also true: the minimum $-1$ is reached only at $x=2$ on the right-hand half, which mirrors to $x=\\pm2$."
+   "7": "II fails: the line $y = 1$ also touches the top of the reflected hump at $x = \\pm2$, giving six solutions, not four.",
+   "1": "III is true: a line just above the $x$-axis meets each half of the graph four times.",
+   "4": "Treating II as $f(t) = 1$ only: the reflected part means $f(t) = -1$ must also be solved.",
+   "6": "I is true: $x = 0$ is a single solution, and $x = \\pm4$ add two more."
   },
-  "time": 150
+  "time": 210,
+  "family": "graphs-08"
+ },
+ {
+  "id": "graphs-08b",
+  "topic": "graphs",
+  "paper": 2,
+  "difficulty": 4,
+  "skills": [
+   "modulus graphs",
+   "f(|x|)",
+   "number of roots"
+  ],
+  "stem": "Let $f(x) = x^3 - 3x$. Consider the following statements about the equation $f(|x|) = k$.\n\n**I** When $k = -1$, the equation has exactly four real solutions.\n\n**II** When $k = 2$, the equation has exactly three real solutions.\n\n**III** When $k = 0$, the equation has exactly two real solutions.\n\nWhich of these statements is/are true?",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 1,
+  "solution": "The graph of $y = f(|x|)$ is the part of $y = x^3 - 3x$ with $x \\ge 0$ (from $(0,0)$ down to the minimum $(1, -2)$, then up through $(\\sqrt3, 0)$ and $(2, 2)$) together with its mirror image in the $y$-axis. Put $t = |x| \\ge 0$: each root $t > 0$ gives two solutions, $t = 0$ gives one.\n\n* **I:** $t^3 - 3t + 1 = 0$. On $t \\ge 0$ the right half goes from $0$ down to $-2$ and back up, so it meets $y = -1$ twice, at some $t_1 \\in (0,1)$ and $t_2 \\in (1, \\sqrt3)$. That gives **four** solutions. True.\n* **II:** $t^3 - 3t - 2 = (t+1)^2(t-2)$. Only $t = 2$ is allowed ($t = -1 < 0$), so $x = \\pm2$: **two** solutions. False.\n* **III:** $t(t^2 - 3) = 0$ gives $t = 0$ or $\\sqrt3$, so $x = 0, \\pm\\sqrt3$: **three** solutions. False.\n\nAnswer: I only.",
+  "insight": "With $t = |x|$, keep only roots $t \\ge 0$; each positive one gives two values of $x$, but $t = 0$ gives only one.",
+  "distractors": {
+   "4": "II: the root $t = -1$ of $t^3 - 3t - 2$ is not allowed, because $t = |x|$ cannot be negative.",
+   "5": "III: $t = 0$ gives the solution $x = 0$, so there are three solutions, not two.",
+   "7": "Both II and III go wrong over how the roots of the cubic in $t$ turn into values of $x$: discard negative $t$ and count $t = 0$ once."
+  },
+  "time": 210,
+  "family": "graphs-08"
  },
  {
   "id": "graphs-09",
@@ -540,24 +1356,90 @@
   ],
   "answer": 2,
   "solution": "Factorise: $|x^2-2x-3| = |x+1|\\,|x-3|$.\n\nThe right-hand side must be $\\ge 0$, so $x \\ge -1$.\n\n* $x = -1$: both sides are $0$. ✓\n* $x > -1$: divide by $x+1>0$ to get $|x - 3| = 1$, so $x = 2$ or $x = 4$. ✓\n\nThat is **3** solutions: $x=-1, 2, 4$.\n\nSketch check: the line $y=x+1$ passes through the root $(-1,0)$ of the W-shaped graph, meets the reflected hump again at $x=2$ and the rising right-hand arm at $x=4$.",
-  "insight": "Factorise before squaring or splitting into cases — a shared factor gives a solution you must not divide away.",
+  "insight": "Factorise first: a common factor with the right-hand side must be handled separately, never divided out blindly.",
   "distractors": {
    "1": "Dividing by $x+1$ straight away loses the solution $x=-1$.",
-   "3": "Solving both $x^2-2x-3 = \\pm(x+1)$ without checking: $x^2-2x-3 = -(x+1)$ gives $x=-1$ and $x=2$, and $x^2-2x-3=x+1$ gives $x=-1$ and $x=4$ — the root $x=-1$ is shared, so only three distinct values."
+   "3": "Solving both $x^2-2x-3 = \\pm(x+1)$ and listing four roots: $x=-1$ appears in both cases, so there are only three distinct values.",
+   "0": "Solving only $x^2 - 2x - 3 = x + 1$ (giving $x = -1, 4$) and ignoring the reflected hump, then also missing one of those."
   },
-  "time": 150
+  "time": 180,
+  "family": "graphs-09"
+ },
+ {
+  "id": "graphs-09b",
+  "topic": "graphs",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "modulus graphs",
+   "|f(x)|",
+   "intersections"
+  ],
+  "stem": "How many real solutions does the equation $|x^2 - 4| = 3x$ have?",
+  "figure": null,
+  "options": [
+   "$1$",
+   "$2$",
+   "$3$",
+   "$4$",
+   "$5$"
+  ],
+  "answer": 1,
+  "solution": "The left-hand side is never negative, so any solution needs $3x \\ge 0$, i.e. $x \\ge 0$. (At $x = 0$ the sides are $4$ and $0$, so $x > 0$.)\n\n* $0 < x < 2$: $|x^2 - 4| = 4 - x^2$, so $4 - x^2 = 3x \\Rightarrow x^2 + 3x - 4 = 0 \\Rightarrow x = 1$ or $x = -4$. Only $x = 1$ is in range.\n* $x \\ge 2$: $x^2 - 4 = 3x \\Rightarrow x^2 - 3x - 4 = 0 \\Rightarrow x = 4$ or $x = -1$. Only $x = 4$ is in range.\n\nSo there are **2** solutions, $x = 1$ and $x = 4$.\n\nSketch check: the line $y = 3x$ through the origin is below the $x$-axis for $x < 0$; for $x > 0$ it crosses the hump of the W once and the right-hand arm once.",
+  "insight": "Before solving $|g(x)| = h(x)$, note that $h(x) \\ge 0$ is needed, and check each root against its case.",
+  "distractors": {
+   "3": "Keeping all four roots of the two quadratics: $x = -4$ and $x = -1$ make the right-hand side negative.",
+   "2": "Keeping $x = -1$ because it satisfies $x^2 - 4 = 3x$; but then $|x^2 - 4| = 3$ while $3x = -3$.",
+   "0": "Solving only $x^2 - 4 = 3x$ and forgetting the reflected part between $x = -2$ and $x = 2$."
+  },
+  "time": 180,
+  "family": "graphs-09"
  },
  {
   "id": "graphs-10",
   "topic": "graphs",
   "paper": 2,
-  "difficulty": 3,
+  "difficulty": 5,
   "skills": [
-   "sketching polynomials",
-   "repeated roots",
+   "possible numbers of roots",
+   "quartics",
+   "symmetry",
+   "intersections"
+  ],
+  "stem": "Let $p(x) = (x^2 - 2x)^2 + k$, where $k$ is a real constant. Consider the following statements about the equation $p(x) = 0$.\n\n**I** There is a value of $k$ for which the equation has exactly one distinct real root.\n\n**II** There is a value of $k$ for which the equation has exactly three distinct real roots.\n\n**III** For every $k < 0$, the equation has at least two distinct real roots.\n\nWhich of these statements is/are true?",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 6,
+  "solution": "Rewrite $p(x) = 0$ as $(x^2 - 2x)^2 = -k$ and count where the horizontal line $y = -k$ meets $y = \\big(x(x-2)\\big)^2$.\n\nThat curve touches the $x$-axis at $x = 0$ and $x = 2$ (minima, value 0), has a local maximum at $x = 1$ with value $(1-2)^2 = 1$, tends to $+\\infty$ at both ends, and is **symmetric about $x = 1$**.\n\n* $-k < 0$: no roots. $-k = 0$: two ($x = 0, 2$).\n* $0 < -k < 1$: four. $-k = 1$: three ($x = 1$ and $x = 1 \\pm\\sqrt2$). $-k > 1$: two.\n\nSo the possible numbers of distinct real roots are $0, 2, 3, 4$.\n\n* **I:** False. By symmetry, roots come in pairs $1 \\pm h$ except $x = 1$ itself; but $x = 1$ is a root only when $k = -1$, and then $1 \\pm \\sqrt2$ are roots too.\n* **II:** True ($k = -1$).\n* **III:** True: $k < 0$ means $-k > 0$, giving 2, 3 or 4 roots.\n\nAnswer: II and III only.",
+  "insight": "To find which numbers of roots are possible, sketch the fixed curve and slide a horizontal line, noting the counts at and between the turning values.",
+  "distractors": {
+   "7": "I is false: 'a quartic can have any number of roots from 0 to 4' is not true for this family; the symmetry about $x = 1$ forbids a single root.",
+   "2": "III is true: for any $k < 0$ the line $y = -k$ is above the minima at height 0, so it meets the outer parts of the curve at least twice.",
+   "3": "II is true: at $k = -1$ the line $y = 1$ touches the local maximum at $x = 1$ and also cuts the outer branches."
+  },
+  "time": 240,
+  "family": "graphs-10"
+ },
+ {
+  "id": "graphs-10b",
+  "topic": "graphs",
+  "paper": 2,
+  "difficulty": 5,
+  "skills": [
+   "possible numbers of roots",
+   "quartics",
    "stationary points"
   ],
-  "stem": "Let $f(x) = (x-a)^2(x-b)$, where $0 < a < b$. Consider these statements.\n\n**I** The curve $y = f(x)$ has a local maximum at $x = a$.\n\n**II** $f(x) \\ge 0$ for all $x \\ge a$.\n\n**III** The curve $y = f(x)$ crosses the $x$-axis at exactly one point.\n\nWhich of the statements must be true?",
+  "stem": "Let $p(x) = x^4 - 4x^3 + k$, where $k$ is a real constant. Consider the following statements about the equation $p(x) = 0$.\n\n**I** There is a value of $k$ for which the equation has exactly one distinct real root.\n\n**II** There is a value of $k$ for which the equation has exactly three distinct real roots.\n\n**III** For every $k < 0$, the equation has exactly two distinct real roots.\n\nWhich of these statements is/are true?",
   "figure": null,
   "options": [
    "none of them",
@@ -570,209 +1452,137 @@
    "I, II and III"
   ],
   "answer": 5,
-  "solution": "Sketch a positive cubic that touches the axis at $x=a$ and crosses at $x=b$.\n\n* **I:** Just either side of $a$, $(x-a)^2>0$ and $x-b<0$, so $f(x) < 0 = f(a)$. So $x=a$ is a local maximum. True.\n* **II:** For $a<x<b$, $f(x) = (\\text{positive})(\\text{negative}) < 0$. False.\n* **III:** At $x=a$ the curve touches but does not cross (the sign of $f$ does not change); it crosses only at $x=b$. True.\n\nAnswer: I and III only.",
-  "insight": "At a root of even multiplicity the curve touches the axis, and the sign of the other factors tells you whether that is a maximum or minimum.",
+  "solution": "Rewrite as $x^4 - 4x^3 = -k$ and count intersections of $y = x^4 - 4x^3$ with the horizontal line $y = -k$.\n\n$\\dfrac{d}{dx}(x^4 - 4x^3) = 4x^3 - 12x^2 = 4x^2(x - 3)$. This is $\\le 0$ for $x < 3$ and $> 0$ for $x > 3$, so the curve **decreases all the way to $x = 3$** (the stationary point at $x = 0$ is not a turning point: the gradient does not change sign there) and then increases. The only turning point is the minimum $(3, 81 - 108) = (3, -27)$.\n\nSo a horizontal line $y = c$ meets the curve twice if $c > -27$, once if $c = -27$, and not at all if $c < -27$. The possible counts are $0, 1, 2$.\n\n* **I:** True: $k = 27$ gives the single root $x = 3$.\n* **II:** False: three roots would need a second turning point.\n* **III:** True: $k < 0$ means $c = -k > 0 > -27$, so exactly two roots.\n\nAnswer: I and III only.",
+  "insight": "Use the sign of the derivative to find the true turning points: a stationary point where $f'$ does not change sign adds no extra roots.",
   "distractors": {
-   "7": "II fails between the roots: after touching at $a$ the curve dips below the axis before crossing at $b$.",
-   "1": "III is about *crossing*: touching at $x=a$ does not count as a crossing, so there is exactly one."
+   "7": "II fails: the stationary point at $x = 0$ looks as if it could create extra crossings, but the curve keeps decreasing through it.",
+   "1": "III is true: every line above the minimum value $-27$ meets the curve exactly twice.",
+   "4": "I and II only: II needs two turning points, and this curve has only one."
   },
-  "time": 150
+  "time": 240,
+  "family": "graphs-10"
  },
  {
   "id": "graphs-11",
   "topic": "graphs",
   "paper": 1,
-  "difficulty": 3,
+  "difficulty": 4,
   "skills": [
-   "reciprocal graphs",
-   "rational functions",
-   "asymptotes"
+   "logarithm graphs",
+   "modulus graphs",
+   "intersections"
   ],
-  "stem": "Which one of the following is the graph of $y = \\dfrac{1}{x^2 - 1}$?",
+  "stem": "How many real solutions does the equation $|\\ln x| = |x - 2|$ have?",
   "figure": null,
   "options": [
-   {
-    "plot": {
-     "x": [
-      -3,
-      3
-     ],
-     "y": [
-      -4,
-      4
-     ],
-     "curves": [
-      {
-       "fn": "1/(1-x^2)",
-       "domain": [
-        -3.0,
-        -1.062
-       ]
-      },
-      {
-       "fn": "1/(1-x^2)",
-       "domain": [
-        -0.934,
-        0.934
-       ]
-      },
-      {
-       "fn": "1/(1-x^2)",
-       "domain": [
-        1.062,
-        3.0
-       ]
-      }
-     ],
-     "ticks": true
-    }
-   },
-   {
-    "plot": {
-     "x": [
-      -3,
-      3
-     ],
-     "y": [
-      -4,
-      4
-     ],
-     "curves": [
-      {
-       "fn": "x/(x^2-1)",
-       "domain": [
-        -3.0,
-        -1.065
-       ]
-      },
-      {
-       "fn": "x/(x^2-1)",
-       "domain": [
-        -0.939,
-        0.939
-       ]
-      },
-      {
-       "fn": "x/(x^2-1)",
-       "domain": [
-        1.065,
-        3.0
-       ]
-      }
-     ],
-     "ticks": true
-    }
-   },
-   {
-    "plot": {
-     "x": [
-      -3,
-      3
-     ],
-     "y": [
-      -4,
-      4
-     ],
-     "curves": [
-      {
-       "fn": "x^2/(x^2-1)",
-       "domain": [
-        -3.0,
-        -1.069
-       ]
-      },
-      {
-       "fn": "x^2/(x^2-1)",
-       "domain": [
-        -0.942,
-        0.942
-       ]
-      },
-      {
-       "fn": "x^2/(x^2-1)",
-       "domain": [
-        1.069,
-        3.0
-       ]
-      }
-     ],
-     "ticks": true
-    }
-   },
-   {
-    "plot": {
-     "x": [
-      -3,
-      3
-     ],
-     "y": [
-      -4,
-      4
-     ],
-     "curves": [
-      {
-       "fn": "1/(x^2-1)",
-       "domain": [
-        -3.0,
-        -1.062
-       ]
-      },
-      {
-       "fn": "1/(x^2-1)",
-       "domain": [
-        -0.934,
-        0.934
-       ]
-      },
-      {
-       "fn": "1/(x^2-1)",
-       "domain": [
-        1.062,
-        3.0
-       ]
-      }
-     ],
-     "ticks": true
-    }
-   }
+   "$0$",
+   "$1$",
+   "$2$",
+   "$3$",
+   "$4$"
   ],
   "answer": 3,
-  "solution": "Features of $y = \\dfrac{1}{x^2-1}$:\n\n* Even function: symmetric in the $y$-axis.\n* Vertical asymptotes $x = \\pm1$; $y \\to 0$ as $x \\to \\pm\\infty$ (so the $x$-axis is an asymptote).\n* $|x|>1$: denominator positive, so $y>0$. $|x|<1$: denominator negative, so $y<0$, with $y(0) = -1$.\n\nGraph D is the only one with an upside-down 'cap' through $(0,-1)$ between the asymptotes and positive outer branches.",
-  "insight": "For a reciprocal, the sign of the denominator on each interval tells you which side of the axis each branch lies.",
+  "solution": "Sketch both graphs for $x > 0$.\n\n* $y = |\\ln x|$: falls from $+\\infty$ (as $x \\to 0^+$) to $0$ at $x = 1$, then rises slowly like $\\ln x$.\n* $y = |x - 2|$: a V with vertex $(2, 0)$ and value 2 at $x = 0$.\n\nCount interval by interval.\n\n* $0 < x < 1$: we need $-\\ln x = 2 - x$. Near $0$ the left side is huge; at $x = 1$ it is $0 < 1$. Since $x - \\ln x$ is decreasing on $(0,1)$, there is **exactly one** crossing.\n* $1 \\le x \\le 2$: $\\ln x$ increases from $0$ while $2 - x$ decreases to $0$: **exactly one** crossing.\n* $x > 2$: we need $\\ln x = x - 2$. At $x = 2$, $\\ln 2 > 0$; at $x = 4$, $\\ln 4 < 2$. The gap $x - 2 - \\ln x$ is increasing for $x > 1$, so **exactly one** crossing.\n\nTotal: **3** solutions.",
+  "insight": "Split a modulus equation at the points where each modulus changes form, and use 'one rises while the other falls' to count crossings.",
   "distractors": {
-   "0": "This is $\\frac{1}{1-x^2}$, the reflection in the $x$-axis: the sign of the denominator has been reversed.",
-   "2": "This is $\\frac{x^2}{x^2-1}$: it passes through the origin and tends to $1$, not $0$, at the ends.",
-   "1": "This is $\\frac{x}{x^2-1}$, which is odd (rotational symmetry about the origin), not even."
+   "2": "Missing the solution in $0 < x < 1$, where $|\\ln x| = -\\ln x$ shoots up near $x = 0$ and must cross the V.",
+   "1": "Only finding the obvious crossing between $x = 1$ and $x = 2$; $\\ln x$ is eventually overtaken by $x - 2$, which gives another crossing, and the left branch gives a third.",
+   "4": "Expecting two crossings for $x > 2$; once $x - 2$ passes $\\ln x$ it stays ahead, because its gradient 1 exceeds $\\tfrac1x$."
   },
-  "time": 100
+  "time": 210,
+  "family": "graphs-11"
+ },
+ {
+  "id": "graphs-11b",
+  "topic": "graphs",
+  "paper": 1,
+  "difficulty": 4,
+  "skills": [
+   "exponential graphs",
+   "modulus graphs",
+   "intersections"
+  ],
+  "stem": "How many real solutions does the equation $|2^x - 4| = x + 1$ have?",
+  "figure": null,
+  "options": [
+   "$0$",
+   "$1$",
+   "$2$",
+   "$3$",
+   "$4$"
+  ],
+  "answer": 2,
+  "solution": "The left-hand side is never negative, so we need $x \\ge -1$.\n\n* $-1 \\le x \\le 2$: $|2^x - 4| = 4 - 2^x$, which decreases, while $x + 1$ increases. So there is at most one crossing; $x = 1$ gives $4 - 2 = 2 = 1 + 1$. **One** solution.\n* $x > 2$: $2^x - 4 = x + 1 \\iff 2^x = x + 5$. At $x = 3$: $8 = 8$. ✓ For $x > 2$ the gradient of $2^x$ exceeds 1, so $2^x - x - 5$ is increasing and $x = 3$ is the **only** solution here.\n\nTotal: **2** solutions, $x = 1$ and $x = 3$.\n\nSketch check: $y = |2^x - 4|$ comes in from the asymptote $y = 4$ on the left, drops to a corner at $(2, 0)$ and then rises steeply; the line $y = x + 1$ crosses the falling part once and the rising part once.",
+  "insight": "On each side of the corner of a modulus graph, compare which side is rising or falling to cap the number of crossings.",
+  "distractors": {
+   "1": "Finding $x = 3$ (or $x = 1$) by trial and stopping; there is one crossing on each side of the corner at $x = 2$.",
+   "3": "Expecting an extra crossing on the far left, but for $x < -1$ the line is below the $x$-axis.",
+   "4": "Solving $2^x - 4 = \\pm(x+1)$ and accepting every candidate without checking which side of $x = 2$ it lies on."
+  },
+  "time": 210,
+  "family": "graphs-11"
  },
  {
   "id": "graphs-12",
   "topic": "graphs",
   "paper": 1,
-  "difficulty": 3,
+  "difficulty": 4,
   "skills": [
    "transformations",
-   "order of transformations"
+   "order of transformations",
+   "reflections"
   ],
-  "stem": "The curve $y = x^2$ is translated by $\\begin{pmatrix}2\\\\-1\\end{pmatrix}$ and the result is then stretched parallel to the $x$-axis with scale factor $\\tfrac12$. What is the equation of the final curve?",
+  "stem": "A designer starts with the curve $y = x^2$ and applies the following transformations, in this order:\n\n1. a translation by $\\begin{pmatrix}2\\\\-1\\end{pmatrix}$;\n2. a reflection in the $y$-axis;\n3. a stretch parallel to the $x$-axis with scale factor $\\tfrac12$.\n\nWhat is the equation of the final curve?",
   "figure": null,
   "options": [
-   "$y = \\tfrac14x^2 - 2x + 3$",
-   "$y = 4x^2 - 16x + 15$",
+   "$y = 4x^2 + 8x + 3$",
    "$y = 4x^2 - 8x + 3$",
-   "$y = 4x^2 - 8x + 5$",
-   "$y = 4x^2 + 8x + 3$"
+   "$y = 4x^2 + 16x + 15$",
+   "$y = \\tfrac14x^2 + 2x + 3$",
+   "$y = -4x^2 + 8x - 3$"
   ],
-  "answer": 2,
-  "solution": "Apply the steps to the equation in order.\n\n* Translate by $\\begin{pmatrix}2\\\\-1\\end{pmatrix}$: $y = (x-2)^2 - 1$.\n* Stretch parallel to the $x$-axis, factor $\\tfrac12$: replace $x$ by $2x$, giving $y = (2x-2)^2 - 1$.\n\nExpanding, $y = 4x^2 - 8x + 4 - 1 = 4x^2 - 8x + 3$.\n\nCheck with a point: the vertex $(0,0) \\to (2,-1) \\to (1,-1)$, and $4 - 8 + 3 = -1$. ✓",
-  "insight": "A horizontal stretch applied last replaces every $x$ — including the one inside the earlier translation.",
+  "answer": 0,
+  "solution": "Apply the steps to the equation in order (horizontal steps replace $x$).\n\n* Translate: $y = (x - 2)^2 - 1$.\n* Reflect in the $y$-axis ($x \\to -x$): $y = (-x - 2)^2 - 1 = (x + 2)^2 - 1$.\n* Stretch, scale factor $\\tfrac12$ ($x \\to 2x$): $y = (2x + 2)^2 - 1 = 4x^2 + 8x + 3$.\n\nCheck with the vertex: $(0,0) \\to (2,-1) \\to (-2,-1) \\to (-1,-1)$, and $4 - 8 + 3 = -1$. ✓",
+  "insight": "Track one key point (here the vertex) through every step; it checks both the order and the direction of each transformation.",
   "distractors": {
-   "1": "Doing the stretch first: $(2x)^2$ then translating gives $(2(x-2))^2-1$, whose vertex is at $x=2$, not $1$.",
-   "0": "Replacing $x$ by $x/2$: that is a stretch with scale factor $2$, not $\\tfrac12$.",
-   "4": "Translating left instead of right: $(x+2)^2$ instead of $(x-2)^2$."
+   "1": "Doing the reflection first, where it has no effect on $y = x^2$; in the order given it moves the vertex from $x = 2$ to $x = -2$.",
+   "2": "Stretching as $(2(x+2))^2 - 1$: the stretch replaces $x$ by $2x$, giving $(2x+2)^2 - 1$.",
+   "3": "Replacing $x$ by $\\tfrac x2$: that is a stretch with scale factor 2, not $\\tfrac12$.",
+   "4": "Reflecting in the $x$-axis instead of the $y$-axis."
   },
-  "time": 120
+  "time": 210,
+  "family": "graphs-12"
+ },
+ {
+  "id": "graphs-12b",
+  "topic": "graphs",
+  "paper": 1,
+  "difficulty": 4,
+  "skills": [
+   "transformations",
+   "order of transformations",
+   "square-root graphs"
+  ],
+  "stem": "The curve $y = \\sqrt{x}$ is transformed by the following, in this order:\n\n1. a stretch parallel to the $y$-axis with scale factor 3;\n2. a reflection in the $y$-axis;\n3. a translation by $\\begin{pmatrix}1\\\\-2\\end{pmatrix}$.\n\nWhat is the equation of the final curve?",
+  "figure": null,
+  "options": [
+   "$y = 3\\sqrt{-x-1} - 2$",
+   "$y = 3\\sqrt{x-1} - 2$",
+   "$y = 3\\sqrt{1-x} - 6$",
+   "$y = -3\\sqrt{x-1} - 2$",
+   "$y = 3\\sqrt{1-x} - 2$"
+  ],
+  "answer": 4,
+  "solution": "Apply the steps to the equation in order.\n\n* Stretch parallel to the $y$-axis: $y = 3\\sqrt{x}$.\n* Reflect in the $y$-axis ($x \\to -x$): $y = 3\\sqrt{-x}$.\n* Translate by $\\begin{pmatrix}1\\\\-2\\end{pmatrix}$ ($x \\to x - 1$, then subtract 2): $y = 3\\sqrt{-(x - 1)} - 2 = 3\\sqrt{1 - x} - 2$.\n\nCheck with the endpoint: $(0,0) \\to (0,0) \\to (0,0) \\to (1, -2)$; and $3\\sqrt{1-1} - 2 = -2$. ✓ The curve exists for $x \\le 1$, as a reflected-then-shifted root should.",
+  "insight": "A translation applied after a reflection still replaces $x$ by $x - a$ in the current equation, giving $\\sqrt{-(x-a)}$, not $\\sqrt{-x-a}$.",
+  "distractors": {
+   "0": "Replacing $x$ by $x - 1$ only in $x$ but writing $\\sqrt{-x - 1}$: that is the result of translating before reflecting.",
+   "1": "The reflection in the $y$-axis has been left out.",
+   "2": "Multiplying the $-2$ of the translation by 3 as well: the stretch came first, so it does not affect the later translation.",
+   "3": "Reflecting in the $x$-axis instead of the $y$-axis."
+  },
+  "time": 210,
+  "family": "graphs-12"
  },
  {
   "id": "graphs-13",
@@ -782,26 +1592,61 @@
   "skills": [
    "modulus graphs",
    "tangency",
-   "intersections"
+   "intersections",
+   "parameters"
   ],
   "stem": "The equation $|x^2 - 4| = x + k$ has exactly three distinct real solutions. What is the complete set of possible values of $k$?",
   "figure": null,
   "options": [
-   "$k = 2$ only",
    "$k = \\tfrac{17}{4}$ only",
    "$k = 2$ or $k = \\tfrac{17}{4}$",
    "$k = -2$ or $k = 2$",
    "$2 \\le k \\le \\tfrac{17}{4}$",
    "$2 < k < \\tfrac{17}{4}$"
   ],
-  "answer": 2,
+  "answer": 1,
   "solution": "**Sketch** $y = |x^2 - 4|$: a W shape with zeros at $x=\\pm2$ and the hump $y = 4 - x^2$ between them. The lines $y = x+k$ are parallel lines of gradient 1; slide one upwards.\n\nThree intersections happen only at the 'transition' positions:\n\n* **Through $(-2, 0)$:** $k = 2$. Then $x = -2$ is a solution, and for $x>-2$, $|x-2|(x+2) = x+2$ gives $|x - 2| = 1$, so $x = 1, 3$. Three solutions. ✓\n* **Tangent to the hump:** $4 - x^2 = x + k \\Rightarrow x^2 + x + (k-4) = 0$, discriminant $1 - 4(k-4) = 0$, so $k = \\tfrac{17}{4}$ (touching at $x=-\\tfrac12$, inside $[-2,2]$). The line also cuts each outer arm once. Three solutions. ✓\n\nElsewhere: for $-2<k<2$ the line meets the hump once and the right arm once (two solutions); for $2<k<\\tfrac{17}{4}$ it cuts the hump twice and each outer arm once (four); for $k>\\tfrac{17}{4}$ it meets only the two outer arms (two). Through $(2,0)$ ($k=-2$) there is just one.",
   "insight": "When a line of fixed gradient slides across a graph, the number of intersections only changes at tangencies and at corners, so test those positions.",
   "distractors": {
-   "0": "Finding the line through the corner $(-2,0)$ but missing the tangent to the hump.",
-   "5": "Strictly between these values the line cuts the hump twice and each outer arm once: four solutions, not three."
+   "0": "Finding the tangent to the hump but missing the line through the corner $(-2, 0)$.",
+   "2": "Testing both corners: the line through $(2, 0)$ ($k = -2$) meets the graph only once.",
+   "3": "Strictly between $2$ and $\\tfrac{17}{4}$ the line cuts the hump twice and each outer arm once: four solutions, not three.",
+   "4": "These values give four solutions; three occur only at the two transition positions."
   },
-  "time": 210
+  "time": 240,
+  "family": "graphs-13"
+ },
+ {
+  "id": "graphs-13b",
+  "topic": "graphs",
+  "paper": 1,
+  "difficulty": 4,
+  "skills": [
+   "modulus graphs",
+   "tangency",
+   "intersections",
+   "parameters"
+  ],
+  "stem": "The equation $|x^2 - 2x - 3| = x + k$ has exactly four distinct real solutions. What is the complete set of possible values of $k$?",
+  "figure": null,
+  "options": [
+   "$-3 < k < 1$",
+   "$k = 1$ or $k = \\tfrac{13}{4}$",
+   "$1 \\le k \\le \\tfrac{13}{4}$",
+   "$1 < k < \\tfrac{13}{4}$",
+   "$k < \\tfrac{13}{4}$"
+  ],
+  "answer": 3,
+  "solution": "**Sketch** $y = |x^2 - 2x - 3| = |(x+1)(x-3)|$: a W shape with corners at $(-1, 0)$ and $(3, 0)$ and the hump $y = -x^2 + 2x + 3$ (top $(1, 4)$) between them. Slide the line $y = x + k$ (gradient 1) upwards.\n\n**Critical positions**\n\n* Through $(3, 0)$: $k = -3$. Through $(-1, 0)$: $k = 1$.\n* Tangent to the hump: $-x^2 + 2x + 3 = x + k \\Rightarrow x^2 - x + (k - 3) = 0$, discriminant $1 - 4(k-3) = 0$, so $k = \\tfrac{13}{4}$ (touching at $x = \\tfrac12$, inside $[-1, 3]$).\n\n**Counts**\n\n* $-3 < k < 1$: one point on the hump, one on the right arm: 2.\n* $k = 1$: $x = -1$, one more on the hump ($x = 2$) and one on the right arm: 3.\n* $1 < k < \\tfrac{13}{4}$: two on the hump, one on each outer arm: **4**.\n* $k = \\tfrac{13}{4}$: tangent to the hump plus one on each arm: 3. $k > \\tfrac{13}{4}$: 2.\n\nAnswer: $1 < k < \\tfrac{13}{4}$.",
+  "insight": "When a line of fixed gradient slides across a graph, the number of intersections only changes at tangencies and at corners, so test those positions.",
+  "distractors": {
+   "1": "These are the positions giving exactly three solutions (through the corner, or tangent to the hump).",
+   "2": "Including the endpoints: at $k = 1$ and $k = \\tfrac{13}{4}$ there are only three solutions.",
+   "0": "In this range the line misses the left arm and meets the hump only once: two solutions.",
+   "4": "Using only the discriminant condition for two hump intersections, without checking that both lie between $-1$ and $3$."
+  },
+  "time": 240,
+  "family": "graphs-13"
  },
  {
   "id": "graphs-14",
@@ -811,9 +1656,9 @@
   "skills": [
    "gradient function",
    "stationary points",
-   "points of inflection"
+   "increasing functions"
   ],
-  "stem": "The graph of the **gradient function** $y = f'(x)$ is shown; it meets the $x$-axis only at $x=-2$ (where it crosses) and $x = 1$ (where it touches).\n\n**I** $f$ has a stationary point of inflection at $x = 1$.\n\n**II** $f$ has a local minimum at $x = -2$.\n\n**III** $f(0) > f(1)$.\n\nWhich of the statements must be true?",
+  "stem": "The graph of the **gradient function** $y = f'(x)$ is shown. It meets the $x$-axis only at $x = -2$, where it crosses, and at $x = 1$, where it touches.\n\n**I** $f$ has a local maximum or a local minimum at $x = 1$.\n\n**II** $f$ has a local minimum at $x = -2$.\n\n**III** $f(-1) < f(1)$.\n\nWhich of these statements must be true?",
   "figure": {
    "plot": {
     "x": [
@@ -826,11 +1671,57 @@
     ],
     "curves": [
      {
-      "fn": "(x+2)*(x-1)^2",
-      "domain": [
-       -2.669,
-       2.5
-      ]
+      "fn": "(x+2)*(x-1)^2"
+     }
+    ],
+    "ticks": true
+   }
+  },
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 6,
+  "solution": "Read the sign of $f'$:\n\n* $x < -2$: $f' < 0$, so $f$ is decreasing;\n* $-2 < x < 1$ and $x > 1$: $f' > 0$, so $f$ is increasing.\n\n* **I:** $f'(1) = 0$, so the tangent is horizontal there, but $f'$ does not change sign: $f$ is increasing on both sides, so there is no maximum or minimum. False.\n* **II:** $f'$ changes from negative to positive at $x = -2$: a local minimum. True.\n* **III:** $f' > 0$ on $(-1, 1)$, so $f$ is increasing there and $f(-1) < f(1)$. True.\n\nAnswer: II and III only.",
+  "insight": "A maximum or minimum of $f$ needs $f'$ to change sign, not just to be zero.",
+  "distractors": {
+   "7": "I fails: $f'(1) = 0$ but $f'$ is positive on both sides, so $f$ keeps increasing through $x = 1$.",
+   "2": "III is true: the height of $f'$ is small near $x = 1$, but it is still positive, so $f$ is still increasing.",
+   "4": "Treating every zero of $f'$ as a turning point, and missing that $f$ increases from $x = -1$ to $x = 1$."
+  },
+  "time": 210,
+  "family": "graphs-14"
+ },
+ {
+  "id": "graphs-14b",
+  "topic": "graphs",
+  "paper": 2,
+  "difficulty": 4,
+  "skills": [
+   "gradient function",
+   "stationary points",
+   "increasing functions"
+  ],
+  "stem": "The graph of the **gradient function** $y = f'(x)$ is shown. It crosses the $x$-axis at $x = -1$ and $x = 3$ only.\n\n**I** $f$ has a local maximum at $x = 3$.\n\n**II** $f(-1) < f(3)$.\n\n**III** $f(0) > f(2)$.\n\nWhich of these statements must be true?",
+  "figure": {
+   "plot": {
+    "x": [
+     -2,
+     4
+    ],
+    "y": [
+     -6,
+     5
+    ],
+    "curves": [
+     {
+      "fn": "-(x+1)*(x-3)"
      }
     ],
     "ticks": true
@@ -847,13 +1738,15 @@
    "I, II and III"
   ],
   "answer": 4,
-  "solution": "Read the sign of $f'$:\n\n* $x < -2$: $f' < 0$ ($f$ decreasing).\n* $-2 < x < 1$: $f' > 0$ ($f$ increasing).\n* $x > 1$: $f' > 0$ ($f$ increasing).\n\n* **I:** $f'(1)=0$ but $f'$ does not change sign there, so it is a stationary point of inflection. True.\n* **II:** $f'$ changes from $-$ to $+$ at $x=-2$: a local minimum. True.\n* **III:** $f$ is increasing on $[0,1]$ (since $f'>0$ on $(0,1)$), so $f(0) < f(1)$. False.\n\nAnswer: I and II only.",
-  "insight": "On a graph of $f'$, read *signs* (up/down for $f$), not heights: the turning points of $f$ are where $f'$ crosses the axis.",
+  "solution": "Read the sign of $f'$ from the graph:\n\n* $x < -1$: $f' < 0$, $f$ decreasing;\n* $-1 < x < 3$: $f' > 0$, $f$ increasing;\n* $x > 3$: $f' < 0$, $f$ decreasing.\n\n* **I:** $f'$ changes from positive to negative at $x = 3$: a local maximum. True.\n* **II:** $f$ is increasing on $[-1, 3]$, so $f(-1) < f(3)$. True.\n* **III:** $f$ is increasing on $[0, 2]$, so $f(0) < f(2)$. False.\n\nAnswer: I and II only.",
+  "insight": "On any interval where $f' > 0$, the function $f$ is increasing, however the height of $f'$ varies.",
   "distractors": {
-   "7": "III confuses the height of $f'$ with the height of $f$: $f'$ decreasing on $(0,1)$ does not make $f$ decrease.",
-   "1": "II is true too: crossing from negative to positive gradient is exactly a minimum."
+   "7": "III confuses the height of $f'$ with the height of $f$: $f'$ is decreasing on $(1, 2)$, but it is still positive, so $f$ is still increasing.",
+   "1": "II is true: $f' > 0$ on the whole interval from $-1$ to $3$, so $f$ climbs throughout.",
+   "5": "Reading the graph of $f'$ as though it were $f$: $f'(0) > f'(2)$ does not give $f(0) > f(2)$."
   },
-  "time": 150
+  "time": 210,
+  "family": "graphs-14"
  },
  {
   "id": "graphs-15",
@@ -878,10 +1771,43 @@
   "insight": "Only a negative *vertical* factor swaps maxima and minima; locate the new $x$ by solving 'inside = old $x$'.",
   "distractors": {
    "0": "Right $x$-coordinate but using the old maximum's height: $1-2(4) = -7$ belongs to the new *minimum*.",
-   "4": "Solving $3 - x/2 = 5$ with a sign slip ($x = 4$).",
-   "3": "This is the new minimum $(4,-7)$, from the old maximum."
+   "4": "Solving $3 - \\tfrac x2 = 5$ with a sign slip ($x = 4$).",
+   "3": "This is the new minimum $(4,-7)$, from the old maximum.",
+   "2": "Applying only the vertical change and leaving the old $x$-coordinate of the maximum unchanged."
   },
-  "time": 180
+  "time": 210,
+  "family": "graphs-15"
+ },
+ {
+  "id": "graphs-15b",
+  "topic": "graphs",
+  "paper": 1,
+  "difficulty": 4,
+  "skills": [
+   "transformations",
+   "stationary points",
+   "reflections"
+  ],
+  "stem": "The curve $y = f(x)$ has exactly two stationary points: a local minimum at $(-2, 3)$ and a local maximum at $(4, 7)$. What are the coordinates of the local **minimum** of the curve $y = 2f(2 - 2x) - 5$?",
+  "figure": null,
+  "options": [
+   "$(-2, 1)$",
+   "$(-1, 9)$",
+   "$(2, -4)$",
+   "$(2, 1)$",
+   "$(6, 1)$"
+  ],
+  "answer": 3,
+  "solution": "The vertical factor is $+2$ (positive), so minima stay minima: the new minimum comes from the old **minimum** $(-2, 3)$.\n\n* $x$: solve $2 - 2x = -2$, so $x = 2$.\n* $y$: $2(3) - 5 = 1$.\n\nSo the minimum is at $(2, 1)$.\n\nThe inner map $x \\mapsto 2 - 2x$ includes a reflection in the $y$-axis. That swaps left and right, but it does not turn a minimum into a maximum: only a negative factor *outside* $f$ does that. (The new maximum is at $(-1, 9)$.)",
+  "insight": "Only a negative vertical factor swaps maxima and minima; a reflection inside the function only swaps left and right.",
+  "distractors": {
+   "1": "Treating the reflection inside $f$ as swapping maxima and minima: $(-1, 9)$ is the image of the old maximum, which is still a maximum.",
+   "2": "Computing $2(3 - 5)$: subtracting 5 before multiplying by 2.",
+   "0": "Solving $2 - 2x = -2$ with a sign slip, giving $x = -2$.",
+   "4": "Applying $x \\mapsto 2 - 2x$ forwards to the old $x$-coordinate ($2 - 2(-2) = 6$); horizontal changes act inversely."
+  },
+  "time": 210,
+  "family": "graphs-15"
  },
  {
   "id": "graphs-16",
@@ -889,28 +1815,59 @@
   "paper": 1,
   "difficulty": 4,
   "skills": [
-   "reciprocal graphs",
-   "range",
-   "intersections"
+   "exponential graphs",
+   "intersections",
+   "modelling"
   ],
-  "stem": "What is the complete set of values of $k$ for which the line $y = k$ meets the curve $y = \\dfrac{1}{x^2 - 2x - 3}$ at exactly two points?",
+  "stem": "Two colonies of bacteria are grown in a laboratory. After $t$ hours, colony A contains $2^t$ thousand bacteria and colony B contains $t^2 + 1$ thousand bacteria. For how many values of $t \\ge 0$ do the two colonies contain the same number of bacteria?",
   "figure": null,
   "options": [
-   "$k > 0$",
-   "$k < -\\tfrac14$",
-   "$k < -\\tfrac14$ or $k > 0$",
-   "$k \\le -\\tfrac14$ or $k > 0$",
-   "$-\\tfrac14 < k < 0$",
-   "$k \\ne 0$"
+   "$1$",
+   "$2$",
+   "$3$",
+   "$4$",
+   "$5$"
   ],
   "answer": 2,
-  "solution": "Let $g(x) = x^2 - 2x - 3 = (x-1)^2 - 4$, which takes every value in $[-4, \\infty)$; each value above $-4$ is taken **twice**, and $-4$ once (at $x=1$).\n\n$y = 1/g$ equals $k \\ne 0$ exactly when $g(x) = 1/k$.\n\n* $k>0$: $1/k > 0 > -4$, two solutions. ✓\n* $k<0$: need $1/k > -4$, i.e. $k < -\\tfrac14$, for two solutions. At $k=-\\tfrac14$, $g = -4$ gives only one point (the local maximum of the curve at $(1, -\\tfrac14)$).\n* $-\\tfrac14 < k < 0$: $1/k < -4$, no solutions. $k = 0$: none.\n\nAnswer: $k<-\\tfrac14$ or $k>0$.",
-  "insight": "Reciprocal graphs: a minimum of $g$ becomes a maximum of $1/g$, and $y=1/g=k$ is the same as $g=1/k$.",
+  "solution": "We need the number of solutions of $2^t = t^2 + 1$ with $t \\ge 0$.\n\n* $t = 0$: $1 = 1$. ✓ $t = 1$: $2 = 2$. ✓\n* $t = 2$: $4 < 5$; $t = 4$: $16 < 17$; $t = 5$: $32 > 26$. So B is ahead between $t = 1$ and some time between 4 and 5, when A overtakes: a third solution.\n\nThere can be no more: an exponential eventually outgrows any quadratic, and $g(t) = 2^t - t^2 - 1$ cannot have four roots, because then (by repeatedly using 'between two roots the gradient is zero') $g'''(t) = (\\ln 2)^3 2^t$ would have a root, but it is always positive.\n\nSo there are **3** values of $t$.",
+  "insight": "Sketch both curves and test integer points; remember an exponential eventually overtakes any polynomial, which often creates one more, far-off crossing.",
   "distractors": {
-   "3": "At $k=-\\tfrac14$ the line touches the curve at its turning point: one point, not two.",
-   "0": "Missing the lower branch between the asymptotes, where the curve is negative with maximum $-\\tfrac14$."
+   "0": "Noticing only the start ($t = 0$), when both colonies have 1 thousand.",
+   "1": "Finding $t = 0$ and $t = 1$ and assuming the quadratic stays ahead; but $2^t$ overtakes $t^2 + 1$ between $t = 4$ and $t = 5$.",
+   "3": "Expecting a further crossing; once the exponential is ahead (after $t \\approx 4.3$) it stays ahead."
   },
-  "time": 180
+  "time": 210,
+  "family": "graphs-16"
+ },
+ {
+  "id": "graphs-16b",
+  "topic": "graphs",
+  "paper": 1,
+  "difficulty": 4,
+  "skills": [
+   "exponential graphs",
+   "intersections",
+   "convexity"
+  ],
+  "stem": "How many real solutions does the equation $3^x = 9x$ have?",
+  "figure": null,
+  "options": [
+   "$1$",
+   "$2$",
+   "$3$",
+   "$4$",
+   "$5$"
+  ],
+  "answer": 1,
+  "solution": "Sketch $y = 3^x$ (always positive, increasing faster and faster) and the line $y = 9x$ through the origin.\n\n* $x \\le 0$: $9x \\le 0 < 3^x$, so no solutions.\n* $x = 0$: $3^0 = 1 > 0$; $x = 1$: $3 < 9$. So the line overtakes the curve somewhere in $(0, 1)$: one solution.\n* $x = 3$: $27 = 27$. ✓ A second solution; for $x > 3$ the exponential is ahead again.\n\nNo more: $3^x$ bends upwards everywhere (its gradient keeps increasing), so a straight line can cross it at most twice.\n\nSo there are **2** solutions.",
+  "insight": "A straight line meets a curve that always bends the same way (such as $a^x$) at most twice.",
+  "distractors": {
+   "0": "Spotting $x = 3$ by trial and missing the small solution between 0 and 1, where the line overtakes the curve.",
+   "2": "Expecting a negative solution too; but for $x < 0$ the line is below the $x$-axis and $3^x$ is positive.",
+   "3": "Assuming the curves can cross several times; a line cuts an upward-bending curve at most twice."
+  },
+  "time": 210,
+  "family": "graphs-16"
  },
  {
   "id": "graphs-17",
@@ -939,11 +1896,48 @@
   "solution": "The graphs are identical iff $f(|x|) = |f(x)|$ for every $x$.\n\n* **I:** Not sufficient. $f(x) = e^x$: at $x=-1$, $f(|x|) = e$ but $|f(x)| = e^{-1}$.\n* **II:** Not sufficient. $f(x) = x^2 - 1$: at $x = 0$, $f(|0|) = -1$ but $|f(0)| = 1$.\n* **III:** Sufficient. For $x\\ge0$: $f(|x|) = f(x) = |f(x)|$ since $f(x)\\ge0$. For $x<0$: $|f(x)| = |-f(-x)| = f(-x) = f(|x|)$, since $-x>0$ gives $f(-x)\\ge0$.\n\nAnswer: III only.",
   "insight": "To test 'sufficient', hunt for one counterexample satisfying the condition; to confirm, check $x \\ge 0$ and $x<0$ separately.",
   "distractors": {
-   "2": "Evenness makes $f(|x|) = f(x)$, but $|f(x)|$ also needs $f\\ge0$ — try $x^2-1$.",
-   "1": "Non-negativity gives $|f(x)| = f(x)$, but $f(|x|)=f(x)$ needs evenness — try $e^x$.",
-   "4": "Each of I and II fails on its own. Together they would be enough, but the question asks which conditions are sufficient individually."
+   "2": "Evenness makes $f(|x|) = f(x)$, but $|f(x)|$ also needs $f \\ge 0$: try $x^2 - 1$.",
+   "1": "Non-negativity gives $|f(x)| = f(x)$, but $f(|x|) = f(x)$ needs evenness: try $e^x$.",
+   "4": "Each of I and II fails on its own. Together they would be enough, but the question asks which single conditions are sufficient.",
+   "0": "III is sufficient: check $x \\ge 0$ and $x < 0$ separately, using $f(-x) = -f(x)$."
   },
-  "time": 210
+  "time": 240,
+  "family": "graphs-17"
+ },
+ {
+  "id": "graphs-17b",
+  "topic": "graphs",
+  "paper": 2,
+  "difficulty": 5,
+  "skills": [
+   "modulus graphs",
+   "|f(x)|",
+   "f(|x|)",
+   "symmetry",
+   "sufficient conditions"
+  ],
+  "stem": "A function $f$ is defined for all real $x$. Which of the following conditions is/are **sufficient** for the graph of $y = |f(x)|$ to be symmetrical about the $y$-axis?\n\n**I** $f$ is an even function, that is, $f(-x) = f(x)$ for all $x$.\n\n**II** $f$ is an odd function, that is, $f(-x) = -f(x)$ for all $x$.\n\n**III** $f(|x|) = |f(x)|$ for all $x$.",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 7,
+  "solution": "The graph of $y = |f(x)|$ is symmetrical about the $y$-axis exactly when $|f(-x)| = |f(x)|$ for every $x$.\n\n* **I:** $|f(-x)| = |f(x)|$ immediately. Sufficient.\n* **II:** $|f(-x)| = |-f(x)| = |f(x)|$. Sufficient: the modulus repairs the sign change (e.g. $|x^3|$ is symmetric).\n* **III:** The function $f(|x|)$ is always even, because $|-x| = |x|$. So $|f(-x)| = f(|-x|) = f(|x|) = |f(x)|$. Sufficient.\n\nAnswer: I, II and III.",
+  "insight": "Write the symmetry condition as an equation ($|f(-x)| = |f(x)|$) and test each condition against it directly.",
+  "distractors": {
+   "1": "Odd functions are not symmetric about the $y$-axis themselves, but taking the modulus removes the sign change: $|f(-x)| = |-f(x)| = |f(x)|$.",
+   "4": "III is sufficient too: $f(|x|)$ is automatically an even function, and III says $|f(x)|$ equals it.",
+   "5": "II is sufficient: for example $f(x) = x^3$ gives $y = |x^3|$, which is symmetric about the $y$-axis."
+  },
+  "time": 240,
+  "family": "graphs-17"
  },
  {
   "id": "graphs-18",
@@ -989,20 +1983,52 @@
    }
   },
   "options": [
-   "$3$",
    "$4$",
    "$5$",
    "$6$",
    "$7$",
    "$9$"
   ],
-  "answer": 2,
+  "answer": 1,
   "solution": "Put $t = f(x)$. First solve $f(t) = 2$:\n$$t^3 - 3t - 2 = (t+1)^2(t-2) = 0 \\Rightarrow t = -1 \\text{ or } t = 2.$$\n\nNow count solutions of $f(x) = t$ from the graph ($f$ has local max $(-1, 2)$ and local min $(1,-2)$):\n\n* $f(x) = -1$: $-1$ is strictly between $-2$ and $2$, so **3** solutions.\n* $f(x) = 2$: the line $y=2$ touches at the maximum $x=-1$ and crosses once more, at $x=2$: **2** solutions.\n\nThe two sets are disjoint (different $f$-values), so the total is $3 + 2 = 5$.",
   "insight": "For $f(f(x)) = c$, first find the possible values of the inner $f(x)$, then count with horizontal lines on the graph — watching for lines through turning points.",
   "distractors": {
-   "5": "Assuming $f(t)=2$ has three roots, each giving three values of $x$; but $t=-1$ is a repeated root and $y=2$ is tangent at the maximum.",
-   "3": "Counting $f(x)=2$ as three solutions (double-counting the tangency at $x=-1$)."
+   "4": "Assuming $f(t) = 2$ has three roots, each giving three values of $x$; but $t = -1$ is a repeated root and $y = 2$ is tangent at the maximum.",
+   "2": "Counting $f(x) = 2$ as three solutions (double-counting the tangency at $x = -1$).",
+   "0": "Treating the tangency as a miss: $x = -1$ does satisfy $f(x) = 2$, so it must be counted once.",
+   "3": "Adding the two values of $t$ to the five values of $x$; only values of $x$ are solutions."
   },
-  "time": 210
+  "time": 240,
+  "family": "graphs-18"
+ },
+ {
+  "id": "graphs-18b",
+  "topic": "graphs",
+  "paper": 1,
+  "difficulty": 5,
+  "skills": [
+   "composite functions",
+   "number of roots",
+   "quadratic graphs"
+  ],
+  "stem": "Let $f(x) = x^2 - 2x$. How many distinct real solutions does the equation $f(f(x)) = 3$ have?",
+  "figure": null,
+  "options": [
+   "$1$",
+   "$2$",
+   "$3$",
+   "$4$",
+   "$5$"
+  ],
+  "answer": 2,
+  "solution": "Put $t = f(x)$. First solve $f(t) = 3$:\n$$t^2 - 2t - 3 = (t - 3)(t + 1) = 0 \\Rightarrow t = 3 \\text{ or } t = -1.$$\n\nNow count solutions of $f(x) = t$. The graph of $f(x) = (x-1)^2 - 1$ is a parabola with minimum $(1, -1)$.\n\n* $f(x) = 3$: $3 > -1$, so **2** solutions ($x = 3$ and $x = -1$).\n* $f(x) = -1$: this is exactly the minimum value, so the line $y = -1$ touches the parabola: **1** solution ($x = 1$).\n\nThe two sets are disjoint, so the total is $2 + 1 = 3$.",
+  "insight": "For $f(f(x)) = c$, find the possible values of the inner $f(x)$ first, then count each with a horizontal line, watching for lines through the vertex.",
+  "distractors": {
+   "3": "Counting $x = 1$ twice: it is a repeated root of $(x-1)^2 = 0$, but only one value of $x$.",
+   "1": "Dropping the case $t = -1$, perhaps assuming $f(x)$ cannot be negative; its minimum value is exactly $-1$.",
+   "4": "Adding the values of $t$ to the count, or listing $x = 3$ and $x = -1$ twice; they are the same solutions."
+  },
+  "time": 240,
+  "family": "graphs-18"
  }
 ]

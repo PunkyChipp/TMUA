@@ -3,111 +3,246 @@
   "id": "seq-01",
   "topic": "seq",
   "paper": 1,
-  "difficulty": 1,
+  "difficulty": 2,
   "skills": [
    "arithmetic sequence",
-   "arithmetic series"
+   "arithmetic series",
+   "modelling"
   ],
-  "stem": "The 3rd term of an arithmetic sequence is $11$ and the 8th term is $31$. What is the sum of the first $10$ terms?",
+  "stem": "A cyclist increases her daily training distance by the same amount each day. On day $4$ she rides $13$ km and on day $9$ she rides $28$ km.\n\nWhat is the total distance, in km, that she rides over the first $10$ days?",
   "figure": null,
   "options": [
+   "$145$",
+   "$175$",
    "$190$",
-   "$210$",
-   "$230$",
-   "$290$",
-   "$420$"
+   "$205$",
+   "$350$"
   ],
   "answer": 1,
-  "solution": "Five steps of the common difference take $11$ to $31$, so $5d = 20$ and $d = 4$. Then $a = 11 - 2d = 3$.\n\n$$S_{10} = \\frac{10}{2}\\big(2a + 9d\\big) = 5(6 + 36) = 210.$$\n\nAlternatively, $u_{10} = 3 + 9\\cdot 4 = 39$ and $S_{10} = \\tfrac{10}{2}(3 + 39) = 210$.",
-  "insight": "Get $a$ and $d$ from the gap between two known terms, then use $S_n = \\tfrac n2(\\text{first} + \\text{last})$.",
+  "solution": "Five steps of the common difference take day $4$ to day $9$, so $d = \\dfrac{28 - 13}{5} = 3$.\n\nDay $1$ is three steps before day $4$: $a = 13 - 3\\cdot 3 = 4$. Day $10$ is $a + 9d = 31$.\n\n$$S_{10} = \\frac{10}{2}(4 + 31) = 175.$$",
+  "insight": "Find $d$ from the gap between two known terms (count the steps, not the terms), then use $S_n = \\tfrac n2(\\text{first} + \\text{last})$.",
   "distractors": {
-   "2": "Uses $u_{11} = 43$ as the last term: $5(3+43) = 230$ (an off-by-one on the last term).",
-   "3": "Treats $11$ (the 3rd term) as the first term: $5(22 + 36) = 290$.",
-   "4": "Forgets to halve in $\\tfrac n2(\\ldots)$."
+   "0": "Steps back four times from day $4$ (instead of three), getting $a = 1$ and $S_{10} = 5(1 + 28) = 145$.",
+   "2": "Takes the $10$th term as $a + 10d = 34$ instead of $a + 9d$, giving $5(4 + 34) = 190$.",
+   "3": "Multiplies $10$ by the average of the two given days, $\\tfrac12(13 + 28)$; those days are not symmetric about the middle of days $1$ to $10$.",
+   "4": "Uses $n(a + l)$ without the factor $\\tfrac12$."
   },
-  "time": 90
+  "time": 120,
+  "family": "seq-01"
+ },
+ {
+  "id": "seq-01b",
+  "topic": "seq",
+  "paper": 1,
+  "difficulty": 2,
+  "skills": [
+   "arithmetic series",
+   "quadratic equation",
+   "modelling"
+  ],
+  "stem": "The seats in a lecture theatre are arranged in rows. The front row has $12$ seats and each row after that has $3$ more seats than the row in front of it. The theatre has $810$ seats in total.\n\nHow many rows of seats are there?",
+  "figure": null,
+  "options": [
+   "$12$",
+   "$15$",
+   "$20$",
+   "$23$",
+   "$27$"
+  ],
+  "answer": 2,
+  "solution": "With $n$ rows, $a = 12$ and $d = 3$:\n$$S_n = \\frac n2\\big(24 + 3(n-1)\\big) = \\frac{n(3n + 21)}{2} = 810.$$\nSo $3n^2 + 21n - 1620 = 0$, i.e. $n^2 + 7n - 540 = 0$, i.e. $(n + 27)(n - 20) = 0$.\n\nSince $n > 0$, $n = 20$. Check: the last row has $12 + 19\\cdot 3 = 69$ seats and $\\tfrac{20}{2}(12 + 69) = 810$.",
+  "insight": "A total of an arithmetic series gives a quadratic in $n$; factorise and keep the positive root.",
+  "distractors": {
+   "1": "Multiplies the number of rows by the size of the last row, $n\\big(12 + 3(n-1)\\big) = 810$, which gives $n^2 + 3n - 270 = 0$, i.e. $n = 15$.",
+   "3": "Approximates the sum by its leading term $\\tfrac32 n^2 \\approx 810$, so $n \\approx \\sqrt{540} \\approx 23$.",
+   "4": "Factorises correctly but takes the root with the wrong sign, $n = 27$."
+  },
+  "time": 150,
+  "family": "seq-01"
  },
  {
   "id": "seq-02",
   "topic": "seq",
   "paper": 1,
-  "difficulty": 1,
+  "difficulty": 3,
   "skills": [
-   "geometric series",
-   "sum to infinity"
+   "quadratic sequence",
+   "nth term",
+   "inequalities",
+   "modelling"
   ],
-  "stem": "Find the sum to infinity of the geometric series $$12 - 6 + 3 - \\tfrac32 + \\cdots$$",
+  "stem": "A designer makes a series of patterns from square tiles. Pattern $1$ uses $2$ tiles, pattern $2$ uses $7$, pattern $3$ uses $14$ and pattern $4$ uses $23$. The numbers of tiles form a quadratic sequence.\n\nWhich is the first pattern that needs more than $1000$ tiles?",
   "figure": null,
   "options": [
-   "$4$",
-   "$8$",
-   "$12$",
-   "$16$",
-   "$24$"
+   "Pattern $23$",
+   "Pattern $30$",
+   "Pattern $31$",
+   "Pattern $32$",
+   "Pattern $45$"
+  ],
+  "answer": 2,
+  "solution": "First differences: $5, 7, 9$; second difference $2$. So the $n^2$ coefficient is $\\tfrac22 = 1$.\n\nSubtract $n^2$: $2 - 1, 7 - 4, 14 - 9, 23 - 16 = 1, 3, 5, 7$, which is $2n - 1$. So\n$$u_n = n^2 + 2n - 1 = (n + 1)^2 - 2.$$\n\n$u_n > 1000 \\iff (n+1)^2 > 1002$. Since $31^2 = 961$ and $32^2 = 1024$, we need $n + 1 \\ge 32$, so $n = 31$ ($u_{30} = 959$, $u_{31} = 1022$).",
+  "insight": "For a quadratic sequence the $n^2$ coefficient is half the second difference; completing the square then makes the inequality easy.",
+  "distractors": {
+   "0": "Takes the $n^2$ coefficient to be the second difference itself, getting $u_n = 2n^2 - n + 1$, which first exceeds $1000$ at $n = 23$.",
+   "1": "Gives the last pattern with at most $1000$ tiles ($u_{30} = 959$), an off-by-one slip.",
+   "3": "Ignores the lower-order terms and solves $n^2 > 1000$."
+  },
+  "time": 180,
+  "family": "seq-02"
+ },
+ {
+  "id": "seq-02b",
+  "topic": "seq",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "quadratic sequence",
+   "nth term",
+   "inequalities"
+  ],
+  "stem": "The sequence\n$$3,\\ 9,\\ 17,\\ 27,\\ 39,\\ \\ldots$$\nis quadratic (its second differences are constant).\n\nHow many terms of the sequence are less than $2000$?",
+  "figure": null,
+  "options": [
+   "$31$",
+   "$43$",
+   "$44$",
+   "$45$",
+   "$63$"
   ],
   "answer": 1,
-  "solution": "The common ratio is $r = \\dfrac{-6}{12} = -\\dfrac12$, and $|r| < 1$ so the series converges.\n\n$$S_\\infty = \\frac{a}{1-r} = \\frac{12}{1 + \\frac12} = \\frac{12}{3/2} = 8.$$\n\nSanity check: the partial sums $12, 6, 9, 7.5, \\ldots$ oscillate around $8$.",
-  "insight": "With a negative ratio, $1 - r$ is bigger than $1$, so the sum to infinity is less than the first term.",
+  "solution": "First differences $6, 8, 10, 12$; second difference $2$, so the $n^2$ coefficient is $1$. Subtracting $n^2$ leaves $2, 5, 8, 11, 14$, which is $3n - 1$. So\n$$u_n = n^2 + 3n - 1.$$\nThe sequence is increasing, so count the $n$ with $n^2 + 3n - 1 < 2000$:\n\n* $n = 43$: $1849 + 129 - 1 = 1977 < 2000$;\n* $n = 44$: $1936 + 132 - 1 = 2067 > 2000$.\n\nSo the terms $u_1, \\ldots, u_{43}$ are below $2000$: $43$ terms.",
+  "insight": "Find the $n$th term from the second difference, then use the fact that the sequence is increasing to turn 'how many terms' into a single inequality.",
   "distractors": {
-   "4": "Uses $r = +\\tfrac12$, ignoring the alternating signs: $12/\\tfrac12 = 24$.",
-   "0": "Inverts the ratio to $r = -2$ and blindly applies $a/(1-r) = 12/3$ (that series does not even converge)."
+   "0": "Uses the second difference as the $n^2$ coefficient, $u_n = 2n^2 + 1$, which stays below $2000$ for $31$ terms.",
+   "2": "Finds that $u_{44}$ is the first term above $2000$ and reports $44$ instead of counting the terms before it.",
+   "3": "Estimates from $n^2 \\approx 2000$, so $n \\approx 44.7$, and rounds up."
   },
-  "time": 60
+  "time": 150,
+  "family": "seq-02"
  },
  {
   "id": "seq-03",
   "topic": "seq",
   "paper": 1,
-  "difficulty": 2,
+  "difficulty": 3,
   "skills": [
-   "sigma notation",
-   "arithmetic series"
+   "sum of first n integers",
+   "arithmetic series",
+   "inclusion-exclusion"
   ],
-  "stem": "Evaluate $$\\sum_{r=1}^{20} (3r - 2).$$",
+  "stem": "What is the sum of all the integers from $1$ to $300$ inclusive that are multiples of **neither** $2$ nor $3$?",
   "figure": null,
   "options": [
-   "$570$",
-   "$588$",
-   "$590$",
-   "$628$",
-   "$630$"
+   "$7350$",
+   "$14\\,700$",
+   "$15\\,000$",
+   "$15\\,050$",
+   "$22\\,500$"
   ],
   "answer": 2,
-  "solution": "Split the sum:\n$$\\sum_{r=1}^{20}(3r-2) = 3\\sum_{r=1}^{20} r - \\sum_{r=1}^{20} 2 = 3\\cdot\\frac{20\\cdot 21}{2} - 2\\cdot 20 = 630 - 40 = 590.$$\n\nAlternatively it is an arithmetic series with first term $1$, last term $58$ and $20$ terms: $\\tfrac{20}{2}(1 + 58) = 590$.",
-  "insight": "A constant inside a sigma is added once per term, so $\\sum_{r=1}^{n} c = nc$, not $c$.",
+  "solution": "Use $\\sum_{k=1}^{n} k = \\tfrac12 n(n+1)$ and inclusion–exclusion.\n\n* All: $\\tfrac12\\cdot 300\\cdot 301 = 45\\,150$.\n* Multiples of $2$: $2(1 + \\cdots + 150) = 150\\cdot 151 = 22\\,650$.\n* Multiples of $3$: $3(1 + \\cdots + 100) = \\tfrac32\\cdot 100\\cdot 101 = 15\\,150$.\n* Multiples of $6$ (counted twice above): $6(1 + \\cdots + 50) = 3\\cdot 50\\cdot 51 = 7650$.\n\nAnswer: $45\\,150 - 22\\,650 - 15\\,150 + 7650 = 15\\,000$.\n\n**Check:** the numbers are $6k + 1$ and $6k + 5$ for $k = 0, \\ldots, 49$; each pair sums to $12k + 6$, and $\\sum_{k=0}^{49}(12k + 6) = 12\\cdot 1225 + 300 = 15\\,000$.",
+  "insight": "Sums of multiples of $m$ up to $N$ are $m$ times a triangular number; inclusion–exclusion handles 'neither'.",
   "distractors": {
-   "3": "Subtracts the $2$ only once instead of $20$ times: $630 - 2$.",
-   "1": "Counts $21$ terms (as if $r$ started at $0$): $630 - 42$.",
-   "4": "Forgets the $-2$ altogether."
+   "0": "Subtracts the multiples of $2$ and of $3$ but forgets to add back the multiples of $6$, which were removed twice.",
+   "1": "Pairs $6k+1$ with $6k+5$ correctly but sums $12k$ only, dropping the $+6$ in each of the $50$ pairs.",
+   "3": "Assumes the answer is exactly one third of $45\\,150$ because one third of the numbers qualify; but the qualifying numbers are not spread evenly enough for that.",
+   "4": "Removes only the even numbers (the sum of the odd numbers is $150^2$)."
   },
-  "time": 75
+  "time": 180,
+  "family": "seq-03"
+ },
+ {
+  "id": "seq-03b",
+  "topic": "seq",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "arithmetic series",
+   "inclusion-exclusion",
+   "sum of first n integers"
+  ],
+  "stem": "What is the sum of all the positive integers less than $100$ that are multiples of $3$ or $5$ (or both)?",
+  "figure": null,
+  "options": [
+   "$2003$",
+   "$2318$",
+   "$2418$",
+   "$2633$",
+   "$4950$"
+  ],
+  "answer": 1,
+  "solution": "* Multiples of $3$ below $100$: $3, 6, \\ldots, 99$, that is $33$ terms, sum $3\\cdot\\tfrac12\\cdot 33\\cdot 34 = 1683$.\n* Multiples of $5$: $5, \\ldots, 95$, that is $19$ terms, sum $5\\cdot\\tfrac12\\cdot 19\\cdot 20 = 950$.\n* Multiples of $15$ (in both lists): $15, \\ldots, 90$, that is $6$ terms, sum $15\\cdot\\tfrac12\\cdot 6\\cdot 7 = 315$.\n\nTotal: $1683 + 950 - 315 = 2318$.",
+  "insight": "Each list of multiples is an arithmetic series; 'or' means add the two lists and subtract the overlap once.",
+  "distractors": {
+   "0": "Subtracts the multiples of $15$ twice, $2633 - 630$.",
+   "2": "Includes $100$, a multiple of $5$, although the question says less than $100$.",
+   "3": "Adds the two lists without removing the multiples of $15$, which are counted twice.",
+   "4": "Sums every integer from $1$ to $99$."
+  },
+  "time": 150,
+  "family": "seq-03"
  },
  {
   "id": "seq-04",
   "topic": "seq",
   "paper": 1,
-  "difficulty": 2,
+  "difficulty": 3,
   "skills": [
    "binomial expansion",
-   "coefficients"
+   "nCr",
+   "simultaneous equations"
   ],
-  "stem": "What is the coefficient of $x^3$ in the expansion of $(2 - x)^7$?",
+  "stem": "In the expansion of $(1 + ax)^n$, where $n$ is a positive integer, the coefficient of $x$ is $12$ and the coefficient of $x^2$ is $60$.\n\nWhat is the coefficient of $x^3$?",
   "figure": null,
   "options": [
-   "$-560$",
-   "$-280$",
-   "$-35$",
-   "$280$",
-   "$560$"
+   "$40$",
+   "$80$",
+   "$160$",
+   "$240$",
+   "$480$"
   ],
-  "answer": 0,
-  "solution": "The general term is $\\binom{7}{r} 2^{7-r}(-x)^r$. For $x^3$ take $r = 3$:\n$$\\binom73\\cdot 2^4 \\cdot (-1)^3 = 35 \\cdot 16 \\cdot (-1) = -560.$$",
-  "insight": "The power on the constant is $n - r$, not $r$, and the sign comes from $(-1)^r$.",
+  "answer": 2,
+  "solution": "$(1 + ax)^n = 1 + nax + \\binom n2 a^2x^2 + \\binom n3 a^3x^3 + \\cdots$, so\n$$na = 12, \\qquad \\frac{n(n-1)}{2}a^2 = 60.$$\nThe second gives $(na)\\,(n-1)a = 120$, so $(n-1)a = 10$. Subtracting from $na = 12$ gives $a = 2$, then $n = 6$.\n\nCoefficient of $x^3$: $\\binom63 a^3 = 20\\cdot 8 = 160$.",
+  "insight": "Divide the coefficient equations to eliminate one unknown: here $na$ appears inside $n(n-1)a^2$.",
   "distractors": {
-   "1": "Uses $2^3$ instead of $2^4$ (puts the power $r$ on the $2$ as well).",
-   "4": "Drops the sign from $(-x)^3$."
+   "0": "Forgets to cube $a$: $\\binom63\\cdot 2 = 40$.",
+   "1": "Uses $a^2$ instead of $a^3$: $20\\cdot 4 = 80$.",
+   "3": "Finds the coefficient of $x^4$ instead: $\\binom64\\cdot 2^4 = 240$.",
+   "4": "Divides by $2$ instead of $3!$ in $\\binom63$, using $\\tfrac{6\\cdot5\\cdot4}{2} = 60$."
   },
-  "time": 75
+  "time": 180,
+  "family": "seq-04"
+ },
+ {
+  "id": "seq-04b",
+  "topic": "seq",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "binomial expansion",
+   "nCr",
+   "equating coefficients"
+  ],
+  "stem": "In the expansion of $(3 + kx)^6$, where $k$ is a non-zero constant, the coefficients of $x^2$ and $x^3$ are equal.\n\nWhat is the value of $k$?",
+  "figure": null,
+  "options": [
+   "$\\frac14$",
+   "$\\frac34$",
+   "$\\frac43$",
+   "$\\frac94$",
+   "$4$"
+  ],
+  "answer": 3,
+  "solution": "The general term is $\\binom6r 3^{6-r}k^r x^r$.\n\n* $x^2$: $\\binom62 3^4 k^2 = 15\\cdot 81k^2 = 1215k^2$.\n* $x^3$: $\\binom63 3^3 k^3 = 20\\cdot 27k^3 = 540k^3$.\n\nEqual and $k \\ne 0$: $540k = 1215$, so $k = \\dfrac{1215}{540} = \\dfrac94$.",
+  "insight": "Write both coefficients from the general term, including the powers of the constant, and divide out the common factor.",
+  "distractors": {
+   "0": "Attaches $3^r$ instead of $3^{6-r}$, getting $135k^2 = 540k^3$.",
+   "1": "Forgets the powers of $3$ altogether: $15k^2 = 20k^3$.",
+   "2": "Sets up the right equation but inverts the ratio when solving."
+  },
+  "time": 150,
+  "family": "seq-04"
  },
  {
   "id": "seq-05",
@@ -131,41 +266,105 @@
   "solution": "The general term is $\\binom6r (x^2)^{6-r}\\left(-\\dfrac2x\\right)^r = \\binom6r(-2)^r x^{12 - 3r}$.\n\nThe power of $x$ is zero when $r = 4$, giving\n$$\\binom64(-2)^4 = 15 \\cdot 16 = 240.$$",
   "insight": "Write the general term as a single power of $x$ and set the exponent to zero.",
   "distractors": {
-   "1": "Uses $r = 3$ (setting $6 - r = r$ as if both brackets had power 1): that is the $x^3$ term.",
-   "3": "Uses $2^2$ in place of $(-2)^4$.",
-   "0": "Gets the sign of $(-2)^4$ wrong."
+   "0": "Gets the sign of $(-2)^4$ wrong.",
+   "1": "Uses $r = 3$ (setting $6 - r = r$ as if both brackets had power $1$): that is the $x^3$ term.",
+   "2": "Finds $\\binom64 = 15$ but forgets the factor $(-2)^4$.",
+   "3": "Uses $2^2$ in place of $(-2)^4$."
   },
-  "time": 90
+  "time": 90,
+  "family": "seq-05"
+ },
+ {
+  "id": "seq-05b",
+  "topic": "seq",
+  "paper": 1,
+  "difficulty": 2,
+  "skills": [
+   "binomial expansion",
+   "general term"
+  ],
+  "stem": "What is the coefficient of $x^2$ in the expansion of $$\\left(x - \\frac{3}{x}\\right)^8 ?$$",
+  "figure": null,
+  "options": [
+   "$-1512$",
+   "$-504$",
+   "$-168$",
+   "$168$",
+   "$1512$"
+  ],
+  "answer": 0,
+  "solution": "The general term is $\\binom8r x^{8-r}\\left(-\\dfrac3x\\right)^r = \\binom8r(-3)^r x^{8-2r}$.\n\n$8 - 2r = 2$ gives $r = 3$: $\\binom83(-3)^3 = 56\\cdot(-27) = -1512$.",
+  "insight": "Combine the powers of $x$ in the general term first; then one value of $r$ picks out the term you want.",
+  "distractors": {
+   "1": "Uses $3^2$ instead of $3^3$: $-56\\cdot 9$.",
+   "2": "Keeps the sign but forgets to raise $3$ to the power $r$.",
+   "4": "Loses the minus sign: $(-3)^3$ is negative."
+  },
+  "time": 90,
+  "family": "seq-05"
  },
  {
   "id": "seq-06",
   "topic": "seq",
-  "paper": 2,
-  "difficulty": 2,
+  "paper": 1,
+  "difficulty": 4,
   "skills": [
-   "arithmetic sequence",
-   "must be true"
+   "recurrence relation",
+   "geometric series",
+   "modelling",
+   "limits"
   ],
-  "stem": "An arithmetic sequence $u_1, u_2, u_3, \\ldots$ has $u_5 = 7$. Let $S_n$ be the sum of its first $n$ terms.\n\nWhich of the following **must** be true?\n\nI. $u_1 + u_9 = 14$\n\nII. $S_9 = 63$\n\nIII. $u_3\\, u_7 \\le 49$",
+  "stem": "At the start of 2025 a lake contains $1000$ fish. During each year, $20\\%$ of the fish present at the start of that year are caught, and then $100$ young fish are released into the lake at the end of the year. Nothing else affects the number of fish.\n\nLet $P_n$ be the number of fish at the start of the year $2025 + n$, so $P_0 = 1000$.\n\nWhich of the following is a formula for $P_n$?",
   "figure": null,
   "options": [
-   "none of them",
-   "I only",
-   "II only",
-   "III only",
-   "I and II only",
-   "I and III only",
-   "II and III only",
-   "I, II and III"
+   "$1000(0.8)^n + 100n$",
+   "$500 + 500(0.8)^{n-1}$",
+   "$1000(0.8)^n + 500$",
+   "$500 + 500(0.8)^n$",
+   "$1000(0.8)^n + 125\\left(1 - (0.8)^n\\right)$"
   ],
-  "answer": 7,
-  "solution": "Write every term relative to the middle one: $u_{5+k} = 7 + kd$.\n\n* I: $u_1 + u_9 = (7 - 4d) + (7 + 4d) = 14$. True.\n* II: the nine terms $u_1,\\ldots,u_9$ pair off symmetrically about $u_5$, so $S_9 = 9u_5 = 63$. True.\n* III: $u_3u_7 = (7 - 2d)(7 + 2d) = 49 - 4d^2 \\le 49$. True.\n\nAll three hold whatever $d$ is.",
-  "insight": "Centre an arithmetic sequence on a known middle term: symmetric terms are $m \\pm kd$.",
+  "answer": 3,
+  "solution": "The rule is $P_{n+1} = 0.8P_n + 100$.\n\n**Fixed point:** $L = 0.8L + 100$ gives $L = 500$. Subtracting, $P_{n+1} - 500 = 0.8(P_n - 500)$, so $P_n - 500$ is geometric with ratio $0.8$ and first value $P_0 - 500 = 500$:\n$$P_n = 500 + 500(0.8)^n.$$\n\n**Or unroll:** $P_n = 1000(0.8)^n + 100\\big(1 + 0.8 + \\cdots + 0.8^{n-1}\\big) = 1000(0.8)^n + 100\\cdot\\dfrac{1 - 0.8^n}{0.2}$, which simplifies to the same thing.\n\nCheck: $P_1 = 800 + 100 = 900$ and $500 + 400 = 900$. In the long run the population tends to $500$.",
+  "insight": "For $u_{n+1} = pu_n + q$, subtract the fixed point $L = \\frac{q}{1-p}$: the gap $u_n - L$ is geometric with ratio $p$.",
   "distractors": {
-   "4": "Suspects $u_3u_7$ could exceed $49$ when $d$ is negative; but $u_3u_7 = 49 - 4d^2$ and $d^2 \\ge 0$ whatever the sign of $d$.",
-   "1": "Thinks $S_9$ needs the first term and common difference separately."
+   "0": "Adds the released fish as $100n$, forgetting that fish released in earlier years are also caught at the $20\\%$ rate.",
+   "1": "Gets the right structure but is off by one in the exponent: at $n = 0$ it gives $1125$, not $1000$.",
+   "2": "Uses the long-term level $500$ as if it were added on, without the factor $1 - 0.8^n$; at $n = 0$ it gives $1500$.",
+   "4": "Sums the geometric series with denominator $0.8$ instead of $1 - 0.8 = 0.2$."
   },
-  "time": 120
+  "time": 200,
+  "family": "seq-06"
+ },
+ {
+  "id": "seq-06b",
+  "topic": "seq",
+  "paper": 1,
+  "difficulty": 4,
+  "skills": [
+   "recurrence relation",
+   "sum to infinity",
+   "modelling",
+   "limits"
+  ],
+  "stem": "A patient takes a $200$ mg dose of a drug every $12$ hours. Between one dose and the next, the body removes $75\\%$ of the drug that is present. Let $A_n$ mg be the amount of drug in the body immediately after the $n$th dose, so $A_1 = 200$.\n\nWhat is the smallest number $Q$ such that $A_n < Q$ for every $n$?",
+  "figure": null,
+  "options": [
+   "$\\frac{200}{3}$",
+   "$250$",
+   "$\\frac{800}{3}$",
+   "$400$",
+   "$800$"
+  ],
+  "answer": 2,
+  "solution": "Just before a dose $25\\%$ of the previous amount remains, so $A_{n+1} = 0.25A_n + 200$. Unrolling,\n$$A_n = 200\\left(1 + \\tfrac14 + \\tfrac1{4^2} + \\cdots + \\tfrac1{4^{n-1}}\\right) = \\frac{200\\left(1 - 4^{-n}\\right)}{1 - \\frac14} = \\frac{800}{3}\\left(1 - 4^{-n}\\right).$$\nSo every $A_n$ is less than $\\tfrac{800}{3}$, and $A_n \\to \\tfrac{800}{3}$, so no smaller number works. The answer is $Q = \\tfrac{800}{3} \\approx 267$ mg.\n\n(Equivalently, the fixed point of $L = 0.25L + 200$ is $L = \\tfrac{800}{3}$, and the sequence increases towards it.)",
+  "insight": "The amount after the $n$th dose is a finite geometric sum; its sum to infinity is the level it approaches but never reaches.",
+  "distractors": {
+   "0": "Finds the level immediately **before** a dose ($L = 0.25(L + 200)$) instead of just after.",
+   "1": "Stops after two doses: $200 + 50$.",
+   "4": "Takes $75\\%$ as the fraction that remains: $L = 0.75L + 200$ gives $L = 800$."
+  },
+  "time": 180,
+  "family": "seq-06"
  },
  {
   "id": "seq-07",
@@ -174,9 +373,10 @@
   "difficulty": 3,
   "skills": [
    "recurrence relation",
-   "periodic sequence"
+   "periodic sequence",
+   "modelling"
   ],
-  "stem": "A sequence is defined by $$u_1 = 2, \\qquad u_{n+1} = \\frac{1}{1 - u_n}.$$\nWhat is $\\displaystyle\\sum_{n=1}^{100} u_n$?",
+  "stem": "A calculator has a key that replaces the number $x$ on the display by $\\dfrac{1}{1 - x}$.\n\nSam enters $2$ and then presses the key $99$ times, writing down every number displayed, including the initial $2$.\n\nWhat is the sum of the $100$ numbers Sam writes down?",
   "figure": null,
   "options": [
    "$\\frac{97}{2}$",
@@ -186,14 +386,46 @@
    "$53$"
   ],
   "answer": 3,
-  "solution": "Compute a few terms: $u_1 = 2$, $u_2 = \\frac{1}{1-2} = -1$, $u_3 = \\frac{1}{2}$, $u_4 = \\frac{1}{1/2} = 2 = u_1$.\n\nSo the sequence has period $3$ with block sum $2 - 1 + \\tfrac12 = \\tfrac32$.\n\n$100 = 3\\cdot 33 + 1$, so the sum is $33$ blocks plus $u_{100} = u_1 = 2$:\n$$33\\cdot\\tfrac32 + 2 = \\tfrac{99}{2} + 2 = \\tfrac{103}{2}.$$",
+  "solution": "The numbers are $u_1 = 2$ and $u_{n+1} = \\dfrac{1}{1 - u_n}$:\n$$u_1 = 2,\\quad u_2 = \\frac{1}{1-2} = -1,\\quad u_3 = \\frac{1}{2},\\quad u_4 = \\frac{1}{1/2} = 2 = u_1.$$\nSo the numbers repeat with period $3$, and each block sums to $2 - 1 + \\tfrac12 = \\tfrac32$.\n\n$100 = 3\\cdot 33 + 1$, so the total is $33$ blocks plus $u_{100} = u_1 = 2$:\n$$33\\cdot\\tfrac32 + 2 = \\tfrac{99}{2} + 2 = \\tfrac{103}{2}.$$",
   "insight": "Generate terms until one repeats; then the sum is (number of full cycles) $\\times$ (cycle sum) plus the leftover terms.",
   "distractors": {
-   "1": "Counts the $33$ complete cycles but forgets the leftover term $u_{100}$.",
    "0": "Takes the leftover term to be $-1$ (misaligning the cycle).",
-   "2": "Takes the leftover term to be $\\tfrac12$ (misaligning the cycle)."
+   "1": "Counts the $33$ complete cycles but forgets the leftover term $u_{100}$.",
+   "2": "Takes the leftover term to be $\\tfrac12$ (misaligning the cycle).",
+   "4": "Counts $34$ full cycles, as if $100$ numbers made $34$ blocks of $3$, and still adds the leftover $2$: $51 + 2$."
   },
-  "time": 150
+  "time": 150,
+  "family": "seq-07"
+ },
+ {
+  "id": "seq-07b",
+  "topic": "seq",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "recurrence relation",
+   "periodic sequence"
+  ],
+  "stem": "A sequence is defined by\n$$u_1 = 2, \\qquad u_{n+1} = \\frac{1 + u_n}{1 - u_n} \\quad (n \\ge 1).$$\nWhat is the value of the product $u_1 u_2 u_3 \\cdots u_{50}$?",
+  "figure": null,
+  "options": [
+   "$-6$",
+   "$-3$",
+   "$1$",
+   "$2$",
+   "$6$"
+  ],
+  "answer": 0,
+  "solution": "$$u_1 = 2,\\quad u_2 = \\frac{3}{-1} = -3,\\quad u_3 = \\frac{-2}{4} = -\\frac12,\\quad u_4 = \\frac{1/2}{3/2} = \\frac13,\\quad u_5 = \\frac{4/3}{2/3} = 2.$$\nThe sequence has period $4$, and each block has product $2\\cdot(-3)\\cdot(-\\tfrac12)\\cdot\\tfrac13 = 1$.\n\n$50 = 4\\cdot 12 + 2$, so the product is $1^{12}\\cdot u_{49}u_{50} = u_1u_2 = 2\\cdot(-3) = -6$.",
+  "insight": "Find the period; full cycles contribute a fixed factor, so only the leftover terms matter.",
+  "distractors": {
+   "1": "Keeps only one leftover term, and the wrong one: $u_{50} = -3$.",
+   "2": "Notices each cycle has product $1$ and forgets the two leftover terms.",
+   "3": "Thinks $50 = 4\\cdot 12 + 1$, so keeps only $u_{49} = 2$.",
+   "4": "Gets the leftover terms right but drops the minus sign of $u_2$."
+  },
+  "time": 150,
+  "family": "seq-07"
  },
  {
   "id": "seq-08",
@@ -212,100 +444,232 @@
    "$\\frac54 < x < 2$",
    "$-1 < x < 2$",
    "$-1 < x < \\frac54$",
-   "$1 < x < 2$"
+   "$\\frac12 < x < 2$"
   ],
   "answer": 1,
   "solution": "**Convergence:** need $\\left|\\dfrac{2x-1}{3}\\right| < 1$, i.e. $-3 < 2x - 1 < 3$, i.e. $-1 < x < 2$.\n\n**Sum:** $S = \\dfrac{1}{1 - \\frac{2x-1}{3}} = \\dfrac{3}{4 - 2x}$. On $-1 < x < 2$ the denominator is positive, so\n$$\\frac{3}{4-2x} > 2 \\iff 3 > 8 - 4x \\iff x > \\tfrac54.$$\n\nCombining: $\\tfrac54 < x < 2$.",
   "insight": "A sum-to-infinity formula is only valid inside the convergence interval, so always intersect with $|r|<1$.",
   "distractors": {
    "0": "Solves the inequality for the sum but forgets the convergence condition $|r| < 1$.",
-   "2": "Stops at the convergence condition and never uses 'sum greater than 2'.",
-   "3": "Flips the inequality when clearing the (positive) denominator."
+   "2": "Stops at the convergence condition and never uses 'sum greater than $2$'.",
+   "3": "Flips the inequality when clearing the (positive) denominator.",
+   "4": "Only asks for a positive ratio (which makes the sum exceed the first term, $1$) instead of $r > \\tfrac12$: $2x - 1 > 0$ together with convergence gives $\\tfrac12 < x < 2$."
   },
-  "time": 150
+  "time": 150,
+  "family": "seq-08"
+ },
+ {
+  "id": "seq-08b",
+  "topic": "seq",
+  "paper": 1,
+  "difficulty": 3,
+  "skills": [
+   "geometric series",
+   "convergence",
+   "inequalities"
+  ],
+  "stem": "The infinite geometric series\n$$2 + (x - 3) + \\frac{(x-3)^2}{2} + \\frac{(x-3)^3}{4} + \\cdots$$\nconverges and its sum is greater than $2$. What is the complete set of possible values of $x$?",
+  "figure": null,
+  "options": [
+   "$x > 3$",
+   "$1 < x < 3$",
+   "$1 < x < 5$",
+   "$3 < x < 5$",
+   "$3 < x < 7$"
+  ],
+  "answer": 3,
+  "solution": "First term $2$, common ratio $r = \\dfrac{x-3}{2}$.\n\n**Convergence:** $|x - 3| < 2$, i.e. $1 < x < 5$.\n\n**Sum:** $S = \\dfrac{2}{1 - \\frac{x-3}{2}} = \\dfrac{4}{5 - x}$, with $5 - x > 0$ inside the interval. Then\n$$\\frac{4}{5 - x} > 2 \\iff 4 > 10 - 2x \\iff x > 3.$$\n\nCombining: $3 < x < 5$.",
+  "insight": "Solve $|r| < 1$ first; the sum formula, and the sign of its denominator, only make sense inside that interval.",
+  "distractors": {
+   "0": "Solves 'sum $> 2$' but never imposes convergence.",
+   "1": "Reverses the inequality when multiplying by the positive quantity $5 - x$.",
+   "2": "Finds the convergence interval and stops.",
+   "4": "Takes the ratio to be $\\tfrac{x-3}{4}$ (reading it off the fourth term), so gets convergence for $-1 < x < 7$."
+  },
+  "time": 150,
+  "family": "seq-08"
  },
  {
   "id": "seq-09",
   "topic": "seq",
   "paper": 1,
-  "difficulty": 3,
+  "difficulty": 4,
   "skills": [
    "binomial expansion",
-   "products of expansions"
+   "(a+f(x))^n",
+   "coefficients"
   ],
-  "stem": "What is the coefficient of $x^2$ in the expansion of $(1+x)^6(1-x)^4$?",
+  "stem": "What is the coefficient of $x^4$ in the expansion of $(1 + x + x^2)^5$?",
   "figure": null,
   "options": [
-   "$-9$",
-   "$-3$",
-   "$3$",
-   "$21$",
-   "$45$"
+   "$25$",
+   "$30$",
+   "$40$",
+   "$45$",
+   "$51$"
   ],
-  "answer": 1,
-  "solution": "**Fast:** $(1+x)^6(1-x)^4 = (1-x^2)^4(1+x)^2 = (1 - 4x^2 + \\cdots)(1 + 2x + x^2)$.\n\nThe $x^2$ terms: $1\\cdot x^2 + (-4x^2)\\cdot 1 = -3x^2$. Coefficient $-3$.\n\n**Direct:** $(1 + 6x + 15x^2 + \\cdots)(1 - 4x + 6x^2 - \\cdots)$ gives $x^2$ coefficient $6 + 6\\cdot(-4) + 15 = -3$.",
-  "insight": "Pair up factors as $(1+x)(1-x) = 1 - x^2$ before expanding.",
+  "answer": 3,
+  "solution": "Treat it as $\\big(1 + f(x)\\big)^5$ with $f(x) = x + x^2 = x(1 + x)$:\n$$(1 + f)^5 = \\sum_{k=0}^{5}\\binom5k x^k(1+x)^k.$$\nThe term $x^k(1+x)^k$ contributes to $x^4$ only when $k \\le 4 \\le 2k$, i.e. $k = 2, 3, 4$; its $x^4$ coefficient is $\\binom{k}{4-k}$.\n\n* $k = 2$: $\\binom52\\binom22 = 10$.\n* $k = 3$: $\\binom53\\binom31 = 30$.\n* $k = 4$: $\\binom54\\binom40 = 5$.\n\nTotal: $10 + 30 + 5 = 45$.",
+  "insight": "Group the bracket as $1 + f(x)$, expand with the binomial theorem, and collect only the powers of $f$ that can reach the target power.",
   "distractors": {
-   "4": "Takes the cross term as $+24$ instead of $6\\cdot(-4) = -24$.",
-   "3": "Adds the two $x^2$ coefficients $15 + 6$ and forgets the cross term $x \\cdot x$.",
-   "0": "Keeps the cross term but forgets one of the $x^2 \\times 1$ terms."
+   "0": "Forgets the inner coefficient $\\binom31 = 3$ in the $k = 3$ term: $10 + 10 + 5$.",
+   "1": "Keeps only the $k = 3$ term.",
+   "2": "Misses the $k = 4$ term $\\binom54x^4$.",
+   "4": "Gives the coefficient of $x^5$ (the middle coefficient) instead."
   },
-  "time": 120
+  "time": 180,
+  "family": "seq-09"
+ },
+ {
+  "id": "seq-09b",
+  "topic": "seq",
+  "paper": 1,
+  "difficulty": 4,
+  "skills": [
+   "binomial expansion",
+   "(a+f(x))^n",
+   "coefficients"
+  ],
+  "stem": "What is the coefficient of $x^3$ in the expansion of $(1 + 2x - x^2)^4$?",
+  "figure": null,
+  "options": [
+   "$-24$",
+   "$-8$",
+   "$8$",
+   "$32$",
+   "$56$"
+  ],
+  "answer": 2,
+  "solution": "Write $f(x) = 2x - x^2 = x(2 - x)$, so $(1 + f)^4 = \\sum_k \\binom4k x^k(2 - x)^k$.\n\nThe power $x^3$ needs $k \\le 3 \\le 2k$, so $k = 2$ or $3$:\n\n* $k = 2$: $\\binom42\\cdot[x^1](2 - x)^2 = 6\\cdot(-4) = -24$.\n* $k = 3$: $\\binom43\\cdot[x^0](2 - x)^3 = 4\\cdot 8 = 32$.\n\nTotal: $-24 + 32 = 8$.",
+  "insight": "Write the trinomial as $1 + f(x)$; only a few powers of $f$ can produce the target power of $x$.",
+  "distractors": {
+   "0": "Keeps only the $k = 2$ term.",
+   "3": "Keeps only the $k = 3$ term, $\\binom43(2x)^3$.",
+   "4": "Loses the minus sign of $-x^2$, so the $k = 2$ term becomes $+24$."
+  },
+  "time": 180,
+  "family": "seq-09"
  },
  {
   "id": "seq-10",
   "topic": "seq",
   "paper": 1,
-  "difficulty": 3,
+  "difficulty": 4,
   "skills": [
    "binomial expansion",
+   "substitution",
    "sum of coefficients"
   ],
-  "stem": "The expansion of $(1+2x)^6$ is written as $a_0 + a_1x + a_2x^2 + \\cdots + a_6x^6$.\nWhat is $a_0 + a_2 + a_4 + a_6$?",
+  "stem": "The expansion of $(2 - x)^7$ is written as $a_0 + a_1x + a_2x^2 + \\cdots + a_7x^7$.\n\nWhat is the value of $a_1 + a_3 + a_5 + a_7$?",
   "figure": null,
   "options": [
-   "$32$",
-   "$364$",
-   "$365$",
-   "$729$",
-   "$730$"
+   "$-2186$",
+   "$-1094$",
+   "$-1093$",
+   "$1093$",
+   "$1094$"
   ],
   "answer": 2,
-  "solution": "Let $f(x) = (1+2x)^6$. Then\n$$f(1) = \\sum a_k = 3^6 = 729, \\qquad f(-1) = \\sum (-1)^k a_k = (-1)^6 = 1.$$\nAdding cancels the odd coefficients: $2(a_0 + a_2 + a_4 + a_6) = 730$, so the answer is $365$.",
-  "insight": "Substituting $x = 1$ and $x = -1$ and adding/subtracting isolates the even/odd coefficients.",
+  "solution": "Let $f(x) = (2 - x)^7$. Then\n$$f(1) = a_0 + a_1 + a_2 + \\cdots + a_7 = 1, \\qquad f(-1) = a_0 - a_1 + a_2 - \\cdots - a_7 = 3^7 = 2187.$$\nSubtracting kills the even-index coefficients:\n$$a_1 + a_3 + a_5 + a_7 = \\frac{f(1) - f(-1)}{2} = \\frac{1 - 2187}{2} = -1093.$$\n(Sense check: every odd power of $x$ comes with an odd power of $-x$, so all the odd coefficients are negative.)",
+  "insight": "Substituting $x = 1$ and $x = -1$ and adding or subtracting separates the even and odd coefficients.",
   "distractors": {
-   "1": "Subtracts instead of adding, which gives the odd-coefficient sum $a_1 + a_3 + a_5$.",
-   "4": "Adds $f(1) + f(-1)$ but forgets to halve.",
-   "0": "Sums only the binomial coefficients $\\binom60 + \\binom62 + \\cdots$, ignoring the powers of $2$."
+   "0": "Computes $f(1) - f(-1)$ and forgets to halve.",
+   "3": "Computes $\\tfrac12\\big(f(-1) - f(1)\\big)$, getting the sign wrong.",
+   "4": "Adds instead of subtracts, which gives the sum of the even-index coefficients."
   },
-  "time": 120
+  "time": 180,
+  "family": "seq-10"
+ },
+ {
+  "id": "seq-10b",
+  "topic": "seq",
+  "paper": 1,
+  "difficulty": 4,
+  "skills": [
+   "polynomial expansion",
+   "substitution",
+   "sum of coefficients"
+  ],
+  "stem": "The expansion of $(1 + x + x^2)^4$ is written as $b_0 + b_1x + b_2x^2 + \\cdots + b_8x^8$.\n\nWhat is the value of $b_0 + b_2 + b_4 + b_6 + b_8$?",
+  "figure": null,
+  "options": [
+   "$40$",
+   "$41$",
+   "$80$",
+   "$81$",
+   "$82$"
+  ],
+  "answer": 1,
+  "solution": "Let $g(x) = (1 + x + x^2)^4$. Then $g(1) = 3^4 = 81$ is the sum of all the coefficients, and $g(-1) = 1^4 = 1$ is the alternating sum $b_0 - b_1 + b_2 - \\cdots + b_8$.\n\nAdding doubles the even-index coefficients and cancels the odd ones:\n$$b_0 + b_2 + b_4 + b_6 + b_8 = \\frac{g(1) + g(-1)}{2} = \\frac{81 + 1}{2} = 41.$$",
+  "insight": "$\\tfrac12\\big(g(1) + g(-1)\\big)$ is the sum of the even-index coefficients of any polynomial $g$.",
+  "distractors": {
+   "0": "Subtracts instead of adds, which gives the sum of the odd-index coefficients.",
+   "3": "Gives $g(1)$, the sum of all the coefficients.",
+   "4": "Forgets to halve $g(1) + g(-1)$."
+  },
+  "time": 150,
+  "family": "seq-10"
  },
  {
   "id": "seq-11",
   "topic": "seq",
   "paper": 1,
-  "difficulty": 3,
+  "difficulty": 4,
   "skills": [
-   "arithmetic series",
-   "inequalities"
+   "arithmetic sequence",
+   "geometric sequence",
+   "finite geometric series"
   ],
-  "stem": "Consider the arithmetic series $50 + 47 + 44 + \\cdots$.\n\nWhat is the smallest value of $n$ for which the sum of the first $n$ terms is negative?",
+  "stem": "An arithmetic sequence has a non-zero common difference. Its $1$st, $2$nd and $4$th terms, in that order, are the first three terms of a geometric sequence.\n\nThe sum of the first $20$ terms of the arithmetic sequence is $420$.\n\nWhat is the sum of the first $6$ terms of the geometric sequence?",
   "figure": null,
   "options": [
-   "$17$",
-   "$18$",
-   "$34$",
-   "$35$",
-   "$36$"
+   "$62$",
+   "$64$",
+   "$126$",
+   "$128$",
+   "$254$"
   ],
-  "answer": 3,
-  "solution": "$S_n = \\frac n2\\big(100 - 3(n-1)\\big) = \\frac{n(103 - 3n)}{2}$.\n\n$S_n < 0 \\iff 103 - 3n < 0 \\iff n > 34\\tfrac13$, so $n = 35$.\n\nCheck: $S_{34} = \\tfrac{34\\cdot 1}{2} = 17 > 0$ and $S_{35} = \\tfrac{35\\cdot(-2)}{2} = -35 < 0$.",
-  "insight": "The first negative *term* comes long before the first negative *sum*: the positive terms must be cancelled first.",
+  "answer": 2,
+  "solution": "Let the arithmetic sequence be $a, a + d, a + 2d, \\ldots$ with $d \\ne 0$. The geometric condition is\n$$(a + d)^2 = a(a + 3d) \\iff 2ad + d^2 = 3ad \\iff d^2 = ad \\iff a = d \\ (\\text{as } d \\neq 0).$$\nSo the terms are $d, 2d, 3d, \\ldots$, and the sum of the first $20$ is $d(1 + 2 + \\cdots + 20) = 210d = 420$, so $d = 2$.\n\nThe geometric sequence is $2, 4, 8, \\ldots$ (ratio $2$), so the sum of its first $6$ terms is\n$$\\frac{2(2^6 - 1)}{2 - 1} = 126.$$",
+  "insight": "Translate 'three terms are in geometric progression' into $(\\text{middle})^2 = \\text{product of the outer two}$, which pins down the shape of the arithmetic sequence.",
   "distractors": {
-   "1": "Finds the first negative term ($u_{18} = -1$) rather than the first negative sum.",
-   "2": "Rounds $34\\tfrac13$ down instead of taking the next integer."
+   "0": "Sums only $5$ terms: $2(2^5 - 1)$.",
+   "1": "Gives the $6$th term, $2\\cdot 2^5$, rather than the sum.",
+   "3": "Drops the $-1$ in $\\dfrac{a(r^n - 1)}{r - 1}$, writing the sum as $2\\cdot 2^6$.",
+   "4": "Sums $7$ terms: $2(2^7 - 1)$."
   },
-  "time": 120
+  "time": 240,
+  "family": "seq-11"
+ },
+ {
+  "id": "seq-11b",
+  "topic": "seq",
+  "paper": 1,
+  "difficulty": 4,
+  "skills": [
+   "arithmetic sequence",
+   "geometric sequence",
+   "arithmetic series"
+  ],
+  "stem": "An arithmetic sequence has a non-zero common difference. Its $1$st, $3$rd and $9$th terms, in that order, are the first three terms of a geometric sequence.\n\nThe sum of the first $4$ terms of the geometric sequence is $160$.\n\nWhat is the sum of the first $10$ terms of the arithmetic sequence?",
+  "figure": null,
+  "options": [
+   "$180$",
+   "$220$",
+   "$240$",
+   "$440$",
+   "$880$"
+  ],
+  "answer": 1,
+  "solution": "With terms $a + (n-1)d$: $(a + 2d)^2 = a(a + 8d) \\iff 4ad + 4d^2 = 8ad \\iff d^2 = ad \\iff a = d$ (since $d \\neq 0$).\n\nSo the arithmetic sequence is $d, 2d, 3d, \\ldots$; its $1$st, $3$rd and $9$th terms are $d, 3d, 9d$, a geometric sequence with ratio $3$.\n\nGeometric sum: $d(1 + 3 + 9 + 27) = 40d = 160$, so $d = 4$.\n\nArithmetic sum: $4(1 + 2 + \\cdots + 10) = 4\\cdot 55 = 220$.",
+  "insight": "The geometric condition forces $a = d$, so the arithmetic sequence is a multiple of $1, 2, 3, \\ldots$ and both sums are quick.",
+  "distractors": {
+   "0": "Uses $\\tfrac12 n(n-1)$ for $1 + 2 + \\cdots + n$, getting $4\\cdot 45$.",
+   "2": "Takes the $10$th term as $a + 10d = 44$ and uses $5(4 + 44)$.",
+   "3": "Forgets the $\\tfrac12$ in $\\tfrac12 n(n+1)$."
+  },
+  "time": 240,
+  "family": "seq-11"
  },
  {
   "id": "seq-12",
@@ -317,7 +681,7 @@
    "geometric sequence",
    "logarithms"
   ],
-  "stem": "Which of the following statements is/are true?\n\nI. If $u_1, u_2, u_3, \\ldots$ is an arithmetic sequence, then $2^{u_1}, 2^{u_2}, 2^{u_3}, \\ldots$ is a geometric sequence.\n\nII. If $u_1, u_2, u_3, \\ldots$ is a geometric sequence of positive terms, then $\\log u_1, \\log u_2, \\log u_3, \\ldots$ is an arithmetic sequence.\n\nIII. If $u_1, u_2, u_3, \\ldots$ and $v_1, v_2, v_3, \\ldots$ are geometric sequences, then $u_1 + v_1, u_2 + v_2, u_3 + v_3, \\ldots$ is a geometric sequence.",
+  "stem": "Which of the following statements is/are true?\n\nI. If $u_1, u_2, u_3, \\ldots$ is an arithmetic sequence, then $2^{u_1}, 2^{u_2}, 2^{u_3}, \\ldots$ is a geometric sequence.\n\nII. If $u_1, u_2, u_3, \\ldots$ is a geometric sequence of positive terms, then $\\log_{10} u_1, \\log_{10} u_2, \\log_{10} u_3, \\ldots$ is an arithmetic sequence.\n\nIII. If $u_1, u_2, u_3, \\ldots$ and $v_1, v_2, v_3, \\ldots$ are geometric sequences, then $u_1 + v_1, u_2 + v_2, u_3 + v_3, \\ldots$ is a geometric sequence.",
   "figure": null,
   "options": [
    "none of them",
@@ -330,13 +694,48 @@
    "I, II and III"
   ],
   "answer": 4,
-  "solution": "* I: $2^{u_{n+1}}/2^{u_n} = 2^{u_{n+1} - u_n} = 2^d$, a constant. True.\n* II: $\\log u_{n+1} - \\log u_n = \\log\\dfrac{u_{n+1}}{u_n} = \\log r$, a constant. True.\n* III: counterexample $u_n = 1$ (ratio $1$) and $v_n = 2^{n-1}$ (ratio $2$). The sums are $2, 3, 5, \\ldots$ and $\\tfrac32 \\ne \\tfrac53$. False.\n\nSo I and II only.",
+  "solution": "* I: $2^{u_{n+1}}/2^{u_n} = 2^{u_{n+1} - u_n} = 2^d$, a constant. True.\n* II: $\\log_{10} u_{n+1} - \\log_{10} u_n = \\log_{10}\\dfrac{u_{n+1}}{u_n} = \\log_{10} r$, a constant. True.\n* III: counterexample $u_n = 1$ (ratio $1$) and $v_n = 2^{n-1}$ (ratio $2$). The sums are $2, 3, 5, \\ldots$ and $\\tfrac32 \\ne \\tfrac53$. False.\n\nSo I and II only.",
   "insight": "Exponentials turn constant differences into constant ratios, and logs do the reverse.",
   "distractors": {
-   "7": "Assumes sums of geometric sequences are geometric (true only when the two ratios are equal).",
-   "1": "Worries that $\\log$ of a geometric sequence might fail — but positivity is given, so it is fine."
+   "1": "Worries that the log of a geometric sequence might fail; but positivity is given, so every log is defined.",
+   "2": "Accepts the log statement but doubts I, perhaps thinking $2^{a+d} = 2^a + 2^d$.",
+   "7": "Assumes sums of geometric sequences are geometric (true only when the two ratios are equal)."
   },
-  "time": 150
+  "time": 150,
+  "family": "seq-12"
+ },
+ {
+  "id": "seq-12b",
+  "topic": "seq",
+  "paper": 2,
+  "difficulty": 3,
+  "skills": [
+   "arithmetic sequence",
+   "geometric sequence",
+   "counterexample"
+  ],
+  "stem": "Which of the following statements is/are true?\n\nI. If $u_1, u_2, u_3, \\ldots$ is an arithmetic sequence, then $u_2, u_4, u_6, \\ldots$ is an arithmetic sequence.\n\nII. If $u_1, u_2, u_3, \\ldots$ is an arithmetic sequence, then $u_1^2, u_2^2, u_3^2, \\ldots$ is an arithmetic sequence.\n\nIII. If $u_1, u_2, u_3, \\ldots$ and $v_1, v_2, v_3, \\ldots$ are arithmetic sequences, then $u_1 + 2v_1,\\ u_2 + 2v_2,\\ u_3 + 2v_3, \\ldots$ is an arithmetic sequence.",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 5,
+  "solution": "* I: if $u_n = a + (n-1)d$ then $u_{2n} = a + (2n-1)d$, and $u_{2n+2} - u_{2n} = 2d$, a constant. True.\n* II: counterexample $u_n = n$: the squares $1, 4, 9, \\ldots$ have differences $3, 5, \\ldots$. False. (It holds only when $d = 0$.)\n* III: $(u_{n+1} + 2v_{n+1}) - (u_n + 2v_n) = d_u + 2d_v$, a constant. True.\n\nSo I and III only.",
+  "insight": "A sequence is arithmetic exactly when consecutive differences are constant; linear combinations keep that, squaring does not.",
+  "distractors": {
+   "1": "Doubts III, perhaps thinking the factor $2$ spoils the common difference; it just doubles $d_v$.",
+   "4": "Accepts II without testing a simple example such as $u_n = n$.",
+   "7": "Thinks any operation on an arithmetic sequence gives an arithmetic one; squaring is not linear."
+  },
+  "time": 150,
+  "family": "seq-12"
  },
  {
   "id": "seq-13",
@@ -354,18 +753,47 @@
    "$-2$",
    "$-1$",
    "$0$",
-   "$2$",
    "the sequence is geometric for every value of $k$"
   ],
   "answer": 1,
   "solution": "For $n \\ge 2$: $u_n = S_n - S_{n-1} = 2^{n+1} - 2^n = 2^n$. So $u_2 = 4, u_3 = 8, \\ldots$ with ratio $2$ whatever $k$ is.\n\nBut $u_1 = S_1 = 4 + k$. For the whole sequence to be geometric we need $u_2/u_1 = 2$, i.e. $u_1 = 2$, so $k = -2$.\n\nConversely, with $k = -2$ the sequence is $2, 4, 8, \\ldots$, which is geometric, and $S_n = 2^{n+1} - 2$ matches the formula.",
   "insight": "$u_n = S_n - S_{n-1}$ only works for $n \\ge 2$; the first term must be checked separately via $u_1 = S_1$.",
   "distractors": {
-   "5": "Sees $u_n = 2^n$ for $n \\ge 2$ and forgets that $u_1 = S_1$ depends on $k$.",
+   "0": "Sets $u_1 = 0$ instead of $u_1 = 2$.",
    "3": "Thinks the '$+k$' should vanish; but with $k=0$ the sequence starts $4, 4, 8, \\ldots$, which is not geometric.",
-   "0": "Sets $u_1 = 0$ instead of $u_1 = 2$."
+   "4": "Sees $u_n = 2^n$ for $n \\ge 2$ and forgets that $u_1 = S_1$ depends on $k$."
   },
-  "time": 150
+  "time": 150,
+  "family": "seq-13"
+ },
+ {
+  "id": "seq-13b",
+  "topic": "seq",
+  "paper": 2,
+  "difficulty": 4,
+  "skills": [
+   "sum of first n terms",
+   "arithmetic sequence"
+  ],
+  "stem": "The sum of the first $n$ terms of a sequence is $S_n = n^2 + 4n + c$ for all $n \\ge 1$, where $c$ is a constant.\n\nThe sequence is arithmetic if and only if $c$ equals which of the following?",
+  "figure": null,
+  "options": [
+   "$-5$",
+   "$-1$",
+   "$0$",
+   "$5$",
+   "the sequence is arithmetic for every value of $c$"
+  ],
+  "answer": 2,
+  "solution": "For $n \\ge 2$: $u_n = S_n - S_{n-1} = (n^2 + 4n) - \\big((n-1)^2 + 4(n-1)\\big) = 2n + 3$. So $u_2 = 7, u_3 = 9, \\ldots$ with common difference $2$, whatever $c$ is.\n\nBut $u_1 = S_1 = 5 + c$. The sequence is arithmetic exactly when $u_2 - u_1 = 2$, i.e. $u_1 = 5$, so $c = 0$.\n\n(Check: with $c = 0$, $u_n = 2n + 3$ for all $n$, and $\\sum_{r=1}^n (2r + 3) = n^2 + 4n$.)",
+  "insight": "The constant in $S_n$ only affects the first term, through $u_1 = S_1$.",
+  "distractors": {
+   "0": "Sets $u_1 = 0$, i.e. $5 + c = 0$.",
+   "3": "Equates $c$ with the required first term $5$ instead of solving $5 + c = 5$.",
+   "4": "Finds $u_n = 2n + 3$ for $n \\ge 2$ and forgets to check $u_1$."
+  },
+  "time": 150,
+  "family": "seq-13"
  },
  {
   "id": "seq-14",
@@ -389,10 +817,41 @@
   "solution": "Let the first term be $a$ and ratio $r$ ($|r|<1$). Then\n$$\\frac{a}{1-r} = 3, \\qquad \\frac{a^2}{1-r^2} = \\frac{a}{1-r}\\cdot\\frac{a}{1+r} = 3.$$\nDividing: $\\dfrac{a}{1+r} = 1$, so $a = 1 + r$. Also $a = 3(1-r)$, so $1 + r = 3 - 3r$, giving $r = \\tfrac12$, $a = \\tfrac32$.\n\nThe cubes form a geometric series with first term $a^3 = \\tfrac{27}{8}$ and ratio $r^3 = \\tfrac18$:\n$$\\frac{27/8}{1 - 1/8} = \\frac{27/8}{7/8} = \\frac{27}{7}.$$",
   "insight": "Factor $1 - r^2 = (1-r)(1+r)$ so the known sum can be divided out.",
   "distractors": {
-   "2": "Finds $a^3 = \\tfrac{27}{8}$ but forgets to divide by $1 - r^3$.",
-   "1": "Assumes that, because the first two sums are equal, all such sums are equal."
+   "0": "Uses $a^2 = \\tfrac94$ (the first term of the squared series) instead of working with the cubes.",
+   "1": "Assumes that, because the first two sums are equal, all such sums are equal.",
+   "2": "Finds $a^3 = \\tfrac{27}{8}$ but forgets to divide by $1 - r^3$."
   },
-  "time": 180
+  "time": 180,
+  "family": "seq-14"
+ },
+ {
+  "id": "seq-14b",
+  "topic": "seq",
+  "paper": 1,
+  "difficulty": 4,
+  "skills": [
+   "geometric series",
+   "sum to infinity"
+  ],
+  "stem": "An infinite geometric series has sum $8$. The sum of the terms in the even positions (the $2$nd, $4$th, $6$th, $\\ldots$ terms) is $\\frac83$.\n\nWhat is the first term of the series?",
+  "figure": null,
+  "options": [
+   "$2$",
+   "$\\frac83$",
+   "$4$",
+   "$\\frac{16}{3}$",
+   "$6$"
+  ],
+  "answer": 2,
+  "solution": "Let the first term be $a$ and the ratio $r$, $|r| < 1$. The even-position terms $ar, ar^3, ar^5, \\ldots$ form a geometric series with ratio $r^2$:\n$$\\frac{ar}{1 - r^2} = \\frac{a}{1-r}\\cdot\\frac{r}{1+r} = 8\\cdot\\frac{r}{1+r} = \\frac83.$$\nSo $3r = 1 + r$, $r = \\tfrac12$, and $a = 8(1 - r) = 4$.\n\n(Check: $4 + 2 + 1 + \\tfrac12 + \\cdots = 8$, and $2 + \\tfrac12 + \\tfrac18 + \\cdots = \\dfrac{2}{3/4} = \\tfrac83$.)",
+  "insight": "The even-position terms form their own geometric series with ratio $r^2$; factorising $1 - r^2$ links it to the original sum.",
+  "distractors": {
+   "1": "Sets $1 - r = \\tfrac13$ (reading $\\tfrac{8/3}{8}$ as $1 - r$), so $r = \\tfrac23$ and $a = \\tfrac83$.",
+   "3": "Takes the even-position sum to be $r$ times the whole sum, so $r = \\tfrac13$ and $a = \\tfrac{16}{3}$.",
+   "4": "Finds the ratio $r^2 = \\tfrac14$ of the even-position series and uses it as $r$: $a = 8\\cdot\\tfrac34$."
+  },
+  "time": 180,
+  "family": "seq-14"
  },
  {
   "id": "seq-15",
@@ -407,48 +866,112 @@
   "stem": "When $\\left(\\sqrt2 + \\sqrt[3]{3}\\right)^{12}$ is expanded using the binomial theorem, how many of the $13$ terms are rational?",
   "figure": null,
   "options": [
-   "$1$",
    "$2$",
    "$3$",
    "$4$",
    "$5$",
    "$7$"
   ],
-  "answer": 2,
+  "answer": 1,
   "solution": "The general term is $\\binom{12}{r}\\, 2^{(12-r)/2}\\, 3^{r/3}$.\n\nThis is rational exactly when $(12 - r)/2$ and $r/3$ are both integers, i.e. $r$ is even **and** a multiple of $3$, i.e. $r$ is a multiple of $6$.\n\nSo $r \\in \\{0, 6, 12\\}$: three rational terms.",
   "insight": "Each surd imposes a divisibility condition on $r$; a term is rational only when all conditions hold at once.",
   "distractors": {
-   "4": "Only checks that the cube root disappears ($r$ a multiple of $3$), giving $r = 0, 3, 6, 9, 12$.",
-   "5": "Only checks that the square root disappears ($r$ even), giving $7$ values."
+   "0": "Only counts the two end terms $(\\sqrt2)^{12}$ and $(\\sqrt[3]3)^{12}$, missing the middle one with $r = 6$.",
+   "3": "Only checks that the cube root disappears ($r$ a multiple of $3$), giving $r = 0, 3, 6, 9, 12$.",
+   "4": "Only checks that the square root disappears ($r$ even), giving $7$ values."
   },
-  "time": 150
+  "time": 150,
+  "family": "seq-15"
+ },
+ {
+  "id": "seq-15b",
+  "topic": "seq",
+  "paper": 1,
+  "difficulty": 4,
+  "skills": [
+   "binomial expansion",
+   "general term",
+   "indices"
+  ],
+  "stem": "Let $x > 0$. When $\\left(x + \\dfrac{2}{\\sqrt x}\\right)^{10}$ is expanded using the binomial theorem, each of the $11$ terms has the form $c\\,x^m$ for constants $c$ and $m$.\n\nFor how many of the $11$ terms is $m$ an integer?",
+  "figure": null,
+  "options": [
+   "$4$",
+   "$5$",
+   "$6$",
+   "$7$",
+   "$11$"
+  ],
+  "answer": 2,
+  "solution": "The general term is\n$$\\binom{10}{r} x^{10-r}\\left(2x^{-1/2}\\right)^r = \\binom{10}{r}2^r x^{10 - \\frac{3r}{2}}, \\qquad r = 0, 1, \\ldots, 10.$$\nThe power $10 - \\tfrac{3r}{2}$ is an integer exactly when $r$ is even: $r = 0, 2, 4, 6, 8, 10$. That is $6$ terms (powers $10, 7, 4, 1, -2, -5$).",
+  "insight": "Combine the powers of $x$ in the general term; the condition on $r$ then reads off directly.",
+  "distractors": {
+   "0": "Counts only the positive integer powers ($r = 0, 2, 4, 6$).",
+   "1": "Forgets $r = 0$, the leading term $x^{10}$.",
+   "4": "Assumes every term has an integer power because $10$ is an integer."
+  },
+  "time": 150,
+  "family": "seq-15"
  },
  {
   "id": "seq-16",
   "topic": "seq",
   "paper": 1,
-  "difficulty": 4,
+  "difficulty": 5,
   "skills": [
    "binomial coefficients",
-   "combinatorial identities"
+   "nCr",
+   "identities"
   ],
-  "stem": "Evaluate $$\\sum_{r=0}^{8} r\\binom{8}{r}.$$",
+  "stem": "Evaluate $$\\sum_{r=0}^{10} r^2\\binom{10}{r}.$$",
   "figure": null,
   "options": [
-   "$256$",
-   "$512$",
-   "$1024$",
-   "$2048$",
-   "$4096$"
+   "$5120$",
+   "$14\\,080$",
+   "$25\\,600$",
+   "$28\\,160$",
+   "$56\\,320$"
+  ],
+  "answer": 3,
+  "solution": "Use $r\\binom nr = n\\binom{n-1}{r-1}$ (both count choosing a team of $r$ from $n$ with a captain), and write $r^2 = r(r-1) + r$.\n\n* $\\displaystyle\\sum r\\binom{10}{r} = 10\\sum\\binom9{r-1} = 10\\cdot 2^9 = 5120$.\n* $\\displaystyle\\sum r(r-1)\\binom{10}{r} = 10\\cdot 9\\sum\\binom8{r-2} = 90\\cdot 2^8 = 23\\,040$.\n\nTotal: $23\\,040 + 5120 = 28\\,160$ $(= 10\\cdot 11\\cdot 2^8)$.\n\n**Alternatively:** differentiate $(1+x)^{10} = \\sum\\binom{10}{r}x^r$, multiply by $x$, differentiate again and put $x = 1$.",
+  "insight": "Split $r^2 = r(r-1) + r$ so that each piece cancels into a binomial coefficient: $r(r-1)\\binom nr = n(n-1)\\binom{n-2}{r-2}$.",
+  "distractors": {
+   "0": "Evaluates $\\sum r\\binom{10}r$ instead of $\\sum r^2\\binom{10}r$.",
+   "2": "Uses the mean of $r$, which is $5$, and assumes the mean of $r^2$ is $5^2$: $25\\cdot 2^{10}$.",
+   "4": "Uses $2^{10}$ instead of $2^9$ in the first sum and $2^9$ instead of $2^8$ in the second, which doubles the answer: $10\\cdot 2^{10} + 90\\cdot 2^9$."
+  },
+  "time": 240,
+  "family": "seq-16"
+ },
+ {
+  "id": "seq-16b",
+  "topic": "seq",
+  "paper": 1,
+  "difficulty": 5,
+  "skills": [
+   "binomial coefficients",
+   "nCr",
+   "binomial theorem"
+  ],
+  "stem": "Evaluate $$\\sum_{r=0}^{6} r\\binom{6}{r}3^r.$$",
+  "figure": null,
+  "options": [
+   "$3072$",
+   "$6144$",
+   "$18\\,432$",
+   "$24\\,576$",
+   "$73\\,728$"
   ],
   "answer": 2,
-  "solution": "**Pairing:** replace $r$ by $8 - r$: since $\\binom8r = \\binom8{8-r}$, the sum $S$ also equals $\\sum (8 - r)\\binom8r$. Adding,\n$$2S = 8\\sum_{r=0}^8\\binom8r = 8\\cdot 2^8, \\qquad S = 4\\cdot 2^8 = 1024.$$\n\n**Alternatively:** $r\\binom8r = 8\\binom7{r-1}$, so $S = 8\\cdot 2^7 = 1024$. Or differentiate $(1+x)^8$ and put $x = 1$.",
-  "insight": "Symmetry $\\binom nr = \\binom n{n-r}$ lets you average $r$ with $n - r$: the mean value of $r$ is $n/2$.",
+  "solution": "Use $r\\binom6r = 6\\binom5{r-1}$ for $r \\ge 1$ (the $r = 0$ term is $0$):\n$$\\sum_{r=1}^{6} 6\\binom5{r-1}3^r = 6\\cdot 3\\sum_{s=0}^{5}\\binom5s 3^s = 18\\cdot(1 + 3)^5 = 18\\cdot 1024 = 18\\,432.$$\n\n**Alternatively:** differentiate $(1 + x)^6 = \\sum\\binom6r x^r$ to get $6(1+x)^5 = \\sum r\\binom6r x^{r-1}$, multiply by $x$ and put $x = 3$: $6\\cdot 3\\cdot 4^5$.",
+  "insight": "Absorb the factor $r$ using $r\\binom nr = n\\binom{n-1}{r-1}$, then recognise a binomial expansion.",
   "distractors": {
-   "0": "Just sums the binomial coefficients, $2^8$, ignoring the factor $r$.",
-   "3": "Uses $r\\binom8r = 8\\binom8r$, i.e. $8 \\cdot 2^8$, forgetting to average $r$ with $8-r$."
+   "1": "Loses the factor $3$ that comes out when shifting $3^r = 3\\cdot 3^{r-1}$: $6\\cdot 4^5$.",
+   "3": "Writes $6\\cdot 4^6$, keeping the power $6$ and losing the factor $3$.",
+   "4": "Keeps the factor $18$ but uses $4^6$ instead of $4^5$."
   },
-  "time": 150
+  "time": 210,
+  "family": "seq-16"
  },
  {
   "id": "seq-17",
@@ -463,21 +986,53 @@
   "stem": "In how many ways can $1000$ be written as the sum of two or more **consecutive positive integers**?",
   "figure": null,
   "options": [
-   "$1$",
    "$2$",
    "$3$",
    "$4$",
-   "$5$",
-   "$6$"
+   "$7$",
+   "$15$"
   ],
-  "answer": 2,
-  "solution": "If the $k$ integers start at $a \\ge 1$, then\n$$1000 = \\frac{k(2a + k - 1)}{2} \\iff 2000 = k\\,(2a + k - 1).$$\nThe two factors $k$ and $2a + k - 1$ have opposite parity, and $2a + k - 1 > k \\ge 2$.\n\n$2000 = 2^4\\cdot 5^3$, so one factor must be odd and the other must contain all of $2^4 = 16$. The odd part is one of $1, 5, 25, 125$.\n\n* odd part $1$: factors $1 \\times 2000$, but the smaller factor must be $k \\ge 2$ — reject.\n* $5 \\times 400$: $k = 5$, $2a + 4 = 400$, $a = 198$ ($198+\\cdots+202$).\n* $25 \\times 80$: $k = 25$, $2a + 24 = 80$, $a = 28$.\n* $125 \\times 16$: $k = 16$, $2a + 15 = 125$, $a = 55$.\n\nThree ways.",
+  "answer": 1,
+  "solution": "If the $k$ integers start at $a \\ge 1$, then\n$$1000 = \\frac{k(2a + k - 1)}{2} \\iff 2000 = k\\,(2a + k - 1).$$\nThe two factors $k$ and $2a + k - 1$ have opposite parity, and $2a + k - 1 > k \\ge 2$.\n\n$2000 = 2^4\\cdot 5^3$, so one factor must be odd and the other must contain all of $2^4 = 16$. The odd part is one of $1, 5, 25, 125$.\n\n* odd part $1$: factors $1 \\times 2000$, but the smaller factor must be $k \\ge 2$, so reject.\n* $5 \\times 400$: $k = 5$, $2a + 4 = 400$, $a = 198$ ($198+\\cdots+202$).\n* $25 \\times 80$: $k = 25$, $2a + 24 = 80$, $a = 28$.\n* $125 \\times 16$: $k = 16$, $2a + 15 = 125$, $a = 55$.\n\nThree ways.",
   "insight": "Sums of consecutive integers correspond to odd factors: $2N = k(2a+k-1)$ splits into an odd and an even factor.",
   "distractors": {
-   "3": "Counts all four odd divisors of $1000$, including $1$ (which corresponds to the single term $1000$).",
-   "1": "Only finds the solutions with odd $k$ ($k = 5, 25$), missing $k = 16$."
+   "0": "Only finds the solutions with odd $k$ ($k = 5, 25$), missing $k = 16$.",
+   "2": "Counts all four odd divisors of $1000$, including $1$ (which corresponds to the single term $1000$).",
+   "4": "Counts every divisor of $1000$ except $1$ (there are $16$ divisors), ignoring the parity condition."
   },
-  "time": 210
+  "time": 240,
+  "family": "seq-17"
+ },
+ {
+  "id": "seq-17b",
+  "topic": "seq",
+  "paper": 2,
+  "difficulty": 5,
+  "skills": [
+   "arithmetic series",
+   "factors",
+   "powers of 2"
+  ],
+  "stem": "How many of the integers $1, 2, 3, \\ldots, 50$ **cannot** be written as the sum of two or more consecutive positive integers?",
+  "figure": null,
+  "options": [
+   "$4$",
+   "$5$",
+   "$6$",
+   "$15$",
+   "$25$"
+  ],
+  "answer": 2,
+  "solution": "A sum of $k \\ge 2$ consecutive positive integers starting at $a$ is $N = \\tfrac12 k(2a + k - 1)$, so $2N = k(2a + k - 1)$ with $2 \\le k < 2a + k - 1$ and the two factors of opposite parity.\n\n* If $N$ has an odd divisor $m > 1$, write $2N = m \\cdot \\dfrac{2N}{m}$: one factor is odd, the other even, and taking $k$ to be the smaller one gives a valid $a \\ge 1$. So $N$ **can** be written.\n* If $N = 2^j$, then $2N = 2^{j+1}$ has no odd factor greater than $1$, so it cannot split into factors of opposite parity, both at least $2$. So $N$ **cannot** be written.\n\nThe integers that cannot be written are the powers of $2$: $1, 2, 4, 8, 16, 32$, which is $6$ of them.",
+  "insight": "$N$ is a sum of at least two consecutive positive integers exactly when $N$ has an odd factor greater than $1$.",
+  "distractors": {
+   "0": "Lists only $2, 4, 8, 16$, overlooking both $1$ and $32$.",
+   "1": "Forgets that $1$ itself cannot be written as such a sum.",
+   "3": "Thinks primes cannot be written; but every odd prime $p = \\tfrac{p-1}2 + \\tfrac{p+1}2$.",
+   "4": "Thinks even numbers cannot be written; but, for example, $6 = 1 + 2 + 3$."
+  },
+  "time": 240,
+  "family": "seq-17"
  },
  {
   "id": "seq-18",
@@ -506,8 +1061,43 @@
   "insight": "For $u_{n+1} = f(u_n)$, compare $f(x)$ with $x$ to decide monotonicity, and hunt for 2-cycles to kill convergence claims.",
   "distractors": {
    "1": "Thinks a negative starting value makes the sequence decrease; but squaring makes $u_2$ large and positive.",
+   "5": "Rejects II for the same reason, and accepts III because the terms stay between $-2$ and $2$.",
    "7": "Assumes a sequence trapped in $[-2, 2]$ must settle down; bounded does not imply convergent."
   },
-  "time": 240
+  "time": 240,
+  "family": "seq-18"
+ },
+ {
+  "id": "seq-18b",
+  "topic": "seq",
+  "paper": 2,
+  "difficulty": 5,
+  "skills": [
+   "recurrence relation",
+   "monotonic",
+   "convergence"
+  ],
+  "stem": "A sequence is defined by $u_1 = k$ and $u_{n+1} = 2u_n - u_n^2$ for $n \\ge 1$, where $k$ is a real constant.\n\nWhich of the following statements is/are true?\n\nI. If $0 < k < 2$, the sequence is increasing.\n\nII. If $k = 2$, the sequence is eventually constant.\n\nIII. If $k > 2$, the sequence is decreasing.",
+  "figure": null,
+  "options": [
+   "none of them",
+   "I only",
+   "II only",
+   "III only",
+   "I and II only",
+   "I and III only",
+   "II and III only",
+   "I, II and III"
+  ],
+  "answer": 6,
+  "solution": "The key identity is $1 - u_{n+1} = 1 - 2u_n + u_n^2 = (1 - u_n)^2$.\n\n* I: take $k = \\tfrac32$. Then $u_2 = 3 - \\tfrac94 = \\tfrac34 < u_1$. False. (For $0 < k < 2$ we get $1 - u_n = (1-k)^{2^{n-1}} \\to 0$, so the sequence converges to $1$, but for $1 < k < 2$ it first drops below $1$.)\n* II: $u_1 = 2$, $u_2 = 4 - 4 = 0$, then $u_3 = 0$, and so on. True.\n* III: $u_2 = k(2 - k) < 0 < k$. Once $u_n < 0$, $u_{n+1} - u_n = u_n - u_n^2 = u_n(1 - u_n) < 0$ and $u_{n+1} < 0$ again. So every step goes down. True.\n\nSo II and III only.",
+  "insight": "Look for an identity that makes the recurrence simple, here $1 - u_{n+1} = (1 - u_n)^2$, and test claims with a specific starting value.",
+  "distractors": {
+   "4": "Accepts I because the sequence converges to $1$ for $0 < k < 2$; converging is not the same as increasing.",
+   "5": "Accepts I and doubts III because $u_1 = k$ is large and positive; but $u_2$ is already negative.",
+   "7": "Checks I only for $0 < k < 1$, where the sequence does increase."
+  },
+  "time": 240,
+  "family": "seq-18"
  }
 ]

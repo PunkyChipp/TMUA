@@ -83,7 +83,7 @@ const trigQuadMax = {
 };
 
 const cosineRule = {
-  id: 'cosine-rule', topic: 'trig', paper: 1, levels: [1, 3], skills: ['cosine rule', 'triangle area'],
+  id: 'cosine-rule', speedOnly: true, topic: 'trig', paper: 1, levels: [1, 3], skills: ['cosine rule', 'triangle area'],
   name: 'Cosine rule and area',
   make(rng, level) {
     const b = rng.int(2, 9), c = rng.int(2, 9);
@@ -125,7 +125,7 @@ const cosineRule = {
 };
 
 const sector = {
-  id: 'sector', topic: 'trig', paper: 1, levels: [1, 2], skills: ['radians', 'arc length', 'sector area'],
+  id: 'sector', speedOnly: true, topic: 'trig', paper: 1, levels: [1, 2], skills: ['radians', 'arc length', 'sector area'],
   name: 'Arc length and sector area',
   make(rng, level) {
     const r = rng.int(2, 12);
