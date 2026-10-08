@@ -53,13 +53,18 @@ papers switch to a distraction-free exam room. Motion respects `prefers-reduced-
 
 ### The content
 
-- **258 original questions** across 14 topics, each with a worked solution, a one-line key idea,
-  and an explanation of why the tempting wrong answers are tempting.
+- **516 questions**: 258 originals rebuilt for the **October 2026 specification** (see
+  `content/SPEC_2026.md`) at real-paper difficulty (no difficulty-1 questions), plus a **twin** for
+  every one. A twin tests the same idea with different numbers and a different set-up, and its
+  answer sits at a different letter. Every question has a worked solution, a key idea, and an
+  explanation of why each tempting wrong answer is tempting.
+- **Reviews never repeat a question.** A miss schedules the idea, not the question: the review
+  serves its unseen twin (or a fresh generated variant), so you can't pass by remembering a letter.
 - **41 question generators** (`src/gen/`) that produce unlimited variants with exact arithmetic,
   so drills never run out.
 - **Every answer key has been checked twice.** The authoring pass verified each question with
   sympy or brute-force enumeration (`content/checks/`). A separate review pass then re-solved
-  every question blind. Generators are fuzz-tested over thousands of seeds.
+  every question and twin blind. Generators are fuzz-tested over thousands of seeds.
 
 If you still find a question you think is wrong, press *Report a problem*. It will be hidden from
 practice, and you can restore it in Settings.

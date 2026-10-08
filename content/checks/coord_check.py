@@ -17,7 +17,7 @@ random.seed(7)
 base = [f'coord-{i:02d}' for i in range(1, 19)]
 assert sorted(Q) == sorted(base + [b + 'b' for b in base]) and len(QL) == 36
 diffs = sorted(Q[i]['difficulty'] for i in base)
-assert diffs == [2] * 2 + [3] * 6 + [4] * 6 + [5] * 4, diffs
+assert diffs == [2] * 2 + [3] * 6 + [4] * 7 + [5] * 3, diffs
 for i in base:
     a, b = Q[i], Q[i + 'b']
     assert a['family'] == i and b['family'] == i

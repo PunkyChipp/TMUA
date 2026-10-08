@@ -80,6 +80,11 @@ for (const f of fs.readdirSync(qdir).filter(f => f.endsWith('.json')).sort()) {
       if (/truth table/i.test(visible)) err(id, 'formal truth tables are not examined');
     }
     if (/change of base/i.test(q.stem + q.solution)) err(id, 'uses the change of base formula (not examined)');
+    const walk = (v, where) => {
+      if (typeof v === 'string') { if (/[\u0000-\u0008\u000b-\u001f\u007f]/.test(v)) err(id, `${where}: control character (a LaTeX backslash was probably eaten, e.g. \\tfrac → TAB)`); }
+      else if (v && typeof v === 'object') for (const k of Object.keys(v)) walk(v[k], `${where}.${k}`);
+    };
+    walk(q, 'q');
     const roman = /\b(I{1,3}|IV)\b|\((i{1,3}|iv)\)/.test(q.stem);
     if ((q.options || []).length > 5 && !roman && !q.options.some(o => typeof o === 'object')) warn(id, `${q.options.length} options without a statement list (house rule: 5)`);
   }

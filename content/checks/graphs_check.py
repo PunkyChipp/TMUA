@@ -20,7 +20,7 @@ def key(qid):
 base = [f'graphs-{i:02d}' for i in range(1, 19)]
 assert sorted(Q) == sorted(base + [b + 'b' for b in base]) and len(QL) == 36
 diffs = sorted(Q[i]['difficulty'] for i in base)
-assert diffs == [2] * 2 + [3] * 6 + [4] * 6 + [5] * 4, diffs
+assert diffs == [2] * 2 + [3] * 6 + [4] * 7 + [5] * 3, diffs
 for i in base:
     a, b = Q[i], Q[i + 'b']
     assert a['family'] == i and b['family'] == i
@@ -50,6 +50,17 @@ for q in QL:
             break
     if vals:
         assert vals == sorted(vals), q['id']
+    # no control characters from unescaped backslashes (e.g. "\tfrac" read as TAB + "frac")
+    def strings(o):
+        if isinstance(o, str):
+            yield o
+        elif isinstance(o, dict):
+            for v in o.values():
+                yield from strings(v)
+        elif isinstance(o, list):
+            for v in o:
+                yield from strings(v)
+    assert not any(ch in st for st in strings(q) for ch in '\t\b\f\r\v'), q['id']
 
 # ---------------------------------------------------------------- plot expressions
 def collect_fns(obj):
@@ -305,9 +316,21 @@ h11 = lambda v: abs(math.log(v)) - abs(v - 2)
 assert sign_changes(h11, 1e-12, 60) == 3
 assert h11(1e-12) > 0 and all(v - 2 - math.log(v) > 0 for v in [60, 100, 1e4, 1e8])  # stays apart for x>60
 assert Q['graphs-11']['options'][key('graphs-11')] == '$3$'
+# proof of exactly 3 for |ln x| = |x-2|: one strictly monotone difference on each of (0,1), [1,2], (2,oo)
+def strictly(expr, lo, hi, sign):   # derivative of expr has fixed strict sign on the open interval
+    d = sp.diff(expr, x)
+    bad = sp.solveset(d <= 0 if sign > 0 else d >= 0, x, sp.Interval.open(lo, hi))
+    return bad == sp.S.EmptySet
+m = x - sp.log(x) - 2                # (0,1): -ln x = 2 - x
+assert strictly(m, 0, 1, -1) and sp.limit(m, x, 0, '+') == sp.oo and m.subs(x, 1) < 0
+kk = sp.log(x) + x - 2               # [1,2]: ln x = 2 - x
+assert strictly(kk, 1, 2, 1) and kk.subs(x, 1) < 0 and kk.subs(x, 2) > 0
+hh = x - 2 - sp.log(x)               # (2,oo): ln x = x - 2
+assert strictly(hh, 2, sp.oo, 1) and hh.subs(x, 2) < 0 and hh.subs(x, 4) > 0
 h11b = lambda v: abs(2**v - 4) - (v + 1)
 assert sign_changes(h11b, -1, 40) == 2 and h11b(1) == 0 and h11b(3) == 0
 assert Q['graphs-11b']['options'][key('graphs-11b')] == '$2$'
+assert strictly(4 - 2**x - (x + 1), -1, 2, -1) and strictly(2**x - 4 - (x + 1), 2, sp.oo, 1)
 
 # ---------------------------------------------------------------- 12, 12b
 fin = run([T(2, -1), RY, SX(h)], x**2)
@@ -391,9 +414,18 @@ assert g16(0) == 0 and g16(1) == 0
 assert sign_changes(g16, 0, 60) == 2            # one at t=1, one in (4,5); plus the root at t=0
 assert g16(4) < 0 < g16(5) and all(g16(v) > 0 for v in [6, 10, 30, 60])
 assert Q['graphs-16']['options'][key('graphs-16')] == '$3$'
+# proof: g''' = (ln 2)^3 2^t > 0, so by Rolle g has at most 3 real roots; 0, 1 and one in (4,5) are 3
+G = 2**x - x**2 - 1
+assert sp.simplify(sp.diff(G, x, 3) - sp.log(2)**3 * 2**x) == 0
+assert G.subs(x, 0) == 0 and G.subs(x, 1) == 0 and G.subs(x, 4) < 0 < G.subs(x, 5)
 g16b = lambda v: 3**v - 9 * v
 assert sign_changes(g16b, -50, 50) == 2 and g16b(3) == 0
 assert Q['graphs-16b']['options'][key('graphs-16b')] == '$2$'
+# proof: (3^x - 9x)'' = (ln 3)^2 3^x > 0 (convex) so at most 2 roots; x = 3 and one in (0,1)
+G = 3**x - 9 * x
+assert sp.simplify(sp.diff(G, x, 2) - sp.log(3)**2 * 3**x) == 0
+assert G.subs(x, 3) == 0 and G.subs(x, 0) > 0 > G.subs(x, 1)
+assert '\\tfrac12' in Q['graphs-04']['options'][4]
 
 # ---------------------------------------------------------------- 17, 17b
 pts = [i / 7 for i in range(-30, 31)]

@@ -539,15 +539,15 @@
    "Stretch parallel to the $x$-axis with scale factor $\\tfrac12$; then reflect in the $y$-axis; then translate by $\\begin{pmatrix}3\\\\0\\end{pmatrix}$",
    "Stretch parallel to the $x$-axis with scale factor $\\tfrac12$; then translate by $\\begin{pmatrix}-6\\\\0\\end{pmatrix}$; then reflect in the $y$-axis",
    "Stretch parallel to the $x$-axis with scale factor $2$; then reflect in the $y$-axis; then translate by $\\begin{pmatrix}3\\\\0\\end{pmatrix}$",
-   "Translate by $\\begin{pmatrix}6\\\\0\\end{pmatrix}$; then reflect in the $y$-axis; then stretch parallel to the $x$-axis with scale factor $\tfrac12$"
+   "Translate by $\\begin{pmatrix}6\\\\0\\end{pmatrix}$; then reflect in the $y$-axis; then stretch parallel to the $x$-axis with scale factor $\\tfrac12$"
   ],
   "answer": 1,
-  "solution": "Each horizontal transformation **replaces $x$** in the current equation:\n\n* translate by $\\begin{pmatrix}a\\\\0\\end{pmatrix}$: $x \\to x - a$; stretch with scale factor $s$: $x \\to \\tfrac{x}{s}$; reflect in the $y$-axis: $x \\to -x$.\n\nOption B, step by step:\n\n* stretch, factor $\\tfrac12$: $y = f(2x)$;\n* reflect in the $y$-axis: $y = f(-2x)$;\n* translate by $\\begin{pmatrix}3\\\\0\\end{pmatrix}$: $y = f(-2(x-3)) = f(6 - 2x)$. ✓\n\nThe others give $f(-2x-6)$ (A), $f(12 - 2x)$ (C), $f\\!\\left(3 - \\tfrac{x}{2}\\right)$ (D) and $f(-2x - 6)$ (E).\n\nFast way to see it: $f(6 - 2x) = f\\big(-2(x - 3)\\big)$, so after the stretch and reflection, the translation must be **right** 3.",
+  "solution": "Each horizontal transformation **replaces $x$** in the current equation:\n\n* translate by $\\begin{pmatrix}a\\\\0\\end{pmatrix}$: $x \\to x - a$; stretch with scale factor $s$: $x \\to \\tfrac{x}{s}$; reflect in the $y$-axis: $x \\to -x$.\n\nOption B, step by step:\n\n* stretch, factor $\\tfrac12$: $y = f(2x)$;\n* reflect in the $y$-axis: $y = f(-2x)$;\n* translate by $\\begin{pmatrix}3\\\\0\\end{pmatrix}$: $y = f(-2(x-3)) = f(6 - 2x)$. ✓\n\nThe others give $f(-2x-6)$ (A), $f(12 - 2x)$ (C), $f\\!\\left(\\tfrac{3 - x}{2}\\right)$ (D) and $f(-2x - 6)$ (E).\n\nFast way to see it: $f(6 - 2x) = f\\big(-2(x - 3)\\big)$, so after the stretch and reflection, the translation must be **right** 3.",
   "insight": "Factorise the inside as $b(x - p)$: stretch and reflect according to $b$, then translate by $p$ last.",
   "distractors": {
    "0": "Reading $6 - 2x = -2(x+3)$: a sign slip when factorising. This sequence gives $f(-2x-6)$.",
    "2": "Translating by 6 after the stretch acts on $x$, not on $2x$: this gives $f(2(x+6))$ and then $f(12-2x)$.",
-   "3": "A stretch with scale factor 2 replaces $x$ by $\\tfrac{x}{2}$, so this gives $f\\!\\left(3 - \\tfrac{x}{2}\\right)$.",
+   "3": "A stretch with scale factor 2 replaces $x$ by $\\tfrac{x}{2}$, not $2x$: this sequence gives $f\\!\\left(-\\tfrac{x-3}{2}\\right) = f\\!\\left(\\tfrac{3 - x}{2}\\right)$.",
    "4": "Following the bracket as you read it ('6, minus, times 2') instead of replacing $x$ each time: this gives $f(-2x-6)$."
   },
   "time": 180,
@@ -1588,7 +1588,7 @@
   "id": "graphs-13",
   "topic": "graphs",
   "paper": 1,
-  "difficulty": 5,
+  "difficulty": 4,
   "skills": [
    "modulus graphs",
    "tangency",
@@ -1620,7 +1620,7 @@
   "id": "graphs-13b",
   "topic": "graphs",
   "paper": 1,
-  "difficulty": 5,
+  "difficulty": 4,
   "skills": [
    "modulus graphs",
    "tangency",
