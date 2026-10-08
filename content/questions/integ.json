@@ -25,7 +25,7 @@
    "0": "Evaluating only at the upper limit.",
    "1": "Integrating $x^{-3/2}$ as $+2x^{-1/2}$ (dividing by $+\\frac12$ instead of $-\\frac12$).",
    "3": "Expanding $(2x-1)^2$ as $4x^2 + 1$, losing the cross term.",
-   "4": "Multiplying by the new power instead of dividing for the $x^{1/2}$ term: $4x^{1/2} \\to 4x^{3/2}$."
+   "4": "Raising the power of the $4x^{1/2}$ term without dividing by the new power: $4x^{1/2} \\to 4x^{3/2}$."
   },
   "time": 180,
   "family": "integ-01"
@@ -448,7 +448,7 @@
   "insight": "Integrals give signed areas; knowing $\\int f$ tells you nothing exact about $\\int |f|$ unless you know the sign of $f$.",
   "distractors": {
    "7": "Assuming $f \\ge 0$ on $[0,2]$, so that integral equals area.",
-   "1": "Thinking the integral on $[-2,0]$ is $+3$ because area is positive.",
+   "1": "Knowing the symmetric-interval rule in I, but thinking the integral on $[-2,0]$ must be $+3$ because area is positive (not noticing that this would contradict I).",
    "5": "Accepting III (integral = area) and rejecting II on the grounds that area is positive."
   },
   "time": 150,
@@ -740,7 +740,7 @@
   "id": "integ-13",
   "topic": "integ",
   "paper": 1,
-  "difficulty": 5,
+  "difficulty": 4,
   "skills": [
    "Fundamental Theorem of Calculus",
    "integral vs area",
@@ -866,7 +866,7 @@
   "id": "integ-13b",
   "topic": "integ",
   "paper": 1,
-  "difficulty": 5,
+  "difficulty": 4,
   "skills": [
    "Fundamental Theorem of Calculus",
    "integral vs area",
@@ -1051,7 +1051,7 @@
   "id": "integ-15",
   "topic": "integ",
   "paper": 1,
-  "difficulty": 4,
+  "difficulty": 3,
   "skills": [
    "odd and even functions",
    "definite integrals"
@@ -1081,7 +1081,7 @@
   "id": "integ-15b",
   "topic": "integ",
   "paper": 1,
-  "difficulty": 4,
+  "difficulty": 3,
   "skills": [
    "odd and even functions",
    "definite integrals"

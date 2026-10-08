@@ -1020,7 +1020,7 @@
    "0": "Minimising only the horizontal separation $2p + \\frac{1}{2p}$ (least value $2$) and squaring it.",
    "2": "Guessing that $p = 1$ is optimal: $PQ^2 = \\frac{125}{16}$ there.",
    "3": "Minimising the horizontal separation (at $p = \\frac12$) and then computing the true $PQ^2$ there; that is not the minimum of $PQ^2$.",
-   "4": "Doubling the correct value, e.g. by using $1 + \\frac{1}{2p^2}$ for the slope factor."
+   "4": "Finding $s = 2$ correctly but evaluating $\\frac{(s+1)^3}{s}$ instead of $\\frac{(s+1)^3}{s^2}$ (dropping a power of $s$): $\\frac{27}{2}$."
   },
   "time": 300,
   "family": "diff-15"

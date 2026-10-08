@@ -418,6 +418,6 @@ for q in QL:
     if q["figure"]:
         assert "viewBox" in q["figure"]["svg"] and "currentColor" in q["figure"]["svg"]
 # formulae for spheres, cones and pyramids must be stated in the stem when a volume/surface formula is needed
-for qid in ("geom-05", "geom-05b", "geom-11", "geom-13", "geom-13b"):
+for qid in ("geom-05", "geom-05b", "geom-09", "geom-11", "geom-13", "geom-13b"):
     assert "[" in Q[qid]["stem"] and ("volume of" in Q[qid]["stem"] or "surface area" in Q[qid]["stem"]), qid
 print("ALL OK")

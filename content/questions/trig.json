@@ -53,7 +53,7 @@
   "distractors": {
    "1": "Using the $30^\\circ$ values ($\\cos=-\\frac{\\sqrt3}{2}$, $\\tan=\\frac{1}{\\sqrt3}$) instead of the $60^\\circ$ ones.",
    "2": "Taking $\\theta=300^\\circ$ for the cosine ($\\cos\\theta=+\\frac12$) while keeping $\\tan\\theta=\\sqrt3$: the two conditions were not combined into one quadrant.",
-   "4": "Ignoring the sign of $\\sin\\theta$ and working at $\\theta=60^\\circ$, then subtracting the wrong way round."
+   "4": "Finding the right values at $240^\\circ$ but subtracting the wrong way round: $\\tan\\theta-\\cos\\theta=\\sqrt3+\\frac12$."
   },
   "time": 75,
   "family": "trig-01"
@@ -84,7 +84,7 @@
   "distractors": {
    "0": "Counting only one radius in the perimeter: $r+r\\theta=20$ gives $A=\\frac12r(20-r)$, maximised at $r=10$, $\\theta=1$.",
    "1": "Guessing that a quarter-circle is the most efficient shape, without using the constraint.",
-   "4": "Guessing a semicircle, by analogy with 'a circle encloses the most area'. With $\\theta=\\pi$, $r=\\frac{20}{2+\\pi}$ and the area is only about $19.4$ m$^2$."
+   "4": "Guessing a semicircle, by analogy with 'a circle encloses the most area'. With $\\theta=\\pi$, $r=\\frac{20}{2+\\pi}$ and the area is only about $23.8$ m$^2$."
   },
   "time": 150,
   "family": "trig-02"
@@ -115,7 +115,7 @@
   "distractors": {
    "0": "That is the arc length at the optimum, not the whole perimeter.",
    "1": "Counting one radius instead of two: $r+\\frac{18}{r}\\ge2\\sqrt{18}=6\\sqrt2$.",
-   "4": "Finding $r=3$ correctly but taking the arc as $r^2\\theta=9$ instead of $r\\theta=6$."
+   "4": "Finding $r=3$ correctly but using the area $9$ in place of the arc length: $2\\cdot3+9=15$."
   },
   "time": 150,
   "family": "trig-02"
@@ -384,10 +384,10 @@
    "$13$"
   ],
   "answer": 2,
-  "solution": "Let $\\theta=3x-\\frac{\\pi}{6}$. As $x$ runs over $-\\pi<x<\\pi$, $\\theta$ runs over $-\\frac{7\\pi}{6}<\\theta<\\frac{17\\pi}{6}$, an open interval of length $6\\pi$.\n\n$\\sin^2\\theta=\\frac14$ means $\\sin\\theta=\\pm\\frac12$, i.e. $\\theta=\\pm\\frac{\\pi}{6}+n\\pi$: two solutions in every interval of length $\\pi$, so $12$ in any half-open interval of length $6\\pi$.\n\nNow the endpoints: $\\sin\\left(-\\frac{7\\pi}{6}\\right)=\\frac12$ and $\\sin\\frac{17\\pi}{6}=\\sin\\frac{5\\pi}{6}=\\frac12$, so **both** endpoints would be solutions, and both are excluded. A half-open window of length $6\\pi$ contains exactly one of them, so the open window contains $12-1=11$.",
+  "solution": "Let $\\theta=3x-\\frac{\\pi}{6}$. As $x$ runs over $-\\pi<x<\\pi$, $\\theta$ runs over $-\\frac{19\\pi}{6}<\\theta<\\frac{17\\pi}{6}$, an open interval of length $6\\pi$.\n\n$\\sin^2\\theta=\\frac14$ means $\\sin\\theta=\\pm\\frac12$, i.e. $\\theta=\\pm\\frac{\\pi}{6}+n\\pi$: two solutions in every interval of length $\\pi$, so $12$ in any half-open interval of length $6\\pi$.\n\nNow the endpoints: $\\sin\\left(-\\frac{19\\pi}{6}\\right)=\\frac12$ and $\\sin\\frac{17\\pi}{6}=\\sin\\frac{5\\pi}{6}=\\frac12$, so **both** endpoints would be solutions, and both are excluded. A half-open window of length $6\\pi$ contains exactly one of them, so the open window contains $12-1=11$.",
   "insight": "Transform the interval with the angle, count per period of $\\sin^2$ (period $\\pi$), then test the endpoints separately.",
   "distractors": {
-   "0": "Solving only $\\sin\\theta=+\\frac12$ and forgetting the negative square root.",
+   "0": "Solving only $\\sin\\theta=+\\frac12$ (forgetting the negative square root) and counting two per $2\\pi$ over $6\\pi$ without checking the endpoints.",
    "3": "Counting $2$ per period over $6\\pi$ without checking that both endpoints are solutions that the open interval excludes.",
    "4": "Including both endpoints, as if the interval were closed."
   },

@@ -13,7 +13,7 @@ question** when needed. You still need cylinders, prisms, circles and triangles 
 
 * **Scale factors:** if lengths scale by $k$, areas scale by $k^2$ and volumes by $k^3$. Always return to the length factor first.
 * **Congruence:** SSS, SAS (angle between the sides), ASA/AAS, RHS. **Not** SSA (the ambiguous case) and not AAA (that only gives similarity). Similar plus one equal length or equal area means congruent.
-* **Polygons:** interior angles of an $n$-gon sum to $(n-2)\cdot180^\circ$; exterior angles of a convex polygon sum to $360^\circ$. A regular polygon's exterior angle $\frac{360^\circ}{n}$ must divide $360$. A convex polygon has at most three acute angles.
+* **Polygons:** interior angles of an $n$-gon sum to $(n-2)\cdot180^\circ$; exterior angles of a convex polygon sum to $360^\circ$. A regular $n$-gon has exterior angle $\frac{360^\circ}{n}$, so a given exterior angle $e$ is possible only if $\frac{360}{e}$ is a whole number. A convex polygon has at most three acute angles.
 * **Circle theorems:** angle at the centre is twice the angle at the circumference; angle in a semicircle is $90^\circ$; angles in the same segment are equal; opposite angles of a cyclic quadrilateral sum to $180^\circ$; tangent $\perp$ radius; equal tangents from a point; alternate segment theorem.
 * **Bearings:** measured clockwise from north, three figures. The bearing of $P$ from $R$ is the bearing of $R$ from $P$ $\pm180^\circ$.
 * **Enlargement** with centre $C$ and scale factor $k$: $\overrightarrow{CP'}=k\,\overrightarrow{CP}$. If $0<|k|<1$ the image is smaller; if $k<0$ the image is on the other side of $C$, rotated through $180^\circ$, and $C$ divides $PP'$ in the ratio $1:|k|$. Areas scale by $k^2$.

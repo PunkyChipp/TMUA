@@ -8,7 +8,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 QS = {q["id"]: q for q in json.load(open(os.path.join(HERE, "..", "questions", "integ.json"), encoding="utf-8"))}
 BASE = [f"integ-{i:02d}" for i in range(1, 19)]
 assert sorted(QS) == sorted(BASE + [b + "b" for b in BASE]), sorted(QS)
-assert sorted(QS[b]["difficulty"] for b in BASE) == [2]*2 + [3]*6 + [4]*6 + [5]*4
+assert sorted(QS[b]["difficulty"] for b in BASE) == [2]*2 + [3]*7 + [4]*6 + [5]*3
 for b in BASE:
     X, Y = QS[b], QS[b + "b"]
     assert X["family"] == b and Y["family"] == b, b

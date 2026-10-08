@@ -500,7 +500,7 @@
    "similar solids",
    "volume scale factor"
   ],
-  "stem": "A hollow cone of height $12$ cm is held with its axis vertical and its vertex pointing downwards. Water is poured in until its depth is $6$ cm. The **volume** of water is then doubled. What is the new depth of the water, in cm?",
+  "stem": "A hollow cone of height $12$ cm is held with its axis vertical and its vertex pointing downwards. Water is poured in until its depth is $6$ cm. The **volume** of water is then doubled. What is the new depth of the water, in cm?\n\n[The volume of a cone is $\\frac13\\pi r^2h$.]",
   "figure": null,
   "options": [
    "$6\\sqrt[3]{2}$",
@@ -611,7 +611,7 @@
   "distractors": {
    "7": "Not adding up the angles in I: they total $750^\\circ$, not $720^\\circ$.",
    "2": "Thinking a pentagon with right angles cannot be convex.",
-   "3": "Setting interior $=4\\times$ exterior but then using $360^\\circ$ instead of $180^\\circ$ for their sum."
+   "3": "Rejecting II, e.g. by writing $4\\times$exterior $=180^\\circ$ (exterior $45^\\circ$, interior $135^\\circ\\ne4\\times45^\\circ$) instead of interior $+$ exterior $=180^\\circ$; in fact exterior $36^\\circ$ gives a regular decagon."
   },
   "time": 150,
   "family": "geom-10"
